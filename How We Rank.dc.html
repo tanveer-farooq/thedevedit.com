@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section style="max-width:1440px;margin:0 auto;padding:80px 32px 64px;display:flex;flex-direction:column;gap:22px;max-width:1100px">
+    <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// METHOD</span>
+    <h1 style="margin:0;font-size:clamp(44px,6.5vw,88px);line-height:1.02;font-weight:500;letter-spacing:-.04em;text-wrap:balance">How we test and rank <span style="color:#7f806f">every tool.</span></h1>
+    <p style="margin:0;font-size:20px;line-height:31px;color:#4D4D4D;max-width:680px">A practitioner runs the same task in every tool, we check the price on the day we publish, and nobody can buy a position. Here is the full process.</p>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:0 32px 80px">
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px">
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <span style="width:52px;height:52px;border:1px solid #121212;background:#fff;display:grid;place-items:center;font-family:'Pixelify Sans',monospace;font-size:20px">{{ st.n }}</span>
+            <span style="flex:1;width:2px;background:#e6e4e1;min-height:24px"></span>
+          </div>
+          <div style="padding:10px 0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em">{{ st.t }}</span>
+              <span style="font-size:16px;line-height:26px;color:#4D4D4D">{{ st.b }}</span>
+            </div>
+            <div style="background:#141312;border-radius:8px;padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:21px;color:#68d08b;align-self:start">{{ st.cmd }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD">
+    <div style="max-width:1100px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// SCORING</span>
+        <h2 style="margin:0;font-size:44px;line-height:1.08;font-weight:500;letter-spacing:-.04em">Five weighted criteria, <span style="color:#7f806f">out of 10.</span></h2>
+        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">Weights change by category. These are the weights for testing tools. Each list shows its own weights above the comparison table.</p>
+      </div>
+      <div style="border-top:1px solid #121212">
+        <sc-for list="{{ weights }}" as="wt" hint-placeholder-count="5">
+          <div style="padding:16px 0;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="font-size:17px;font-weight:500">{{ wt.k }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500">{{ wt.w }}</span></div>
+            <span style="height:6px;background:#ebeae5;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ wt.bar }};background:#121212"></span></span>
+            <span style="font-size:14px;line-height:21px;color:#666">{{ wt.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#121212;color:#fff">
+    <div style="max-width:1100px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:28px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">// VENDOR RELATIONSHIP POLICY</span>
+      <h2 style="margin:0;font-size:44px;line-height:1.08;font-weight:500;letter-spacing:-.04em;max-width:760px">How we make money, <span style="color:#7f806f">and what it can't buy.</span></h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#2e2d2a;border:1px solid #2e2d2a">
+        <div style="background:#121212;padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#68d08b">VENDORS CAN</span><span style="font-size:15px;line-height:24px;color:#d6d5d0">Buy a labelled sponsored slot. Pay us a commission when a reader signs up. Send corrections with evidence.</span></div>
+        <div style="background:#121212;padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">VENDORS CANNOT</span><span style="font-size:15px;line-height:24px;color:#d6d5d0">Change a rank or score. Review a draft before it goes live. Remove a limitation we found in testing.</span></div>
+        <div style="background:#121212;padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#e0b457">WE ALWAYS</span><span style="font-size:15px;line-height:24px;color:#d6d5d0">Label sponsored content. Show the date we last tested. Name the person who ran the test.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:80px 32px 96px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// AUTHORS</span>
+      <h2 style="margin:0;font-size:44px;line-height:1.08;font-weight:500;letter-spacing:-.04em">Written by people <span style="color:#7f806f">who ship.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+      <sc-for list="{{ authors }}" as="au" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid #D3D2CD;display:flex;flex-direction:column">
+          <div style="height:220px"><image-slot id="author-{{ au.id }}" shape="rect" placeholder="Photo of {{ au.n }}"></image-slot></div>
+          <div style="padding:18px;display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:19px;font-weight:500">{{ au.n }}</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:#7f806f">{{ au.r }}</span>
+            <span style="font-size:14px;line-height:21px;color:#4D4D4D">{{ au.b }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666;padding-top:6px">{{ au.c }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    return {
+      steps: [
+        { n:'01', t:'Build a shortlist', b:'We start from search demand and what readers ask on Reddit and in our inbox, then add every tool with real usage. Usually 15 to 25 per category.', cmd:'$ shortlist --category testing → 22 tools' },
+        { n:'02', t:'Write one shared task', b:'Each category gets a fixed, realistic task. For testing tools it is a 50-step checkout flow on a staging store.', cmd:'$ task show checkout-50 → 50 steps, 3 browsers' },
+        { n:'03', t:'Run it hands-on', b:'A practitioner with at least five years in the field installs each tool and completes the task. We log time, failures and every workaround.', cmd:'$ run --all --runs 3 → 30 runs logged' },
+        { n:'04', t:'Price it by hand', b:'We read every pricing page on the day we publish and price the plan a 20-person team would need, not just the entry tier.', cmd:'$ price --team 20 --parallels 10' },
+        { n:'05', t:'Re-test every month', b:'Prices and features change. Each list is re-run monthly and the date at the top shows the last real test.', cmd:'$ retest --schedule monthly' }
+      ],
+      weights: [['Stability','30%','Pass rate and flaky steps across three runs.'],['Authoring speed','20%','Time for our tester to complete the shared task.'],['Coverage','20%','Browsers, devices and languages supported.'],['CI fit','15%','How cleanly it runs headless in GitHub Actions.'],['Price at scale','15%','Monthly cost for a 20-person team at 10 parallels.']].map(w=>({ k:w[0], w:w[1], d:w[2], bar:(parseInt(w[1])*3)+'%' })),
+      authors: [
+        { id:'priya', n:'Priya Raman', r:'QA LEAD · TESTING', b:'11 years in test automation at fintech and e-commerce teams.', c:'24 lists · 186 tools tested' },
+        { id:'marcus', n:'Marcus Lee', r:'STAFF SDET · TESTING', b:'Ran device labs and cloud grids for two unicorn mobile apps.', c:'17 lists · 120 tools tested' },
+        { id:'ana', n:'Ana Duarte', r:'DATA ENGINEER · DATA', b:'Builds pipelines on Snowflake and Postgres for a 300-person SaaS.', c:'12 lists · 98 tools tested' },
+        { id:'kenji', n:'Kenji Watanabe', r:'SECURITY ENGINEER · SECURITY', b:'Former SOC lead. Has deployed four SIEMs in production.', c:'9 lists · 71 tools tested' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

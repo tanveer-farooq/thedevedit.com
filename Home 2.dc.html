@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+  </style>
+</helmet>
+<div data-screen-label="Home 2 · The Index" style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section style="background:#121212;color:#fff">
+    <div style="max-width:1100px;margin:0 auto;padding:96px 32px 80px;display:flex;flex-direction:column;gap:28px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#FFCD00">// THE INDEX · CONCEPT 2</span>
+      <h1 style="margin:0;font-size:clamp(48px,7vw,96px);line-height:.98;font-weight:500;letter-spacing:-.05em;text-wrap:balance">Every tool decision, <span style="color:#807d78">indexed.</span></h1>
+      <p style="margin:0;font-size:18px;line-height:28px;color:#a8a7a2;max-width:600px">Rankings, reviews, comparisons and switching guides across 8 areas of the stack. Start with what you're choosing.</p>
+      <div style="border:1px solid #3a3936;background:#1d1c1a">
+        <div style="display:flex;align-items:center;gap:12px;height:64px;padding:0 20px;border-bottom:1px solid #2e2d2a">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#FFCD00">&gt;</span>
+          <input value="{{ q }}" onChange="{{ onQ }}" placeholder="etl tools, datadog, cypress vs playwright…" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:'JetBrains Mono',monospace;font-size:18px;color:#fff">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78;white-space:nowrap">{{ hitCount }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;padding:8px 0">
+          <sc-for list="{{ hits }}" as="h" hint-placeholder-count="6">
+            <a href="{{ h.href }}" style="display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:16px;align-items:center;padding:10px 20px;color:#fff;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:14px" style-hover="background:#2a2926">
+              <span style="font-size:11px;letter-spacing:.06em;color:{{ h.color }}">{{ h.kind }}</span>
+              <span style="font-family:'BDO Grotesk','Manrope',sans-serif;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ h.title }}</span>
+              <span style="font-size:12px;color:#807d78;white-space:nowrap">{{ h.url }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#807d78">TRY</span>
+        <sc-for list="{{ tries }}" as="t" hint-placeholder-count="5">
+          <button type="button" onClick="{{ t.onClick }}" style="height:30px;padding:0 12px;border:1px solid #3a3936;background:transparent;color:#d6d5d0;font-family:'JetBrains Mono',monospace;font-size:12px;cursor:pointer;white-space:nowrap" style-hover="border-color:#fff;color:#fff">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid #D3D2CD;background:#fff">
+    <div style="max-width:1440px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <sc-for list="{{ formats }}" as="f" hint-placeholder-count="4">
+        <a href="{{ f.href }}" style="padding:28px 24px;border-left:1px solid #ebeae5;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;color:#121212;text-decoration:none" style-hover="background:#F5F4F0">
+          <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-.04em">{{ f.n }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">{{ f.label }}</span></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:16px">→</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:88px 32px 96px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// A–Z BY CATEGORY</span>
+        <h2 style="margin:0;font-size:48px;line-height:1.08;font-weight:500;letter-spacing:-.04em">The whole library, on one page</h2>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em">
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#121212"></span>LISTICLE</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#336EF6"></span>REVIEW</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#FFCD00;outline:1px solid #121212"></span>COMPARE</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#7f806f"></span>ALTERNATIVES</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:48px 40px">
+      <sc-for list="{{ index }}" as="c" hint-placeholder-count="8">
+        <div style="display:flex;flex-direction:column;gap:4px;border-top:2px solid #121212;padding-top:16px">
+          <a href="{{ c.href }}" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:#121212;text-decoration:none;margin-bottom:10px">
+            <span style="font-size:22px;font-weight:600;letter-spacing:-.02em">{{ c.name }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">{{ c.path }}</span>
+          </a>
+          <sc-for list="{{ c.rows }}" as="r" hint-placeholder-count="8">
+            <a href="{{ r.href }}" style="display:grid;grid-template-columns:8px minmax(0,1fr) auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px dotted #D3D2CD;color:#121212;text-decoration:none;font-size:15px;line-height:21px" style-hover="color:#336EF6">
+              <span style="width:8px;height:8px;background:{{ r.dot }}"></span>
+              <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.title }}</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#999">{{ r.meta }}</span>
+            </a>
+          </sc-for>
+          <a href="{{ c.href }}" style="margin-top:8px;font-size:13px;font-weight:500;color:#121212;text-underline-offset:3px">All {{ c.total }} pages →</a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const KIND = { listicles: ['LISTICLE', '#FFCD00'], reviews: ['REVIEW', '#8fb0fa'], compare: ['COMPARE', '#FFCD00'], alternatives: ['ALTERNATIVES', '#b5b89a'] };
+const DOT = { listicles: '#121212', reviews: '#336EF6', compare: '#FFCD00', alternatives: '#7f806f' };
+const TRIES = ['etl', 'datadog', 'playwright', 'siem', 'notion'];
+class Component extends DCLogic {
+  state = { d: null, q: '' };
+  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  renderVals() {
+    const { d, q } = this.state;
+    const items = d ? d.ITEMS : [];
+    const qq = q.trim().toLowerCase();
+    const pool = qq ? items.filter(i => (i.title + ' ' + i.summary + ' ' + i.url).toLowerCase().includes(qq)) : items.filter(i => i.date === 'Sep 28' || i.date === 'Sep 26');
+    const order = ['listicles', 'reviews', 'compare', 'alternatives'];
+    return {
+      q, onQ: e => this.setState({ q: e.target.value }),
+      hitCount: qq ? `${pool.length} matches` : 'latest',
+      hits: pool.slice(0, 6).map(i => ({ kind: KIND[i.type][0], color: KIND[i.type][1], title: i.type === 'reviews' ? i.title + ' review' : i.title, url: i.url, href: i.href })),
+      tries: TRIES.map(t => ({ label: t, onClick: () => this.setState({ q: t }) })),
+      formats: d ? order.map(t => ({ n: items.filter(i => i.type === t).length, label: d.TYPES[t].label.toUpperCase(), href: 'Index.dc.html?type=' + t })) : [],
+      index: d ? d.CATEGORIES.map(c => {
+        const mine = items.filter(i => i.cat === c.slug).sort((a, b) => order.indexOf(a.type) - order.indexOf(b.type));
+        return { name: c.name, path: `/${c.slug}/`, href: 'Category Hub.dc.html?category=' + c.slug, total: mine.length,
+          rows: mine.slice(0, 9).map(i => ({ title: i.type === 'reviews' ? i.title + ' review' : i.title, href: i.href, dot: DOT[i.type], meta: i.rating || i.date })) };
+      }) : [],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212;text-decoration-color:#121212}
+    html{scroll-padding-top:120px}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <sc-if value="{{ isEditorial }}" hint-placeholder-val="{{ false }}">
+    <div style="position:sticky;top:0;z-index:15;background:rgba(245,244,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid #D3D2CD">
+      <div style="max-width:1440px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;flex-shrink:0;margin-right:8px">JUMP TO</span>
+        <sc-for list="{{ allTools }}" as="jt" hint-placeholder-count="10">
+          <a href="#tool-{{ jt.id }}" style="flex-shrink:0;display:flex;align-items:center;gap:6px;height:30px;padding:0 10px;border:1px solid #D3D2CD;background:#fff;font-size:13px;font-weight:500;color:#121212;text-decoration:none" style-hover="border-color:#121212">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f">{{ jt.rankLabel }}</span>{{ jt.name }}
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="max-width:1440px;margin:0 auto;padding:40px 32px 96px;display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;justify-content:center">
+
+    <sc-if value="{{ showSidebars }}" hint-placeholder-val="{{ true }}">
+      <aside style="position:sticky;top:24px;flex:0 0 220px;display:flex;flex-direction:column;gap:28px;padding-top:8px">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">ON THIS PAGE</span>
+          <a href="#summary" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #121212;color:#121212;font-weight:500;text-decoration:none">The short answer</a>
+          <a href="#how-we-tested" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212">How we tested</a>
+          <a href="#compare" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212">Comparison table</a>
+          <a href="#reviews" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212">The 10 tools, reviewed</a>
+          <a href="#choose" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212">How to choose</a>
+          <a href="#faq" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212">FAQ</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">JUMP TO TOOL</span>
+          <sc-for list="{{ allTools }}" as="st" hint-placeholder-count="10">
+            <a href="#tool-{{ st.id }}" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212">
+              <span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">{{ st.rankLabel }}</span>{{ st.name }}
+            </a>
+          </sc-for>
+        </div>
+      </aside>
+    </sc-if>
+
+    <main style="min-width:0;flex:1 1 560px;max-width:800px;display:flex;flex-direction:column;gap:64px">
+
+      <section style="display:flex;flex-direction:column;gap:22px">
+        <dc-import name="Breadcrumb" category="testing" title="Best automation testing tools" hint-size="100%,18px"></dc-import>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// BEST-OF LIST</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;background:#fff;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;white-space:nowrap">
+            <span style="width:6px;height:6px;border-radius:50%;background:#3a9460"></span>UPDATED SEP 28, 2026
+          </span>
+          <span style="display:inline-flex;align-items:center;height:24px;padding:0 8px;background:#FFCD00;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.04em">TOP POST</span>
+        </div>
+        <h1 style="margin:0;font-size:clamp(38px,5.2vw,64px);line-height:1.04;font-weight:500;letter-spacing:-.04em;text-wrap:balance">The 10 best automation testing tools <span style="color:#7f806f">for 2026</span></h1>
+        <p style="margin:0;font-size:19px;line-height:30px;color:#4D4D4D;max-width:680px;text-wrap:pretty">We wrote the same 50-step checkout suite in every tool, ran it on three browsers, and checked every price by hand. Here is what held up.</p>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:6px">
+          <image-slot id="author-priya" shape="circle" placeholder="Photo" style="width:40px;height:40px;flex-shrink:0"></image-slot>
+          <div style="display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:20px">
+            <span><a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Priya Raman</a><span style="color:#666">, QA lead. Reviewed by </span><a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Marcus Lee</a></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">14 min read · 10 tools tested · 30 test runs</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border:1px solid #D3D2CD;background:#fff;font-size:13px;line-height:20px;color:#4D4D4D">
+          <span style="flex-shrink:0;margin-top:2px;color:#121212"><x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ShieldCheck" size="16" hint-size="16px,16px"></x-import></span>
+          <span>We test every tool ourselves, and vendors cannot pay for a ranking. Some links earn us a commission. <a href="How We Rank.dc.html" style="color:#121212;text-underline-offset:3px">How we test</a></span>
+        </div>
+      </section>
+
+      <section id="summary" style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:#121212;color:#fff;padding:28px 28px 26px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">// THE SHORT ANSWER</span>
+          <p style="margin:0;font-size:20px;line-height:31px;font-weight:400;letter-spacing:-.01em;text-wrap:pretty"><strong style="font-weight:600">Playwright</strong> is the best automation testing tool for most teams that write code: free, fast and stable across Chromium, Firefox and WebKit. Pick <strong style="font-weight:600">Katalon</strong> if testers need low-code. Pick <strong style="font-weight:600">TestMu AI</strong> if you need AI-written tests and thousands of parallel browsers.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          <sc-for list="{{ quickPicks }}" as="q" hint-placeholder-count="3">
+            <div style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s" style-hover="transform:translateY(-4px);border-color:#c9c8c2;box-shadow:0 12px 32px rgba(18,20,19,.08)">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">{{ q.label }}</span>
+                <span style="width:36px;height:36px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px">{{ q.initial }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:22px;font-weight:500;letter-spacing:-.02em">{{ q.name }}</span>
+                <span style="font-size:14px;line-height:21px;color:#4D4D4D">{{ q.line }}</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:4px">
+                <a href="#" rel="sponsored" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit site {{ q.icUp }}</a>
+                <a href="#tool-{{ q.id }}" style="font-size:13px;font-weight:500;color:#121212;text-underline-offset:3px">Read review</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="how-we-tested" style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// HOW WE TESTED</span>
+        <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">One suite, ten tools, <span style="color:#7f806f">no shortcuts.</span></h2>
+        <div style="border-radius:12px;overflow:hidden;background:#141312">
+          <div style="background:#242320;padding:10px 14px;display:flex;align-items:center;gap:8px">
+            <span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span>
+            <span style="margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">tsc-bench — automation-2026</span>
+          </div>
+          <div style="padding:18px 20px 22px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:22px;display:flex;flex-direction:column">
+            <span><span style="color:#68d08b">$</span> <span style="color:#edebe6">tsc-bench run --suite checkout-50 --browsers chromium,firefox,webkit</span></span>
+            <span style="color:#807d78">  loading 10 tools · 50 steps · 3 runs each</span>
+            <span style="color:#68d08b">  ✓ suite authored in every tool (median 3h 10m)</span>
+            <span style="color:#68d08b">  ✓ 30 runs completed on clean CI runners</span>
+            <span style="color:#e0b457">  ◆ 2 tools needed manual waits to stay stable</span>
+            <span style="color:#5aa9f0">  → report saved: reports/automation-2026.json</span>
+            <span style="margin-top:8px"><span style="color:#68d08b">$</span> <span style="display:inline-block;width:7px;height:14px;background:#edebe6;vertical-align:text-bottom"></span></span>
+          </div>
+        </div>
+        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">Each tool was scored on stability, authoring speed, browser coverage, CI fit and price at 10 parallel runs. Full method on <a href="How We Rank.dc.html" style="color:#121212;text-underline-offset:3px">How we test</a>.</p>
+      </section>
+
+      <section id="compare" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// COMPARISON TABLE</span>
+            <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">All 10 at a glance</h2>
+          </div>
+          <span style="font-size:13px;color:#666">Tick up to 3 tools to compare side by side</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ filters }}" as="fl" hint-placeholder-count="5">
+              <sc-if value="{{ fl.active }}" hint-placeholder-val="{{ false }}">
+                <button type="button" onClick="{{ fl.onClick }}" style="height:32px;padding:0 12px;border:1px solid #121212;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">{{ fl.label }}</button>
+              </sc-if>
+              <sc-if value="{{ fl.inactive }}" hint-placeholder-val="{{ true }}">
+                <button type="button" onClick="{{ fl.onClick }}" style="height:32px;padding:0 12px;border:1px solid #D3D2CD;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">{{ fl.label }}</button>
+              </sc-if>
+            </sc-for>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#666">
+            <x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="SortDescending" size="16" hint-size="16px,16px"></x-import>
+            Sort
+            <select value="{{ sort }}" onChange="{{ onSort }}" style="height:32px;padding:0 8px;border:1px solid #D3D2CD;background:#fff;font:inherit;font-size:13px;color:#121212">
+              <option value="rank">Our ranking</option>
+              <option value="rating">Rating</option>
+              <option value="price">Price, low to high</option>
+            </select>
+          </label>
+        </div>
+        <div style="border:1px solid #D3D2CD;background:#fff;overflow-x:auto">
+          <div style="min-width:820px;font-size:14px;line-height:20px">
+            <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;background:#F5F4F0;border-bottom:1px solid #D3D2CD;align-items:center">
+              <span></span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">TOOL</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">BEST FOR</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">PRICING</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666;white-space:nowrap">FREE TIER</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">DEPLOYMENT</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">SCORE</span><span></span>
+            </div>
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="10">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" style-hover="background:#fafaf7">
+                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ r.isSelected }}" onChange="{{ r.onToggle }}" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a href="#tool-{{ r.id }}" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">{{ r.rankLabel }}</span>
+                  <span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">{{ r.initial }}</span>
+                  <span style="font-weight:600">{{ r.name }}</span>
+                </a>
+                <span style="padding:14px;color:#4D4D4D">{{ r.bestForShort }}</span>
+                <span style="padding:14px">{{ r.price }}</span>
+                <span style="padding:14px">
+                  <sc-if value="{{ r.freeTier }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500">{{ r.icCheck }}Yes</span></sc-if>
+                  <sc-if value="{{ r.noFree }}" hint-placeholder-val="{{ false }}"><span style="color:#666">Trial only</span></sc-if>
+                </span>
+                <span style="padding:14px;color:#4D4D4D">{{ r.deployment }}</span>
+                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">{{ r.score }}</span><span style="color:#999;font-size:12px">/10</span></span>
+                <span style="padding:14px;text-align:right"><a href="#" rel="sponsored" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit {{ r.icUp }}</a></span>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:28px;text-align:center;color:#666;font-size:14px">No tools match this filter.</div>
+          </sc-if>
+        </div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">Prices checked by hand on Sep 26, 2026. Annual billing, entry paid plan.</span>
+      </section>
+
+      <sc-if value="{{ isEditorial }}" hint-placeholder-val="{{ false }}">
+        <aside style="background:#121212;color:#fff;padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#807d78">SPONSORED</span>
+            <span style="font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em">Run your Playwright suite on 3,000+ real browsers</span>
+            <span style="font-size:14px;line-height:22px;color:#a8a7a2">Featured partner. Sponsorship never affects our rankings.</span>
+          </div>
+          <div style="border-radius:7.11px;overflow:hidden;height:160px"><image-slot id="sponsor-inline" shape="rect" placeholder="Sponsor creative"></image-slot></div>
+        </aside>
+      </sc-if>
+
+      <section id="reviews" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// THE REVIEWS</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">The 10 tools, reviewed</h2>
+        </div>
+        <sc-for list="{{ tools }}" as="t" hint-placeholder-count="4">
+          <article id="tool-{{ t.id }}" style="background:#fff;border:1px solid #D3D2CD;display:flex;flex-direction:column">
+            <div style="padding:24px 24px 20px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+              <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">{{ t.rankLabel }}</span>
+              <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">{{ t.initial }}</span>
+                  <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em"><a href="Review.dc.html" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ t.name }}</a></h3>
+                  <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">{{ t.bestFor }}</span>
+                </div>
+                <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">{{ t.summary }}</p>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">{{ t.score }}<span style="font-size:12px;color:#999">/10</span></span>
+                <a href="#" rel="sponsored" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit {{ t.name }} {{ t.icUp }}</a>
+              </div>
+            </div>
+            <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 24px 24px;display:flex;flex-direction:column;gap:20px">
+                <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                  <div style="border-radius:7.11px;overflow:hidden;border:1px solid #D3D2CD;background:#fff">
+                    <div style="height:34px;padding:0 12px;display:flex;align-items:center;gap:12px;background:#F5F4F0;border-bottom:1px solid #D3D2CD">
+                      <div style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:50%;background:#D3D2CD"></span><span style="width:9px;height:9px;border-radius:50%;background:#D3D2CD"></span><span style="width:9px;height:9px;border-radius:50%;background:#D3D2CD"></span></div>
+                      <span style="flex:1;min-width:0;height:22px;padding:0 10px;display:flex;align-items:center;background:#fff;border:1px solid #ebeae5;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">https://{{ t.domain }}</span>
+                    </div>
+                    <div style="aspect-ratio:16/10;background:#F5F4F0 url({{ t.shot }}) top center/cover no-repeat"></div>
+                  </div>
+                  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f806f">{{ t.name }} homepage, captured Sep 28, 2026</figcaption>
+                </figure>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border-top:1px solid #ebeae5;border-left:1px solid #ebeae5">
+                  <div style="padding:16px 18px;border-right:1px solid #ebeae5;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:6px">
+                    <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+                    <span style="font-size:15px;line-height:23px">{{ t.whoFor }}</span>
+                  </div>
+                  <div style="padding:16px 18px;border-right:1px solid #ebeae5;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:6px">
+                    <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+                    <span style="font-size:15px;line-height:23px">{{ t.standout }}</span>
+                  </div>
+                  <div style="padding:16px 18px;border-right:1px solid #ebeae5;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:6px">
+                    <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+                    <span style="font-size:15px;line-height:23px">{{ t.pricingDetail }}</span>
+                  </div>
+                  <div style="padding:16px 18px;border-right:1px solid #ebeae5;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:6px">
+                    <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+                    <span style="font-size:15px;line-height:23px">{{ t.limits }}</span>
+                  </div>
+                </div>
+                <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+                  <span style="color:#807d78">our test</span>
+                  <span style="color:#68d08b">✓ {{ t.pass }} steps passed</span>
+                  <span style="color:#edebe6">median {{ t.median }}</span>
+                  <span style="color:#e0b457">{{ t.flaky }} flaky</span>
+                  <span style="color:#5aa9f0">authoring {{ t.authoring }}</span>
+                </div>
+              </div>
+            </sc-if>
+            <button type="button" onClick="{{ t.onToggle }}" style="display:flex;align-items:center;justify-content:center;gap:6px;height:42px;border:0;border-top:1px solid #ebeae5;background:#fafaf7;font:inherit;font-size:13px;font-weight:500;color:#121212;cursor:pointer" style-hover="background:#F5F4F0">
+              {{ t.toggleLabel }}
+            </button>
+          </article>
+        </sc-for>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// ALSO CONSIDERED</span>
+          <h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:500;letter-spacing:-.02em">Tested, but not in the top 10</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));border-top:1px solid #D3D2CD;border-left:1px solid #D3D2CD;background:#fff">
+          <sc-for list="{{ alsoConsidered }}" as="a" hint-placeholder-count="8">
+            <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
+              <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">{{ a.initial }}</span>
+              <span style="font-size:15px;font-weight:600">{{ a.name }}</span>
+              <span style="font-size:13px;line-height:19px;color:#666">{{ a.why }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="choose" style="display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// HOW TO CHOOSE</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Four questions, <span style="color:#7f806f">in this order.</span></h2>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px">
+              <div style="display:flex;flex-direction:column;align-items:center">
+                <span style="width:44px;height:44px;border:1px solid #121212;background:#fff;display:grid;place-items:center;font-family:'Pixelify Sans',monospace;font-size:18px">{{ s.n }}</span>
+                <span style="flex:1;width:2px;background:#e6e4e1;min-height:24px"></span>
+              </div>
+              <div style="padding:8px 0 32px;display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:20px;line-height:28px;font-weight:500;letter-spacing:-.01em">{{ s.title }}</span>
+                <span style="font-size:15px;line-height:24px;color:#4D4D4D">{{ s.body }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="faq" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// FAQ</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Questions people actually ask</h2>
+        </div>
+        <div style="border-top:1px solid #D3D2CD">
+          <sc-for list="{{ faqs }}" as="fq" hint-placeholder-count="5">
+            <div style="border-bottom:1px solid #D3D2CD">
+              <button type="button" onClick="{{ fq.onToggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;background:transparent;border:0;font:inherit;text-align:left;cursor:pointer;color:#121212">
+                <span style="font-size:18px;line-height:26px;font-weight:500">{{ fq.q }}</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0">{{ fq.sign }}</span>
+              </button>
+              <sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
+                <div style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">{{ fq.a }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+        <image-slot id="author-priya-lg" shape="circle" placeholder="Photo" style="width:72px;height:72px;flex-shrink:0"></image-slot>
+        <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">ABOUT THE AUTHOR</span>
+          <span style="font-size:20px;font-weight:500">Priya Raman</span>
+          <span style="font-size:15px;line-height:24px;color:#4D4D4D">QA lead with 11 years in test automation at fintech and e-commerce teams. Has shipped Selenium, Cypress and Playwright suites past 4,000 tests.</span>
+          <a href="How We Rank.dc.html" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">More from Priya</a>
+        </div>
+      </section>
+
+      <section style="background:#FFCD00;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px;max-width:480px">
+          <span style="font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em">Built a testing tool?</span>
+          <span style="font-size:15px;line-height:23px">Send it in. We review every submission with the same suite. Listing is free.</span>
+        </div>
+        <a href="#" style="height:44px;padding:0 18px;display:inline-flex;align-items:center;gap:8px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Get your tool listed <x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ArrowRightLine" size="14" hint-size="14px,14px"></x-import></a>
+      </section>
+    </main>
+
+    <sc-if value="{{ showSidebars }}" hint-placeholder-val="{{ true }}">
+      <aside style="position:sticky;top:24px;flex:0 1 280px;display:flex;flex-direction:column;gap:20px;padding-top:8px">
+        <a href="#" rel="sponsored" style="display:flex;flex-direction:column;background:#0F62FE;color:#fff;text-decoration:none;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-40px;top:-40px;width:180px;height:180px;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.18) 0 3px,transparent 3px 9px);border-radius:50%"></div>
+          <div style="position:relative;padding:18px 18px 0;display:flex;justify-content:space-between;align-items:center">
+            <span style="font-family:'IBM Plex Sans','Manrope',sans-serif;font-size:26px;font-weight:700;letter-spacing:.02em">IBM</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;padding:3px 6px;border:1px solid rgba(255,255,255,.6)">AD</span>
+          </div>
+          <div style="position:relative;padding:56px 18px 18px;display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'IBM Plex Sans','Manrope',sans-serif;font-size:22px;line-height:27px;font-weight:300;letter-spacing:-.01em">Let AI write your regression tests with watsonx Code Assistant</span>
+            <span style="font-size:13px;line-height:19px;color:#E5EEFF">Generate, review and maintain test suites in Java, Python and JavaScript.</span>
+            <span style="margin-top:6px;height:40px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;background:#fff;color:#0F62FE;font-size:14px;font-weight:500">Try it free<span>→</span></span>
+          </div>
+        </a>
+        <span style="font-size:11px;line-height:16px;color:#7f806f;margin-top:-12px">Sponsored by IBM. Sponsorship never affects rankings.</span>
+        <div style="background:#fff;border:1px solid #D3D2CD;padding:18px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:16px;font-weight:600">The Tuesday Table</span>
+          <span style="font-size:13px;line-height:20px;color:#4D4D4D">One comparison table a week. 18,000 engineering leads read it.</span>
+          <input placeholder="you@company.com" style="height:36px;padding:0 10px;border:1px solid #D3D2CD;font:inherit;font-size:13px;outline:0">
+          <button type="button" style="height:36px;border:0;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer">Subscribe</button>
+        </div>
+      </aside>
+    </sc-if>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+
+  <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:40;background:#121212;color:#fff;padding:10px 10px 10px 18px;display:flex;align-items:center;gap:16px;box-shadow:0 12px 32px rgba(18,20,19,.25);max-width:calc(100% - 32px);flex-wrap:wrap">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">{{ selCount }}/3</span>
+      <span style="font-size:14px;font-weight:500">{{ selNames }}</span>
+      <button type="button" onClick="{{ clearSel }}" style="height:34px;padding:0 12px;border:1px solid #3a3936;background:transparent;color:#d6d5d0;font:inherit;font-size:13px;cursor:pointer">Clear</button>
+      <button type="button" onClick="{{ openCompare }}" disabled="{{ cantCompare }}" style="height:34px;padding:0 14px;border:0;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer">{{ compareLabel }}</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ compareOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeCompare }}" style="position:fixed;inset:0;z-index:50;background:rgba(18,18,18,.6);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stop }}" style="background:#F5F4F0;width:100%;max-width:1040px;max-height:calc(100vh - 48px);overflow:auto;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #D3D2CD;background:#fff;position:sticky;top:0">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">// SIDE BY SIDE</span>
+            <span style="font-size:20px;font-weight:500;letter-spacing:-.02em">{{ selNames }}</span>
+          </div>
+          <button type="button" onClick="{{ closeCompare }}" style="width:36px;height:36px;border:1px solid #D3D2CD;background:#fff;cursor:pointer;display:grid;place-items:center"><x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="X" size="16" hint-size="16px,16px"></x-import></button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#D3D2CD;border-bottom:1px solid #D3D2CD">
+          <sc-for list="{{ selectedTools }}" as="c" hint-placeholder-count="2">
+            <div style="background:#fff;display:flex;flex-direction:column">
+              <div style="padding:20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #ebeae5">
+                <span style="font-family:'Pixelify Sans',monospace;font-size:28px;color:#7f806f">{{ c.rankLabel }}</span>
+                <span style="font-size:22px;font-weight:500;letter-spacing:-.02em"><a href="Review.dc.html" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ c.name }}</a></span>
+              </div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">BEST FOR</span><span style="font-size:14px;line-height:21px">{{ c.bestFor }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">PRICING</span><span style="font-size:14px;line-height:21px">{{ c.pricingDetail }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">DEPLOYMENT</span><span style="font-size:14px;line-height:21px">{{ c.deployment }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">LANGUAGES</span><span style="font-size:14px;line-height:21px">{{ c.langs }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">OUR TEST</span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;line-height:21px">{{ c.pass }} passed · {{ c.median }} · {{ c.flaky }} flaky</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span><span style="font-size:14px;line-height:21px">{{ c.limits }}</span></div>
+              <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">{{ c.score }}<span style="font-size:12px;color:#999">/10</span></span>
+                <a href="#" rel="sponsored" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none">Visit site</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sidebar&quot;,&quot;editorial&quot;],&quot;default&quot;:&quot;sidebar&quot;,&quot;tsType&quot;:&quot;'sidebar' | 'editorial'&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+const TOOLS = [
+  { id:'playwright', name:'Playwright', initial:'Pw', bestFor:'Best overall', bestForShort:'Code-first teams', score:9.4, price:'Free (open source)', priceSort:0, freeTier:true, oss:true, deployment:'Self-hosted', langs:'TypeScript, JavaScript, Python, Java, .NET',
+    summary:'The fastest, most stable framework we tested. Auto-waiting removed every flaky step in our suite without a single manual wait.',
+    whoFor:'Engineering teams who want tests in the same repo and language as the app.', standout:'Trace viewer: every failed run opens as a step-by-step replay with DOM, network and console.', pricingDetail:'Free and open source. You pay for CI minutes or a cloud grid if you need one.', limits:'No real mobile devices. Needs engineers to write and maintain tests.',
+    pass:'50/50', median:'38s', flaky:0, authoring:'2h 40m' },
+  { id:'testmu', name:'TestMu AI', initial:'Tm', bestFor:'Best for enterprise scale', bestForShort:'AI authoring at scale', score:9.1, price:'From $15/mo', priceSort:15, freeTier:true, oss:false, deployment:'Cloud', langs:'Plain English, plus Selenium, Playwright and Cypress code',
+    summary:'Writes tests from plain-English steps and runs them across 3,000+ browsers and real devices. Our suite ran in parallel in under a minute.',
+    whoFor:'QA teams at scale who need AI-written tests, real devices and heavy parallel runs.', standout:'KaneAI turns a plain-English flow into a runnable test, then heals it when the UI changes.', pricingDetail:'Free tier. Paid plans from $15/mo. Enterprise pricing for parallel runs and real devices.', limits:'Most value comes on paid tiers. AI-written steps still need a human review.',
+    pass:'50/50', median:'52s', flaky:0, authoring:'55m' },
+  { id:'cypress', name:'Cypress', initial:'Cy', bestFor:'Best for front-end devs', bestForShort:'Front-end developers', score:8.7, price:'Free · Cloud from $67/mo', priceSort:0.5, freeTier:true, oss:true, deployment:'Self-hosted + cloud', langs:'JavaScript, TypeScript',
+    summary:'The best local developer experience in the list. Time-travel debugging makes writing a test feel like using DevTools.',
+    whoFor:'Front-end developers testing React, Vue or Angular apps in the browser.', standout:'Interactive runner with time-travel snapshots for every command.', pricingDetail:'Open-source runner is free. Cypress Cloud from $67/mo for recordings and parallel runs.', limits:'No Safari engine by default. Multi-tab and multi-domain flows take workarounds.',
+    pass:'50/50', median:'1m 04s', flaky:1, authoring:'2h 55m' },
+  { id:'selenium', name:'Selenium', initial:'Se', bestFor:'Best for language choice', bestForShort:'Widest language support', score:8.2, price:'Free (open source)', priceSort:0, freeTier:true, oss:true, deployment:'Self-hosted', langs:'Java, Python, C#, JavaScript, Ruby, Kotlin',
+    summary:'Still the standard for teams on Java or C#, with the largest ecosystem of grids, plugins and hiring pool.',
+    whoFor:'Enterprises with existing Java or C# suites and their own grid.', standout:'W3C WebDriver standard, so it runs on every major cloud grid unchanged.', pricingDetail:'Free and open source. Grid hosting is on you.', limits:'Most verbose setup we tested. Needed explicit waits to stay stable.',
+    pass:'49/50', median:'1m 21s', flaky:2, authoring:'4h 10m' },
+  { id:'katalon', name:'Katalon', initial:'Ka', bestFor:'Best low-code', bestForShort:'Mixed-skill QA teams', score:8.0, price:'Free · paid from $84/mo', priceSort:84, freeTier:true, oss:false, deployment:'Desktop + cloud', langs:'Low-code, Groovy, Java',
+    summary:'Record, edit and run without code, then drop into Groovy when you need to. The easiest on-ramp for manual testers.',
+    whoFor:'QA teams with manual testers moving into automation.', standout:'One tool for web, API, mobile and desktop tests.', pricingDetail:'Free tier for individuals. Team plans from $84/mo per user.', limits:'Heavy desktop app. Recorded locators broke twice when we changed the UI.',
+    pass:'48/50', median:'1m 40s', flaky:2, authoring:'1h 50m' },
+  { id:'browserstack', name:'BrowserStack Automate', initial:'Bs', bestFor:'Best device grid', bestForShort:'Cloud browser grid', score:7.9, price:'From $129/mo', priceSort:129, freeTier:false, oss:false, deployment:'Cloud', langs:'Any WebDriver, Playwright or Cypress suite',
+    summary:'A mature cloud grid with a large device lab. Bring your existing suite and point it at their hub.',
+    whoFor:'Teams with an existing suite who need more browsers and devices.', standout:'Large real-device lab with local tunnel for staging environments.', pricingDetail:'Free trial. Paid from $129/mo for one parallel run.', limits:'Price climbs fast with parallel runs. Not a test authoring tool.',
+    pass:'50/50', median:'1m 12s', flaky:1, authoring:'n/a' },
+  { id:'momentic', name:'Momentic', initial:'Mo', bestFor:'Best AI-native newcomer', bestForShort:'AI agent testing', score:7.7, price:'Custom pricing', priceSort:200, freeTier:true, oss:false, deployment:'Cloud + local CLI', langs:'Natural language steps, YAML',
+    summary:'Describe steps in natural language and an agent drives the browser. Tests auto-heal when the UI moves.',
+    whoFor:'Fast-moving product teams who want tests without writing selectors.', standout:'Auto-healing locators fixed every UI change we made mid-test.', pricingDetail:'Free tier for small projects. Paid plans on request.', limits:'Younger product. Fewer integrations and less community content.',
+    pass:'49/50', median:'1m 30s', flaky:1, authoring:'1h 05m' },
+  { id:'mabl', name:'mabl', initial:'Mb', bestFor:'Best for SaaS teams', bestForShort:'Low-code SaaS testing', score:7.5, price:'Custom pricing', priceSort:220, freeTier:false, oss:false, deployment:'Cloud', langs:'Low-code, JavaScript snippets',
+    summary:'Low-code tests with strong built-in reporting on performance and accessibility alongside functional checks.',
+    whoFor:'Product teams who want functional, accessibility and performance checks in one place.', standout:'Auto-generated performance and accessibility insights from every run.', pricingDetail:'Free trial. Pricing on request, billed by test runs.', limits:'Opaque pricing. Complex logic needs JavaScript snippets.',
+    pass:'48/50', median:'1m 52s', flaky:2, authoring:'2h 05m' },
+  { id:'webdriverio', name:'WebdriverIO', initial:'Wd', bestFor:'Best for web + mobile in Node', bestForShort:'Node.js web + mobile', score:7.4, price:'Free (open source)', priceSort:0, freeTier:true, oss:true, deployment:'Self-hosted', langs:'JavaScript, TypeScript',
+    summary:'One Node.js API for browsers and native mobile apps through Appium. Flexible, if you like configuration.',
+    whoFor:'Node.js teams who also test native mobile apps.', standout:'Same test runner for web and Appium-driven mobile.', pricingDetail:'Free and open source.', limits:'Config-heavy. Setup took us the longest of the open-source tools.',
+    pass:'49/50', median:'1m 08s', flaky:1, authoring:'3h 30m' },
+  { id:'testsigma', name:'Testsigma', initial:'Ts', bestFor:'Best plain-English tests', bestForShort:'Natural-language tests', score:7.2, price:'Custom pricing', priceSort:210, freeTier:true, oss:false, deployment:'Cloud', langs:'Natural language',
+    summary:'Tests read like sentences, which makes them easy for product managers to review.',
+    whoFor:'Teams who want non-engineers to read and edit tests.', standout:'Readable English steps that map to reusable step groups.', pricingDetail:'Free community edition. Paid plans on request.', limits:'Slower runs than code-first tools in our suite.',
+    pass:'48/50', median:'2m 05s', flaky:2, authoring:'1h 40m' }
+].map((t,i)=>({ ...t, rank:i+1, rankLabel:String(i+1).padStart(2,'0'), noFree:!t.freeTier }));
+
+const FILTERS = [
+  { key:'all', label:'All', test:()=>true },
+  { key:'free', label:'Free tier', test:t=>t.freeTier },
+  { key:'oss', label:'Open source', test:t=>t.oss },
+  { key:'cloud', label:'Cloud', test:t=>/cloud/i.test(t.deployment) },
+  { key:'self', label:'Self-hosted', test:t=>/self/i.test(t.deployment) }
+];
+
+const DOMAINS = {"playwright":"playwright.dev","testmu":"www.testmuai.com","cypress":"www.cypress.io","selenium":"www.selenium.dev","katalon":"katalon.com","browserstack":"www.browserstack.com/automate","momentic":"momentic.ai","mabl":"www.mabl.com","webdriverio":"webdriver.io","testsigma":"testsigma.com"};
+TOOLS.forEach(t => { t.domain = DOMAINS[t.id]; t.shot = 'https://image.thum.io/get/width/1440/crop/900/noanimate/https://' + t.domain; });
+
+const FAQS = [
+  { q:'What is the best free automation testing tool?', a:'Playwright. It is free, open source, and was the most stable tool in our suite with zero flaky steps. Selenium is the free pick if your team works in Java or C#.' },
+  { q:'Is Selenium still worth learning in 2026?', a:'Yes, if you work in enterprise Java or C#. For new projects, Playwright gets you a stable suite faster with less code.' },
+  { q:'Which automation testing tool is best for beginners?', a:'Katalon for testers without coding experience, because you can record tests first. Cypress for developers, because the interactive runner makes failures easy to understand.' },
+  { q:'Can AI write my automated tests?', a:'Partly. TestMu AI, Momentic and Testsigma all wrote working tests from plain-English steps in our suite, in about a third of the time. A person still needs to review the assertions.' },
+  { q:'Playwright or Cypress?', a:'Playwright if you need Safari (WebKit), multiple tabs or languages beyond JavaScript. Cypress if your team is front-end only and values the interactive runner.' }
+];
+
+const NS = () => window.TestMuAIDesignSystem_679a62;
+const ic = (name, size) => NS() && NS().Icon ? React.createElement(NS().Icon, { name, size }) : null;
+class Component extends DCLogic {
+  componentDidMount(){ if (!NS()) { this._t = setInterval(() => { if (NS()) { clearInterval(this._t); this.forceUpdate(); } }, 300); } }
+  componentWillUnmount(){ clearInterval(this._t); }
+  state = { filter:'all', sort:'rank', selected:[], compareOpen:false, open:{ playwright:true, testmu:true }, faqOpen:{ 0:true }, };
+  toggleSel(id){
+    this.setState(s => {
+      const has = s.selected.includes(id);
+      if (has) { const sel = s.selected.filter(x=>x!==id); return { selected: sel, compareOpen: sel.length >= 2 && s.compareOpen }; }
+      if (s.selected.length >= 3) return null;
+      return { selected: [...s.selected, id] };
+    });
+  }
+  renderVals(){
+    const layout = this.props.layout ?? 'sidebar';
+    const { filter, sort, selected, open, faqOpen } = this.state;
+    const isEditorial = layout === 'editorial';
+    const showSidebars = !isEditorial;
+    const f = FILTERS.find(x=>x.key===filter);
+    let rows = TOOLS.filter(f.test);
+    if (sort==='rating') rows = [...rows].sort((a,b)=>b.score-a.score);
+    if (sort==='price') rows = [...rows].sort((a,b)=>a.priceSort-b.priceSort);
+    const selTools = selected.map(id=>TOOLS.find(t=>t.id===id));
+    const icUp = ic('ArrowUpRight', 14), icCheck = ic('Check', 16);
+    return {
+      isEditorial, showSidebars,
+            allTools: TOOLS,
+      quickPicks: [
+        { icUp, id:'playwright', label:'BEST OVERALL', name:'Playwright', initial:'Pw', line:'Free, fast and the most stable suite we ran.' },
+        { icUp, id:'katalon', label:'BEST LOW-CODE', name:'Katalon', initial:'Ka', line:'Free tier and a recorder manual testers can use on day one.' },
+        { icUp, id:'testmu', label:'BEST FOR ENTERPRISE', name:'TestMu AI', initial:'Tm', line:'AI-written tests plus 3,000+ browsers and real devices.' }
+      ],
+      filters: FILTERS.map(x=>({ label:x.label, active:x.key===filter, inactive:x.key!==filter, onClick:()=>this.setState({ filter:x.key }) })),
+      sort, onSort: e => this.setState({ sort: e.target.value }),
+      rows: rows.map(t=>({ ...t, icUp, icCheck, isSelected:selected.includes(t.id), onToggle:()=>this.toggleSel(t.id) })),
+      noRows: rows.length===0,
+      tools: TOOLS.map(t=>({ ...t, icUp, open:!!open[t.id], toggleLabel: open[t.id] ? 'Hide full review' : 'Show full review: who it\'s for, pricing, limitations, our test', onToggle:()=>this.setState(s=>({ open:{ ...s.open, [t.id]:!s.open[t.id] } })) })),
+      alsoConsidered: [
+        { name:'Robot Framework', initial:'Rf', why:'Great keyword syntax, but slow to set up for modern SPAs.' },
+        { name:'TestCafe', initial:'Tc', why:'Easy start, smaller community than the top 10.' },
+        { name:'Nightwatch.js', initial:'Nw', why:'Solid, but Playwright covers the same ground faster.' },
+        { name:'Puppeteer', initial:'Pp', why:'Chrome-first library, not a full test framework.' },
+        { name:'Appium', initial:'Ap', why:'Mobile-only. Covered in our mobile testing list.' },
+        { name:'Ranorex', initial:'Rx', why:'Strong desktop testing, Windows-only authoring.' },
+        { name:'TestComplete', initial:'Tc', why:'Capable, but the priciest per seat we checked.' },
+        { name:'Gauge', initial:'Ga', why:'Nice specs format, slow release pace.' }
+      ],
+      steps: [
+        { n:'1', title:'Who writes the tests?', body:'Engineers: pick a code-first framework (Playwright, Cypress, Selenium). Testers without code: pick low-code (Katalon, mabl). Both: pick an AI tool that exports code.' },
+        { n:'2', title:'Which browsers and devices matter?', body:'Check your analytics. If Safari or real mobile is more than 10% of traffic, you need WebKit support or a device cloud.' },
+        { n:'3', title:'Where will tests run?', body:'Your own CI runners keep costs flat. A cloud grid saves maintenance but bills per parallel run.' },
+        { n:'4', title:'What does it cost at 10 parallel runs?', body:'Entry prices hide the real bill. Price the plan you will need in a year, not the one you need today.' }
+      ],
+      faqs: FAQS.map((x,i)=>({ ...x, open:!!faqOpen[i], sign: faqOpen[i] ? '–' : '+', onToggle:()=>this.setState(s=>({ faqOpen:{ ...s.faqOpen, [i]:!s.faqOpen[i] } })) })),
+      hasSelection: selected.length>0,
+      selCount: selected.length,
+      selNames: selTools.map(t=>t.name).join(' vs '),
+      cantCompare: selected.length<2,
+      compareLabel: selected.length<2 ? 'Pick one more' : 'Compare side by side',
+      clearSel: ()=>this.setState({ selected:[], compareOpen:false }),
+      openCompare: ()=>{ if (selected.length>=2) this.setState({ compareOpen:true }); },
+      closeCompare: ()=>this.setState({ compareOpen:false }),
+      stop: e=>e.stopPropagation(),
+      compareOpen: this.state.compareOpen,
+      selectedTools: selTools
+    };
+  }
+}
+</script>
+</body>
+</html>

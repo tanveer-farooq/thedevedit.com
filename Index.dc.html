@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section data-screen-label="Index intro" style="max-width:1440px;margin:0 auto;padding:48px 32px 32px;display:flex;flex-direction:column;gap:18px">
+    <dc-import name="Breadcrumb" category="" title="{{ label }}" hint-size="100%,18px"></dc-import>
+    <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">{{ urlPath }}</span>
+    <h1 style="margin:0;font-size:clamp(44px,6vw,80px);line-height:1.02;font-weight:500;letter-spacing:-.04em">{{ h1 }}</h1>
+    <p style="margin:0;font-size:18px;line-height:28px;color:#4D4D4D;max-width:620px">{{ desc }}</p>
+  </section>
+
+  <div style="border-top:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;background:#fff;position:sticky;top:0;z-index:10">
+    <div style="max-width:1440px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="9">
+        <button type="button" onClick="{{ f.onClick }}" aria-pressed="{{ f.on }}" style="flex-shrink:0;white-space:nowrap;height:52px;padding:0 14px;border:0;border-bottom:2px solid {{ f.bar }};background:transparent;font:inherit;font-size:14px;font-weight:{{ f.fw }};color:{{ f.color }};cursor:pointer">{{ f.label }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#666">{{ f.n }}</span></button>
+      </sc-for>
+    </div>
+  </div>
+
+  <section style="max-width:1440px;margin:0 auto;padding:32px 32px 96px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">{{ countLabel }}</span>
+    <sc-if value="{{ isReviews }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="9">
+          <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:start;color:#121212;text-decoration:none;transition:border-color .2s" style-hover="border-color:#121212">
+            <span style="width:48px;height:48px;border:1px solid #D3D2CD;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500">{{ it.logo }}</span>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:17px;font-weight:600">{{ it.title }}</span>
+              <span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span>
+              <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f;margin-top:4px">{{ it.catName }}</span>
+            </span>
+            <span style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:22px;line-height:1;font-weight:500;letter-spacing:-.03em">{{ it.rating }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#666">/10</span></span>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isArticles }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="9">
+          <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:12px;color:#121212;text-decoration:none;transition:border-color .2s" style-hover="border-color:#121212">
+            <span style="display:flex;justify-content:space-between;gap:12px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f"><span>{{ it.catName }}</span><span style="font-family:'JetBrains Mono',monospace;color:#666;letter-spacing:0">{{ it.date }}</span></span>
+            <span style="font-size:21px;line-height:27px;font-weight:500;letter-spacing:-.02em;text-wrap:balance">{{ it.title }}</span>
+            <span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;margin-top:auto;padding-top:10px;border-top:1px solid #ebeae5">{{ it.url }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;type&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;listicles&quot;,&quot;reviews&quot;,&quot;compare&quot;,&quot;alternatives&quot;],&quot;default&quot;:&quot;listicles&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { data: null, cat: null };
+  componentDidMount() {
+    let cat = null;
+    try { cat = new URLSearchParams(location.search).get('category'); } catch (e) {}
+    this.setState({ cat });
+    import(new URL('content.js', document.baseURI).href).then(m => this.setState({ data: m }));
+  }
+  setCat(cat) {
+    this.setState({ cat });
+    try { const u = new URL(location.href); cat ? u.searchParams.set('category', cat) : u.searchParams.delete('category'); history.replaceState(null, '', u); } catch (e) {}
+  }
+  renderVals() {
+    const d = this.state.data;
+    let type = this.props.type ?? 'listicles';
+    try { type = new URLSearchParams(location.search).get('type') || type; } catch (e) {}
+    const T = d ? (d.TYPES[type] || d.TYPES.listicles) : { label: '', h1: '', desc: '' };
+    const ofType = d ? d.ITEMS.filter(i => i.type === type) : [];
+    const cat = this.state.cat;
+    const name = s => d ? d.catBySlug(s).name : '';
+    const items = ofType.filter(i => !cat || i.cat === cat).map(i => ({ ...i, catName: name(i.cat).toUpperCase() }));
+    const cats = d ? d.CATEGORIES : [];
+    const f = (slug, label, n) => { const on = (cat || null) === slug; return { label, n, on, bar: on ? '#121212' : 'transparent', fw: on ? 600 : 500, color: on ? '#121212' : '#4D4D4D', onClick: () => this.setCat(slug) }; };
+    return {
+      label: T.label, h1: T.h1, desc: T.desc, urlPath: `/${type}/` + (cat ? `?category=${cat}` : ''),
+      isReviews: type === 'reviews', isArticles: type !== 'reviews',
+      filters: [f(null, 'All', ofType.length), ...cats.map(c => f(c.slug, c.name, ofType.filter(i => i.cat === c.slug).length))],
+      items, countLabel: `${items.length} ${T.label.toLowerCase()}` + (cat ? ` in ${name(cat)}` : ''),
+    };
+  }
+}
+</script>
+</body>
+</html>

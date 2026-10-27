@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section data-screen-label="Hub intro" style="max-width:1440px;margin:0 auto;padding:48px 32px 56px;display:flex;flex-direction:column;gap:18px;border-bottom:1px solid #D3D2CD">
+    <dc-import name="Breadcrumb" category="{{ slug }}" title="" hint-size="100%,18px"></dc-import>
+    <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">{{ urlPath }}</span>
+    <h1 style="margin:0;font-size:clamp(44px,6vw,80px);line-height:1.02;font-weight:500;letter-spacing:-.04em;text-wrap:balance">{{ catName }}</h1>
+    <p style="margin:0;font-size:18px;line-height:28px;color:#4D4D4D;max-width:620px;text-wrap:pretty">{{ catDesc }}</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+      <sc-for list="{{ jumps }}" as="j" hint-placeholder-count="4">
+        <a href="{{ j.anchor }}" style="height:32px;padding:0 12px;display:flex;align-items:center;gap:8px;border:1px solid #D3D2CD;background:#fff;font-size:13px;font-weight:500;color:#121212;text-decoration:none;white-space:nowrap" style-hover="border-color:#121212">{{ j.label }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#666">{{ j.n }}</span></a>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="4">
+    <section id="{{ sec.id }}" style="max-width:1440px;margin:0 auto;padding:56px 32px 0;display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">{{ sec.eyebrow }}</span>
+          <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">{{ sec.title }}</h2>
+        </div>
+        <a href="{{ sec.allHref }}" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px;white-space:nowrap">View all {{ sec.total }} →</a>
+      </div>
+      <sc-if value="{{ sec.isReviews }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:12px">
+          <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="6">
+            <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:start;color:#121212;text-decoration:none;transition:border-color .2s" style-hover="border-color:#121212">
+              <span style="width:48px;height:48px;border:1px solid #D3D2CD;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500">{{ it.logo }}</span>
+              <span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:17px;font-weight:600">{{ it.title }}</span><span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span></span>
+              <span style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:22px;line-height:1;font-weight:500;letter-spacing:-.03em">{{ it.rating }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#666">/10</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ sec.isArticles }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px">
+          <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="6">
+            <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:12px;color:#121212;text-decoration:none;transition:border-color .2s" style-hover="border-color:#121212">
+              <span style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#666"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ it.url }}</span><span style="white-space:nowrap">{{ it.date }}</span></span>
+              <span style="font-size:21px;line-height:27px;font-weight:500;letter-spacing:-.02em;text-wrap:balance">{{ it.title }}</span>
+              <span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+    </section>
+  </sc-for>
+
+  <section id="faq" style="max-width:1440px;margin:0 auto;padding:80px 32px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">{{ catName }}, answered</h2>
+    </div>
+    <div style="border-top:1px solid #D3D2CD">
+      <sc-for list="{{ faqs }}" as="fq" hint-placeholder-count="3">
+        <div style="border-bottom:1px solid #D3D2CD">
+          <button type="button" onClick="{{ fq.onToggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;background:transparent;border:0;font:inherit;text-align:left;cursor:pointer;color:#121212">
+            <span style="font-size:17px;line-height:25px;font-weight:500">{{ fq.q }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666">{{ fq.sign }}</span>
+          </button>
+          <sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 0 20px;font-size:15px;line-height:24px;color:#4D4D4D">{{ fq.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;category&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ai&quot;,&quot;dev-tools&quot;,&quot;testing&quot;,&quot;devops&quot;,&quot;data&quot;,&quot;security&quot;,&quot;it-management&quot;,&quot;productivity&quot;],&quot;default&quot;:&quot;testing&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const SECS = [
+  ['listicles', 'Listicles', '// RANKED LISTS', 'listicles'],
+  ['reviews', 'Reviews', '// TOOL REVIEWS', 'reviews'],
+  ['alternatives', 'Alternatives', '// SWITCHING?', 'alternatives'],
+  ['compare', 'Comparisons', '// HEAD TO HEAD', 'compare'],
+];
+class Component extends DCLogic {
+  state = { data: null, faq: { 0: true } };
+  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ data: m })); }
+  renderVals() {
+    const d = this.state.data;
+    let slug = this.props.category ?? 'testing';
+    try { slug = new URLSearchParams(location.search).get('category') || slug; } catch (e) {}
+    const cat = d ? d.catBySlug(slug) : { slug, name: '', desc: '' };
+    const tagged = d ? d.ITEMS.filter(i => i.cat === cat.slug) : [];
+    const sections = SECS.map(([type, title, eyebrow]) => {
+      const all = tagged.filter(i => i.type === type);
+      return { id: type, type, title, eyebrow, total: all.length, items: all.slice(0, 8), isReviews: type === 'reviews', isArticles: type !== 'reviews', allHref: `Index.dc.html?type=${type}&category=${cat.slug}` };
+    }).filter(s => s.total > 0);
+    const FAQS = [
+      { q: `How do you test ${cat.name} tools?`, a: 'Every tool is installed and used on the same task by a named author. Scores, prices and screenshots come from that run, not vendor copy.' },
+      { q: 'How often are pages updated?', a: 'Listicles are re-tested and re-priced at least monthly. The date on each card is the last test.' },
+      { q: 'Can vendors pay for a ranking?', a: 'No. Some links earn a commission, and sponsored slots are always labelled. Neither changes a score.' },
+    ];
+    return {
+      slug: cat.slug, catName: cat.name, catDesc: cat.desc, urlPath: `/${cat.slug}/`,
+      sections,
+      jumps: sections.map(s => ({ label: s.title, n: s.total, anchor: '#' + s.id })),
+      faqs: FAQS.map((f, i) => ({ ...f, open: !!this.state.faq[i], sign: this.state.faq[i] ? '–' : '+', onToggle: () => this.setState(s => ({ faq: { ...s.faq, [i]: !s.faq[i] } })) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

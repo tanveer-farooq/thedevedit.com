@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section style="background:#fff;border-bottom:1px solid #D3D2CD">
+    <div style="max-width:1440px;margin:0 auto;padding:40px 32px 0;display:flex;flex-direction:column;gap:28px">
+      <dc-import name="Breadcrumb" category="testing" title="Playwright review" hint-size="100%,18px"></dc-import>
+      <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap">
+        <span style="width:96px;height:96px;border:1px solid #D3D2CD;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:500;flex-shrink:0">Pw</span>
+        <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// TOOL REVIEW</span>
+            <span style="height:24px;padding:0 8px;display:inline-flex;align-items:center;background:#FFCD00;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.04em">#1 IN AUTOMATION TESTING</span>
+          </div>
+          <h1 style="margin:0;font-size:clamp(40px,5vw,64px);line-height:1.04;font-weight:500;letter-spacing:-.04em">Playwright <span style="color:#7f806f">review</span></h1>
+          <p style="margin:0;font-size:18px;line-height:28px;color:#4D4D4D;max-width:640px">Open-source browser automation from Microsoft. The most stable framework in our 2026 test, with zero flaky steps across 30 runs.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:240px">
+          <div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:64px;line-height:1;font-weight:500;letter-spacing:-.04em">9.4</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#666">/10 our score</span></div>
+          <a href="#" rel="sponsored" style="height:44px;padding:0 18px;display:flex;align-items:center;justify-content:center;gap:8px;background:#121212;color:#fff;font-size:15px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit playwright.dev {{ icUp }}</a>
+          <a href="Listicle.dc.html#compare" style="height:44px;padding:0 18px;display:flex;align-items:center;justify-content:center;border:1px solid #D3D2CD;background:#fff;color:#121212;font-size:15px;font-weight:500;text-decoration:none" style-hover="border-color:#121212">Compare with others</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none">
+        <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+          <sc-if value="{{ tb.active }}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{ tb.onClick }}" style="flex-shrink:0;white-space:nowrap;height:48px;padding:0 14px;border:0;border-bottom:2px solid #121212;background:transparent;font:inherit;font-size:14px;font-weight:600;color:#121212;cursor:pointer">{{ tb.label }}</button>
+          </sc-if>
+          <sc-if value="{{ tb.inactive }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ tb.onClick }}" style="flex-shrink:0;white-space:nowrap;height:48px;padding:0 14px;border:0;border-bottom:2px solid transparent;background:transparent;font:inherit;font-size:14px;font-weight:500;color:#4D4D4D;cursor:pointer" style-hover="color:#121212">{{ tb.label }}</button>
+          </sc-if>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:1440px;margin:0 auto;padding:48px 32px 96px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+    <main style="flex:1 1 600px;min-width:0;display:flex;flex-direction:column;gap:48px">
+
+      <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:48px">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px">
+            <figure style="margin:0;display:flex;flex-direction:column;gap:8px;min-width:0;grid-column:1/-1">
+              <div style="flex:1;display:flex;flex-direction:column;border-radius:7.11px;overflow:hidden;border:1px solid #D3D2CD;background:#fff">
+                <div style="height:30px;padding:0 10px;display:flex;align-items:center;gap:10px;background:#F5F4F0;border-bottom:1px solid #D3D2CD;flex-shrink:0">
+                  <div style="display:flex;gap:4px"><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span></div>
+                  <span style="flex:1;min-width:0;height:20px;padding:0 8px;display:flex;align-items:center;background:#fff;border:1px solid #ebeae5;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">playwright.dev</span>
+                </div>
+                <div style="flex:1;min-height:0;aspect-ratio:16/9;background:#F5F4F0 url(https://image.thum.io/get/width/1440/crop/810/noanimate/https://playwright.dev) top center/cover no-repeat"></div>
+              </div>
+              <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f806f">Fig 1 — Homepage, first viewport</figcaption>
+            </figure>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:8px;min-width:0">
+              <div style="flex:1;display:flex;flex-direction:column;border-radius:7.11px;overflow:hidden;border:1px solid #D3D2CD;background:#fff">
+                <div style="height:30px;padding:0 10px;display:flex;align-items:center;gap:10px;background:#F5F4F0;border-bottom:1px solid #D3D2CD;flex-shrink:0">
+                  <div style="display:flex;gap:4px"><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span></div>
+                  <span style="flex:1;min-width:0;height:20px;padding:0 8px;display:flex;align-items:center;background:#fff;border:1px solid #ebeae5;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">playwright.dev/docs/trace-viewer</span>
+                </div>
+                <div style="flex:1;min-height:0;aspect-ratio:4/3;background:#F5F4F0 url(https://image.thum.io/get/width/1200/crop/900/noanimate/https://playwright.dev/docs/trace-viewer) top center/cover no-repeat"></div>
+              </div>
+              <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f806f">Fig 2 — Trace viewer docs</figcaption>
+            </figure>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:8px;min-width:0">
+              <div style="flex:1;display:flex;flex-direction:column;border-radius:7.11px;overflow:hidden;border:1px solid #D3D2CD;background:#fff">
+                <div style="height:30px;padding:0 10px;display:flex;align-items:center;gap:10px;background:#F5F4F0;border-bottom:1px solid #D3D2CD;flex-shrink:0">
+                  <div style="display:flex;gap:4px"><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span><span style="width:8px;height:8px;border-radius:50%;background:#D3D2CD"></span></div>
+                  <span style="flex:1;min-width:0;height:20px;padding:0 8px;display:flex;align-items:center;background:#fff;border:1px solid #ebeae5;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">playwright.dev/docs/codegen</span>
+                </div>
+                <div style="flex:1;min-height:0;aspect-ratio:4/3;background:#F5F4F0 url(https://image.thum.io/get/width/1200/crop/900/noanimate/https://playwright.dev/docs/codegen) top center/cover no-repeat"></div>
+              </div>
+              <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f806f">Fig 3 — Codegen docs</figcaption>
+            </figure>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// OUR VERDICT</span>
+            <p style="margin:0;font-size:22px;line-height:34px;letter-spacing:-.01em;text-wrap:pretty">If your engineers write tests, start here. Playwright's auto-waiting made our checkout suite stable on the first run, and the trace viewer cut debugging time in half compared with Selenium.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+            <div style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#3a9460">WHAT WE LIKED</span>
+              <sc-for list="{{ pros }}" as="pr" hint-placeholder-count="4"><span style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;font-size:15px;line-height:23px"><span style="color:#3a9460">+</span>{{ pr }}</span></sc-for>
+            </div>
+            <div style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">WHAT HELD IT BACK</span>
+              <sc-for list="{{ cons }}" as="cn" hint-placeholder-count="3"><span style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;font-size:15px;line-height:23px"><span style="color:#c0584f">–</span>{{ cn }}</span></sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// SCORE BREAKDOWN</span>
+            <div style="background:#fff;border:1px solid #D3D2CD">
+              <sc-for list="{{ scores }}" as="sc" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:minmax(140px,200px) minmax(0,1fr) 56px;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid #ebeae5">
+                  <span style="font-size:14px;font-weight:500">{{ sc.k }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#999">{{ sc.w }}</span></span>
+                  <span style="height:8px;background:#ebeae5;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ sc.pct }};background:#121212"></span></span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;text-align:right">{{ sc.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPricing }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Pricing, <span style="color:#7f806f">checked Sep 26, 2026</span></h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+            <sc-for list="{{ plans }}" as="pl" hint-placeholder-count="3">
+              <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;flex-direction:column;gap:10px">
+                <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">{{ pl.n }}</span>
+                <span style="font-size:36px;line-height:1;font-weight:500;letter-spacing:-.03em">{{ pl.p }}</span>
+                <span style="font-size:14px;line-height:22px;color:#4D4D4D">{{ pl.d }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:15px;line-height:24px;color:#4D4D4D">Playwright itself is free under the Apache 2.0 license. Your real cost is CI time. At 10 parallel workers our 50-step suite used about 6 runner-minutes per run.</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTest }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Our test, <span style="color:#7f806f">run by run</span></h2>
+          <div style="border-radius:12px;overflow:hidden;background:#141312">
+            <div style="background:#242320;padding:10px 14px;display:flex;align-items:center;gap:8px">
+              <span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span>
+              <span style="margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">npx playwright test checkout.spec.ts</span>
+            </div>
+            <div style="padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:22px;display:flex;flex-direction:column">
+              <span style="color:#807d78">Running 150 tests using 10 workers</span>
+              <span style="color:#68d08b">  ✓ [chromium] checkout › 50 steps (36.2s)</span>
+              <span style="color:#68d08b">  ✓ [firefox] checkout › 50 steps (41.8s)</span>
+              <span style="color:#68d08b">  ✓ [webkit] checkout › 50 steps (39.1s)</span>
+              <span style="color:#edebe6;margin-top:8px">  150 passed (1.9m)</span>
+              <span style="color:#5aa9f0">  → trace: test-results/checkout/trace.zip</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border-top:1px solid #D3D2CD;border-left:1px solid #D3D2CD;background:#fff">
+            <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:500;letter-spacing:-.03em">50/50</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#666">STEPS PASSED</span></div>
+            <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:500;letter-spacing:-.03em">38s</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#666">MEDIAN RUN</span></div>
+            <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:500;letter-spacing:-.03em">0</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#666">FLAKY STEPS</span></div>
+            <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:500;letter-spacing:-.03em">2h 40m</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#666">TO AUTHOR</span></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAlts }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Playwright alternatives</h2>
+          <sc-for list="{{ alts }}" as="al" hint-placeholder-count="4">
+            <a href="Review.dc.html" style="background:#fff;border:1px solid #D3D2CD;padding:18px 20px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:16px;align-items:center;color:#121212;text-decoration:none" style-hover="border-color:#121212">
+              <span style="width:40px;height:40px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">{{ al.i }}</span>
+              <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600">{{ al.n }}</span><span style="font-size:14px;color:#4D4D4D">{{ al.d }}</span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500">{{ al.s }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+    </main>
+
+    <aside style="flex:0 1 320px;position:sticky;top:24px;display:flex;flex-direction:column;gap:20px">
+      <div style="background:#fff;border:1px solid #D3D2CD">
+        <div style="padding:14px 18px;border-bottom:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666">AT A GLANCE</div>
+        <sc-for list="{{ specs }}" as="sp" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:12px 18px;border-bottom:1px solid #ebeae5;font-size:14px;line-height:20px">
+            <span style="color:#666">{{ sp.k }}</span><span style="font-weight:500">{{ sp.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff;border:1px solid #D3D2CD;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666">APPEARS IN</span>
+        <a href="Listicle.dc.html" style="font-size:14px;color:#121212;text-underline-offset:3px">#1 in Best automation testing tools</a>
+        <a href="#" style="font-size:14px;color:#121212;text-underline-offset:3px">#1 in Best regression testing tools</a>
+        <a href="Alternatives.dc.html" style="font-size:14px;color:#121212;text-underline-offset:3px">#3 in BrowserStack alternatives</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #D3D2CD;background:#fff">
+        <image-slot id="author-priya-pf" shape="circle" placeholder="Photo" style="width:36px;height:36px;flex-shrink:0"></image-slot>
+        <span style="font-size:13px;line-height:19px;color:#4D4D4D">Tested by <a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Priya Raman</a>. Updated Sep 28, 2026.</span>
+      </div>
+    </aside>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NS = () => window.TestMuAIDesignSystem_679a62;
+const ic = (name, size) => NS() && NS().Icon ? React.createElement(NS().Icon, { name, size }) : null;
+const TABS = [['overview','Overview'],['pricing','Pricing'],['test','Our test'],['alts','Alternatives']];
+class Component extends DCLogic {
+  state = { tab:'overview' };
+  componentDidMount(){ if (!NS()) { this._t = setInterval(() => { if (NS()) { clearInterval(this._t); this.forceUpdate(); } }, 300); } }
+  componentWillUnmount(){ clearInterval(this._t); }
+  renderVals(){
+    const { tab } = this.state;
+    return {
+      icUp: ic('ArrowUpRight', 14),
+      tabs: TABS.map(([k,l]) => ({ label:l, active:k===tab, inactive:k!==tab, onClick:()=>this.setState({ tab:k }) })),
+      isOverview: tab==='overview', isPricing: tab==='pricing', isTest: tab==='test', isAlts: tab==='alts',
+      pros: ['Zero flaky steps across 30 runs, thanks to auto-waiting','Chromium, Firefox and WebKit from one API','Trace viewer replays every failure step by step','Free, with first-party TypeScript, Python, Java and .NET'],
+      cons: ['No real iOS or Android devices','Needs engineers to write and maintain tests','Component testing is still experimental'],
+      scores: [['Stability','30%',9.8],['Authoring speed','20%',8.6],['Browser coverage','20%',9.2],['CI fit','15%',9.6],['Price at scale','15%',9.5]].map(s=>({ k:s[0], w:s[1], v:s[2], pct:(s[2]*10)+'%' })),
+      plans: [{ n:'FRAMEWORK', p:'$0', d:'Apache 2.0. Every feature, every browser.' },{ n:'CI RUNNERS', p:'~$40/mo', d:'Our estimate for 10 workers on GitHub Actions at 200 runs a month.' },{ n:'CLOUD GRID', p:'From $15/mo', d:'Optional. Any Playwright-compatible grid for more browsers or devices.' }],
+      alts: [['Cy','Cypress','Best for front-end teams who want an interactive runner',8.7],['Tm','TestMu AI','Best for AI-written tests and real devices at scale',9.1],['Se','Selenium','Best for Java and C# teams with existing grids',8.2],['Wd','WebdriverIO','Best for Node.js teams testing web and mobile',7.4]].map(a=>({ i:a[0], n:a[1], d:a[2], s:a[3] })),
+      specs: [['Pricing','Free, open source'],['License','Apache 2.0'],['Deployment','Self-hosted'],['Languages','TS, JS, Python, Java, .NET'],['Browsers','Chromium, Firefox, WebKit'],['Maintainer','Microsoft'],['First release','2020']].map(s=>({ k:s[0], v:s[1] }))
+    };
+  }
+}
+</script>
+</body>
+</html>
