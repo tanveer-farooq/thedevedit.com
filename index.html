@@ -1,13 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
-<title>TechStackCouncil</title>
-<meta http-equiv="refresh" content="0; url=Home%203.dc.html">
-<link rel="canonical" href="Home%203.dc.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
-<body style="font-family:sans-serif;background:#F5F4F0;color:#121212;padding:40px">
-<p>Redirecting to <a href="Home%203.dc.html" style="color:#121212">the homepage</a>…</p>
-<p>Concepts: <a href="Home.dc.html">Home 1</a> · <a href="Home%202.dc.html">Home 2</a> · <a href="Home%204.dc.html">Home 4</a></p>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Anton&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+  </style>
+</helmet>
+<div data-screen-label="Home 3 · Weekly edition" style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section style="max-width:1440px;margin:0 auto;padding:40px 32px 0">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #121212;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em">
+      <span>// CONCEPT 3 · THE WEEKLY EDITION</span>
+      <span>ISSUE 041 · WEEK OF OCT 3, 2026</span>
+      <span>24 PAGES UPDATED THIS WEEK</span>
+    </div>
+    <h1 style="margin:0;padding:18px 0 14px;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(64px,12vw,184px);line-height:.88;text-transform:uppercase;letter-spacing:-.01em;text-align:center;border-bottom:4px solid #121212">The Stack, Weekly</h1>
+    <div style="display:flex;justify-content:center;gap:4px 24px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid #121212">
+      <sc-for list="{{ desks }}" as="dk" hint-placeholder-count="8">
+        <a href="{{ dk.href }}" style="font-size:14px;font-weight:500;color:#121212;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline;text-underline-offset:3px">{{ dk.name }}</a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:32px 32px 0;display:flex;flex-wrap:wrap;gap:32px">
+    <a href="Listicle.dc.html" style="flex:2 1 560px;display:flex;flex-direction:column;gap:18px;color:#121212;text-decoration:none;min-width:0">
+      <div style="position:relative;aspect-ratio:16/9;background:radial-gradient(60% 80% at 15% 20%, #336EF6 0%, transparent 60%), radial-gradient(55% 70% at 90% 90%, #FFCD00 0%, transparent 65%), #121212;color:#fff;display:grid;place-items:center;overflow:hidden">
+        <span style="position:absolute;top:18px;left:20px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em">LEAD STORY · TESTING &amp; QA</span>
+        <div style="border:1.5px solid #fff;padding:20px 28px;display:flex;flex-direction:column;align-items:center">
+          <span style="font-family:'Anton',sans-serif;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;white-space:nowrap">10 automation</span>
+          <span style="font-family:'Anton',sans-serif;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;white-space:nowrap">tools, 30 runs</span>
+        </div>
+      </div>
+      <span style="font-size:clamp(30px,3vw,42px);line-height:1.08;font-weight:500;letter-spacing:-.035em;text-wrap:balance">We ran one checkout suite through 10 automation tools. Only three finished without a flaky step.</span>
+      <span style="font-size:17px;line-height:27px;color:#4D4D4D;max-width:720px">The full ranking, the scripts we used, and what each tool cost at 10 parallel runs.</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">By Priya Raman · 14 min · /testing/automation-testing-tools/</span>
+    </a>
+    <aside style="flex:1 1 300px;border-top:4px solid #121212;padding-top:12px;display:flex;flex-direction:column;min-width:0">
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;padding-bottom:12px;border-bottom:1px solid #121212">IN THIS ISSUE</span>
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="7">
+        <a href="{{ t.href }}" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #D3D2CD;color:#121212;text-decoration:none" style-hover="background:#fff">
+          <span style="font-family:'Anton',sans-serif;font-size:28px;line-height:1;color:#7f806f">{{ t.n }}</span>
+          <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;color:#7f806f">{{ t.kicker }}</span><span style="font-size:16px;line-height:22px;font-weight:500">{{ t.title }}</span></span>
+        </a>
+      </sc-for>
+    </aside>
+  </section>
+
+  <section style="max-width:1440px;margin:56px auto 0;padding:0 32px">
+    <div style="background:#FFCD00;border:1px solid #121212;padding:32px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:56px;line-height:.95;text-transform:uppercase">Head to head</h2>
+        <a href="Index.dc.html?type=compare" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">All comparisons →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:#121212;border:1px solid #121212">
+        <sc-for list="{{ vs }}" as="v" hint-placeholder-count="4">
+          <a href="{{ v.href }}" style="background:#FFCD00;padding:24px;display:flex;flex-direction:column;gap:14px;color:#121212;text-decoration:none" style-hover="background:#ffd83a">
+            <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em">{{ v.cat }}</span>
+            <span style="display:flex;align-items:center;gap:14px">
+              <span style="width:56px;height:56px;background:#121212;color:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:18px">{{ v.la }}</span>
+              <span style="font-family:'Anton',sans-serif;font-size:24px">VS</span>
+              <span style="width:56px;height:56px;background:#fff;border:1px solid #121212;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:18px">{{ v.lb }}</span>
+            </span>
+            <span style="font-size:20px;line-height:26px;font-weight:500;letter-spacing:-.02em">{{ v.title }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:72px 32px 96px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:4px solid #121212;padding-bottom:12px">
+      <h2 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:56px;line-height:.95;text-transform:uppercase">From every desk</h2>
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em">8 DESKS · LATEST FROM EACH</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:0">
+      <sc-for list="{{ deskCols }}" as="c" hint-placeholder-count="8">
+        <div style="padding:20px 24px 28px 0;margin-right:24px;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:14px">
+          <a href="{{ c.href }}" style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#121212;text-decoration:none;display:flex;justify-content:space-between"><span>{{ c.name }}</span><span>→</span></a>
+          <a href="{{ c.lead.href }}" style="font-size:22px;line-height:28px;font-weight:500;letter-spacing:-.02em;color:#121212;text-decoration:none;text-wrap:balance" style-hover="text-decoration:underline;text-underline-offset:4px">{{ c.lead.title }}</a>
+          <span style="font-size:14px;line-height:21px;color:#4D4D4D">{{ c.lead.summary }}</span>
+          <sc-for list="{{ c.more }}" as="m" hint-placeholder-count="2">
+            <a href="{{ m.href }}" style="font-size:14px;line-height:20px;color:#121212;text-decoration:none;padding-top:10px;border-top:1px dotted #D3D2CD" style-hover="text-decoration:underline;text-underline-offset:3px">{{ m.title }}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const KICK = { listicles: 'LISTICLE', reviews: 'REVIEW', compare: 'COMPARE', alternatives: 'SWITCHING' };
+class Component extends DCLogic {
+  state = { d: null };
+  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  renderVals() {
+    const d = this.state.d;
+    if (!d) return { desks: [], toc: [], vs: [], deskCols: [] };
+    const I = d.ITEMS, name = s => d.catBySlug(s).name;
+    const t = i => i.type === 'reviews' ? `${i.title} review` : i.title;
+    const pick = [I.find(i => i.cat === 'ai' && i.type === 'listicles'), I.find(i => i.type === 'reviews' && i.tool === 'Datadog'), I.find(i => i.cat === 'data' && i.type === 'listicles'), I.find(i => i.type === 'alternatives' && i.tool === 'Notion'), I.find(i => i.cat === 'security' && i.type === 'listicles'), I.find(i => i.type === 'reviews' && i.tool === 'Linear'), I.find(i => i.cat === 'dev-tools' && i.type === 'compare')].filter(Boolean);
+    return {
+      desks: d.CATEGORIES.map(c => ({ name: c.name, href: 'Category Hub.dc.html?category=' + c.slug })),
+      toc: pick.map((i, n) => ({ n: String(n + 2).padStart(2, '0'), kicker: `${KICK[i.type]} · ${name(i.cat).toUpperCase()}`, title: t(i), href: i.href })),
+      vs: I.filter(i => i.type === 'compare').slice(0, 8).filter((_, n) => n % 2 === 0).slice(0, 4).map(i => ({ ...i, cat: name(i.cat).toUpperCase() })),
+      deskCols: d.CATEGORIES.map(c => {
+        const mine = I.filter(i => i.cat === c.slug);
+        const lead = mine.find(i => i.type === 'listicles');
+        return { name: c.name.toUpperCase(), href: 'Category Hub.dc.html?category=' + c.slug, lead, more: [mine.find(i => i.type === 'reviews'), mine.find(i => i.type === 'alternatives')].filter(Boolean).map(i => ({ title: t(i), href: i.href })) };
+      }),
+    };
+  }
+}
+</script>
 </body>
 </html>
