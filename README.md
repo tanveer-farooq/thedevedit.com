@@ -1,4 +1,4 @@
-# TechStackCouncil — static design prototype
+# TheDevEdit — static design prototype
 
 Upload the contents of this folder to the root of a GitHub Pages repo (or a `/docs` folder).
 

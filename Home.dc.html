@@ -69,7 +69,7 @@
             <span style="font-family:'Anton',sans-serif;font-size:clamp(44px,5.4vw,76px);line-height:.95;text-transform:uppercase">Not every test</span>
             <span style="font-family:'Anton',sans-serif;font-size:clamp(44px,5.4vw,76px);line-height:.95;text-transform:uppercase;color:#FFCD00">needs an agent</span>
           </div>
-          <span style="position:absolute;bottom:18px;left:22px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;opacity:.8">TSC / OPINION</span>
+          <span style="position:absolute;bottom:18px;left:22px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;opacity:.8">TDE / OPINION</span>
         </div>
         <div style="padding:28px;display:flex;flex-direction:column;gap:14px">
           <span style="font-size:32px;line-height:38px;font-weight:500;letter-spacing:-.03em;text-wrap:balance">Not every test needs an AI agent: where scripted suites still win</span>
@@ -199,16 +199,16 @@
       <div style="border-radius:12px;overflow:hidden;background:#141312;border:1px solid #2e2d2a">
         <div style="background:#242320;padding:10px 14px;display:flex;align-items:center;gap:8px">
           <span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4844"></span>
-          <span style="margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">tsc-bench — monthly re-test</span>
+          <span style="margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">tde-bench — monthly re-test</span>
         </div>
         <div style="padding:20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:23px;display:flex;flex-direction:column">
-          <span><span style="color:#68d08b">$</span> <span style="color:#edebe6">tsc-bench retest --list automation-testing-tools</span></span>
+          <span><span style="color:#68d08b">$</span> <span style="color:#edebe6">tde-bench retest --list automation-testing-tools</span></span>
           <span style="color:#807d78">  10 tools · checkout-50 suite · 3 browsers</span>
           <span style="color:#68d08b">  ✓ 8 tools unchanged</span>
           <span style="color:#e0b457">  ◆ Cypress Cloud price changed: $75 → $67/mo</span>
           <span style="color:#e0b457">  ◆ Katalon added a free AI tier</span>
           <span style="color:#5aa9f0">  → list updated · date set to Sep 28, 2026</span>
-          <span style="margin-top:10px"><span style="color:#68d08b">$</span> <span style="color:#edebe6">tsc-bench retest --list android-emulators</span></span>
+          <span style="margin-top:10px"><span style="color:#68d08b">$</span> <span style="color:#edebe6">tde-bench retest --list android-emulators</span></span>
           <span style="color:#807d78">  queued · runs nightly at 02:00 UTC</span>
         </div>
       </div>
@@ -272,9 +272,9 @@ class Component extends DCLogic {
         { rank:'06', short:'CI costs', cat:'DEVOPS', title:'Your CI bill is mostly waiting: cutting pipeline minutes by 40%', author:'Sam Okafor', spark:[{ h:'90%', c:'#D3D2CD' },{ h:'84%', c:'#D3D2CD' },{ h:'80%', c:'#D3D2CD' },{ h:'74%', c:'#D3D2CD' },{ h:'70%', c:'#D3D2CD' },{ h:'66%', c:'#D3D2CD' },{ h:'62%', c:'#7f806f' }], delta:'▼ 6%', dc:'#7f806f', bg:'#E8E6DF', fg:'#121212' },
       ],
       featured: [
-        { id:'auto', cv:{ bg:'radial-gradient(60% 80% at 15% 20%, #336EF6 0%, transparent 60%), radial-gradient(55% 70% at 90% 90%, #FFCD00 0%, transparent 65%), #121212', fg:'#fff', blend:'overlay', box:'1.5px solid #fff', mesh:false, tag:'TSC / TESTING & QA', glyph:'>_', lines:['Best automation','testing tools'] }, href:'Listicle.dc.html', cat:'TESTING & QA', meta:'Updated Sep 28', title:'The 10 best automation testing tools for 2026', dek:'One 50-step checkout suite, written in every tool and run on three browsers.' },
-        { id:'android', cv:{ bg:'radial-gradient(70% 90% at 50% 0%, #FFE680 0%, transparent 70%), #FFCD00', fg:'#121212', blend:'multiply', box:'0', mesh:true, tag:'TSC / DEVELOPER TOOLS', glyph:'</>', lines:['Best android','emulators'] }, href:'#', cat:'DEVELOPER TOOLS', meta:'Updated Sep 22', title:'The 8 best Android emulators, benchmarked', dek:'Boot time, frame rate and RAM, measured on the same laptop.' },
-        { id:'aicode', cv:{ bg:'radial-gradient(55% 75% at 0% 0%, #FFCD00 0%, transparent 60%), radial-gradient(60% 80% at 100% 100%, #336EF6 0%, transparent 65%), #F5F4F0', fg:'#121212', blend:'multiply', box:'1.5px solid #121212', mesh:false, tag:'TSC / AI & LLMS', glyph:'{ }', lines:['AI coding','assistants,','tested'] }, href:'#', cat:'AI & LLMs', meta:'Updated Sep 19', title:'The best AI coding assistants, tested on a real repo', dek:'We gave each assistant the same 40 tickets and counted merged PRs.' }
+        { id:'auto', cv:{ bg:'radial-gradient(60% 80% at 15% 20%, #336EF6 0%, transparent 60%), radial-gradient(55% 70% at 90% 90%, #FFCD00 0%, transparent 65%), #121212', fg:'#fff', blend:'overlay', box:'1.5px solid #fff', mesh:false, tag:'TDE / TESTING & QA', glyph:'>_', lines:['Best automation','testing tools'] }, href:'Listicle.dc.html', cat:'TESTING & QA', meta:'Updated Sep 28', title:'The 10 best automation testing tools for 2026', dek:'One 50-step checkout suite, written in every tool and run on three browsers.' },
+        { id:'android', cv:{ bg:'radial-gradient(70% 90% at 50% 0%, #FFE680 0%, transparent 70%), #FFCD00', fg:'#121212', blend:'multiply', box:'0', mesh:true, tag:'TDE / DEVELOPER TOOLS', glyph:'</>', lines:['Best android','emulators'] }, href:'#', cat:'DEVELOPER TOOLS', meta:'Updated Sep 22', title:'The 8 best Android emulators, benchmarked', dek:'Boot time, frame rate and RAM, measured on the same laptop.' },
+        { id:'aicode', cv:{ bg:'radial-gradient(55% 75% at 0% 0%, #FFCD00 0%, transparent 60%), radial-gradient(60% 80% at 100% 100%, #336EF6 0%, transparent 65%), #F5F4F0', fg:'#121212', blend:'multiply', box:'1.5px solid #121212', mesh:false, tag:'TDE / AI & LLMS', glyph:'{ }', lines:['AI coding','assistants,','tested'] }, href:'#', cat:'AI & LLMs', meta:'Updated Sep 19', title:'The best AI coding assistants, tested on a real repo', dek:'We gave each assistant the same 40 tickets and counted merged PRs.' }
       ],
       updates: [
         { date:'SEP 28', title:'Best automation testing tools', tag:'RE-TESTED' },
