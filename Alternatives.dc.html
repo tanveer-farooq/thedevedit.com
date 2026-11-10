@@ -2,18 +2,20 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Old URL: send visitors to the clean one. Doesn't run when this file is imported as a template. -->
+<script>location.replace('/browserstack-alternatives/' + location.hash)</script>
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
-  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="/image-slot.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -35,13 +37,13 @@
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
         <image-slot id="author-marcus" shape="circle" placeholder="Photo" style="width:40px;height:40px;flex-shrink:0"></image-slot>
         <div style="display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:20px">
-          <span><a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Marcus Lee</a><span style="color:#666">, staff SDET</span></span>
+          <span><a href="/how-we-test/" style="font-weight:600;color:#121212;text-decoration:none">Marcus Lee</a><span style="color:#666">, staff SDET</span></span>
           <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">9 min read · 7 grids tested · prices checked Sep 26</span>
         </div>
       </div>
       <div style="display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border:1px solid #D3D2CD;background:#fff;font-size:13px;line-height:20px;color:#4D4D4D">
         <span style="flex-shrink:0;margin-top:2px">{{ icShield }}</span>
-        <span>Vendors cannot pay for a ranking. Some links earn us a commission. <a href="How We Rank.dc.html" style="color:#121212;text-underline-offset:3px">How we test</a></span>
+        <span>Vendors cannot pay for a ranking. Some links earn us a commission. <a href="/how-we-test/" style="color:#121212;text-underline-offset:3px">How we test</a></span>
       </div>
     </section>
 
@@ -81,7 +83,7 @@
             <div style="display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(120px,1fr) 110px 110px 110px minmax(150px,1.3fr);border-bottom:1px solid #ebeae5;align-items:center;background:{{ rw.bg }}">
               <span style="padding:14px;display:flex;align-items:center;gap:10px">
                 <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:22px">{{ rw.r }}</span>
-                <span style="font-weight:600"><a href="Review.dc.html" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ rw.n }}</a></span>
+                <span style="font-weight:600"><a href="/playwright-review/" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ rw.n }}</a></span>
               </span>
               <span style="padding:14px;font-family:'JetBrains Mono',monospace;font-size:13px">{{ rw.p }}</span>
               <span style="padding:14px">{{ rw.dev }}</span>
@@ -106,7 +108,7 @@
             <span style="font-family:'Pixelify Sans',monospace;font-size:40px;line-height:40px;min-width:52px">{{ al.r }}</span>
             <span style="width:36px;height:36px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">{{ al.i }}</span>
             <div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px">
-              <h3 style="margin:0;font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em"><a href="Review.dc.html" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ al.n }}</a></h3>
+              <h3 style="margin:0;font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em"><a href="/playwright-review/" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ al.n }}</a></h3>
               <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">{{ al.p }}</span>
             </div>
             <a href="#" rel="sponsored" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit site {{ al.icUp }}</a>
@@ -167,7 +169,7 @@
     </section>
 
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
-      <a href="Listicle.dc.html" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:8px;color:#121212;text-decoration:none" style-hover="border-color:#121212"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">RELATED</span><span style="font-size:18px;font-weight:500">Best automation testing tools</span></a>
+      <a href="/automation-testing-tools/" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:8px;color:#121212;text-decoration:none" style-hover="border-color:#121212"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">RELATED</span><span style="font-size:18px;font-weight:500">Best automation testing tools</span></a>
       <a href="#" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:8px;color:#121212;text-decoration:none" style-hover="border-color:#121212"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">RELATED</span><span style="font-size:18px;font-weight:500">Best mobile testing tools</span></a>
       <a href="#" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:8px;color:#121212;text-decoration:none" style-hover="border-color:#121212"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">RELATED</span><span style="font-size:18px;font-weight:500">Sauce Labs alternatives</span></a>
     </section>

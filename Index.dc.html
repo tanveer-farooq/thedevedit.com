@@ -2,17 +2,19 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Old URL: send visitors to the clean one. Doesn't run when this file is imported as a template. -->
+<script>var q = new URLSearchParams(location.search), t = q.get('type'), c = q.get('category'); location.replace('/' + (!t || t === 'listicles' ? 'tools' : t) + '/' + (c ? '?category=' + c : ''))</script>
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -71,14 +73,14 @@
   <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;type&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;listicles&quot;,&quot;reviews&quot;,&quot;compare&quot;,&quot;alternatives&quot;],&quot;default&quot;:&quot;listicles&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;type&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;tools&quot;,&quot;reviews&quot;,&quot;compare&quot;,&quot;alternatives&quot;],&quot;default&quot;:&quot;tools&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { data: null, cat: null };
   componentDidMount() {
     let cat = null;
     try { cat = new URLSearchParams(location.search).get('category'); } catch (e) {}
     this.setState({ cat });
-    import(new URL('content.js', document.baseURI).href).then(m => this.setState({ data: m }));
+    import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ data: m }));
   }
   setCat(cat) {
     this.setState({ cat });
@@ -86,19 +88,18 @@ class Component extends DCLogic {
   }
   renderVals() {
     const d = this.state.data;
-    let type = this.props.type ?? 'listicles';
-    try { type = new URLSearchParams(location.search).get('type') || type; } catch (e) {}
-    const T = d ? (d.TYPES[type] || d.TYPES.listicles) : { label: '', h1: '', desc: '' };
+    const type = this.props.type ?? 'tools';
+    const T = d ? (d.TYPES[type] || d.TYPES.tools) : { label: '', h1: '', desc: '' };
     const ofType = d ? d.ITEMS.filter(i => i.type === type) : [];
     const cat = this.state.cat;
     const name = s => d ? d.catBySlug(s).name : '';
-    const items = ofType.filter(i => !cat || i.cat === cat).map(i => ({ ...i, catName: name(i.cat).toUpperCase() }));
+    const items = ofType.filter(i => !cat || d.inCat(i, cat)).map(i => ({ ...i, catName: name(i.cat).toUpperCase() }));
     const cats = d ? d.CATEGORIES : [];
     const f = (slug, label, n) => { const on = (cat || null) === slug; return { label, n, on, bar: on ? '#121212' : 'transparent', fw: on ? 600 : 500, color: on ? '#121212' : '#4D4D4D', onClick: () => this.setCat(slug) }; };
     return {
       label: T.label, h1: T.h1, desc: T.desc, urlPath: `/${type}/` + (cat ? `?category=${cat}` : ''),
       isReviews: type === 'reviews', isArticles: type !== 'reviews',
-      filters: [f(null, 'All', ofType.length), ...cats.map(c => f(c.slug, c.name, ofType.filter(i => i.cat === c.slug).length))],
+      filters: [f(null, 'All', ofType.length), ...cats.map(c => f(c.slug, c.name, ofType.filter(i => d.inCat(i, c.slug)).length))],
       items, countLabel: `${items.length} ${T.label.toLowerCase()}` + (cat ? ` in ${name(cat)}` : ''),
     };
   }

@@ -2,18 +2,20 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Old URL: send visitors to the clean one. Doesn't run when this file is imported as a template. -->
+<script>location.replace('/playwright-review/' + location.hash)</script>
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
-  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="/image-slot.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -39,7 +41,7 @@
         <div style="display:flex;flex-direction:column;gap:12px;min-width:240px">
           <div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:64px;line-height:1;font-weight:500;letter-spacing:-.04em">9.4</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#666">/10 our score</span></div>
           <a href="#" rel="sponsored" style="height:44px;padding:0 18px;display:flex;align-items:center;justify-content:center;gap:8px;background:#121212;color:#fff;font-size:15px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit playwright.dev {{ icUp }}</a>
-          <a href="Listicle.dc.html#compare" style="height:44px;padding:0 18px;display:flex;align-items:center;justify-content:center;border:1px solid #D3D2CD;background:#fff;color:#121212;font-size:15px;font-weight:500;text-decoration:none" style-hover="border-color:#121212">Compare with others</a>
+          <a href="/automation-testing-tools/#compare" style="height:44px;padding:0 18px;display:flex;align-items:center;justify-content:center;border:1px solid #D3D2CD;background:#fff;color:#121212;font-size:15px;font-weight:500;text-decoration:none" style-hover="border-color:#121212">Compare with others</a>
         </div>
       </div>
       <div style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none">
@@ -167,7 +169,7 @@
         <div style="display:flex;flex-direction:column;gap:16px">
           <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Playwright alternatives</h2>
           <sc-for list="{{ alts }}" as="al" hint-placeholder-count="4">
-            <a href="Review.dc.html" style="background:#fff;border:1px solid #D3D2CD;padding:18px 20px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:16px;align-items:center;color:#121212;text-decoration:none" style-hover="border-color:#121212">
+            <a href="/playwright-review/" style="background:#fff;border:1px solid #D3D2CD;padding:18px 20px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:16px;align-items:center;color:#121212;text-decoration:none" style-hover="border-color:#121212">
               <span style="width:40px;height:40px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">{{ al.i }}</span>
               <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600">{{ al.n }}</span><span style="font-size:14px;color:#4D4D4D">{{ al.d }}</span></span>
               <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500">{{ al.s }}</span>
@@ -188,13 +190,13 @@
       </div>
       <div style="background:#fff;border:1px solid #D3D2CD;padding:18px;display:flex;flex-direction:column;gap:10px">
         <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666">APPEARS IN</span>
-        <a href="Listicle.dc.html" style="font-size:14px;color:#121212;text-underline-offset:3px">#1 in Best automation testing tools</a>
+        <a href="/automation-testing-tools/" style="font-size:14px;color:#121212;text-underline-offset:3px">#1 in Best automation testing tools</a>
         <a href="#" style="font-size:14px;color:#121212;text-underline-offset:3px">#1 in Best regression testing tools</a>
-        <a href="Alternatives.dc.html" style="font-size:14px;color:#121212;text-underline-offset:3px">#3 in BrowserStack alternatives</a>
+        <a href="/browserstack-alternatives/" style="font-size:14px;color:#121212;text-underline-offset:3px">#3 in BrowserStack alternatives</a>
       </div>
       <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #D3D2CD;background:#fff">
         <image-slot id="author-priya-pf" shape="circle" placeholder="Photo" style="width:36px;height:36px;flex-shrink:0"></image-slot>
-        <span style="font-size:13px;line-height:19px;color:#4D4D4D">Tested by <a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Priya Raman</a>. Updated Sep 28, 2026.</span>
+        <span style="font-size:13px;line-height:19px;color:#4D4D4D">Tested by <a href="/how-we-test/" style="font-weight:600;color:#121212;text-decoration:none">Priya Raman</a>. Updated Sep 28, 2026.</span>
       </div>
     </aside>
   </div>

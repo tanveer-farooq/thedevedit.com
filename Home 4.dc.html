@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -92,24 +92,24 @@ const ROLES = [
   { slug: 'data-team', label: 'Data team', picks: { data: 'dbt', ai: 'Pinecone', devops: 'Grafana', 'dev-tools': 'VS Code', productivity: 'Notion', security: 'Snyk' } },
 ];
 const ORDER = ['productivity', 'dev-tools', 'ai', 'testing', 'devops', 'data', 'security', 'it-management'];
-const K = { listicles: 'LIST', compare: 'VS', alternatives: 'SWAP' };
+const K = { tools: 'LIST', compare: 'VS', alternatives: 'SWAP' };
 class Component extends DCLogic {
   state = { d: null, role: 0 };
-  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
   renderVals() {
     const { d, role } = this.state, R = ROLES[role];
     const I = d ? d.ITEMS : [];
     const layers = d ? ORDER.filter(c => R.picks[c]).map((c, n) => {
       const rv = I.find(i => i.type === 'reviews' && i.tool === R.picks[c]) || {};
       const mine = I.filter(i => i.cat === c);
-      const next = [mine.find(i => i.type === 'alternatives' && i.tool === rv.tool) || mine.find(i => i.type === 'alternatives'), mine.find(i => i.type === 'compare'), mine.find(i => i.type === 'listicles')].filter(Boolean);
-      return { n: n + 1, cat: d.catBySlug(c).name, catHref: 'Category Hub.dc.html?category=' + c, tool: rv.tool, logo: rv.logo, why: rv.summary, rating: rv.rating, href: rv.href, next: next.map(i => ({ kind: K[i.type], title: i.title, href: i.href })) };
+      const next = [mine.find(i => i.type === 'alternatives' && i.tool === rv.tool) || mine.find(i => i.type === 'alternatives'), mine.find(i => i.type === 'compare'), mine.find(i => i.type === 'tools')].filter(Boolean);
+      return { n: n + 1, cat: d.catBySlug(c).name, catHref: '/' + c + '/', tool: rv.tool, logo: rv.logo, why: rv.summary, rating: rv.rating, href: rv.href, next: next.map(i => ({ kind: K[i.type], title: i.title, href: i.href })) };
     }) : [];
     const avg = layers.length ? (layers.reduce((s, l) => s + parseFloat(l.rating || 0), 0) / layers.length).toFixed(1) : '—';
     return {
       roles: ROLES.map((r, i) => ({ label: r.label, on: i === role, bg: i === role ? '#121212' : '#fff', fg: i === role ? '#fff' : '#121212', onClick: () => this.setState({ role: i }) })),
       roleSlug: R.slug, layers, layerCount: layers.length, avg,
-      allCats: d ? d.CATEGORIES.map(c => ({ name: c.name, href: 'Category Hub.dc.html?category=' + c.slug, n: I.filter(i => i.cat === c.slug).length + ' pages' })) : [],
+      allCats: d ? d.CATEGORIES.map(c => ({ name: c.name, href: '/' + c.slug + '/', n: I.filter(i => i.cat === c.slug).length + ' pages' })) : [],
     };
   }
 }

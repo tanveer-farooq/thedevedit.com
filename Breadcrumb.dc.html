@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12px;line-height:18px;color:#666">
-  <a href="./" style="color:#666;text-decoration:none" style-hover="color:#121212">Home</a>
+  <a href="/" style="color:#666;text-decoration:none" style-hover="color:#121212">Home</a>
   <span aria-hidden="true">›</span>
   <sc-if value="{{ hasCat }}" hint-placeholder-val="{{ true }}">
     <a href="{{ catHref }}" style="color:#666;text-decoration:none" style-hover="color:#121212">{{ catName }}</a>
@@ -27,7 +27,7 @@ class Component extends DCLogic {
     const cat = this.props.category;
     const name = CAT_NAMES[cat];
     const title = this.props.title ?? '';
-    return { hasCat: !!name, hasCatAndTitle: !!name && !!title, catName: name, catHref: 'Category Hub.dc.html?category=' + cat, title };
+    return { hasCat: !!name, hasCatAndTitle: !!name && !!title, catName: name, catHref: '/' + cat + '/', title };
   }
 }
 </script>

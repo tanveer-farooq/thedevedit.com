@@ -2,17 +2,19 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Old URL: send visitors to the clean one. Doesn't run when this file is imported as a template. -->
+<script>location.replace('/' + (new URLSearchParams(location.search).get('category') || 'testing') + '/')</script>
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -93,27 +95,26 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;category&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ai&quot;,&quot;dev-tools&quot;,&quot;testing&quot;,&quot;devops&quot;,&quot;data&quot;,&quot;security&quot;,&quot;it-management&quot;,&quot;productivity&quot;],&quot;default&quot;:&quot;testing&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const SECS = [
-  ['listicles', 'Listicles', '// RANKED LISTS', 'listicles'],
+  ['tools', 'Tools', '// RANKED LISTS', 'tools'],
   ['reviews', 'Reviews', '// TOOL REVIEWS', 'reviews'],
   ['alternatives', 'Alternatives', '// SWITCHING?', 'alternatives'],
   ['compare', 'Comparisons', '// HEAD TO HEAD', 'compare'],
 ];
 class Component extends DCLogic {
   state = { data: null, faq: { 0: true } };
-  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ data: m })); }
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ data: m })); }
   renderVals() {
     const d = this.state.data;
-    let slug = this.props.category ?? 'testing';
-    try { slug = new URLSearchParams(location.search).get('category') || slug; } catch (e) {}
+    const slug = this.props.category ?? 'testing';
     const cat = d ? d.catBySlug(slug) : { slug, name: '', desc: '' };
-    const tagged = d ? d.ITEMS.filter(i => i.cat === cat.slug) : [];
+    const tagged = d ? d.ITEMS.filter(i => d.inCat(i, cat.slug)) : [];
     const sections = SECS.map(([type, title, eyebrow]) => {
       const all = tagged.filter(i => i.type === type);
-      return { id: type, type, title, eyebrow, total: all.length, items: all.slice(0, 8), isReviews: type === 'reviews', isArticles: type !== 'reviews', allHref: `Index.dc.html?type=${type}&category=${cat.slug}` };
+      return { id: type, type, title, eyebrow, total: all.length, items: all.slice(0, 8), isReviews: type === 'reviews', isArticles: type !== 'reviews', allHref: `/${type}/?category=${cat.slug}` };
     }).filter(s => s.total > 0);
     const FAQS = [
       { q: `How do you test ${cat.name} tools?`, a: 'Every tool is installed and used on the same task by a named author. Scores, prices and screenshots come from that run, not vendor copy.' },
-      { q: 'How often are pages updated?', a: 'Listicles are re-tested and re-priced at least monthly. The date on each card is the last test.' },
+      { q: 'How often are pages updated?', a: 'Tool lists are re-tested and re-priced at least monthly. The date on each card is the last test.' },
       { q: 'Can vendors pay for a ranking?', a: 'No. Some links earn a commission, and sponsored slots are always labelled. Neither changes a score.' },
     ];
     return {

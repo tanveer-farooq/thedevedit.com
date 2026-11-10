@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Anton&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -32,7 +32,7 @@
   </section>
 
   <section style="max-width:1440px;margin:0 auto;padding:32px 32px 0;display:flex;flex-wrap:wrap;gap:32px">
-    <a href="Listicle.dc.html" style="flex:2 1 560px;display:flex;flex-direction:column;gap:18px;color:#121212;text-decoration:none;min-width:0">
+    <a href="/automation-testing-tools/" style="flex:2 1 560px;display:flex;flex-direction:column;gap:18px;color:#121212;text-decoration:none;min-width:0">
       <div style="position:relative;aspect-ratio:16/9;background:radial-gradient(60% 80% at 15% 20%, #336EF6 0%, transparent 60%), radial-gradient(55% 70% at 90% 90%, #FFCD00 0%, transparent 65%), #121212;color:#fff;display:grid;place-items:center;overflow:hidden">
         <span style="position:absolute;top:18px;left:20px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em">LEAD STORY · TESTING &amp; QA</span>
         <div style="border:1.5px solid #fff;padding:20px 28px;display:flex;flex-direction:column;align-items:center">
@@ -59,7 +59,7 @@
     <div style="background:#FFCD00;border:1px solid #121212;padding:32px;display:flex;flex-direction:column;gap:24px">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
         <h2 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:56px;line-height:.95;text-transform:uppercase">Head to head</h2>
-        <a href="Index.dc.html?type=compare" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">All comparisons →</a>
+        <a href="/compare/" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">All comparisons →</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:#121212;border:1px solid #121212">
         <sc-for list="{{ vs }}" as="v" hint-placeholder-count="4">
@@ -100,24 +100,24 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const KICK = { listicles: 'LISTICLE', reviews: 'REVIEW', compare: 'COMPARE', alternatives: 'SWITCHING' };
+const KICK = { tools: 'TOOLS', reviews: 'REVIEW', compare: 'COMPARE', alternatives: 'SWITCHING' };
 class Component extends DCLogic {
   state = { d: null };
-  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
   renderVals() {
     const d = this.state.d;
     if (!d) return { desks: [], toc: [], vs: [], deskCols: [] };
     const I = d.ITEMS, name = s => d.catBySlug(s).name;
     const t = i => i.type === 'reviews' ? `${i.title} review` : i.title;
-    const pick = [I.find(i => i.cat === 'ai' && i.type === 'listicles'), I.find(i => i.type === 'reviews' && i.tool === 'Datadog'), I.find(i => i.cat === 'data' && i.type === 'listicles'), I.find(i => i.type === 'alternatives' && i.tool === 'Notion'), I.find(i => i.cat === 'security' && i.type === 'listicles'), I.find(i => i.type === 'reviews' && i.tool === 'Linear'), I.find(i => i.cat === 'dev-tools' && i.type === 'compare')].filter(Boolean);
+    const pick = [I.find(i => i.cat === 'ai' && i.type === 'tools'), I.find(i => i.type === 'reviews' && i.tool === 'Datadog'), I.find(i => i.cat === 'data' && i.type === 'tools'), I.find(i => i.type === 'alternatives' && i.tool === 'Notion'), I.find(i => i.cat === 'security' && i.type === 'tools'), I.find(i => i.type === 'reviews' && i.tool === 'Linear'), I.find(i => i.cat === 'dev-tools' && i.type === 'compare')].filter(Boolean);
     return {
-      desks: d.CATEGORIES.map(c => ({ name: c.name, href: 'Category Hub.dc.html?category=' + c.slug })),
+      desks: d.CATEGORIES.map(c => ({ name: c.name, href: '/' + c.slug + '/' })),
       toc: pick.map((i, n) => ({ n: String(n + 2).padStart(2, '0'), kicker: `${KICK[i.type]} · ${name(i.cat).toUpperCase()}`, title: t(i), href: i.href })),
       vs: I.filter(i => i.type === 'compare').slice(0, 8).filter((_, n) => n % 2 === 0).slice(0, 4).map(i => ({ ...i, cat: name(i.cat).toUpperCase() })),
       deskCols: d.CATEGORIES.map(c => {
         const mine = I.filter(i => i.cat === c.slug);
-        const lead = mine.find(i => i.type === 'listicles');
-        return { name: c.name.toUpperCase(), href: 'Category Hub.dc.html?category=' + c.slug, lead, more: [mine.find(i => i.type === 'reviews'), mine.find(i => i.type === 'alternatives')].filter(Boolean).map(i => ({ title: t(i), href: i.href })) };
+        const lead = mine.find(i => i.type === 'tools');
+        return { name: c.name.toUpperCase(), href: '/' + c.slug + '/', lead, more: [mine.find(i => i.type === 'reviews'), mine.find(i => i.type === 'alternatives')].filter(Boolean).map(i => ({ title: t(i), href: i.href })) };
       }),
     };
   }

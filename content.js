@@ -11,7 +11,7 @@ export const CATEGORIES = [
 ];
 
 export const TYPES = {
-  listicles: { label: 'Listicles', eyebrow: 'LISTICLE', h1: 'All listicles', desc: 'Every ranked list we publish, re-tested and re-priced at least monthly.' },
+  tools: { label: 'Tools', eyebrow: 'TOOLS', h1: 'All tool lists', desc: 'Every ranked list we publish, re-tested and re-priced at least monthly.' },
   reviews: { label: 'Reviews', eyebrow: 'REVIEW', h1: 'All reviews', desc: 'One page per tool: our score, pricing, what we tested and who it suits.' },
   compare: { label: 'Compare', eyebrow: 'COMPARISON', h1: 'All comparisons', desc: 'Two tools, the same tests, one verdict.' },
   alternatives: { label: 'Alternatives', eyebrow: 'ALTERNATIVES', h1: 'All alternatives', desc: 'Switching away from a tool? Ranked replacements, with migration notes.' },
@@ -20,7 +20,7 @@ export const TYPES = {
 const slug = s => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const ini = n => n.replace(/[^A-Za-z0-9 ]/g, '').split(' ').map(w => w[0]).join('').slice(0, 2).replace(/^(.)$/, (m) => n.slice(0, 2));
 
-// [category, listicle topics[], reviews [name, one-liner, rating][], alternatives [tool][], comparisons [a,b][]]
+// [category, tool list topics[], reviews [name, one-liner, rating][], alternatives [tool][], comparisons [a,b][]]
 const RAW = {
   ai: [
     ['AI coding assistants', 'Vector databases', 'AI agent builders', 'Open source LLMs', 'AI automation tools', 'AI productivity tools', 'AI governance tools'],
@@ -38,7 +38,7 @@ const RAW = {
     ['Automation testing tools', 'API testing tools', 'Performance testing tools', 'Visual testing tools', 'Mobile testing tools', 'Regression testing tools', 'Testing tools for Python'],
     [['Playwright', 'Open-source browser automation from Microsoft', 9.4], ['TestMu AI', 'Cloud grid with AI-native test authoring', 9.1], ['Cypress', 'Developer-friendly front-end testing', 8.7], ['Selenium', 'The original WebDriver standard', 8.2], ['Postman', 'API design, testing and mocking', 8.6], ['Grafana k6', 'Scriptable load testing in JavaScript', 8.4], ['Katalon', 'Low-code test automation suite', 7.9]],
     ['BrowserStack', 'Cypress', 'Selenium', 'Postman'],
-    [['cypress', 'playwright'], ['playwright', 'selenium'], ['jmeter', 'k6']],
+    [['cypress', 'playwright'], ['playwright', 'selenium'], ['jmeter', 'grafana-k6']],
   ],
   devops: [
     ['APM tools', 'Network monitoring tools', 'Incident management software', 'CI/CD tools', 'Log management tools', 'Alert management software'],
@@ -56,7 +56,7 @@ const RAW = {
     ['SIEM tools', 'Endpoint security software', 'DAST tools', 'Cyber security tools', 'Mobile security software', 'Password managers'],
     [['CrowdStrike Falcon', 'Endpoint detection with low false positives', 9.0], ['Splunk', 'SIEM and log search at enterprise scale', 8.4], ['Burp Suite', 'The standard for web app security testing', 8.8], ['1Password', 'Team password manager with SSO and SCIM', 9.1], ['Snyk', 'Dependency and code scanning in CI', 8.5], ['Wiz', 'Agentless cloud security posture', 8.7]],
     ['Splunk', 'LastPass', 'Snyk'],
-    [['1password', 'bitwarden'], ['crowdstrike', 'sentinelone']],
+    [['1password', 'bitwarden'], ['crowdstrike-falcon', 'sentinelone']],
   ],
   'it-management': [
     ['Remote desktop software', 'MDM software', 'RMM software', 'Virtualization software', 'IT asset management software', 'Help desk software'],
@@ -75,16 +75,24 @@ const RAW = {
 const DATES = ['Sep 28', 'Sep 26', 'Sep 22', 'Sep 18', 'Sep 14', 'Sep 10', 'Sep 04', 'Aug 30'];
 const pretty = s => s.split('-').map(w => w === 'ci' ? 'CI' : w === 'vs' ? 'VS' : w[0].toUpperCase() + w.slice(1)).join(' ').replace('Github', 'GitHub').replace('Bigquery', 'BigQuery').replace('Sentinelone', 'SentinelOne').replace('Crowdstrike', 'CrowdStrike').replace('Jetbrains', 'JetBrains').replace('Gitlab', 'GitLab').replace('New Relic', 'New Relic').replace('K6', 'k6').replace('Jmeter', 'JMeter').replace('Anydesk', 'AnyDesk').replace('Teamviewer', 'TeamViewer').replace('1password', '1Password');
 
+// Only one post of each type has a page so far; every other post links to it.
+const SAMPLE = { tools: '/automation-testing-tools/', reviews: '/playwright-review/', alternatives: '/browserstack-alternatives/' };
+// Extra category hub a post also appears on (at most one), keyed by its URL. Its main category stays `cat`.
+const ALSO = { '/docker-review/': ['devops'], '/docker-alternatives/': ['devops'], '/grafana-k6-review/': ['devops'], '/snyk-review/': ['dev-tools'], '/snyk-alternatives/': ['dev-tools'], '/vector-databases/': ['data'], '/pinecone-review/': ['data'] };
+
+// URLs: every post sits at the root. Tools /{topic}/, reviews /{tool}-review/, alternatives /{tool}-alternatives/, comparisons /{a}-vs-{b}/ (alphabetical).
 export const ITEMS = [];
 for (const [cat, [lists, reviews, alts, comps]] of Object.entries(RAW)) {
-  lists.forEach((t, i) => ITEMS.push({ type: 'listicles', cat, title: `Best ${t.replace(/^([A-Z])(?=[a-z])/, c => c.toLowerCase())}`, summary: `${7 + (i % 4)} tools ranked after hands-on testing.`, url: `/${cat}/${slug(t)}/`, href: 'Listicle.dc.html', date: DATES[i % 8] }));
-  reviews.forEach(([n, d, r], i) => ITEMS.push({ type: 'reviews', cat, title: n, tool: n, logo: ini(n), summary: d, rating: r.toFixed(1), url: `/reviews/${slug(n)}/`, href: 'Review.dc.html', date: DATES[(i + 2) % 8] }));
-  alts.forEach((n, i) => ITEMS.push({ type: 'alternatives', cat, title: `${n} alternatives`, tool: n, logo: ini(n), summary: `${6 + i} replacements, with migration notes.`, url: `/alternatives/${slug(n)}/`, href: 'Alternatives.dc.html', date: DATES[(i + 1) % 8] }));
-  comps.forEach(([a, b], i) => { const [x, y] = [a, b].sort(); ITEMS.push({ type: 'compare', cat, title: `${pretty(x)} vs ${pretty(y)}`, summary: 'Same tests, side by side, one verdict.', url: `/compare/${x}-vs-${y}/`, href: '#', date: DATES[(i + 3) % 8], la: ini(pretty(x)), lb: ini(pretty(y)) }); });
+  lists.forEach((t, i) => ITEMS.push({ type: 'tools', cat, title: `Best ${t.replace(/^([A-Z])(?=[a-z])/, c => c.toLowerCase())}`, summary: `${7 + (i % 4)} tools ranked after hands-on testing.`, url: `/${slug(t)}/`, date: DATES[i % 8] }));
+  reviews.forEach(([n, d, r], i) => ITEMS.push({ type: 'reviews', cat, title: n, tool: n, logo: ini(n), summary: d, rating: r.toFixed(1), url: `/${slug(n)}-review/`, date: DATES[(i + 2) % 8] }));
+  alts.forEach((n, i) => ITEMS.push({ type: 'alternatives', cat, title: `${n} alternatives`, tool: n, logo: ini(n), summary: `${6 + i} replacements, with migration notes.`, url: `/${slug(n)}-alternatives/`, date: DATES[(i + 1) % 8] }));
+  comps.forEach(([a, b], i) => { const [x, y] = [a, b].sort(); ITEMS.push({ type: 'compare', cat, title: `${pretty(x)} vs ${pretty(y)}`, summary: 'Same tests, side by side, one verdict.', url: `/${x}-vs-${y}/`, date: DATES[(i + 3) % 8], la: ini(pretty(x)), lb: ini(pretty(y)) }); });
 }
+ITEMS.forEach(i => { i.href = SAMPLE[i.type] || '#'; if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
 export const catBySlug = s => CATEGORIES.find(c => c.slug === s) || CATEGORIES[2];
-export const reviewHref = name => ITEMS.find(i => i.type === 'reviews' && i.tool === name) ? 'Review.dc.html' : '#';
-export const reviewUrl = name => `/reviews/${slug(name)}/`;
+export const inCat = (i, c) => i.cat === c || (i.also || []).includes(c);
+export const reviewHref = name => ITEMS.find(i => i.type === 'reviews' && i.tool === name) ? SAMPLE.reviews : '#';
+export const reviewUrl = name => `/${slug(name)}-review/`;
 export const qs = k => { try { return new URLSearchParams(location.search).get(k); } catch (e) { return null; } };
 export const load = () => Promise.resolve({ CATEGORIES, TYPES, ITEMS, catBySlug, qs, reviewUrl });

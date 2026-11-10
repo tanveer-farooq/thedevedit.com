@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}</style>
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}</style>
 </helmet>
 <header style="width:100%;font-family:'BDO Grotesk','Manrope',sans-serif;position:relative;z-index:30">
   <div style="background:#121212;color:#fff;padding:9px 20px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;line-height:20px">
@@ -22,7 +22,7 @@
   </div>
   <div style="background:#F5F4F0;border-bottom:1px solid #D3D2CD;position:relative" onMouseLeave="{{ closeCats }}">
     <div style="max-width:1440px;margin:0 auto;padding:12px 32px;min-height:64px;display:flex;align-items:center;gap:12px 28px">
-      <a href="./" style="display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none;flex-shrink:0">
+      <a href="/" style="display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none;flex-shrink:0">
         <span style="width:24px;height:24px;background:#121212;display:grid;place-items:center"><span style="width:8px;height:8px;background:#FFCD00"></span></span>
         <span style="font-size:18px;font-weight:600;letter-spacing:-.02em">TheDev<span style="color:#7f806f">Edit</span></span>
       </a>
@@ -106,8 +106,8 @@
 const NS = () => window.TestMuAIDesignSystem_679a62;
 const ic = (name, size) => NS() && NS().Icon ? React.createElement(NS().Icon, { name, size }) : null;
 const CATS = [['ai','AI & LLMs','AiAgent'],['dev-tools','Developer Tools','CodeXml'],['testing','Testing & QA','TestFlask'],['devops','DevOps & Observability','Gauge'],['data','Data & Databases','StackDatabase'],['security','Security','ShieldCheck'],['it-management','IT Management','DesktopSettings'],['productivity','Productivity & Collaboration','Notes']];
-const LINKS = [['listicles','Listicles'],['reviews','Reviews'],['compare','Compare'],['alternatives','Alternatives']];
-const KIND = { listicles:'LISTICLE', reviews:'REVIEW', compare:'COMPARE', alternatives:'ALTERNATIVES' };
+const LINKS = [['tools','Tools'],['reviews','Reviews'],['compare','Compare'],['alternatives','Alternatives']];
+const KIND = { tools:'TOOLS', reviews:'REVIEW', compare:'COMPARE', alternatives:'ALTERNATIVES' };
 class Component extends DCLogic {
   state = { catsOpen:false, menuOpen:false, mobCatsOpen:false, searchOpen:false, q:'', w: typeof window !== 'undefined' ? window.innerWidth : 1440, items: [] };
   inputRef = React.createRef();
@@ -116,17 +116,17 @@ class Component extends DCLogic {
     this._k = e => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); this.open(); } if (e.key === 'Escape') this.setState({ searchOpen:false, catsOpen:false }); };
     window.addEventListener('resize', this._r); window.addEventListener('keydown', this._k);
     if (!NS()) this._t = setInterval(() => { if (NS()) { clearInterval(this._t); this.forceUpdate(); } }, 300);
-    import(new URL('content.js', document.baseURI).href).then(m => this.setState({ items: m.ITEMS })).catch(() => {});
+    import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ items: m.ITEMS })).catch(() => {});
   }
   componentWillUnmount() { window.removeEventListener('resize', this._r); window.removeEventListener('keydown', this._k); clearInterval(this._t); }
   open() { this.setState({ searchOpen:true, menuOpen:false, catsOpen:false }, () => setTimeout(() => this.inputRef.current && this.inputRef.current.focus(), 30)); }
   renderVals() {
     const s = this.state, mobile = s.w < 960, compact = s.w < 1180;
     let page = '';
-    try { page = new URLSearchParams(location.search).get('type') || ''; } catch (e) {}
+    try { page = location.pathname.split('/')[1]; } catch (e) {}
     const q = s.q.trim().toLowerCase();
     const pool = s.items.filter(i => !q || (i.title + ' ' + (i.summary || '')).toLowerCase().includes(q));
-    const results = (q ? pool : pool.filter(i => i.type === 'reviews' || i.type === 'listicles')).slice(0, 8).map(i => ({ title: i.type === 'reviews' ? i.title + ' review' : i.title, url: i.url, href: i.href, kind: KIND[i.type], mark: i.logo || (i.type === 'compare' ? 'vs' : '#') }));
+    const results = (q ? pool : pool.filter(i => i.type === 'reviews' || i.type === 'tools')).slice(0, 8).map(i => ({ title: i.type === 'reviews' ? i.title + ' review' : i.title, url: i.url, href: i.href, kind: KIND[i.type], mark: i.logo || (i.type === 'compare' ? 'vs' : '#') }));
     return {
       desktop: !mobile, mobile, searchFull: !compact, searchW: compact ? '44px' : '240px',
       catsOpen: s.catsOpen, menuOpen: s.menuOpen, mobCatsOpen: s.mobCatsOpen, searchOpen: s.searchOpen, q: s.q,
@@ -136,8 +136,8 @@ class Component extends DCLogic {
       toggleMenu: () => this.setState(x => ({ menuOpen: !x.menuOpen })), toggleMobCats: () => this.setState(x => ({ mobCatsOpen: !x.mobCatsOpen })),
       openSearch: () => this.open(), closeSearch: () => this.setState({ searchOpen: false }), stop: e => e.stopPropagation(),
       onQ: e => this.setState({ q: e.target.value }), inputRef: this.inputRef,
-      cats: CATS.map(([slug, name, icon]) => ({ name, href: 'Category Hub.dc.html?category=' + slug, icon: ic(icon, 16) })),
-      links: LINKS.map(([t, label]) => ({ label, href: 'Index.dc.html?type=' + t, bar: page === t ? '#121212' : 'transparent' })),
+      cats: CATS.map(([slug, name, icon]) => ({ name, href: '/' + slug + '/', icon: ic(icon, 16) })),
+      links: LINKS.map(([t, label]) => ({ label, href: '/' + t + '/', bar: page === t ? '#121212' : 'transparent' })),
       results, resultsLabel: q ? `${pool.length} RESULTS` : 'POPULAR',
     };
   }

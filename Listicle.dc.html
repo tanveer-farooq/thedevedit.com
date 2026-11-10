@@ -2,18 +2,20 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Old URL: send visitors to the clean one. Doesn't run when this file is imported as a template. -->
+<script>location.replace('/automation-testing-tools/' + location.hash)</script>
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
-  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="/image-slot.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -77,13 +79,13 @@
         <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:6px">
           <image-slot id="author-priya" shape="circle" placeholder="Photo" style="width:40px;height:40px;flex-shrink:0"></image-slot>
           <div style="display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:20px">
-            <span><a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Priya Raman</a><span style="color:#666">, QA lead. Reviewed by </span><a href="How We Rank.dc.html" style="font-weight:600;color:#121212;text-decoration:none">Marcus Lee</a></span>
+            <span><a href="/how-we-test/" style="font-weight:600;color:#121212;text-decoration:none">Priya Raman</a><span style="color:#666">, QA lead. Reviewed by </span><a href="/how-we-test/" style="font-weight:600;color:#121212;text-decoration:none">Marcus Lee</a></span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">14 min read · 10 tools tested · 30 test runs</span>
           </div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border:1px solid #D3D2CD;background:#fff;font-size:13px;line-height:20px;color:#4D4D4D">
           <span style="flex-shrink:0;margin-top:2px;color:#121212"><x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ShieldCheck" size="16" hint-size="16px,16px"></x-import></span>
-          <span>We test every tool ourselves, and vendors cannot pay for a ranking. Some links earn us a commission. <a href="How We Rank.dc.html" style="color:#121212;text-underline-offset:3px">How we test</a></span>
+          <span>We test every tool ourselves, and vendors cannot pay for a ranking. Some links earn us a commission. <a href="/how-we-test/" style="color:#121212;text-underline-offset:3px">How we test</a></span>
         </div>
       </section>
 
@@ -132,7 +134,7 @@
             <span style="margin-top:8px"><span style="color:#68d08b">$</span> <span style="display:inline-block;width:7px;height:14px;background:#edebe6;vertical-align:text-bottom"></span></span>
           </div>
         </div>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">Each tool was scored on stability, authoring speed, browser coverage, CI fit and price at 10 parallel runs. Full method on <a href="How We Rank.dc.html" style="color:#121212;text-underline-offset:3px">How we test</a>.</p>
+        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">Each tool was scored on stability, authoring speed, browser coverage, CI fit and price at 10 parallel runs. Full method on <a href="/how-we-test/" style="color:#121212;text-underline-offset:3px">How we test</a>.</p>
       </section>
 
       <section id="compare" style="display:flex;flex-direction:column;gap:18px">
@@ -219,7 +221,7 @@
               <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
                   <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">{{ t.initial }}</span>
-                  <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em"><a href="Review.dc.html" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ t.name }}</a></h3>
+                  <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em"><a href="/playwright-review/" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ t.name }}</a></h3>
                   <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">{{ t.bestFor }}</span>
                 </div>
                 <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">{{ t.summary }}</p>
@@ -338,7 +340,7 @@
           <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">ABOUT THE AUTHOR</span>
           <span style="font-size:20px;font-weight:500">Priya Raman</span>
           <span style="font-size:15px;line-height:24px;color:#4D4D4D">QA lead with 11 years in test automation at fintech and e-commerce teams. Has shipped Selenium, Cypress and Playwright suites past 4,000 tests.</span>
-          <a href="How We Rank.dc.html" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">More from Priya</a>
+          <a href="/how-we-test/" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">More from Priya</a>
         </div>
       </section>
 
@@ -402,7 +404,7 @@
             <div style="background:#fff;display:flex;flex-direction:column">
               <div style="padding:20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #ebeae5">
                 <span style="font-family:'Pixelify Sans',monospace;font-size:28px;color:#7f806f">{{ c.rankLabel }}</span>
-                <span style="font-size:22px;font-weight:500;letter-spacing:-.02em"><a href="Review.dc.html" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ c.name }}</a></span>
+                <span style="font-size:22px;font-weight:500;letter-spacing:-.02em"><a href="/playwright-review/" style="color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ c.name }}</a></span>
               </div>
               <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">BEST FOR</span><span style="font-size:14px;line-height:21px">{{ c.bestFor }}</span></div>
               <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">PRICING</span><span style="font-size:14px;line-height:21px">{{ c.pricingDetail }}</span></div>

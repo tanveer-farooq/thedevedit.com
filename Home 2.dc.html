@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <style>@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
     html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
@@ -100,27 +100,27 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const KIND = { listicles: ['LISTICLE', '#FFCD00'], reviews: ['REVIEW', '#8fb0fa'], compare: ['COMPARE', '#FFCD00'], alternatives: ['ALTERNATIVES', '#b5b89a'] };
-const DOT = { listicles: '#121212', reviews: '#336EF6', compare: '#FFCD00', alternatives: '#7f806f' };
+const KIND = { tools: ['TOOLS', '#FFCD00'], reviews: ['REVIEW', '#8fb0fa'], compare: ['COMPARE', '#FFCD00'], alternatives: ['ALTERNATIVES', '#b5b89a'] };
+const DOT = { tools: '#121212', reviews: '#336EF6', compare: '#FFCD00', alternatives: '#7f806f' };
 const TRIES = ['etl', 'datadog', 'playwright', 'siem', 'notion'];
 class Component extends DCLogic {
   state = { d: null, q: '' };
-  componentDidMount() { import(new URL('content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
   renderVals() {
     const { d, q } = this.state;
     const items = d ? d.ITEMS : [];
     const qq = q.trim().toLowerCase();
     const pool = qq ? items.filter(i => (i.title + ' ' + i.summary + ' ' + i.url).toLowerCase().includes(qq)) : items.filter(i => i.date === 'Sep 28' || i.date === 'Sep 26');
-    const order = ['listicles', 'reviews', 'compare', 'alternatives'];
+    const order = ['tools', 'reviews', 'compare', 'alternatives'];
     return {
       q, onQ: e => this.setState({ q: e.target.value }),
       hitCount: qq ? `${pool.length} matches` : 'latest',
       hits: pool.slice(0, 6).map(i => ({ kind: KIND[i.type][0], color: KIND[i.type][1], title: i.type === 'reviews' ? i.title + ' review' : i.title, url: i.url, href: i.href })),
       tries: TRIES.map(t => ({ label: t, onClick: () => this.setState({ q: t }) })),
-      formats: d ? order.map(t => ({ n: items.filter(i => i.type === t).length, label: d.TYPES[t].label.toUpperCase(), href: 'Index.dc.html?type=' + t })) : [],
+      formats: d ? order.map(t => ({ n: items.filter(i => i.type === t).length, label: d.TYPES[t].label.toUpperCase(), href: '/' + t + '/' })) : [],
       index: d ? d.CATEGORIES.map(c => {
         const mine = items.filter(i => i.cat === c.slug).sort((a, b) => order.indexOf(a.type) - order.indexOf(b.type));
-        return { name: c.name, path: `/${c.slug}/`, href: 'Category Hub.dc.html?category=' + c.slug, total: mine.length,
+        return { name: c.name, path: `/${c.slug}/`, href: '/' + c.slug + '/', total: mine.length,
           rows: mine.slice(0, 9).map(i => ({ title: i.type === 'reviews' ? i.title + ' review' : i.title, href: i.href, dot: DOT[i.type], meta: i.rating || i.date })) };
       }) : [],
     };
