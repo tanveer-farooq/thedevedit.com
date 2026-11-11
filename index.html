@@ -282,7 +282,7 @@ const VOICES = PEOPLE.map(p => ({ ...p, href: '#', hasPhoto: !!p.photo, noPhoto:
 const rerank = idx => idx.map((k, n) => ({ ...VOICES[k], rank: String(n + 1).padStart(2, '0') }));
 const VOICE_VALS = { vC: [VOICES[0], VOICES[2], VOICES[3]], vMost: rerank([2, 0, 3, 1]) };
 class Component extends DCLogic {
-  state = { d: null, desk: 2 };
+  state = { d: null, desk: 0 };
   componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
   renderVals() {
     const d = this.state.d;
