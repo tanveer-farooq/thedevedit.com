@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best vector databases | TheDevEdit</title>
+<meta name="description" content="The 7 best vector databases for RAG and semantic search in 2026, scored from vendor docs on search features, deployment, pricing and data controls. Prices checked Nov 15, 2026.">
+<link rel="canonical" href="https://thedevedit.com/vector-databases/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://thedevedit.com/vector-databases/#article",
+   "headline": "The 7 best vector databases for 2026",
+   "description": "The 7 best vector databases for RAG and semantic search in 2026, scored from vendor docs on search features, deployment, pricing and data controls. Prices checked Nov 15, 2026.",
+   "datePublished": "2026-11-15",
+   "dateModified": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/vector-databases/"
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://thedevedit.com/vector-databases/#tools",
+   "name": "The 7 best vector databases for 2026",
+   "itemListOrder": "https://schema.org/ItemListOrderDescending",
+   "numberOfItems": 7,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Pinecone"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Weaviate"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Qdrant"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "turbopuffer"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "Supabase"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "Upstash Vector"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "Chroma"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://thedevedit.com/vector-databases/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is a vector database?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A vector database stores embeddings, the number arrays a model makes from text or images, and returns the items closest to a query. Most on this list also filter by metadata and mix in keyword search, which RAG apps use to fetch the right passages."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a separate vector database if I already use Postgres?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not always: pgvector adds vector search to Postgres, and Supabase documents hybrid search with tsvector and pgvector in one database. A dedicated database adds features we found no Supabase docs for, such as tenant partitions and server-side reranking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which vector database is free to start?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pinecone, Weaviate, Qdrant, Supabase, Upstash Vector and Chroma all list a free tier as of Nov 2026; turbopuffer does not. Supabase pauses free projects after one week idle, and Chroma's free Starter plan comes with $5 in monthly credits."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is hybrid search in a vector database?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hybrid search runs a vector search and a keyword search, then fuses the two result lists into one ranking. Every database here documents a form of it, and several fuse results with reciprocal rank fusion (RRF)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which vector databases can I self-host?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Weaviate, Qdrant, Supabase and Chroma document self-hosting. Pinecone and turbopuffer instead offer BYOC, deployment into your own cloud account. We found only managed cloud for Upstash Vector."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="/image-slot.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212;text-decoration-color:#121212}
+    html{scroll-padding-top:120px}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}
+    .tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+    .tdt-wrap{container-type:inline-size;container-name:tdt}
+    .tdt{display:flex;flex-direction:column;background:#fff;border:1px solid #e2e1dc;border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(18,18,18,.04)}
+    .tdt-row{display:grid;grid-template-columns:24px minmax(170px,2fr) minmax(150px,1.6fr) minmax(90px,1fr) minmax(80px,.9fr) 64px 74px;column-gap:10px;align-items:center;padding:0 16px;border-top:1px solid #efeee9;transition:background .15s}
+    .tdt-row>*{padding:16px 0;min-width:0}
+    .tdt-row:not(.tdt-head):hover{background:#fafaf7}
+    .tdt-head{border-top:0;background:#f7f6f2;font-size:12.5px;font-weight:600;color:#55554f}
+    .tdt-head>*{padding:12px 0}
+    .tdt-visit{text-align:right}
+    @container tdt (max-width:640px){
+      .tdt-head{display:none}
+      .tdt-row{position:relative;grid-template-columns:1fr 1fr;row-gap:6px;padding:14px 16px}
+      .tdt-row>*{padding:3px 0}
+      .tdt-chk{position:absolute;top:22px;right:16px;padding:0}
+      .tdt-tool{grid-column:1/-1;padding-right:28px}
+      .tdt-cell::before{content:attr(data-l);display:block;font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#8a8a84;margin-bottom:2px}
+      .tdt-visit{grid-column:1/-1;text-align:left;padding-top:8px}
+    }
+    [data-ord="1"]{order:1}[data-ord="2"]{order:2}[data-ord="3"]{order:3}[data-ord="4"]{order:4}[data-ord="5"]{order:5}[data-ord="6"]{order:6}[data-ord="7"]{order:7}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <div style="max-width:1440px;margin:0 auto;padding:40px 32px 96px;display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;justify-content:center">
+
+    <aside style="position:sticky;top:24px;flex:0 0 220px;display:flex;flex-direction:column;gap:28px;padding-top:8px">
+      <nav aria-label="On this page" style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">ON THIS PAGE</span>
+        <a href="#summary" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The short answer</a>
+        <a href="#compare" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">Best vector databases compared</a>
+        <a href="#reviews" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The reviews</a>
+        <a href="#faq" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">FAQ</a>
+      </nav>
+      <nav aria-label="Jump to tool" style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">JUMP TO TOOL</span>
+        <a href="#tool-pinecone" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">01</span>Pinecone</a>
+        <a href="#tool-weaviate" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">02</span>Weaviate</a>
+        <a href="#tool-qdrant" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">03</span>Qdrant</a>
+        <a href="#tool-turbopuffer" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">04</span>turbopuffer</a>
+        <a href="#tool-supabase" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">05</span>Supabase</a>
+        <a href="#tool-upstash-vector" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">06</span>Upstash Vector</a>
+        <a href="#tool-chroma" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">07</span>Chroma</a>
+      </nav>
+    </aside>
+
+    <main style="min-width:0;flex:1 1 560px;max-width:800px;display:flex;flex-direction:column;gap:64px">
+
+      <section style="display:flex;flex-direction:column;gap:22px">
+        <dc-import name="Breadcrumb" category="ai" title="Best vector databases" hint-size="100%,18px"></dc-import>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">BEST-OF LIST</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;background:#fff;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#3a9460"></span>UPDATED NOV 15, 2026</span>
+        </div>
+        <h1 style="margin:0;font-size:clamp(38px,5.2vw,64px);line-height:1.04;font-weight:500;letter-spacing:-.04em;text-wrap:balance">The 7 best vector databases <span style="color:#7f806f">for 2026</span></h1>
+        <p style="margin:0;font-size:19px;line-height:30px;color:#4D4D4D;max-width:680px;text-wrap:pretty">Vector databases store embeddings and return the closest matches for RAG, semantic search and agent memory. We ranked 7 from vendor docs and pricing pages, scoring search features, deployment, entry price and admin controls.</p>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:6px">
+          <span style="width:40px;height:40px;border-radius:50%;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;flex-shrink:0">TE</span>
+          <div style="display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:20px">
+            <span><span style="font-weight:600;color:#121212">TheDevEdit Editorial Team</span><span style="color:#666">, Editorial team</span></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">8 min read · 7 tools reviewed · prices checked Nov 15, 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:#121212;color:#fff;padding:28px 28px 26px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">THE SHORT ANSWER</span>
+          <p style="margin:0;font-size:20px;line-height:31px;font-weight:400;letter-spacing:-.01em;text-wrap:pretty">Pinecone is the best vector database for most teams on our rubric (9.6/10). It documents hybrid search, tenant namespaces, hosted reranking and integrated embedding, and lists SSO, audit logs and customer-managed keys. Pick Weaviate for open source or Qdrant for self-hosting.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));grid-auto-rows:1fr;gap:16px;align-items:stretch">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST OVERALL</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Pi</span>
+            </div>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Pinecone</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">All five search features, plus a free Starter plan.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://www.pinecone.io/pricing/" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-pinecone" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST OPEN SOURCE</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">We</span>
+            </div>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Weaviate</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Open source, with vectors built in from text and images.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://weaviate.io/pricing" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-weaviate" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST SELF-HOSTED</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Qd</span>
+            </div>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Qdrant</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Self-host, Hybrid Cloud, or managed cloud on one engine.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://qdrant.tech/pricing/" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-qdrant" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="compare" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">COMPARISON TABLE</span>
+            <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Best vector databases compared</h2>
+          </div>
+          <span style="font-size:13px;color:#666">Tick up to 3 tools to compare side by side</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-if value="{{ fOn.all }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">All</button></sc-if>
+            <sc-if value="{{ fOff.all }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">All</button></sc-if>
+            <sc-if value="{{ fOn.free }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.free }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Free tier</button></sc-if>
+            <sc-if value="{{ fOff.free }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.free }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Free tier</button></sc-if>
+            <sc-if value="{{ fOn.self }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.self }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Self-hosted option</button></sc-if>
+            <sc-if value="{{ fOff.self }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.self }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Self-hosted option</button></sc-if>
+            <sc-if value="{{ fOn.sso }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.sso }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Business plan with SSO</button></sc-if>
+            <sc-if value="{{ fOff.sso }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.sso }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Business plan with SSO</button></sc-if>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#666">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M4 6h10"/><path d="M4 12h7"/><path d="M4 18h4"/><path d="M18 6v12"/><path d="M15 15l3 3 3-3"/></svg>
+            Sort
+            <select value="{{ sort }}" onChange="{{ onSort }}" style="height:32px;padding:0 8px;border:1px solid #D3D2CD;border-radius:8px;background:#fff;font:inherit;font-size:13px;color:#121212">
+              <option value="rank">Our ranking</option>
+              <option value="rating">Score</option>
+              <option value="price">Price, low to high</option>
+            </select>
+          </label>
+        </div>
+        <div class="tdt-wrap">
+          <div class="tdt">
+            <div class="tdt-row tdt-head" style="order:0">
+              <span></span><span>Tool</span><span>Pricing</span><span>Deployment</span><span>SSO</span><span>Score</span><span></span>
+            </div>
+            <sc-if value="{{ show.t1 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t1 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t1 }}" onChange="{{ tog.t1 }}" aria-label="Compare Pinecone" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-pinecone" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">01</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Pi</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Pinecone</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Managed RAG search</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Builder $20/mo flat; Standard $50/mo minimum usage</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (Starter)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud + BYOC</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Standard)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.6<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://www.pinecone.io/pricing/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t2 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t2 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t2 }}" onChange="{{ tog.t2 }}" aria-label="Compare Weaviate" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-weaviate" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">02</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">We</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Weaviate</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Open source with built-in embeddings</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Flex from $45/mo, pay as you go; Premium from $400/mo</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (1 cluster)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud + self-hosted</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Premium)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.5<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://weaviate.io/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t3 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t3 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t3 }}" onChange="{{ tog.t3 }}" aria-label="Compare Qdrant" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-qdrant" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">03</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Qd</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Qdrant</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Self-hosting and hybrid cloud</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Standard usage-based, billed hourly; Premium by minimum spend</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (1GB cluster)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud + Hybrid Cloud + self-hosted</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Premium)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.0<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://qdrant.tech/pricing/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t4 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t4 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t4 }}" onChange="{{ tog.t4 }}" aria-label="Compare turbopuffer" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-turbopuffer" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">04</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">tp</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">turbopuffer</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Large search on object storage</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Launch $16/mo minimum usage; Scale $256/mo minimum</span><span style="display:inline-flex;padding:2px 9px;border-radius:12px;background:#f1f0ec;color:#55554f;font-size:12px;line-height:18px;font-weight:500">No free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud + BYOC</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Scale)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.7<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://turbopuffer.com/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t5 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t5 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t5 }}" onChange="{{ tog.t5 }}" aria-label="Compare Supabase" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-supabase" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">05</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Su</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Supabase</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Vectors inside Postgres</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Pro from $25/mo; Team from $599/mo</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (pauses after 1 week idle)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud + self-hosted</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Contact sales (Team)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.2<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://supabase.com/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t6 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t6 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t6 }}" onChange="{{ tog.t6 }}" aria-label="Compare Upstash Vector" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-upstash-vector" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">06</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Up</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Upstash Vector</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Serverless pay per request</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">$0.4 per 100K requests; Fixed $60/mo</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (10K queries a day)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Not documented</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">7.5<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://upstash.com/pricing/vector" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t7 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t7 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t7 }}" onChange="{{ tog.t7 }}" aria-label="Compare Chroma" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-chroma" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">07</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Ch</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Chroma</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Local-first prototyping</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Starter $0 plus usage; Team $250/mo plus usage</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier ($5 monthly credits)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud + self-hosted</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Not documented</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">7.1<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://www.trychroma.com/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+          </div>
+          <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:28px;text-align:center;color:#666;font-size:14px;background:#fff;border:1px solid #e2e1dc;border-top:0;border-radius:0 0 12px 12px">No tools match this filter.</div>
+          </sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12.5px;line-height:19px;color:#666">Prices checked by hand on Nov 15, 2026 from vendor pricing pages, in USD, for the entry paid plans; most plans add usage charges.</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666">How we score: search features 30% · deployment options 15% · free and entry access 15% · pricing clarity 15% · admin and data controls 25%. Editorial scores from official docs and pricing, not hands-on tests.</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666">Vendors can't pay for a ranking. Some links earn us a commission.</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666"><strong style="font-weight:600">How we score:</strong> search features 30% · deployment options 15% · free and entry access 15% · pricing clarity 15% · admin and data controls 25%. Editorial scores from official docs and pricing, not hands-on tests. &quot;We found no&quot; means we did not find it in the vendor's docs. Vendors can't pay for a ranking. Some links earn us a commission.</span>
+        </div>
+      </section>
+
+      <section id="reviews" style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">THE REVIEWS</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">The 7 best vector databases, reviewed</h2>
+        </div>
+        <article id="tool-pinecone" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">01</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Pi</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Pinecone</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for managed RAG search</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Pinecone is a fully managed vector database with hybrid search, hosted reranking and the strongest admin controls in this list.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">9.6<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://www.pinecone.io/pricing/" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Pinecone <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/pinecone.webp" alt="Pinecone homepage" width="1280" height="600" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Pinecone homepage on pinecone.io, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone scores full marks on search features, entry access and admin controls. Its docs cover hybrid search, tenant namespaces, hosted reranking and integrated embedding, and the <a href="https://www.pinecone.io/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a> lists SSO, audit logs, CMEK, private endpoints and SOC 2.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams that want production RAG search without running database servers themselves.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hybrid search:</strong> it <a href="https://docs.pinecone.io/guides/search/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;indexes the text for full-text search and embeds it for semantic search.&quot;</a></li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Namespaces per tenant:</strong> <a href="https://docs.pinecone.io/guides/data/implement-multitenancy" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;each namespace is stored separately&quot;</a>, giving physical isolation between tenants.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hosted reranking:</strong> <a href="https://docs.pinecone.io/guides/search/rerank-results" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">hosted reranking models</a> handle two-stage retrieval on one platform.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Metadata filtering:</strong> filtering <a href="https://docs.pinecone.io/guides/search/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;narrows the candidate pool before ranking&quot;</a>.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrations include LangChain, LlamaIndex, Haystack, n8n, Zapier, Vercel, OpenAI and Cohere, per <a href="https://docs.pinecone.io/integrations/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Pinecone's integrations docs</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, Starter is free, <a href="https://www.pinecone.io/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Builder is $20/month flat</a>, Standard $50/month minimum usage, Enterprise $500/month minimum; BYOC is by quote.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Builder is a flat $20 a month, no minimum.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">RBAC and SAML SSO start on the Standard plan.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">BYOC runs Pinecone inside your own cloud account.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no self-hosted option in its docs.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Audit logs, CMEK and private endpoints need Enterprise.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">BYOC pricing is &quot;Contact us&quot; only.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-weaviate" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">02</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">We</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Weaviate</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best open source with built-in embeddings</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Weaviate is an open-source vector database that builds embeddings for you and runs in its cloud, yours, or on your servers.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">9.5<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://weaviate.io/pricing" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Weaviate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/weaviate.webp" alt="Weaviate homepage" width="1280" height="800" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Weaviate homepage on weaviate.io, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Weaviate takes full marks on search, deployment and entry access. It runs <a href="https://docs.weaviate.io/deploy" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">as Weaviate Cloud or self-managed</a>, offers <a href="https://weaviate.io/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;built-in vector generation&quot;</a>, and has a free cluster plus Flex from $45 a month.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Developers who want open-source vector search without building a separate embedding pipeline.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hybrid search:</strong> it fuses <a href="https://docs.weaviate.io/weaviate/search/hybrid" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">vector and BM25F keyword results</a> into one ranked list.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">MMR reranking:</strong> <a href="https://docs.weaviate.io/weaviate/search/hybrid" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Maximal Marginal Relevance reranks results</a> to balance relevance with diversity.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Multi-tenancy:</strong> <a href="https://docs.weaviate.io/weaviate/manage-collections/multi-tenancy" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Each tenant is stored on a separate shard&quot;</a>, invisible to other tenants.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Built-in vectorizers:</strong> text and images become vectors with <a href="https://weaviate.io/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;no external embedding pipeline required.&quot;</a></li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Model integrations include OpenAI, Anthropic, Cohere, Google, AWS, Mistral, Hugging Face and Ollama, per <a href="https://docs.weaviate.io/weaviate/model-providers" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Weaviate's model provider docs</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, Free is $0 for one cluster, <a href="https://weaviate.io/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Flex starts at $45/mo</a> pay as you go, and Premium is by sales.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">RBAC is included on every plan, Free too.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Self-host it or use Weaviate Cloud.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://weaviate.io/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Weaviate Cloud is SOC 2 audited</a>.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no audit logs in its docs.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SSO needs Premium; customer keys need Premium dedicated.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Flex carries a $45 monthly minimum.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">9</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-qdrant" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">03</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Qd</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Qdrant</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for self-hosting and hybrid cloud</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Qdrant is a vector database you can run in its cloud, on your own Kubernetes, or fully air-gapped on your own servers.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">9.0<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://qdrant.tech/pricing/" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Qdrant <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/qdrant.webp" alt="Qdrant homepage" width="1280" height="800" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Qdrant homepage on qdrant.tech, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Qdrant scores full marks on search and deployment. Its Hybrid Cloud lets you <a href="https://qdrant.tech/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;bring your own Kubernetes&quot;</a>, Private Cloud supports air-gapped setups, and its query API fuses dense and sparse search with re-scoring.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Platform teams that must keep vector data on their own infrastructure or Kubernetes clusters.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hybrid queries:</strong> you can <a href="https://qdrant.tech/documentation/search/hybrid-queries/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">fuse any combination of queries</a>, then re-score candidates with a richer vector.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Filtered search:</strong> filters apply <a href="https://qdrant.tech/documentation/overview/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">during the HNSW search phase</a>, not only afterwards.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Tiered multitenancy:</strong> tenants share collections by payload field; large ones get <a href="https://qdrant.tech/documentation/manage-data/multitenancy/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">dedicated shards</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Cloud inference:</strong> <a href="https://qdrant.tech/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">free cloud inference with selected models</a> creates embeddings inside Qdrant Cloud.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrations include LangChain, LangGraph, LlamaIndex, Haystack, CrewAI, Mastra, DSPy and Mem0, per <a href="https://qdrant.tech/documentation/frameworks/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Qdrant's frameworks docs</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, Free is a <a href="https://qdrant.tech/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">1GB single-node cluster</a>, Standard is usage-based and billed hourly, and Premium needs a minimum spend.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Cloud, Hybrid Cloud and air-gapped Private Cloud options.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://qdrant.tech/documentation/cloud-rbac/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Granular RBAC</a> for Qdrant Cloud resources.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Homepage states <a href="https://qdrant.tech/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;SOC2 &amp; HIPAA compliant&quot;</a>.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Standard shows no published dollar price on the pricing page.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SSO and private VPC links need Premium.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no audit logs in its docs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">7</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">9</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-turbopuffer" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">04</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">tp</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">turbopuffer</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for large search on object storage</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">turbopuffer is an object-storage native search engine that pairs vector search with BM25 full-text search and server-side rank fusion.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.7<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://turbopuffer.com/pricing" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit turbopuffer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/turbopuffer.webp" alt="turbopuffer homepage" width="1280" height="370" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">turbopuffer homepage on turbopuffer.com, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+            <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">turbopuffer says it uses <a href="https://turbopuffer.com/docs" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;only object storage for state and NVMe SSD with memory cache for compute&quot;</a>.</p>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Its docs cover hybrid search, with <a href="https://turbopuffer.com/docs/hybrid" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;server-side rank fusion via RRF&quot;</a> and native reranking. Pricing clarity scores 9 because <a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">every tier has a published price</a>, enterprise included.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams with large or fast-growing indexes that want search costs tied to object storage, not memory.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Native reranking:</strong> <a href="https://turbopuffer.com/docs/hybrid" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">set `rerank_by` on the multi-query</a> to score and reorder combined candidates.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Filtered search:</strong> filters run <a href="https://turbopuffer.com/docs" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;against an inverted index&quot;</a> alongside vector and full-text queries.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Built-in embedding:</strong> the <a href="https://turbopuffer.com/docs/quickstart" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">quickstart</a> says <a href="https://turbopuffer.com/docs/quickstart" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;turbopuffer embeds your text on writes and queries&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">BYOC:</strong> deploy <a href="https://turbopuffer.com/docs/byoc" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">into your own AWS, GCP, or Azure account</a> with Standard or Managed BYOC.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Optional client-side embedding models include Cohere, Google Gemini and Voyage AI, shown in the <a href="https://turbopuffer.com/docs/quickstart" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">turbopuffer quickstart</a>, plus SDKs for Python, TypeScript, Go, Java, Ruby, Rust and C#.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, <a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">launch has a $16/mo minimum usage</a>; scale has a $256/mo minimum; enterprise starts at $4,096/mo with a 35% usage premium.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">SOC 2 report and GDPR-ready DPA</a> on every plan.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">SSO and audit logs</a> start on the scale plan.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Per-namespace CMEK</a> and private networking on enterprise.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no free tier on its <a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a>.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://turbopuffer.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Unused minimum amounts</a> don't roll over to next month.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no RBAC in its <a href="https://turbopuffer.com/docs" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">docs</a> or pricing page.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">9</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-supabase" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">05</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Su</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Supabase</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for vectors inside Postgres</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Supabase is a Postgres platform that adds vector search through pgvector, with hybrid keyword search and row-level security on results.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.2<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://supabase.com/pricing" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Supabase <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/supabase.webp" alt="Supabase homepage" width="1280" height="800" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Supabase homepage on supabase.com, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+            <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Supabase calls it <a href="https://supabase.com/docs/guides/ai" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;an open source toolkit for developing AI applications using Postgres and pgvector.&quot;</a></p>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Entry access scores full marks: a <a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Free plan and Pro from $25/mo</a>. Its docs show <a href="https://supabase.com/docs/guides/ai/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">hybrid search with `tsvector` and `pgvector`</a> in plain Postgres.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams already on Postgres that want embeddings next to their app data, auth and permissions.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Permission-aware search:</strong> row-level security can <a href="https://supabase.com/docs/guides/ai/rag-with-permissions" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">restrict which documents a vector similarity search returns</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Embeddings in Edge Functions:</strong> generate embeddings <a href="https://supabase.com/docs/guides/ai" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">using open source models directly in Edge Functions</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Self-hosting:</strong> run it yourself with <a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">the Docker setup or the Supabase CLI</a>.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrations include OpenAI, Hugging Face, LangChain and LlamaIndex, listed in the <a href="https://supabase.com/docs/guides/ai" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Supabase AI and vectors docs</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, <a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Free is $0, Pro is from $25/mo</a>, Team is from $599/mo and Enterprise is custom.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Team adds SOC 2, ISO 27001 and listed dashboard SSO</a>.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Platform audit logs</a> are included on Team and Enterprise.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Vectors, auth and app tables share <a href="https://supabase.com/docs/guides/ai" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">one Postgres database</a>.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Free projects pause</a> after one week of inactivity.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no customer-managed keys in its <a href="https://supabase.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a>.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no tenant partitions or reranking in its <a href="https://supabase.com/docs/guides/ai" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">AI docs</a>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">7</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">8</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-upstash-vector" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">06</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Up</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Upstash Vector</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for serverless pay per request</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Upstash Vector is a serverless vector database billed per request, with hybrid indexes, namespaces and hosted embedding models.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">7.5<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://upstash.com/pricing/vector" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Upstash Vector <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/upstash-vector.webp" alt="Upstash Vector homepage" width="1280" height="600" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Upstash Vector homepage on upstash.com, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Search scores 9 because <a href="https://upstash.com/docs/vector/features/hybridindexes" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">hybrid indexes &quot;manage a dense and a sparse index component for you&quot;</a>. Entry access is full marks: a free plan plus <a href="https://upstash.com/pricing/vector" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pay as you go at $0.4 per 100K requests</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Developers on serverless apps who want vector search priced by request, not by cluster.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hybrid indexes:</strong> one index holds <a href="https://upstash.com/docs/vector/features/hybridindexes" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">dense and sparse components</a>, so keyword and semantic search share it.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hosted embedding:</strong> Upstash <a href="https://upstash.com/docs/vector/features/hybridindexes" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;provides some hosted models&quot;</a> so you can upsert and query raw text.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Namespaces:</strong> you can <a href="https://upstash.com/docs/vector/features/namespaces" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">partition a single index into multiple isolated namespaces</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">SQL-like filters:</strong> metadata filters use a <a href="https://upstash.com/docs/vector/features/filtering" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">syntax that resembles SQL</a>.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrations include <a href="https://upstash.com/docs/vector/integrations/langchain" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">LangChain</a> and <a href="https://upstash.com/docs/vector/integrations/llamaindex" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">LlamaIndex</a>, both documented in Upstash's own docs.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, <a href="https://upstash.com/pricing/vector" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Free is $0 with 10K daily queries and 1 GB</a>; pay as you go is $0.4 per 100K requests; Fixed is $60/mo; Pro is &quot;Contact Us.&quot;</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://upstash.com/pricing/vector" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Free plan</a> allows 100 namespaces and 1 GB of data.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://upstash.com/pricing/vector" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Fixed plan</a> adds a 99.9% uptime SLA.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Hosted models remove a separate embedding pipeline.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no server-side reranking in its docs.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Managed only; we found no self-hosted or BYOC option.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no SSO, RBAC or SOC 2 on fetched pages.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">4</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-chroma" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">07</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Ch</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Chroma</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for local-first prototyping</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Chroma is an Apache 2.0 vector database you can run locally, self-host or use as the managed Chroma Cloud.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">7.1<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://www.trychroma.com/pricing" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Chroma <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/vector-databases/chroma.webp" alt="Chroma homepage" width="1280" height="600" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Chroma homepage on trychroma.com, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Chroma says you can <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;run it locally, self-host, or use Chroma Cloud&quot;</a>, which suits prototypes that later move to production. Chroma Cloud also adds <a href="https://docs.trychroma.com/cloud/search-api/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">dense plus sparse hybrid search with RRF</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Developers prototyping RAG on a laptop who want the same API in a managed cloud later.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Open source:</strong> <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Chroma is licensed under Apache 2.0&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hybrid RRF:</strong> Cloud search combines <a href="https://docs.trychroma.com/cloud/search-api/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">dense semantic and sparse keyword embeddings</a> with rank fusion.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Filtered ranking:</strong> each RRF component <a href="https://docs.trychroma.com/cloud/search-api/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;operates on the documents that pass the filter&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">SOC 2 cloud:</strong> <a href="https://docs.trychroma.com/cloud/getting-started" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Chroma Cloud is SOC 2 Type II certified</a>.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrations include OpenAI, Cohere, Hugging Face, Ollama, LangChain, LlamaIndex and Haystack, per <a href="https://docs.trychroma.com/integrations/chroma-integrations" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Chroma's integrations docs</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, <a href="https://www.trychroma.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Starter is $0/mo plus usage with $5 free credits</a>; Team is $250/mo plus usage with $100 credits; Enterprise is custom.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.trychroma.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Usage rates are published</a>: $2.50 per GiB written.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Storage costs <a href="https://www.trychroma.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">$0.33 per GiB per month</a>.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Same database runs locally, self-hosted or in Cloud.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.trychroma.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Team plan</a> jumps to $250/mo plus usage.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no SSO, RBAC or audit logs in its docs.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no tenant partitions or server-side reranking documented.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">Search features <span style="color:#68d08b">7</span></span>
+              <span style="color:#edebe6">Deployment options <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Free and entry <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Pricing clarity <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Admin and data <span style="color:#68d08b">5</span></span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="faq" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">FAQs about vector databases</h2>
+        </div>
+        <div style="border-top:1px solid #D3D2CD">
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">What is a vector database?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">A vector database stores embeddings, the number arrays a model makes from text or images, and returns the items closest to a query. Most on this list also filter by metadata and mix in keyword search, which RAG apps use to fetch the right passages.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Do I need a separate vector database if I already use Postgres?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Not always: pgvector adds vector search to Postgres, and Supabase documents <a href="https://supabase.com/docs/guides/ai/hybrid-search" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">hybrid search with `tsvector` and `pgvector`</a> in one database. A dedicated database adds features we found no Supabase docs for, such as tenant partitions and server-side reranking.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Which vector database is free to start?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Pinecone, Weaviate, Qdrant, Supabase, Upstash Vector and Chroma all list a free tier as of Nov 2026; turbopuffer does not. Supabase pauses free projects after one week idle, and Chroma's free Starter plan comes with $5 in monthly credits.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">What is hybrid search in a vector database?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Hybrid search runs a vector search and a keyword search, then fuses the two result lists into one ranking. Every database here documents a form of it, and several fuse results with reciprocal rank fusion (RRF).</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Which vector databases can I self-host?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Weaviate, Qdrant, Supabase and Chroma document self-hosting. Pinecone and turbopuffer instead offer BYOC, deployment into your own cloud account. We found only managed cloud for Upstash Vector.</p>
+          </details>
+        </div>
+      </section>
+
+      <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+        <span style="width:72px;height:72px;border-radius:50%;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;flex-shrink:0">TE</span>
+        <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">ABOUT THE AUTHOR</span>
+          <span style="font-size:20px;font-weight:500">TheDevEdit Editorial Team</span>
+          <span style="font-size:15px;line-height:24px;color:#4D4D4D">TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</span>
+        </div>
+      </section>
+
+      <section style="background:#FFCD00;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px;max-width:480px">
+          <span style="font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em">Built a vector database?</span>
+          <span style="font-size:15px;line-height:23px">Send it in. We review every submission against the same rubric. Listing is free.</span>
+        </div>
+        <a href="#" style="height:44px;padding:0 18px;display:inline-flex;align-items:center;gap:8px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Get your tool listed <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </section>
+    </main>
+
+    <aside style="position:sticky;top:24px;flex:0 1 280px;display:flex;flex-direction:column;gap:20px;padding-top:8px">
+      <div style="background:#fff;border:1px dashed #b9b8b2;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;color:#7f806f">SPONSORED SLOT</span>
+        <span style="font-size:18px;line-height:24px;font-weight:500;letter-spacing:-.01em">Reach the teams reading this list</span>
+        <span style="font-size:13px;line-height:19px;color:#4D4D4D">This space is open to sponsors. Sponsorship never changes a rank, a score or a review.</span>
+      </div>
+      <div style="background:#fff;border:1px solid #D3D2CD;padding:18px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:16px;font-weight:600">The Tuesday Table</span>
+        <span style="font-size:13px;line-height:20px;color:#4D4D4D">One comparison table a week for engineering leads.</span>
+        <input placeholder="you@company.com" aria-label="Email address" style="height:36px;padding:0 10px;border:1px solid #D3D2CD;font:inherit;font-size:13px;outline:0">
+        <button type="button" style="height:36px;border:0;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer">Subscribe</button>
+      </div>
+    </aside>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+
+  <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:40;background:#121212;color:#fff;padding:10px 10px 10px 18px;display:flex;align-items:center;gap:16px;box-shadow:0 12px 32px rgba(18,20,19,.25);max-width:calc(100% - 32px);flex-wrap:wrap">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">{{ selCount }}/3</span>
+      <span style="font-size:14px;font-weight:500">{{ selNames }}</span>
+      <button type="button" onClick="{{ clearSel }}" style="height:34px;padding:0 12px;border:1px solid #3a3936;background:transparent;color:#d6d5d0;font:inherit;font-size:13px;cursor:pointer">Clear</button>
+      <button type="button" onClick="{{ openCompare }}" disabled="{{ cantCompare }}" style="height:34px;padding:0 14px;border:0;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer">{{ compareLabel }}</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ compareOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeCompare }}" style="position:fixed;inset:0;z-index:50;background:rgba(18,18,18,.6);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stop }}" style="background:#F5F4F0;width:100%;max-width:1040px;max-height:calc(100vh - 48px);overflow:auto;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #D3D2CD;background:#fff;position:sticky;top:0">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">SIDE BY SIDE</span>
+            <span style="font-size:20px;font-weight:500;letter-spacing:-.02em">{{ selNames }}</span>
+          </div>
+          <button type="button" onClick="{{ closeCompare }}" aria-label="Close" style="width:36px;height:36px;border:1px solid #D3D2CD;background:#fff;cursor:pointer;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"></svg></button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#D3D2CD;border-bottom:1px solid #D3D2CD">
+          <sc-for list="{{ selectedTools }}" as="c" hint-placeholder-count="2">
+            <div style="background:#fff;display:flex;flex-direction:column">
+              <div style="padding:20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #ebeae5">
+                <span style="font-family:'Pixelify Sans',monospace;font-size:28px;color:#7f806f">{{ c.rankLabel }}</span>
+                <span style="font-size:22px;font-weight:500;letter-spacing:-.02em">{{ c.name }}</span>
+              </div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">BEST FOR</span><span style="font-size:14px;line-height:21px">{{ c.bestFor }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">PRICING</span><span style="font-size:14px;line-height:21px">{{ c.price }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">FREE TIER</span><span style="font-size:14px;line-height:21px">{{ c.freeLabel }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">DEPLOYMENT</span><span style="font-size:14px;line-height:21px">{{ c.deployment }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">BUSINESS PLAN WITH SSO</span><span style="font-size:14px;line-height:21px">{{ c.ssoLabel }}</span></div>
+              <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">{{ c.scoreLabel }}<span style="font-size:12px;color:#999">/10</span></span>
+                <a href="{{ c.site }}" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none">Visit site</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Only the comparison table is interactive: filter, sort and pick up to 3 tools to compare.
+const TOOLS = [{"k":"t1","rank":1,"rankLabel":"01","name":"Pinecone","bestFor":"Managed RAG search","price":"Builder $20/mo flat; Standard $50/mo minimum usage","freeTier":true,"freeLabel":"Yes (Starter)","deployment":"Cloud + BYOC","sso":true,"ssoLabel":"Yes (Standard)","score":9.6,"scoreLabel":"9.6","priceSort":20,"site":"https://www.pinecone.io/pricing/"},
+  {"k":"t2","rank":2,"rankLabel":"02","name":"Weaviate","bestFor":"Open source with built-in embeddings","price":"Flex from $45/mo, pay as you go; Premium from $400/mo","freeTier":true,"freeLabel":"Yes (1 cluster)","deployment":"Cloud + self-hosted","sso":true,"ssoLabel":"Yes (Premium)","score":9.5,"scoreLabel":"9.5","priceSort":45,"site":"https://weaviate.io/pricing"},
+  {"k":"t3","rank":3,"rankLabel":"03","name":"Qdrant","bestFor":"Self-hosting and hybrid cloud","price":"Standard usage-based, billed hourly; Premium by minimum spend","freeTier":true,"freeLabel":"Yes (1GB cluster)","deployment":"Cloud + Hybrid Cloud + self-hosted","sso":true,"ssoLabel":"Yes (Premium)","score":9,"scoreLabel":"9.0","priceSort":999,"site":"https://qdrant.tech/pricing/"},
+  {"k":"t4","rank":4,"rankLabel":"04","name":"turbopuffer","bestFor":"Large search on object storage","price":"Launch $16/mo minimum usage; Scale $256/mo minimum","freeTier":false,"freeLabel":"No","deployment":"Cloud + BYOC","sso":true,"ssoLabel":"Yes (Scale)","score":8.7,"scoreLabel":"8.7","priceSort":16,"site":"https://turbopuffer.com/pricing"},
+  {"k":"t5","rank":5,"rankLabel":"05","name":"Supabase","bestFor":"Vectors inside Postgres","price":"Pro from $25/mo; Team from $599/mo","freeTier":true,"freeLabel":"Yes (pauses after 1 week idle)","deployment":"Cloud + self-hosted","sso":false,"ssoLabel":"Contact sales (Team)","score":8.2,"scoreLabel":"8.2","priceSort":25,"site":"https://supabase.com/pricing"},
+  {"k":"t6","rank":6,"rankLabel":"06","name":"Upstash Vector","bestFor":"Serverless pay per request","price":"$0.4 per 100K requests; Fixed $60/mo","freeTier":true,"freeLabel":"Yes (10K queries a day)","deployment":"Cloud","sso":false,"ssoLabel":"Not documented","score":7.5,"scoreLabel":"7.5","priceSort":0.4,"site":"https://upstash.com/pricing/vector"},
+  {"k":"t7","rank":7,"rankLabel":"07","name":"Chroma","bestFor":"Local-first prototyping","price":"Starter $0 plus usage; Team $250/mo plus usage","freeTier":true,"freeLabel":"Yes ($5 monthly credits)","deployment":"Cloud + self-hosted","sso":false,"ssoLabel":"Not documented","score":7.1,"scoreLabel":"7.1","priceSort":0,"site":"https://www.trychroma.com/pricing"}];
+const FILTERS = { all: () => true, free: t => !!t.freeTier, self: t => /both|self/i.test(t.deployment), sso: t => !!t.sso };
+class Component extends DCLogic {
+  state = { filter: 'all', sort: 'rank', selected: [], compareOpen: false };
+  toggleSel(k) {
+    this.setState(s => {
+      if (s.selected.includes(k)) { const sel = s.selected.filter(x => x !== k); return { selected: sel, compareOpen: sel.length >= 2 && s.compareOpen }; }
+      if (s.selected.length >= 3) return null;
+      return { selected: [...s.selected, k] };
+    });
+  }
+  renderVals() {
+    const { filter, sort, selected } = this.state;
+    const test = FILTERS[filter] || FILTERS.all;
+    let order = TOOLS.slice();
+    if (sort === 'rating') order.sort((a, b) => b.score - a.score || a.rank - b.rank);
+    if (sort === 'price') order.sort((a, b) => a.priceSort - b.priceSort || a.rank - b.rank);
+    const show = {}, ord = {}, sel = {}, tog = {};
+    order.forEach((t, i) => { show[t.k] = test(t); ord[t.k] = i + 1; sel[t.k] = selected.includes(t.k); tog[t.k] = () => this.toggleSel(t.k); });
+    const fOn = {}, fOff = {}, fSet = {};
+    Object.keys(FILTERS).forEach(key => { fOn[key] = key === filter; fOff[key] = key !== filter; fSet[key] = () => this.setState({ filter: key }); });
+    const selTools = selected.map(k => TOOLS.find(t => t.k === k)).filter(Boolean);
+    return {
+      yes: true, show, ord, sel, tog, fOn, fOff, fSet,
+      noRows: !TOOLS.some(test),
+      sort, onSort: e => this.setState({ sort: e.target.value }),
+      hasSelection: selected.length > 0, selCount: selected.length, selNames: selTools.map(t => t.name).join(' vs '),
+      cantCompare: selected.length < 2, compareLabel: selected.length < 2 ? 'Pick one more' : 'Compare side by side',
+      clearSel: () => this.setState({ selected: [], compareOpen: false }),
+      openCompare: () => { if (selected.length >= 2) this.setState({ compareOpen: true }); },
+      closeCompare: () => this.setState({ compareOpen: false }),
+      stop: e => e.stopPropagation(),
+      compareOpen: this.state.compareOpen,
+      selectedTools: selTools
+    };
+  }
+}
+</script>
+</body>
+</html>
