@@ -155,6 +155,7 @@
     summary{list-style:none}summary::-webkit-details-marker{display:none}
     .tl-det:not([open])>summary .tl-hide,.tl-det[open]>summary .tl-show{display:none}
     .tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+    [data-ord="1"]{order:1}[data-ord="2"]{order:2}[data-ord="3"]{order:3}[data-ord="4"]{order:4}[data-ord="5"]{order:5}[data-ord="6"]{order:6}[data-ord="7"]{order:7}[data-ord="8"]{order:8}[data-ord="9"]{order:9}[data-ord="10"]{order:10}
   </style>
 </helmet>
 <div style="min-height:100vh;background:#F5F4F0">
@@ -331,7 +332,7 @@
               <span></span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">TOOL</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">BEST FOR</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">PRICING</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666;white-space:nowrap">FREE TIER</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">DEPLOYMENT</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">SCORE</span><span></span>
             </div>
             <sc-if value="{{ show.t1 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t1 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t1 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t1 }}" onChange="{{ tog.t1 }}" aria-label="Compare ChatGPT" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-chatgpt" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">01</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">CG</span><span style="font-weight:600">ChatGPT</span></a>
                 <span style="padding:14px;color:#4D4D4D">All-round work assistant</span>
@@ -343,7 +344,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t2 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t2 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t2 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t2 }}" onChange="{{ tog.t2 }}" aria-label="Compare Claude" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-claude" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">02</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Cl</span><span style="font-weight:600">Claude</span></a>
                 <span style="padding:14px;color:#4D4D4D">Transparent team pricing</span>
@@ -355,7 +356,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t3 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t3 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t3 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t3 }}" onChange="{{ tog.t3 }}" aria-label="Compare Gemini" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-gemini" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">03</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Ge</span><span style="font-weight:600">Gemini</span></a>
                 <span style="padding:14px;color:#4D4D4D">Google Workspace teams</span>
@@ -367,7 +368,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t4 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t4 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t4 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t4 }}" onChange="{{ tog.t4 }}" aria-label="Compare Perplexity" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-perplexity" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">04</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Px</span><span style="font-weight:600">Perplexity</span></a>
                 <span style="padding:14px;color:#4D4D4D">Cited research</span>
@@ -379,7 +380,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t5 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t5 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t5 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t5 }}" onChange="{{ tog.t5 }}" aria-label="Compare Microsoft 365 Copilot" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-m365-copilot" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">05</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">MC</span><span style="font-weight:600">Microsoft 365 Copilot</span></a>
                 <span style="padding:14px;color:#4D4D4D">Microsoft 365 shops</span>
@@ -391,7 +392,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t6 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t6 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t6 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t6 }}" onChange="{{ tog.t6 }}" aria-label="Compare Cursor" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-cursor" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">06</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Cu</span><span style="font-weight:600">Cursor</span></a>
                 <span style="padding:14px;color:#4D4D4D">Agent-first coding</span>
@@ -403,7 +404,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t7 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t7 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t7 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t7 }}" onChange="{{ tog.t7 }}" aria-label="Compare Hugging Face" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-hugging-face" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">07</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">HF</span><span style="font-weight:600">Hugging Face</span></a>
                 <span style="padding:14px;color:#4D4D4D">Open models</span>
@@ -415,7 +416,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t8 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t8 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t8 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t8 }}" onChange="{{ tog.t8 }}" aria-label="Compare GitHub Copilot" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-github-copilot" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">08</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">GC</span><span style="font-weight:600">GitHub Copilot</span></a>
                 <span style="padding:14px;color:#4D4D4D">Coding in existing editors</span>
@@ -427,7 +428,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t9 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t9 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t9 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t9 }}" onChange="{{ tog.t9 }}" aria-label="Compare n8n" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-n8n" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">09</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">n8</span><span style="font-weight:600">n8n</span></a>
                 <span style="padding:14px;color:#4D4D4D">Self-hosted AI automation</span>
@@ -439,7 +440,7 @@
               </div>
             </sc-if>
             <sc-if value="{{ show.t10 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center;order:{{ ord.t10 }}" style-hover="background:#fafaf7">
+              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t10 }}" style-hover="background:#fafaf7">
                 <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t10 }}" onChange="{{ tog.t10 }}" aria-label="Compare Claude Code" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
                 <a href="#tool-claude-code" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">10</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">CC</span><span style="font-weight:600">Claude Code</span></a>
                 <span style="padding:14px;color:#4D4D4D">Terminal coding agent</span>
