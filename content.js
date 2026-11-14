@@ -23,8 +23,8 @@ const ini = n => n.replace(/[^A-Za-z0-9 ]/g, '').split(' ').map(w => w[0]).join(
 // [category, tool list topics[], reviews [name, one-liner, rating][], alternatives [tool][], comparisons [a,b][]]
 const RAW = {
   ai: [
-    ['AI coding assistants', 'Vector databases', 'AI agent builders', 'Open source LLMs', 'AI automation tools', 'AI productivity tools', 'AI governance tools'],
-    [['Claude Code', 'Terminal coding agent with strong multi-file edits', 9.2], ['GitHub Copilot', 'In-editor completions and chat, widest IDE support', 8.8], ['Cursor', 'AI-first code editor built on VS Code', 8.9], ['Pinecone', 'Managed vector database for production search', 8.5], ['LangChain', 'Framework for chaining LLM calls and tools', 8.1], ['Ollama', 'Run open models locally with one command', 8.6]],
+    ['AI tools', 'AI coding assistants', 'Vector databases', 'AI agent builders', 'Open source LLMs', 'AI automation tools', 'AI productivity tools', 'AI governance tools'],
+    [['Claude Code', 'Terminal coding agent with strong multi-file edits', 7.5], ['GitHub Copilot', 'In-editor completions and chat, widest IDE support', 8.1], ['Cursor', 'AI-first code editor built on VS Code', 8.4], ['Pinecone', 'Managed vector database for production search', 8.5], ['LangChain', 'Framework for chaining LLM calls and tools', 8.1], ['Ollama', 'Run open models locally with one command', 8.6]],
     ['LangChain', 'GitHub Copilot', 'Pinecone'],
     [['cursor', 'github-copilot'], ['chroma', 'pinecone']],
   ],
@@ -88,7 +88,11 @@ for (const [cat, [lists, reviews, alts, comps]] of Object.entries(RAW)) {
   alts.forEach((n, i) => ITEMS.push({ type: 'alternatives', cat, title: `${n} alternatives`, tool: n, logo: ini(n), summary: `${6 + i} replacements, with migration notes.`, url: `/${slug(n)}-alternatives/`, date: DATES[(i + 1) % 8] }));
   comps.forEach(([a, b], i) => { const [x, y] = [a, b].sort(); ITEMS.push({ type: 'compare', cat, title: `${pretty(x)} vs ${pretty(y)}`, summary: 'Same tests, side by side, one verdict.', url: `/${x}-vs-${y}/`, date: DATES[(i + 3) % 8], la: ini(pretty(x)), lb: ini(pretty(y)) }); });
 }
-ITEMS.forEach(i => { i.href = SAMPLE[i.type] || '#'; if (ALSO[i.url]) i.also = ALSO[i.url]; });
+// Real, published articles: they link to their own page and override the placeholder summary and date.
+const LIVE = {
+  '/ai-tools/': { summary: '10 tools scored from official docs and pricing.', date: 'Nov 14' },
+};
+ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
 export const catBySlug = s => CATEGORIES.find(c => c.slug === s) || CATEGORIES[2];
 export const inCat = (i, c) => i.cat === c || (i.also || []).includes(c);
