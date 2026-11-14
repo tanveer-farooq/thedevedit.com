@@ -114,6 +114,9 @@ export const HUBS = {
     tagline: 'Same tickets. Every model.',
     bench: ['40 real tickets from one production TypeScript repo, given to every tool', 'Scored on what merged after review, not on the demo', 'Seat and token costs priced for a 10-person team'],
     types: {
+      'AI tools': ['General-purpose assistants for writing, research, analysis and everyday work.', ['ChatGPT', 'Claude', 'Gemini']],
+      'AI tools like ChatGPT': ['Chat assistants that do what ChatGPT does, each with a different strength.', ['Microsoft Copilot', 'Claude', 'Gemini']],
+      'Free AI tools': ['What you actually get on free plans, with no trial clock running.', ['ChatGPT', 'n8n', 'Ollama']],
       'AI coding assistants': ['Autocomplete, chat and agents that write and edit code in your editor or terminal.', ['Claude Code', 'Cursor', 'GitHub Copilot']],
       'Vector databases': ['Store embeddings and run similarity search for RAG and semantic search.', ['Pinecone', 'Weaviate', 'Qdrant']],
       'AI agent builders': ['Frameworks for wiring models to tools, memory and multi-step plans.', ['LangChain', 'LlamaIndex', 'CrewAI']],
@@ -224,6 +227,7 @@ export const HUBS = {
       'SIEM tools': ['Collect security events from everywhere and correlate them into alerts.', ['Splunk', 'Microsoft Sentinel', 'Elastic Security']],
       'Endpoint security software': ['Detect and stop threats on laptops and servers before they spread.', ['CrowdStrike Falcon', 'SentinelOne', 'Microsoft Defender']],
       'DAST tools': ['Attack your running web app from the outside to find exploitable flaws.', ['Burp Suite', 'OWASP ZAP', 'Invicti']],
+      'Cyber security tools': ['The core tools a security team runs, across endpoint, cloud and application security.', ['CrowdStrike Falcon', 'Wiz', 'Snyk']],
       'Vulnerability scanners': ['Scan code, dependencies, containers and hosts for known vulnerabilities.', ['Snyk', 'Tenable Nessus', 'Trivy']],
       'Mobile security software': ['Protect company data on phones and test mobile apps for weaknesses.', ['Lookout', 'Zimperium', 'MobSF']],
       'Password managers': ['Store and share credentials across a team, with SSO and access logs.', ['1Password', 'Bitwarden', 'Dashlane']],
