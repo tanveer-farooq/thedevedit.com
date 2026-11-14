@@ -20,6 +20,7 @@ Every URL is lowercase, hyphenated and ends in a slash. Posts sit at the root, n
 | Alternatives | `/browserstack-alternatives/` | `Alternatives.dc.html` |
 | Comparison | `/cypress-vs-playwright/` (tools in alphabetical order) | none yet |
 | Info pages | `/how-we-test/`, later `/about/`, `/contact/` | `How We Rank.dc.html` |
+| Authors | `/authors/` and `/authors/zaid-bin-ashraf/` (`author="<slug>"` on the import; data in `AUTHORS` in `content.js`) | `Author.dc.html` |
 
 Each clean URL is a folder holding a small `index.html` that imports its template with `<dc-import>` and sets the page `<title>`. To add a page, copy one of those folders and change the title and import. The old `.dc.html` addresses redirect to their clean URLs.
 

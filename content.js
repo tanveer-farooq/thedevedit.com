@@ -284,6 +284,79 @@ export const HUBS = {
   },
 };
 
+// Writers and reviewers. Each has a profile at /authors/<slug>/ (template: Author.dc.html).
+// Facts come from each person's own profile; keep personal emails and phone numbers off the site.
+// photo: 400x400 headshot at /authors/photos/<slug>.jpg; empty shows initials instead.
+export const AUTHORS = [
+  {
+    slug: 'zaid-bin-ashraf',
+    name: 'Zaid Bin Ashraf',
+    ini: 'ZA',
+    photo: '/authors/photos/zaid-bin-ashraf.jpg',
+    role: 'Writer and reviewer, security',
+    title: 'Senior Manager, Application Security at R1 RCM',
+    location: 'Srinagar, India',
+    since: 2015,
+    years: '11 years in security',
+    beats: ['security', 'testing'],
+    card: 'Runs application security at a healthcare company. 11 years across SAST, DAST, SCA, threat modeling and penetration testing.',
+    bio: [
+      'Zaid Bin Ashraf leads application security at R1 RCM, a healthcare revenue cycle company, where Zaid has been Senior Manager of Application Security since August 2023. The job covers building the AppSec program end to end: policy, code and architecture review, threat modeling, and the SAST, DAST and SCA tooling that runs in the delivery pipeline.',
+      'Before R1, Zaid spent two years at Accenture, first as a Senior Security Engineer and then as Security Delivery Lead, and six years at BQE Software. At BQE the work started with firewalls, site-to-site VPNs and cloud servers, and moved to monthly vulnerability audits, patch management and penetration testing with Metasploit, Burp Suite, OWASP ZAP, Nmap and Wireshark.',
+      'Zaid is also a security researcher. Bugs reported to Zapier, Google, Netlify and Accenture earned places in their security halls of fame, and Zaid has published a write-up on taking a stored XSS bug to a full organisation takeover.',
+    ],
+    here: 'At TheDevEdit, Zaid writes and reviews our security coverage: application security testing (SAST, DAST and SCA), vulnerability scanners and threat modeling tools, plus the security sections of our testing and developer tool reviews.',
+    tools: ['Fortify', 'Veracode', 'Coverity', 'Black Duck', 'SonarQube', 'Burp Suite', 'IriusRisk', 'OWASP ZAP', 'Metasploit', 'Nmap', 'Wireshark'],
+    creds: ['OSCP+', 'CCNP Security', 'CCNA Security', 'MCSA', 'Akamai Web Application & API Protection'],
+    honors: ['Hall of Fame, Zapier', 'Hall of Fame, Google API', 'Hall of Fame, Netlify', 'Hall of Fame, Accenture vulnerability disclosure program'],
+    career: [
+      ['R1 RCM', 'Senior Manager, Application Security', 'Aug 2023 – now'],
+      ['Accenture', 'Security Delivery Lead', 'May 2022 – Aug 2023'],
+      ['Accenture', 'Senior Security Engineer', 'Jul 2021 – May 2022'],
+      ['BQE Software', 'Senior Security Engineer', 'May 2017 – Jul 2021'],
+      ['BQE Software', 'Network Security and Server Support Engineer', 'Jul 2015 – May 2017'],
+    ],
+    education: [],
+    links: [['LinkedIn', 'https://www.linkedin.com/in/zaidbhat']],
+  },
+  {
+    slug: 'sameer-misger',
+    name: 'Sameer Misger',
+    ini: 'SM',
+    photo: '/authors/photos/sameer-misger.jpg',
+    role: 'Writer and reviewer, AI and developer tools',
+    title: 'Application Development Team Lead at IST Networks',
+    location: 'Riyadh, Saudi Arabia',
+    since: 2012,
+    years: '14 years in software',
+    beats: ['ai', 'dev-tools'],
+    card: 'Leads application development for omnichannel customer experience systems in Saudi Arabia. Java developer since 2012, now building AI-first.',
+    bio: [
+      'Sameer Misger leads application development at IST Networks in Saudi Arabia. Sameer joined in August 2017 as a Senior Consultant and has led the application development team since January 2023, designing omnichannel customer experience (CX) systems, including contact centre routing on Genesys, with AI built in from the start.',
+      'On client projects, Sameer is the single point of contact from design to delivery, and judges the work by one measure: whether the client is satisfied with it.',
+      'Before IST Networks, Sameer spent five years building Java applications in India: as a Senior Software Developer at NovelVox, as a consultant and developer at Prospecta Software, and as a trainee software engineer at Super Computers Kokernag. That work covered application design, build and unit test plans, setting up development and test environments, and tuning applications in production.',
+    ],
+    here: 'At TheDevEdit, Sameer writes and reviews our AI and developer tools coverage, with a focus on AI agents, integration and automation platforms, and the software that runs customer service and contact centres.',
+    tools: ['Java', 'Java EE', 'Genesys Composer', 'UnifyApps'],
+    creds: ['Genesys Composer 9 Routing Applications for Multimedia', 'Oracle certification in Core Java', 'Java EE certification', 'UnifyApps Partner Enablement: Technical Enablement (Explorer)', 'UnifyApps Partner Enablement: Technical Enablement (Intermediate)'],
+    honors: [],
+    career: [
+      ['IST Networks', 'Application Development Team Lead', 'Jan 2023 – now'],
+      ['IST Networks', 'Senior Consultant', 'Aug 2017 – now'],
+      ['NovelVox', 'Senior Software Developer', 'Mar 2016 – Jul 2017'],
+      ['Prospecta Software', 'Consultant and Developer', 'Jan 2013 – Feb 2016'],
+      ['Super Computers Kokernag', 'Software Engineer Trainee', 'Jan 2012 – Jan 2013'],
+    ],
+    education: [
+      ['University of Kashmir', 'Master of Computer Applications (MCA)', '2009 – 2011'],
+      ['Govt Boys Degree College Anantnag', 'Bachelor of Computer Applications (BCA)', '2006 – 2009'],
+    ],
+    links: [['LinkedIn', 'https://www.linkedin.com/in/misgersameer']],
+  },
+];
+export const authorBySlug = s => AUTHORS.find(a => a.slug === s);
+export const authorUrl = a => `/authors/${a.slug}/`;
+
 export const catBySlug = s => CATEGORIES.find(c => c.slug === s) || CATEGORIES[2];
 export const inCat = (i, c) => i.cat === c || (i.also || []).includes(c);
 export const reviewHref = name => ITEMS.find(i => i.type === 'reviews' && i.tool === name) ? SAMPLE.reviews : '#';

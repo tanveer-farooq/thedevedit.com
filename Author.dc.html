@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- Author profile (author="<slug>") or, with no author, the /authors/ index. Data: AUTHORS in content.js. -->
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+    .au-wrap{max-width:1100px;margin:0 auto;padding-left:32px;padding-right:32px}
+    .au-hero{display:grid;grid-template-columns:132px minmax(0,1fr);gap:32px;align-items:start}
+    .au-body{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start}
+    .au-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px}
+    .au-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid #D3D2CD}
+    @media (max-width:900px){.au-body{grid-template-columns:minmax(0,1fr);gap:40px}}
+    @media (max-width:620px){.au-wrap{padding-left:16px;padding-right:16px}.au-hero{grid-template-columns:minmax(0,1fr);gap:20px}.au-row{grid-template-columns:minmax(0,1fr);gap:4px}}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ true }}">
+    <section class="au-wrap" style="padding-top:48px;padding-bottom:56px;display:flex;flex-direction:column;gap:28px">
+      <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12px;line-height:18px;color:#666">
+        <a href="/" style="color:#666;text-decoration:none" style-hover="color:#121212">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="/authors/" style="color:#666;text-decoration:none" style-hover="color:#121212">Authors</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page" style="color:#121212">{{ a.name }}</span>
+      </nav>
+      <div class="au-hero">
+        <div style="width:132px;height:132px;border-radius:50%;overflow:hidden;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:500">
+          <sc-if value="{{ a.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ a.photo }}" alt="{{ a.name }}" width="132" height="132" style="display:block;width:132px;height:132px;object-fit:cover"></sc-if>
+          <sc-if value="{{ a.noPhoto }}" hint-placeholder-val="{{ true }}"><span>{{ a.ini }}</span></sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// {{ a.roleCaps }}</span>
+          <h1 style="margin:0;font-size:clamp(40px,6vw,72px);line-height:1.02;font-weight:500;letter-spacing:-.04em">{{ a.name }}</h1>
+          <p style="margin:0;font-size:19px;line-height:29px;color:#4D4D4D;max-width:680px">{{ a.title }}. {{ a.years }}. Based in {{ a.location }}.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:4px">
+            <sc-for list="{{ a.beatLinks }}" as="b" hint-placeholder-count="2">
+              <a href="{{ b.href }}" style="display:inline-flex;align-items:center;height:30px;padding:0 12px;background:#fff;border:1px solid #D3D2CD;font-size:13px;text-decoration:none" style-hover="border-color:#121212">{{ b.name }}</a>
+            </sc-for>
+            <sc-for list="{{ a.linkList }}" as="l" hint-placeholder-count="1">
+              <a href="{{ l.href }}" target="_blank" rel="noopener me" style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">{{ l.label }} <x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ArrowRightLine" size="12" hint-size="12px,12px"></x-import></a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-wrap" style="padding-bottom:96px">
+      <div class="au-body">
+        <main style="display:flex;flex-direction:column;gap:48px;min-width:0">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <h2 style="margin:0;font-size:28px;line-height:34px;font-weight:500;letter-spacing:-.02em">About {{ a.first }}</h2>
+            <sc-for list="{{ a.bioList }}" as="p" hint-placeholder-count="3">
+              <p style="margin:0;font-size:17px;line-height:28px;color:#4D4D4D;max-width:680px">{{ p.t }}</p>
+            </sc-for>
+          </div>
+
+          <div style="background:#121212;color:#fff;padding:26px 28px;display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">// AT THEDEVEDIT</span>
+            <p style="margin:0;font-size:18px;line-height:29px">{{ a.here }}</p>
+            <p style="margin:0;font-size:14px;line-height:22px;color:#d6d5d0">Every page {{ a.first }} writes or reviews follows our published method, and vendors cannot pay for a ranking. <a href="/how-we-test/" style="color:#fff;text-underline-offset:3px">How we test</a></p>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <h2 style="margin:0 0 12px;font-size:28px;line-height:34px;font-weight:500;letter-spacing:-.02em">Career</h2>
+            <div style="border-top:1px solid #121212">
+              <sc-for list="{{ a.careerList }}" as="c" hint-placeholder-count="5">
+                <div class="au-row">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;line-height:22px;color:#666">{{ c.when }}</span>
+                  <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;line-height:22px;font-weight:500">{{ c.role }}</span><span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ c.org }}</span></span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <sc-if value="{{ a.hasEducation }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column">
+              <h2 style="margin:0 0 12px;font-size:28px;line-height:34px;font-weight:500;letter-spacing:-.02em">Education</h2>
+              <div style="border-top:1px solid #121212">
+                <sc-for list="{{ a.educationList }}" as="c" hint-placeholder-count="2">
+                  <div class="au-row">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;line-height:22px;color:#666">{{ c.when }}</span>
+                    <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;line-height:22px;font-weight:500">{{ c.role }}</span><span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ c.org }}</span></span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </main>
+
+        <aside style="display:flex;flex-direction:column;gap:16px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">CERTIFICATIONS</span>
+            <sc-for list="{{ a.credList }}" as="c" hint-placeholder-count="4">
+              <span style="display:flex;gap:10px;font-size:14px;line-height:20px"><span style="flex-shrink:0;margin-top:2px"><x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ShieldCheck" size="14" hint-size="14px,14px"></x-import></span>{{ c.t }}</span>
+            </sc-for>
+          </div>
+          <sc-if value="{{ a.hasHonors }}" hint-placeholder-val="{{ true }}">
+            <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">RECOGNITION</span>
+              <sc-for list="{{ a.honorList }}" as="c" hint-placeholder-count="4">
+                <span style="font-size:14px;line-height:20px">{{ c.t }}</span>
+              </sc-for>
+            </div>
+          </sc-if>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">HANDS-ON WITH</span>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ a.toolList }}" as="c" hint-placeholder-count="8">
+                <span style="display:inline-flex;align-items:center;height:26px;padding:0 9px;background:#F5F4F0;border:1px solid #e6e4e1;font-family:'JetBrains Mono',monospace;font-size:12px">{{ c.t }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">COVERS</span>
+            <sc-for list="{{ a.beatLinks }}" as="b" hint-placeholder-count="2">
+              <a href="{{ b.href }}" style="display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:15px;line-height:22px;text-decoration:none" style-hover="text-decoration:underline">{{ b.name }} <x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ArrowRightLine" size="14" hint-size="14px,14px"></x-import></a>
+            </sc-for>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ false }}">
+    <section class="au-wrap" style="padding-top:80px;padding-bottom:48px;display:flex;flex-direction:column;gap:22px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// AUTHORS</span>
+      <h1 style="margin:0;font-size:clamp(44px,6.5vw,88px);line-height:1.02;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Written by people <span style="color:#7f806f">who ship.</span></h1>
+      <p style="margin:0;font-size:20px;line-height:31px;color:#4D4D4D;max-width:680px">Every page names the person who wrote or reviewed it. These are the practitioners behind our lists and reviews.</p>
+    </section>
+    <section class="au-wrap" style="padding-bottom:96px">
+      <div class="au-cards">
+        <sc-for list="{{ cards }}" as="au" hint-placeholder-count="2">
+          <a href="{{ au.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:#121212" style-hover="border-color:#121212">
+            <span style="display:flex;align-items:center;gap:14px">
+              <span style="width:56px;height:56px;border-radius:50%;overflow:hidden;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:500;flex-shrink:0">
+                <sc-if value="{{ au.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ au.photo }}" alt="" width="56" height="56" style="display:block;width:56px;height:56px;object-fit:cover"></sc-if>
+                <sc-if value="{{ au.noPhoto }}" hint-placeholder-val="{{ true }}"><span>{{ au.ini }}</span></sc-if>
+              </span>
+              <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+                <span style="font-size:20px;line-height:26px;font-weight:500">{{ au.name }}</span>
+                <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:#7f806f">{{ au.roleCaps }}</span>
+              </span>
+            </span>
+            <span style="font-size:15px;line-height:23px;color:#4D4D4D">{{ au.card }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">{{ au.title }}</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500">Read profile <x-import component-from-global-scope="TestMuAIDesignSystem_679a62.Icon" name="ArrowRightLine" size="14" hint-size="14px,14px"></x-import></span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;author&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;zaid-bin-ashraf&quot;,&quot;sameer-misger&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const EMPTY_A = { name: '', first: '', ini: '', photo: '', hasPhoto: false, noPhoto: true, roleCaps: '', title: '', years: '', location: '', here: '', beatLinks: [], linkList: [], bioList: [], careerList: [], educationList: [], hasEducation: false, credList: [], honorList: [], hasHonors: false, toolList: [] };
+const t = s => ({ t: s });
+const row = ([org, role, when]) => ({ org, role, when });
+class Component extends DCLogic {
+  state = { d: null };
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  shape(d, a) {
+    return {
+      ...a,
+      first: a.name.split(' ')[0],
+      hasPhoto: !!a.photo, noPhoto: !a.photo,
+      roleCaps: a.role.toUpperCase(),
+      href: d.authorUrl(a),
+      beatLinks: a.beats.map(s => { const c = d.catBySlug(s); return { name: c.name, href: '/' + c.slug + '/' }; }),
+      linkList: a.links.map(([label, href]) => ({ label, href })),
+      bioList: a.bio.map(t),
+      careerList: a.career.map(row),
+      educationList: a.education.map(row), hasEducation: a.education.length > 0,
+      credList: a.creds.map(t),
+      honorList: a.honors.map(t), hasHonors: a.honors.length > 0,
+      toolList: a.tools.map(t),
+    };
+  }
+  renderVals() {
+    const d = this.state.d;
+    const slug = this.props.author || '';
+    if (!d) return { isProfile: !!slug, isIndex: !slug, a: EMPTY_A, cards: [] };
+    const found = slug && d.authorBySlug(slug);
+    return {
+      isProfile: !!found,
+      isIndex: !found,
+      a: found ? this.shape(d, found) : EMPTY_A,
+      cards: d.AUTHORS.map(a => this.shape(d, a)),
+    };
+  }
+}
+</script>
+</body>
+</html>

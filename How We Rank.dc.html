@@ -82,24 +82,26 @@
     </div>
   </section>
 
-  <section style="max-width:1100px;margin:0 auto;padding:80px 32px 96px;display:flex;flex-direction:column;gap:28px">
+  <section id="authors" style="max-width:1100px;margin:0 auto;padding:80px 32px 96px;display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// AUTHORS</span>
       <h2 style="margin:0;font-size:44px;line-height:1.08;font-weight:500;letter-spacing:-.04em">Written by people <span style="color:#7f806f">who ship.</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
-      <sc-for list="{{ authors }}" as="au" hint-placeholder-count="4">
-        <div style="background:#fff;border:1px solid #D3D2CD;display:flex;flex-direction:column">
-          <div style="height:220px"><image-slot id="author-{{ au.id }}" shape="rect" placeholder="Photo of {{ au.n }}"></image-slot></div>
-          <div style="padding:18px;display:flex;flex-direction:column;gap:6px">
-            <span style="font-size:19px;font-weight:500">{{ au.n }}</span>
-            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:#7f806f">{{ au.r }}</span>
-            <span style="font-size:14px;line-height:21px;color:#4D4D4D">{{ au.b }}</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666;padding-top:6px">{{ au.c }}</span>
-          </div>
-        </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px">
+      <sc-for list="{{ authors }}" as="au" hint-placeholder-count="2">
+        <a href="{{ au.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#121212" style-hover="border-color:#121212">
+          <span style="width:56px;height:56px;border-radius:50%;overflow:hidden;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:500">
+            <sc-if value="{{ au.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ au.photo }}" alt="" width="56" height="56" style="display:block;width:56px;height:56px;object-fit:cover"></sc-if>
+            <sc-if value="{{ au.noPhoto }}" hint-placeholder-val="{{ true }}"><span>{{ au.ini }}</span></sc-if>
+          </span>
+          <span style="font-size:19px;font-weight:500">{{ au.name }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:#7f806f">{{ au.roleCaps }}</span>
+          <span style="font-size:14px;line-height:21px;color:#4D4D4D">{{ au.card }}</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666;padding-top:6px">{{ au.years }}</span>
+        </a>
       </sc-for>
     </div>
+    <a href="/authors/" style="align-self:flex-start;font-size:15px;font-weight:500;text-underline-offset:3px">All authors</a>
   </section>
 
   <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
@@ -107,7 +109,10 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  state = { d: null };
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
   renderVals(){
+    const d = this.state.d;
     return {
       steps: [
         { n:'01', t:'Build a shortlist', b:'We start from search demand and what readers ask on Reddit and in our inbox, then add every tool with real usage. Usually 15 to 25 per category.', cmd:'$ shortlist --category testing → 22 tools' },
@@ -117,12 +122,7 @@ class Component extends DCLogic {
         { n:'05', t:'Re-test every month', b:'Prices and features change. Each list is re-run monthly and the date at the top shows the last real test.', cmd:'$ retest --schedule monthly' }
       ],
       weights: [['Stability','30%','Pass rate and flaky steps across three runs.'],['Authoring speed','20%','Time for our tester to complete the shared task.'],['Coverage','20%','Browsers, devices and languages supported.'],['CI fit','15%','How cleanly it runs headless in GitHub Actions.'],['Price at scale','15%','Monthly cost for a 20-person team at 10 parallels.']].map(w=>({ k:w[0], w:w[1], d:w[2], bar:(parseInt(w[1])*3)+'%' })),
-      authors: [
-        { id:'priya', n:'Priya Raman', r:'QA LEAD · TESTING', b:'11 years in test automation at fintech and e-commerce teams.', c:'24 lists · 186 tools tested' },
-        { id:'marcus', n:'Marcus Lee', r:'STAFF SDET · TESTING', b:'Ran device labs and cloud grids for two unicorn mobile apps.', c:'17 lists · 120 tools tested' },
-        { id:'ana', n:'Ana Duarte', r:'DATA ENGINEER · DATA', b:'Builds pipelines on Snowflake and Postgres for a 300-person SaaS.', c:'12 lists · 98 tools tested' },
-        { id:'kenji', n:'Kenji Watanabe', r:'SECURITY ENGINEER · SECURITY', b:'Former SOC lead. Has deployed four SIEMs in production.', c:'9 lists · 71 tools tested' }
-      ]
+      authors: d ? d.AUTHORS.map(a => ({ ...a, href: d.authorUrl(a), roleCaps: a.role.toUpperCase(), hasPhoto: !!a.photo, noPhoto: !a.photo })) : []
     };
   }
 }
