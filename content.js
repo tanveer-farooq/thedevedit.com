@@ -93,7 +93,7 @@ const LIVE = {
   '/ai-tools/': { summary: '10 tools scored from official docs and pricing.', date: 'Nov 14' },
   '/ai-tools-like-chatgpt/': { summary: '10 assistants scored from official docs and pricing.', date: 'Nov 14' },
 };
-ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
+ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
 export const catBySlug = s => CATEGORIES.find(c => c.slug === s) || CATEGORIES[2];
 export const inCat = (i, c) => i.cat === c || (i.also || []).includes(c);

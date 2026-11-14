@@ -294,12 +294,14 @@ class Component extends DCLogic {
     const desk = d.CATEGORIES.map((c, n) => {
       const mine = I.filter(i => i.cat === c.slug), of = ty => mine.filter(i => i.type === ty);
       const top = of('reviews').sort((a, b) => b.rating - a.rating)[0], alt = of('alternatives')[0], vsPage = of('compare')[0];
+      // Newest published article in this category (other than the lead list) gets a "NEW" row on the homepage card.
+      const fresh = mine.filter(i => i.live && i !== of('tools')[0]).sort((a, b) => b.pub - a.pub)[0];
       return {
         n: String(n + 1).padStart(2, '0'), name: c.name, caps: c.name.toUpperCase(), desc: c.desc, href: '/' + c.slug + '/', total: mine.length,
         mix: `${of('tools').length} LISTS · ${of('reviews').length} REVIEWS · ${of('compare').length} VS · ${of('alternatives').length} SWITCHING`,
         lead: of('tools')[0],
         top: { ...top, logoSrc: TOOL_LOGOS[top.tool] || '', hasLogo: !!TOOL_LOGOS[top.tool], noLogo: !TOOL_LOGOS[top.tool], ini: initials(top.tool) },
-        links: [{ k: 'TOP-RATED REVIEW', title: `${top.tool} review`, href: top.href, note: `${top.rating}/10` }, alt && { k: 'SWITCHING', title: alt.title, href: alt.href, note: '' }, vsPage && { k: 'HEAD TO HEAD', title: vsPage.title, href: vsPage.href, note: '' }].filter(Boolean),
+        links: [fresh && { k: 'NEW', title: t(fresh), href: fresh.href, note: fresh.date }, { k: 'TOP-RATED REVIEW', title: `${top.tool} review`, href: top.href, note: `${top.rating}/10` }, alt && { k: 'SWITCHING', title: alt.title, href: alt.href, note: '' }, vsPage && { k: 'HEAD TO HEAD', title: vsPage.title, href: vsPage.href, note: '' }].filter(Boolean),
         on: n === sel, tabBg: n === sel ? '#121212' : 'transparent', tabFg: n === sel ? '#fff' : '#121212', tabNum: n === sel ? '#FFCD00' : '#7f806f',
         onClick: () => this.setState({ desk: n }),
       };
