@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Draft redesign of Category Hub.dc.html. Not live: no page imports it yet. -->
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Anton&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212}
+    .hb-wrap{max-width:1440px;margin:0 auto;padding-left:32px;padding-right:32px}
+    .hb-h2{margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(40px,5vw,56px);line-height:.95;text-transform:uppercase}
+    .hb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:10px 16px;flex-wrap:wrap;border-bottom:4px solid #121212;padding-bottom:12px}
+    .hb-mono{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em}
+    .hb-mast-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:28px;align-items:end}
+    .hb-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #121212;border-left:1px solid #121212}
+    .hb-short{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start}
+    .hb-row{display:grid;grid-template-columns:44px 48px minmax(0,1fr) auto;gap:16px;align-items:center}
+    .hb-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #121212;border-left:1px solid #121212}
+    .hb-bench{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:start}
+    .hb-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 40px;align-items:start}
+    .hb-latest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+    .hb-faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px 48px}
+    .hb-next{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #121212;border-left:1px solid #121212}
+    @media (max-width:1100px){.hb-mast-foot,.hb-short,.hb-bench,.hb-faq{grid-template-columns:minmax(0,1fr)}.hb-types,.hb-latest{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:760px){.hb-two,.hb-next{grid-template-columns:minmax(0,1fr)}.hb-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:620px){.hb-wrap{padding-left:16px;padding-right:16px}.hb-types,.hb-latest{grid-template-columns:minmax(0,1fr)}.hb-row{grid-template-columns:28px 40px minmax(0,1fr);gap:12px}.hb-row-score{grid-column:3}.hb-pad{padding:22px !important}}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <!-- Masthead: the category as a branded "desk", with its numbers and the editor's voice -->
+  <section data-screen-label="Hub masthead" class="hb-wrap" style="padding-top:32px">
+    <div class="hb-pad" style="position:relative;overflow:hidden;border:1px solid #121212;padding:32px;background:radial-gradient(55% 75% at 0% 0%, #FFCD00 0%, transparent 60%), radial-gradient(60% 80% at 100% 100%, #336EF6 0%, transparent 65%), #F5F4F0;display:flex;flex-direction:column;gap:32px">
+      <div style="position:absolute;inset:0;background-image:{{ grain }};background-size:180px 180px;mix-blend-mode:multiply;opacity:.5;pointer-events:none"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:16px">
+        <dc-import name="Breadcrumb" category="{{ slug }}" title="" hint-size="100%,18px"></dc-import>
+        <span class="hb-mono">CATEGORY {{ num }} · TDE / {{ caps }}</span>
+        <h1 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(52px,8.5vw,132px);line-height:.9;text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance">{{ catName }}</h1>
+        <p style="margin:0;font-size:18px;line-height:28px;max-width:62ch;text-wrap:pretty">{{ catDesc }}</p>
+      </div>
+      <div class="hb-mast-foot" style="position:relative">
+        <div class="hb-stats">
+          <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+            <a href="{{ st.href }}" style="border-right:1px solid #121212;border-bottom:1px solid #121212;padding:16px 18px;display:flex;flex-direction:column;gap:6px;color:#121212;text-decoration:none" style-hover="background:rgba(255,255,255,.5)">
+              <span style="font-family:'Anton',sans-serif;font-weight:400;font-size:44px;line-height:.9">{{ st.n }}</span>
+              <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em">{{ st.k }}</span>
+            </a>
+          </sc-for>
+        </div>
+        <figure style="margin:0;background:#121212;color:#fff;padding:24px;display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#FFCD00">// FROM THE EDITOR</span>
+          <blockquote style="margin:0;font-size:18px;line-height:27px;text-wrap:pretty">{{ hub.note }}</blockquote>
+          <figcaption style="display:flex;align-items:center;gap:10px">
+            <span style="width:32px;height:32px;border-radius:50%;background:#FFCD00;color:#121212;display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700">{{ editorIni }}</span>
+            <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:600">{{ hub.editor }}</span><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;color:#BDBDB4">{{ caps }} EDITOR · RE-TESTED {{ updated }}</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <nav aria-label="On this page" style="display:flex;justify-content:center;gap:4px 24px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid #121212">
+      <sc-for list="{{ jumps }}" as="j" hint-placeholder-count="6">
+        <a href="{{ j.anchor }}" style="font-size:14px;font-weight:500;color:#121212;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline;text-underline-offset:3px">{{ j.label }}</a>
+      </sc-for>
+    </nav>
+  </section>
+
+  <!-- The shortlist: every reviewed tool in the category, ranked by score. Picks, not a full ranking. -->
+  <sc-if value="{{ hasShort }}" hint-placeholder-val="{{ true }}">
+    <section id="shortlist" data-screen-label="Shortlist" class="hb-wrap" style="padding-top:72px;display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px">
+      <div class="hb-head">
+        <h2 class="hb-h2">The shortlist</h2>
+        <span class="hb-mono">EVERY {{ caps }} TOOL WE'VE REVIEWED, RANKED BY SCORE</span>
+      </div>
+      <div class="hb-short">
+        <a href="{{ top.href }}" class="hb-pad" style="position:relative;overflow:hidden;min-height:420px;padding:32px;background:radial-gradient(60% 80% at 15% 20%, #336EF6 0%, transparent 60%), radial-gradient(55% 70% at 90% 90%, #FFCD00 0%, transparent 65%), #121212;color:#fff;text-decoration:none;display:flex;flex-direction:column;gap:18px">
+          <span style="position:absolute;inset:0;background-image:{{ grain }};background-size:180px 180px;mix-blend-mode:overlay;opacity:.5;pointer-events:none"></span>
+          <span style="position:relative;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;opacity:.85">#01 · {{ top.bestCaps }}</span>
+          <span style="position:relative;width:64px;height:64px;background:#fff;border:1px solid #121212;display:grid;place-items:center;color:#121212">
+            <sc-if value="{{ top.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ top.lg.src }}" alt="" width="40" height="40" style="display:block"></sc-if>
+            <sc-if value="{{ top.lg.no }}" hint-placeholder-val="{{ false }}"><span style="font-family:'JetBrains Mono',monospace;font-size:20px">{{ top.lg.ini }}</span></sc-if>
+          </span>
+          <span style="position:relative;margin-top:auto;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(44px,5vw,64px);line-height:.92;text-transform:uppercase">{{ top.tool }}</span>
+          <span style="position:relative;font-size:17px;line-height:26px;max-width:46ch;color:rgba(255,255,255,.88)">{{ top.summary }}</span>
+          <span style="position:relative;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <span style="background:#FFCD00;color:#121212;padding:4px 8px;font-family:'Space Mono',monospace;font-size:13px;font-weight:700">{{ top.rating }}/10</span>
+            <span style="font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:3px">Read the review →</span>
+          </span>
+        </a>
+        <div style="display:flex;flex-direction:column;border-bottom:1px solid #121212">
+          <sc-for list="{{ rest }}" as="r" hint-placeholder-count="6">
+            <a href="{{ r.href }}" class="hb-row" style="padding:16px 4px;border-top:1px solid #121212;color:#121212;text-decoration:none" style-hover="background:#fff">
+              <span style="font-family:'Anton',sans-serif;font-weight:400;font-size:28px;line-height:1;color:#7f806f">{{ r.rank }}</span>
+              <span style="width:48px;height:48px;background:#fff;border:1px solid #121212;display:grid;place-items:center">
+                <sc-if value="{{ r.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ r.lg.src }}" alt="" width="30" height="30" style="display:block"></sc-if>
+                <sc-if value="{{ r.lg.no }}" hint-placeholder-val="{{ false }}"><span style="width:48px;height:48px;background:#121212;color:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:15px">{{ r.lg.ini }}</span></sc-if>
+              </span>
+              <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+                <span style="font-size:19px;line-height:24px;font-weight:600;letter-spacing:-.015em">{{ r.tool }}</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">{{ r.bestCaps }}</span>
+                <span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ r.summary }}</span>
+              </span>
+              <span class="hb-row-score" style="justify-self:start;background:#121212;color:#FFCD00;padding:3px 7px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;white-space:nowrap">{{ r.rating }}/10</span>
+            </a>
+          </sc-for>
+          <a href="{{ allReviewsHref }}" style="padding:14px 4px;border-top:1px solid #121212;font-size:15px;font-weight:600;color:#121212;text-underline-offset:3px">All {{ catName }} reviews →</a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- Field guide: what each type of tool is for, our top three, and the ranking that owns that type -->
+  <section id="types" data-screen-label="Field guide" class="hb-wrap" style="padding-top:72px;display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px">
+    <div class="hb-head">
+      <h2 class="hb-h2">Field guide</h2>
+      <span class="hb-mono">WHAT EACH TYPE OF TOOL DOES, AND OUR TOP THREE IN EACH</span>
+    </div>
+    <div class="hb-types">
+      <sc-for list="{{ types }}" as="ty" hint-placeholder-count="6">
+        <div style="border-right:1px solid #121212;border-bottom:1px solid #121212;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0;min-height:300px" style-hover="background:#FFCD00">
+          <span style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><span style="font-family:'Anton',sans-serif;font-weight:400;font-size:40px;line-height:.9">{{ ty.n }}</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em">{{ ty.count }}</span></span>
+          <a href="{{ ty.href }}" style="font-size:23px;line-height:28px;font-weight:500;letter-spacing:-.02em;color:#121212;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:4px">{{ ty.name }}</a>
+          <span style="font-size:15px;line-height:23px;color:#4D4D4D">{{ ty.blurb }}</span>
+          <span style="margin-top:auto;padding-top:14px;border-top:1px dotted rgba(18,18,18,.4);display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;color:#7f806f">OUR TOP 3</span>
+            <span style="display:flex;gap:6px;flex-wrap:wrap">
+              <sc-for list="{{ ty.picks }}" as="tl" hint-placeholder-count="3">
+                <span style="display:flex;align-items:center;gap:6px;border:1px solid #121212;background:#fff;padding:3px 8px 3px 3px;font-size:12.5px;font-weight:500">
+                  <sc-if value="{{ tl.has }}" hint-placeholder-val="{{ true }}"><img src="{{ tl.src }}" alt="" width="18" height="18" style="display:block"></sc-if>
+                  <sc-if value="{{ tl.no }}" hint-placeholder-val="{{ false }}"><span style="width:18px;height:18px;background:#121212;color:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:8.5px">{{ tl.ini }}</span></sc-if>
+                  <span>{{ tl.name }}</span>
+                </span>
+              </sc-for>
+            </span>
+            <a href="{{ ty.href }}" style="font-size:15px;font-weight:600;color:#121212;text-underline-offset:3px">See the full ranking →</a>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- How we test: the category's test bench, in the brand's voice -->
+  <section id="how-we-test" data-screen-label="How we test" class="hb-wrap" style="padding-top:72px;scroll-margin-top:24px">
+    <div class="hb-pad hb-bench" style="position:relative;overflow:hidden;background:radial-gradient(50% 90% at 100% 0%, #336EF6 0%, transparent 60%), #121212;color:#fff;padding:40px">
+      <div style="position:absolute;inset:0;background-image:{{ grain }};background-size:180px 180px;mix-blend-mode:overlay;opacity:.45;pointer-events:none"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:16px">
+        <span class="hb-mono" style="color:#FFCD00">// HOW WE TEST {{ caps }}</span>
+        <h2 class="hb-h2" style="font-size:clamp(44px,5.5vw,72px)">{{ hub.tagline }}</h2>
+        <p style="margin:0;font-size:16px;line-height:25px;color:rgba(255,255,255,.82);max-width:46ch">Every tool on this page went through the same test bench, run by {{ hub.editor }}. No vendor demos, no copied spec sheets, and no paid placement in any score.</p>
+        <a href="/how-we-test/" style="color:#fff;font-size:15px;font-weight:600;text-underline-offset:3px">Read our full methodology →</a>
+      </div>
+      <ol style="position:relative;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;border-bottom:1px solid rgba(255,255,255,.35)">
+        <sc-for list="{{ bench }}" as="b" hint-placeholder-count="3">
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 0;border-top:1px solid rgba(255,255,255,.35)">
+            <span style="font-family:'Anton',sans-serif;font-weight:400;font-size:36px;line-height:1;color:#FFCD00">{{ b.n }}</span>
+            <span style="font-size:20px;line-height:28px;font-weight:500;letter-spacing:-.01em">{{ b.text }}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Deciding between two, or leaving one -->
+  <sc-if value="{{ hasDecide }}" hint-placeholder-val="{{ true }}">
+    <section id="decide" data-screen-label="Head to head and switching" class="hb-wrap" style="padding-top:72px;display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px">
+      <div class="hb-head">
+        <h2 class="hb-h2">Head to head</h2>
+        <span class="hb-mono">DECIDING BETWEEN TWO, OR LEAVING ONE</span>
+      </div>
+      <div class="hb-two">
+        <div style="display:flex;flex-direction:column;border-bottom:1px solid #121212">
+          <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f;padding-bottom:10px">COMPARISONS</span>
+          <sc-for list="{{ vs }}" as="v" hint-placeholder-count="3">
+            <a href="{{ v.href }}" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 4px;border-top:1px solid #121212;color:#121212;text-decoration:none" style-hover="background:#fff">
+              <span style="display:flex;align-items:center;gap:10px">
+                <span style="width:44px;height:44px;background:#fff;border:1px solid #121212;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px">
+                  <sc-if value="{{ v.a.has }}" hint-placeholder-val="{{ true }}"><img src="{{ v.a.src }}" alt="" width="28" height="28" style="display:block"></sc-if>
+                  <sc-if value="{{ v.a.no }}" hint-placeholder-val="{{ false }}"><span>{{ v.a.ini }}</span></sc-if>
+                </span>
+                <span style="font-family:'Anton',sans-serif;font-size:18px">VS</span>
+                <span style="width:44px;height:44px;background:#fff;border:1px solid #121212;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px">
+                  <sc-if value="{{ v.b.has }}" hint-placeholder-val="{{ true }}"><img src="{{ v.b.src }}" alt="" width="28" height="28" style="display:block"></sc-if>
+                  <sc-if value="{{ v.b.no }}" hint-placeholder-val="{{ false }}"><span>{{ v.b.ini }}</span></sc-if>
+                </span>
+              </span>
+              <span style="flex:1;min-width:180px;font-size:20px;line-height:26px;font-weight:500;letter-spacing:-.02em">{{ v.title }}</span>
+              <span aria-hidden="true" style="font-size:18px">→</span>
+            </a>
+          </sc-for>
+          <a href="{{ allCompareHref }}" style="padding:14px 4px;border-top:1px solid #121212;font-size:15px;font-weight:600;color:#121212;text-underline-offset:3px">All {{ catName }} comparisons →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;border-bottom:1px solid #121212">
+          <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f;padding-bottom:10px">SWITCHING?</span>
+          <sc-for list="{{ alts }}" as="al" hint-placeholder-count="3">
+            <a href="{{ al.href }}" style="display:flex;align-items:center;gap:16px;padding:18px 4px;border-top:1px solid #121212;color:#121212;text-decoration:none" style-hover="background:#fff">
+              <span style="flex-shrink:0;width:44px;height:44px;background:#fff;border:1px solid #121212;display:grid;place-items:center">
+                <sc-if value="{{ al.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ al.lg.src }}" alt="" width="28" height="28" style="display:block"></sc-if>
+                <sc-if value="{{ al.lg.no }}" hint-placeholder-val="{{ false }}"><span style="width:44px;height:44px;background:#121212;color:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px">{{ al.lg.ini }}</span></sc-if>
+              </span>
+              <span style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:20px;line-height:26px;font-weight:500;letter-spacing:-.02em">{{ al.title }}</span><span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ al.summary }}</span></span>
+              <span aria-hidden="true" style="font-size:18px">→</span>
+            </a>
+          </sc-for>
+          <a href="{{ allAltsHref }}" style="padding:14px 4px;border-top:1px solid #121212;font-size:15px;font-weight:600;color:#121212;text-underline-offset:3px">All {{ catName }} alternatives →</a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- Latest from the desk: newest pages of any type, plus the way into each type page -->
+  <section id="latest" data-screen-label="Latest" class="hb-wrap" style="padding-top:72px;display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px">
+    <div class="hb-head">
+      <h2 class="hb-h2">Latest from the desk</h2>
+      <span class="hb-mono">RE-TESTED AND RE-PRICED AT LEAST MONTHLY</span>
+    </div>
+    <div class="hb-latest">
+      <sc-for list="{{ latest }}" as="it" hint-placeholder-count="6">
+        <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:12px;color:#121212;text-decoration:none;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+          <span style="display:flex;justify-content:space-between;gap:12px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">{{ it.kind }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;white-space:nowrap">{{ it.date }}</span></span>
+          <span style="font-size:21px;line-height:27px;font-weight:500;letter-spacing:-.02em;text-wrap:balance">{{ it.heading }}</span>
+          <span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f;margin-right:4px">BROWSE ALL</span>
+      <sc-for list="{{ browse }}" as="br" hint-placeholder-count="4">
+        <a href="{{ br.href }}" style="height:34px;padding:0 12px;display:flex;align-items:center;gap:8px;border:1px solid #121212;background:#fff;font-size:13px;font-weight:500;color:#121212;text-decoration:none;white-space:nowrap" style-hover="background:#FFCD00">{{ br.label }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#666">{{ br.n }}</span></a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="faq" data-screen-label="FAQ" class="hb-wrap hb-faq" style="padding-top:80px;scroll-margin-top:24px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="hb-mono" style="color:#7f806f">// FAQ</span>
+      <h2 class="hb-h2">{{ catName }}, answered</h2>
+    </div>
+    <div style="border-top:1px solid #121212">
+      <sc-for list="{{ faqs }}" as="fq" hint-placeholder-count="4">
+        <div style="border-bottom:1px solid #121212">
+          <button type="button" onClick="{{ fq.onToggle }}" aria-expanded="{{ fq.open }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;background:transparent;border:0;font:inherit;text-align:left;cursor:pointer;color:#121212">
+            <span style="font-size:18px;line-height:26px;font-weight:500">{{ fq.q }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666">{{ fq.sign }}</span>
+          </button>
+          <sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 0 20px;font-size:16px;line-height:25px;color:#4D4D4D;max-width:70ch">{{ fq.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Next door: related categories -->
+  <section data-screen-label="Related categories" class="hb-wrap" style="padding-top:80px;padding-bottom:96px;display:flex;flex-direction:column;gap:24px">
+    <div class="hb-head">
+      <h2 class="hb-h2">Next door</h2>
+      <a href="/" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px">All 8 categories →</a>
+    </div>
+    <div class="hb-next">
+      <sc-for list="{{ related }}" as="rc" hint-placeholder-count="2">
+        <a href="{{ rc.href }}" style="border-right:1px solid #121212;border-bottom:1px solid #121212;padding:24px;display:flex;flex-direction:column;gap:12px;color:#121212;text-decoration:none;min-width:0" style-hover="background:#FFCD00">
+          <span style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><span style="font-family:'Anton',sans-serif;font-weight:400;font-size:40px;line-height:.9">{{ rc.n }}</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em">{{ rc.total }} PAGES</span></span>
+          <span style="font-size:24px;line-height:28px;font-weight:500;letter-spacing:-.02em">{{ rc.name }} →</span>
+          <span style="font-size:14px;line-height:21px;color:#4D4D4D">{{ rc.desc }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;category&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ai&quot;,&quot;dev-tools&quot;,&quot;testing&quot;,&quot;devops&quot;,&quot;data&quot;,&quot;security&quot;,&quot;it-management&quot;,&quot;productivity&quot;],&quot;default&quot;:&quot;testing&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const GRAIN = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+const SHARED_FAQ = ['Can vendors pay for a ranking?', 'No. Some links earn a commission, and sponsored slots are always labelled. Neither changes a score.'];
+const KIND = { tools: 'RANKING', reviews: 'REVIEW', alternatives: 'SWITCHING', compare: 'HEAD TO HEAD' };
+const initials = n => { const w = n.split(/\s+/); return w.length > 1 ? (w[0][0] + w[1][0]).toUpperCase() : n.slice(0, 2); };
+const pad = n => String(n).padStart(2, '0');
+const when = s => Date.parse(s + ' 2026') || 0;
+const EMPTY = { grain: GRAIN, slug: '', num: '', caps: '', catName: '', catDesc: '', hub: { note: '', editor: '', tagline: '' }, editorIni: '', updated: '', stats: [], jumps: [], hasShort: false, top: { lg: {} }, rest: [], types: [], bench: [], hasDecide: false, vs: [], alts: [], latest: [], browse: [], faqs: [], related: [], allReviewsHref: '', allCompareHref: '', allAltsHref: '' };
+class Component extends DCLogic {
+  state = { d: null, faq: { 0: true } };
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ d: m })); }
+  renderVals() {
+    const d = this.state.d;
+    if (!d) return EMPTY;
+    // On /hub-preview/ only, ?category= switches hubs so reviewers can see all 8. Real hub URLs ignore it.
+    const preview = location.pathname.startsWith('/hub-preview/') && d.qs('category');
+    const cat = d.catBySlug(preview || this.props.category || 'testing'), slug = cat.slug;
+    const hub = d.HUBS[slug];
+    const lg = n => ({ src: d.LOGOS[n] || '', has: !!d.LOGOS[n], no: !d.LOGOS[n], ini: initials(n), name: n });
+    // An `also` post keeps the copy written for its home category.
+    const homeHub = i => d.HUBS[i.cat] || hub;
+    const tagged = d.ITEMS.filter(i => d.inCat(i, slug));
+    const of = ty => tagged.filter(i => i.type === ty);
+    const all = ty => `/${ty}/?category=${slug}`;
+
+    const ranked = of('reviews').slice().sort((a, b) => b.rating - a.rating).map((r, n) => {
+      const best = hub.bestFor[r.tool] || homeHub(r).bestFor[r.tool] || '';
+      return { ...r, rank: pad(n + 1), bestCaps: best.toUpperCase(), lg: lg(r.tool) };
+    });
+    const types = of('tools').map((t, n) => {
+      const [blurb, picks] = hub.types[t.topic] || homeHub(t).types[t.topic] || ['', []];
+      return { n: pad(n + 1), name: t.topic, blurb, href: t.href, count: t.summary.split(' ')[0] + ' TOOLS RANKED', picks: picks.map(lg) };
+    });
+    const vs = of('compare').map(i => { const [a, b] = i.title.split(' vs '); return { ...i, a: lg(a), b: lg(b) }; });
+    const alts = of('alternatives').map(i => ({ ...i, lg: lg(i.tool) }));
+    const latest = tagged.slice().sort((a, b) => when(b.date) - when(a.date)).slice(0, 6)
+      .map(i => ({ ...i, kind: KIND[i.type], heading: i.type === 'reviews' ? `${i.title} review` : i.title }));
+    const browse = [['tools', 'Rankings'], ['reviews', 'Reviews'], ['compare', 'Comparisons'], ['alternatives', 'Alternatives']]
+      .map(([ty, label]) => ({ label, n: of(ty).length, href: all(ty) })).filter(b => b.n);
+    const faqs = [...hub.faqs, SHARED_FAQ].map(([q, a], i) => ({ q, a, open: !!this.state.faq[i], sign: this.state.faq[i] ? '–' : '+', onToggle: () => this.setState(s => ({ faq: { ...s.faq, [i]: !s.faq[i] } })) }));
+    const jumps = [ranked.length && ['The shortlist', '#shortlist'], ['Field guide', '#types'], ['How we test', '#how-we-test'], (vs.length || alts.length) && ['Head to head', '#decide'], ['Latest', '#latest'], ['FAQ', '#faq']]
+      .filter(Boolean).map(([label, anchor]) => ({ label, anchor }));
+
+    return {
+      grain: GRAIN, slug, num: pad(d.CATEGORIES.indexOf(cat) + 1), caps: cat.name.toUpperCase(), catName: cat.name, catDesc: cat.desc,
+      hub, editorIni: initials(hub.editor), updated: (latest[0] ? latest[0].date : '').toUpperCase(),
+      stats: [[ranked.length, 'TOOLS REVIEWED', '#shortlist'], [types.length, 'RANKINGS', '#types'], [vs.length, 'HEAD TO HEADS', '#decide'], [alts.length, 'SWITCHING GUIDES', '#decide']].map(([n, k, href]) => ({ n, k, href })),
+      jumps,
+      hasShort: ranked.length > 0, top: ranked[0] || EMPTY.top, rest: ranked.slice(1),
+      types,
+      bench: hub.bench.map((text, n) => ({ n: pad(n + 1), text })),
+      hasDecide: vs.length + alts.length > 0, vs, alts,
+      latest, browse, faqs,
+      related: hub.related.map(s => { const c = d.catBySlug(s); return { n: pad(d.CATEGORIES.indexOf(c) + 1), name: c.name, desc: c.desc, href: `/${s}/`, total: d.ITEMS.filter(i => i.cat === s).length }; }),
+      allReviewsHref: all('reviews'), allCompareHref: all('compare'), allAltsHref: all('alternatives'),
+    };
+  }
+}
+</script>
+</body>
+</html>

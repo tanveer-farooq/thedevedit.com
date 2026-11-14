@@ -23,4 +23,13 @@ Every URL is lowercase, hyphenated and ends in a slash. Posts sit at the root, n
 
 Each clean URL is a folder holding a small `index.html` that imports its template with `<dc-import>` and sets the page `<title>`. To add a page, copy one of those folders and change the title and import. The old `.dc.html` addresses redirect to their clean URLs.
 
+## Category hub redesign (draft, not live)
+
+`Category Hub v2.dc.html` is a proposed redesign of `Category Hub.dc.html`. No page imports it yet, so the live hubs are unchanged. In it, each hub (`/testing/`, `/ai/` …) is the guide to its whole category. Top to bottom: a masthead with the editor's note and page counts, **The shortlist** (every reviewed tool in the category, ranked by score, with a "best for" label), **Field guide** (each type of tool: what it's for, our top three, and a link to the ranking that owns it), **How we test** (the category's test bench), **Head to head** (comparisons and alternatives), **Latest from the desk**, FAQs and related categories. The copy for each category lives in `HUBS` in `content.js`.
+
+To keep hubs from competing with their own pages:
+- A hub owns its whole category. No Tools post may cover a whole category. Before v2 goes live, replace the "Cyber security tools" list with "Vulnerability scanners" (the v2 copy in `HUBS` already assumes this), since `/security/` is that page.
+- A hub only summarises. The field guide gives a type 1–2 lines and three names, then links out. The full ranking of a type lives only on its Tools post.
+- A post sits on at most two hubs (`cat` plus one `also`), so hubs don't fill up with the same pages.
+
 Posts live in `content.js`, each tagged with one main category (`cat`), one type (`type`) and, at most, one extra category hub to appear on (`also`). A tool keeps the same slug in its review, alternatives and comparison URLs.
