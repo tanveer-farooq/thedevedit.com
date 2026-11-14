@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chroma vs Pinecone 2026 | TheDevEdit</title>
+<meta name="description" content="">
+<link rel="canonical" href="https://thedevedit.com">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Chroma vs Pinecone 2026",
+   "description": "",
+   "datePublished": "2026-11-14",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Chroma better than Pinecone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It depends on hosting. Chroma suits teams that want open source and self-hosting, while Pinecone suits teams that want a managed service with SSO and hosted embedding."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Chroma free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Chroma is open source under Apache 2.0. Chroma Cloud Starter costs $0 plus usage and includes $5 in free credits."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Pinecone have a free tier?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Pinecone Starter is free with up to 2 GB of storage, 5 indexes and 2 users, limited to AWS us-east-1."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I self-host Pinecone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not in the open-source sense. Pinecone offers BYOC on Enterprise, which runs Pinecone inside your own cloud account."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">COMPARISON · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Chroma vs Pinecone 2026</h1>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We compared Chroma and Pinecone from their official docs and pricing pages. This page covers search features, deployment, pricing, security and which team each vector database suits best.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Verdict:</strong> pick Chroma if you want an open-source database you can run locally or self-host. Pick Pinecone if you want a managed service with SSO, BYOC and hosted embedding built in.</p>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 4 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Feature</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Chroma</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Pinecone</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing from</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$0 Starter plus usage</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$0 Starter</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Paid entry</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Team, $250/month</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Builder, $20/month flat</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$5 in free credits</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Up to 2 GB storage</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Local, self-host or Chroma Cloud</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Managed cloud or BYOC</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Open source</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Yes, Apache 2.0</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">No</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">SSO</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Not listed on pricing page</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">SAML 2.0 on Standard and Enterprise</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Search</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Dense, sparse, hybrid, keyword, regex</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Semantic, full-text, sparse, hybrid</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Hosted embedding</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Not listed in docs reviewed</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Yes, integrated embedding</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Score</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.0 /10</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.8 /10</td></tr></tbody></table></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OVERVIEW</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Chroma is an open-source vector database for AI apps. Its docs call it <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;the open-source data infrastructure for AI.&quot;</a></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone is a managed vector database. Its docs describe it as <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;a search engine for AI agents and applications.&quot;</a></p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FEATURE BY FEATURE</span>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Search types</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Chroma offers <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Dense, sparse, and hybrid search.&quot;</a> It also runs <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Keyword and regex search over your data without embeddings.&quot;</a></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone can serve full-text, semantic, sparse-vector and hybrid search <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;from one index.&quot;</a></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Tie. Chroma adds regex, while Pinecone adds reranking.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Deployment</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Chroma lets you <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Run it locally, self-host, or use Chroma Cloud&quot;</a> for managed hosting. Pinecone is managed, with a BYOC option that runs <a href="https://www.pinecone.io/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Pinecone in your cloud account&quot;</a> on Enterprise.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Chroma, for local and self-hosted use.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Embedding and reranking</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">With integrated embedding, <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Pinecone generates the vectors from your text server-side.&quot;</a> You can also filter by metadata, then rerank results <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;for relevance.&quot;</a></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Pinecone.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Filtering</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Chroma lets you <a href="https://docs.trychroma.com/docs/overview/introduction" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Filter results at query time by metadata conditions.&quot;</a> Pinecone also applies metadata filters before reranking.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Tie.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Security and enterprise</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone lists SAML 2.0 SSO on Standard and Enterprise, with SCIM on Enterprise. Chroma Enterprise lists <a href="https://www.trychroma.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Single tenant clusters&quot;</a>, dedicated support and SLAs, but no SSO on its pricing page.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Pinecone.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">RAG tooling</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone Assistant is <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;A managed service for RAG chat and agent applications grounded in your data&quot;</a>. The Chroma pages we reviewed list no hosted RAG assistant.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Pinecone.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">PRICING</span>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Plan</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Chroma</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Pinecone</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Starter, $0 plus usage, $5 credits</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Starter, free, up to 2 GB</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Entry paid</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Team, $250/month plus usage</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Builder, $20/month flat</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Mid tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">None listed</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Standard, $50/month min. usage</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Enterprise</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Custom</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$500/month min. usage</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Usage example</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Storage at $0.33 per GiB per month</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Pay-as-you-go above the minimum</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Prices checked on the <a href="https://www.trychroma.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Chroma pricing page</a> and <a href="https://www.pinecone.io/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Pinecone pricing page</a> on Nov 15, 2026. Monthly list prices.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">STRENGTHS</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">CHROMA PROS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Apache 2.0 open source</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Runs locally, self-hosted or in Chroma Cloud</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Keyword and regex search without embeddings</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">CHROMA CONS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SSO not listed on the pricing page</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Team plan starts at $250 per month</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">No hosted RAG assistant listed in docs reviewed</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">PINECONE PROS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrated embedding and hosted reranking</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SAML 2.0 SSO from the Standard plan</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">BYOC for Enterprise accounts</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">PINECONE CONS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Not open source; self-managed option is BYOC on Enterprise</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Free Starter limited to AWS us-east-1</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Enterprise needs $500 monthly minimum usage</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">WHO SHOULD CHOOSE WHICH</span>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Choose Chroma</strong> if you prototype locally, need self-hosting or want an open-source license.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Choose Pinecone</strong> if you need a managed service with SSO, hosted embedding and enterprise compliance.</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">SCORES</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Chroma: 8.0 /10</strong></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SCORE BREAKDOWN: Retrieval features 8.5 (25%) · Deployment flexibility 9.5 (20%) · Pricing and free tier 8.5 (20%) · Security and enterprise 6.5 (20%) · Managed extras 6.5 (15%)</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Pinecone: 8.8 /10</strong></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SCORE BREAKDOWN: Retrieval features 9.0 (25%) · Deployment flexibility 7.5 (20%) · Pricing and free tier 8.5 (20%) · Security and enterprise 9.5 (20%) · Managed extras 9.5 (15%)</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">How we score: each criterion is rated from official docs and pricing pages, weighted and rounded to one decimal. Vendors cannot pay for a score.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AUTHOR</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">TheDevEdit Editorial Team</strong> evaluates developer tools from official documentation and pricing pages.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">CTA</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Compare more options on our <a href="https://thedevedit.com/vector-databases/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">vector databases</a> page.</p>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about Chroma vs Pinecone</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Chroma better than Pinecone?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">It depends on hosting. Chroma suits teams that want open source and self-hosting, while Pinecone suits teams that want a managed service with SSO and hosted embedding.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Chroma free?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes, Chroma is open source under Apache 2.0. Chroma Cloud Starter costs $0 plus usage and includes $5 in free credits.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does Pinecone have a free tier?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. Pinecone Starter is free with up to 2 GB of storage, 5 indexes and 2 users, limited to AWS us-east-1.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Can I self-host Pinecone?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Not in the open-source sense. Pinecone offers BYOC on Enterprise, which runs Pinecone inside your own cloud account.</p></details>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
+</x-dc>
+</body>
+</html>

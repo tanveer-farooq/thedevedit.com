@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinecone review 2026: pricing, features and verdict</title>
+<meta name="description" content="Pinecone review 2026: plans from free to a $500/month minimum, hybrid search in one index, integrated embedding, SSO and BYOC, scored from docs.">
+<link rel="canonical" href="https://thedevedit.com/pinecone-review/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Pinecone review 2026",
+   "description": "Pinecone review 2026: plans from free to a $500/month minimum, hybrid search in one index, integrated embedding, SSO and BYOC, scored from docs.",
+   "datePublished": "2026-11-14",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/pinecone-review/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Pinecone free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, the Starter plan is free. It covers up to 2 GB of storage with community support, which suits prototypes and small apps."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does Pinecone cost for production?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The pricing page describes Standard as \"For production applications at any scale\", with a $50 monthly minimum and then pay as you go. Enterprise starts at a $500 monthly minimum."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Pinecone support hybrid search?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Pinecone serves full-text, semantic, sparse-vector and hybrid search from one index, so you don't need a separate keyword engine."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I self-host Pinecone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The pricing page lists no self-hosted edition of Pinecone Database. The closest option is Bring Your Own Cloud, which \"runs Pinecone in your cloud account and VPC\"."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Pinecone work with LangChain?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Pinecone lists LangChain on its integrations page, alongside LlamaIndex and Amazon Bedrock."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">REVIEW · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Pinecone review 2026</h1>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">A docs-based look at Pinecone, the managed vector database for RAG and AI agents. We cover plans, search features, security options and where its usage-based pricing starts to add up for growing teams.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Verdict:</strong> 8.5 /10</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone offers a free tier and fully managed search, but paid production plans carry $50 and $500 monthly minimums.</p>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 3 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:300px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Field</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Detail</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Best for</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Teams that want managed vector search with no servers to run</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing from</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Free Starter, then $20/month Builder</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Yes, up to 2 GB storage</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Managed cloud, or BYOC on Enterprise</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">SSO</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">SAML 2.0 on Standard and Enterprise</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Score</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.5 /10</td></tr></tbody></table></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">THE REVIEW</span>
+<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Why it scores well</h4><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Pinecone docs</a> say &quot;Pinecone Database is a search engine for AI agents and applications&quot;. Keyword, semantic and sparse retrieval run as &quot;hybrid search from one index&quot;, per the <a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">docs</a>.</p></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">With integrated embedding, Pinecone &quot;generates the vectors from your text server-side&quot; (<a href="https://docs.pinecone.io/guides/get-started/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">docs</a>).</p>
+<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Who it's for</h4><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Product teams shipping RAG or agent memory who would rather pay for usage than run database clusters.</p></div>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Standout features</h4>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Full-text, semantic, sparse and hybrid search from one index</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Integrated embedding turns text into vectors on Pinecone's side</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Metadata filters plus reranking to narrow and order results</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Namespaces keep each tenant's data apart inside one index</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pinecone Assistant adds managed RAG chat grounded in your own data</li></ul>
+<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Integrations</h4><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://docs.pinecone.io/integrations/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">integrations page</a> lists LangChain (&quot;Build LLM applications with LangChain&quot;), LlamaIndex, Amazon Bedrock, Databricks and Vercel. Official SDKs cover Python, Node.js, Java and Go, per the <a href="https://docs.pinecone.io/reference/sdks/python/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">SDK reference</a>.</p></div>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Pricing</h4>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Plan</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Price</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">What you get</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Starter</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Free</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Up to 2 GB storage, community support</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Builder</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$20/month flat</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Higher limits, choice of cloud and region</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Standard</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$50/month minimum</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Pay as you go, RBAC, SSO, backups, HIPAA add-on</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Enterprise</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$500/month minimum</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">99.95% uptime SLA, BYOC, private endpoints, audit logs</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">For Standard, the <a href="https://www.pinecone.io/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a> says &quot;You'll be charged a minimum of $50/month&quot;. New Standard accounts get a &quot;3 week trial includes $300 credits&quot; offer, per the <a href="https://www.pinecone.io/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a>.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Prices checked on Nov 15, 2026, from the public pricing page.</p>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f"></span>Pros / cons</h4>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pros:</p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">No servers, shards or upgrades to manage</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Hybrid search without a separate keyword engine</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Free tier large enough for prototypes</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SSO arrives on the $50 Standard plan</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Cons:</p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">No self-hosted edition of Pinecone Database listed</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Read and write units are billed per million on Standard and Enterprise</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">BYOC and private endpoints need Enterprise</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">HIPAA costs extra below Enterprise</li></ul>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Score breakdown</h4>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">How we score: weighted criteria judged from official docs and pricing pages. Vendors cannot pay for a score.</p>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Criterion</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Weight</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Score</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Search features</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">25%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9.0</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Ease of setup</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9.5</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing value</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">7.5</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Security and compliance</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.5</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Integrations and SDKs</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9.0</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment flexibility</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">7.0</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600"><strong style="font-weight:600">Total</strong></td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">100%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"><strong style="font-weight:600">8.5</strong></td></tr></tbody></table></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">ALTERNATIVES</span>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Weaviate:</strong> open source vector database you can self-host or run managed.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Qdrant:</strong> open source vector search engine with a managed cloud option.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Chroma:</strong> open source embedding database aimed at local and prototype work. See our <a href="https://thedevedit.com/vector-databases/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">vector databases list</a>.</li></ul>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about Pinecone</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Pinecone free?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes, the Starter plan is free. It covers up to 2 GB of storage with community support, which suits prototypes and small apps.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">How much does Pinecone cost for production?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">The pricing page describes Standard as &quot;For production applications at any scale&quot;, with a $50 monthly minimum and then pay as you go. Enterprise starts at a $500 monthly minimum.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does Pinecone support hybrid search?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. Pinecone serves full-text, semantic, sparse-vector and hybrid search from one index, so you don't need a separate keyword engine.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Can I self-host Pinecone?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">The pricing page lists no self-hosted edition of Pinecone Database. The closest option is Bring Your Own Cloud, which &quot;runs Pinecone in your cloud account and VPC&quot;.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does Pinecone work with LangChain?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. Pinecone lists LangChain on its integrations page, alongside LlamaIndex and Amazon Bedrock.</p></details>
+      </div>
+    </section>
+    <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">TheDevEdit Editorial Team, Editorial team. TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Built a developer tool? Send it in.</strong> We review every submission against the same rubric. Listing is free.</p>
+    </section>
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
+</x-dc>
+</body>
+</html>

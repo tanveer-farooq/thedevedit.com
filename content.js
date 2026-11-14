@@ -97,6 +97,21 @@ const LIVE = {
   '/ai-automation-tools/': { summary: '7 workflow platforms scored on AI steps, run controls and pricing.', date: 'Nov 15' },
   '/agentic-ai-platforms/': { summary: '7 platforms for building agents, scored from official docs.', date: 'Nov 15' },
   '/ai-governance-tools/': { summary: '7 governance platforms scored from official docs.', date: 'Nov 15' },
+  '/vector-databases/': { summary: '7 vector databases scored from official docs and pricing.', date: 'Nov 15' },
+  '/ai-coding-assistants/': { summary: '7 coding assistants scored from official docs and pricing.', date: 'Nov 15' },
+  '/open-source-llms/': { summary: '7 open-weight model families scored from model cards.', date: 'Nov 15' },
+  '/ai-productivity-tools/': { summary: '7 AI productivity tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/claude-code-review/': { summary: 'Claude Code reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/github-copilot-review/': { summary: 'GitHub Copilot reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/cursor-review/': { summary: 'Cursor reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/pinecone-review/': { summary: 'Pinecone reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/langchain-review/': { summary: 'LangChain reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/ollama-review/': { summary: 'Ollama reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/langchain-alternatives/': { summary: '7 LangChain alternatives scored from official docs.', date: 'Nov 15' },
+  '/github-copilot-alternatives/': { summary: '7 GitHub Copilot alternatives scored from official docs.', date: 'Nov 15' },
+  '/pinecone-alternatives/': { summary: '7 Pinecone alternatives scored from official docs.', date: 'Nov 15' },
+  '/cursor-vs-github-copilot/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
+  '/chroma-vs-pinecone/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
