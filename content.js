@@ -91,7 +91,7 @@ for (const [cat, [lists, reviews, alts, comps]] of Object.entries(RAW)) {
 // Real, published articles: they link to their own page and override the placeholder summary and date.
 const LIVE = {
   '/ai-tools/': { summary: '10 tools scored from official docs and pricing.', date: 'Nov 14' },
-  '/ai-tools-like-chatgpt/': { summary: '10 assistants scored from official docs and pricing.', date: 'Nov 14' },
+  '/ai-tools-like-chatgpt/': { summary: '7 assistants scored from official docs and pricing.', date: 'Nov 14' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
