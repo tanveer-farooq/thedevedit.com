@@ -139,6 +139,23 @@
     html{scroll-padding-top:120px}
     summary{list-style:none}summary::-webkit-details-marker{display:none}
     .tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+    .tdt-wrap{container-type:inline-size;container-name:tdt}
+    .tdt{display:flex;flex-direction:column;background:#fff;border:1px solid #e2e1dc;border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(18,18,18,.04)}
+    .tdt-row{display:grid;grid-template-columns:24px minmax(170px,2fr) minmax(150px,1.6fr) minmax(90px,1fr) minmax(80px,.9fr) 64px 74px;column-gap:10px;align-items:center;padding:0 16px;border-top:1px solid #efeee9;transition:background .15s}
+    .tdt-row>*{padding:16px 0;min-width:0}
+    .tdt-row:not(.tdt-head):hover{background:#fafaf7}
+    .tdt-head{border-top:0;background:#f7f6f2;font-size:12.5px;font-weight:600;color:#55554f}
+    .tdt-head>*{padding:12px 0}
+    .tdt-visit{text-align:right}
+    @container tdt (max-width:640px){
+      .tdt-head{display:none}
+      .tdt-row{position:relative;grid-template-columns:1fr 1fr;row-gap:6px;padding:14px 16px}
+      .tdt-row>*{padding:3px 0}
+      .tdt-chk{position:absolute;top:22px;right:16px;padding:0}
+      .tdt-tool{grid-column:1/-1;padding-right:28px}
+      .tdt-cell::before{content:attr(data-l);display:block;font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#8a8a84;margin-bottom:2px}
+      .tdt-visit{grid-column:1/-1;text-align:left;padding-top:8px}
+    }
     [data-ord="1"]{order:1}[data-ord="2"]{order:2}[data-ord="3"]{order:3}[data-ord="4"]{order:4}[data-ord="5"]{order:5}[data-ord="6"]{order:6}[data-ord="7"]{order:7}
   </style>
 </helmet>
@@ -151,10 +168,8 @@
       <nav aria-label="On this page" style="display:flex;flex-direction:column;gap:2px">
         <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">ON THIS PAGE</span>
         <a href="#summary" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The short answer</a>
-        <a href="#how-we-evaluated" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">How we evaluated</a>
-        <a href="#compare" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">Comparison table</a>
-        <a href="#reviews" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The 7 tools, reviewed</a>
-        <a href="#choose" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">How to choose</a>
+        <a href="#compare" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">Best AI tools like ChatGPT compared</a>
+        <a href="#reviews" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The reviews</a>
         <a href="#faq" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">FAQ</a>
       </nav>
       <nav aria-label="Jump to tool" style="display:flex;flex-direction:column;gap:2px">
@@ -174,7 +189,7 @@
       <section style="display:flex;flex-direction:column;gap:22px">
         <dc-import name="Breadcrumb" category="ai" title="Best AI tools like ChatGPT" hint-size="100%,18px"></dc-import>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// BEST-OF LIST</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">BEST-OF LIST</span>
           <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;background:#fff;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#3a9460"></span>UPDATED NOV 14, 2026</span>
         </div>
         <h1 style="margin:0;font-size:clamp(38px,5.2vw,64px);line-height:1.04;font-weight:500;letter-spacing:-.04em;text-wrap:balance">The 7 best AI tools like ChatGPT <span style="color:#7f806f">for 2026</span></h1>
@@ -186,237 +201,207 @@
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">20 min read · 7 tools reviewed · prices checked Nov 14, 2026</span>
           </div>
         </div>
-        <div style="display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border:1px solid #D3D2CD;background:#fff;font-size:13px;line-height:20px;color:#4D4D4D">
-          <span style="flex-shrink:0;margin-top:2px;color:#121212"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-          <span>We scored every tool with the same published rubric from documentation, and vendors cannot pay for a ranking. Some links earn us a commission. <a href="#how-we-evaluated" style="color:#121212;text-underline-offset:3px">How we evaluated</a></span>
-        </div>
       </section>
 
       <section id="summary" style="display:flex;flex-direction:column;gap:20px">
         <div style="background:#121212;color:#fff;padding:28px 28px 26px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">// THE SHORT ANSWER</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">THE SHORT ANSWER</span>
           <p style="margin:0;font-size:20px;line-height:31px;font-weight:400;letter-spacing:-.01em;text-wrap:pretty">Microsoft Copilot is our top AI tool like ChatGPT, with the highest editorial score here (9.5/10, level with Claude but ahead before rounding). It has a free app, a <a href="https://www.microsoft.com/en-us/copilot/pricing/individuals" target="_blank" rel="noopener" style="color:#fff;text-underline-offset:3px">$9.99 Microsoft 365 Personal plan (as of November 2026)</a> and Copilot Chat included with eligible Microsoft 365 business plans. Pick Claude for a standalone assistant whose free plan lists voice mode, web search and code execution, or Perplexity when every answer needs a citation you can check.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-          <div style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s" style-hover="transform:translateY(-4px);border-color:#c9c8c2;box-shadow:0 12px 32px rgba(18,20,19,.08)">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">BEST OVERALL</span>
-              <span style="width:36px;height:36px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px">MC</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));grid-auto-rows:1fr;gap:16px;align-items:stretch">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST OVERALL</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">MC</span>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-size:22px;font-weight:500;letter-spacing:-.02em">Microsoft Copilot</span>
-              <span style="font-size:14px;line-height:21px;color:#4D4D4D">Free app, $9.99 entry, all six ChatGPT jobs documented.</span>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:4px">
-              <a href="https://copilot.com/" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
-              <a href="#tool-microsoft-copilot" style="font-size:13px;font-weight:500;color:#121212;text-underline-offset:3px">Read the entry</a>
+            <span style="font-size:17px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Microsoft Copilot</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Free app, $9.99 entry, all six ChatGPT jobs documented.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://copilot.com/" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-microsoft-copilot" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
             </div>
           </div>
-          <div style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s" style-hover="transform:translateY(-4px);border-color:#c9c8c2;box-shadow:0 12px 32px rgba(18,20,19,.08)">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">BEST STANDALONE ASSISTANT</span>
-              <span style="width:36px;height:36px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px">Cl</span>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST STANDALONE ASSISTANT</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Cl</span>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-size:22px;font-weight:500;letter-spacing:-.02em">Claude</span>
-              <span style="font-size:14px;line-height:21px;color:#4D4D4D">Free plan lists voice, web search and code execution.</span>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:4px">
-              <a href="https://claude.com/pricing" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
-              <a href="#tool-claude" style="font-size:13px;font-weight:500;color:#121212;text-underline-offset:3px">Read the entry</a>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Claude</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Free plan lists voice, web search and code execution.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://claude.com/pricing" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-claude" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
             </div>
           </div>
-          <div style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s" style-hover="transform:translateY(-4px);border-color:#c9c8c2;box-shadow:0 12px 32px rgba(18,20,19,.08)">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">BEST FOR CITED RESEARCH</span>
-              <span style="width:36px;height:36px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px">Px</span>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST FOR CITED RESEARCH</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Px</span>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-size:22px;font-weight:500;letter-spacing:-.02em">Perplexity</span>
-              <span style="font-size:14px;line-height:21px;color:#4D4D4D">Citations in every answer, free plan included.</span>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:4px">
-              <a href="https://www.perplexity.ai/hub/pricing" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
-              <a href="#tool-perplexity" style="font-size:13px;font-weight:500;color:#121212;text-underline-offset:3px">Read the entry</a>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Perplexity</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Citations in every answer, free plan included.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://www.perplexity.ai/hub/pricing" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-perplexity" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
             </div>
           </div>
         </div>
-      </section>
-
-      <section id="how-we-evaluated" style="display:flex;flex-direction:column;gap:18px">
-        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// HOW WE EVALUATED</span>
-        <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Seven ranked assistants, six ChatGPT jobs, <span style="color:#7f806f">one rubric.</span></h2>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">On November 14, 2026 we reviewed each tool's official documentation, pricing page, help-center articles, and trust, security or privacy pages. Where parts of a vendor's site didn't load for us (Grok, Meta AI and DeepSeek), we used the vendor's own App Store listing for features. We did not install, run or benchmark any tool, and no vendor saw this article before publication.</p>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D"><strong style="font-weight:600">How tools were chosen.</strong> We started from the assistants that recur in current list posts for &quot;AI chatbots like ChatGPT&quot; and &quot;apps like ChatGPT&quot;, then added two privacy-focused options. Every assistant we scored passed the same checks: a general-purpose chat assistant you can use without setup, at least four of the six jobs below documented by the vendor, a public price or free plan, updates in 2026, and availability in the US. We rank the 7 with the highest editorial scores. Coding and automation tools are out of scope; our <a href="https://thedevedit.com/ai-tools/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">top AI tools list</a> covers coding tools.</p>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D"><strong style="font-weight:600">How they are ordered.</strong> By editorial score, highest first. Ties at one decimal are broken by the unrounded total, then by the admin-and-data score. Each score is the weighted sum of five criteria, each scored from documented facts:</p>
-        <div style="border:1px solid #D3D2CD;background:#fff">
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) 64px;background:#F5F4F0;border-bottom:1px solid #D3D2CD">
-            <span style="padding:10px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">CRITERION</span>
-            <span style="padding:10px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666;text-align:right">WEIGHT</span>
-          </div>
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) 64px;border-bottom:1px solid #ebeae5">
-            <span style="padding:12px 14px;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">ChatGPT jobs</span><span style="font-size:13px;line-height:19px;color:#666">Jobs the vendor documents on any plan, out of six: chat and writing; web research (live web answers or a deep-research report); file analysis; data analysis (spreadsheet or CSV files); image input (photo, screenshot or camera); voice conversation with spoken replies (dictation alone doesn't count). 10 = six, 9 = five, 8 = four, 7 = three, 6 = two or fewer.</span></span>
-            <span style="padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:14px;text-align:right">30%</span>
-          </div>
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) 64px;border-bottom:1px solid #ebeae5">
-            <span style="padding:12px 14px;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">Free and entry access</span><span style="font-size:13px;line-height:19px;color:#666">10 = free plan, and paid entry at or under $10/mo or no paid plan at all. 8 = free plan, and paid entry above $10 and up to $25/mo. 6 = free access only as a trial or through another paid subscription. 4 = no free option.</span></span>
-            <span style="padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:14px;text-align:right">20%</span>
-          </div>
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) 64px;border-bottom:1px solid #ebeae5">
-            <span style="padding:12px 14px;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">Pricing clarity</span><span style="font-size:13px;line-height:19px;color:#666">Starts at 10. Minus 1 each for: a sales-only top tier; usage credits or metered charges on top of a plan price; promotional, time-limited or region-varying prices; a plan whose billing basis is not stated.</span></span>
-            <span style="padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:14px;text-align:right">15%</span>
-          </div>
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) 64px;border-bottom:1px solid #ebeae5">
-            <span style="padding:12px 14px;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">Integrations</span><span style="font-size:13px;line-height:19px;color:#666">6, plus 1 each for: named connectors to third-party business apps; Model Context Protocol (MCP) support in the assistant itself; a developer extension point (plugins, custom skills, SDK or API); a catalogue the vendor says holds 100+ connectors.</span></span>
-            <span style="padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:14px;text-align:right">15%</span>
-          </div>
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) 64px;border-bottom:1px solid #ebeae5">
-            <span style="padding:12px 14px;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">Admin and data controls</span><span style="font-size:13px;line-height:19px;color:#666">Starts at 10. Minus 1 for each element we did not find on any plan a business can buy: SSO, SCIM, audit logs, no training on customer data by default, retention controls, a compliance certification on a vendor trust, security or help page. For a tool with no business plan, we check the plans it does sell.</span></span>
-            <span style="padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:14px;text-align:right">20%</span>
-          </div>
-        </div>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">These are editorial scores from documentation review, not test results, and they are specific to this list. A missing element means we did not find it in the vendor's pages, not that the product lacks it.</p>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">Four criteria follow the same rules as our <a href="https://thedevedit.com/ai-tools/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">top AI tools list</a> (this page also spells out the $10 to $25 band and how tools without a business plan are checked). As a result, Claude, Gemini and Perplexity score the same on both pages (9.5, 9.4 and 9.2). Microsoft Copilot scores 9.5 here and 8.7 there because the scope differs: this page includes the free Copilot app and Microsoft 365 Personal, while that list scores only the Microsoft 365 Copilot work add-on, which has no free plan of its own.</p>
-        <p style="margin:0;font-size:16px;line-height:26px;color:#4D4D4D">The admin criterion pulls down the four tools with no business plan for the assistant: Duck.ai ranks #7, and Meta AI, DeepSeek and Brave Leo miss the top 7 (their scores are under Also considered). Someone choosing for personal use may weigh that differently, so read the &quot;who it's for&quot; line and the Also considered notes, not only the number.</p>
       </section>
 
       <section id="compare" style="display:flex;flex-direction:column;gap:18px">
         <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// COMPARISON TABLE</span>
-            <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">All 7 at a glance</h2>
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">COMPARISON TABLE</span>
+            <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Best AI tools like ChatGPT compared</h2>
           </div>
           <span style="font-size:13px;color:#666">Tick up to 3 tools to compare side by side</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
           <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <sc-if value="{{ fOn.all }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 12px;border:1px solid #121212;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">All</button></sc-if>
-            <sc-if value="{{ fOff.all }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 12px;border:1px solid #D3D2CD;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">All</button></sc-if>
-            <sc-if value="{{ fOn.free }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.free }}" style="height:32px;padding:0 12px;border:1px solid #121212;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Free tier</button></sc-if>
-            <sc-if value="{{ fOff.free }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.free }}" style="height:32px;padding:0 12px;border:1px solid #D3D2CD;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Free tier</button></sc-if>
-            <sc-if value="{{ fOn.self }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.self }}" style="height:32px;padding:0 12px;border:1px solid #121212;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Self-hosted option</button></sc-if>
-            <sc-if value="{{ fOff.self }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.self }}" style="height:32px;padding:0 12px;border:1px solid #D3D2CD;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Self-hosted option</button></sc-if>
-            <sc-if value="{{ fOn.sso }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.sso }}" style="height:32px;padding:0 12px;border:1px solid #121212;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Business plan with SSO</button></sc-if>
-            <sc-if value="{{ fOff.sso }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.sso }}" style="height:32px;padding:0 12px;border:1px solid #D3D2CD;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Business plan with SSO</button></sc-if>
+            <sc-if value="{{ fOn.all }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">All</button></sc-if>
+            <sc-if value="{{ fOff.all }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">All</button></sc-if>
+            <sc-if value="{{ fOn.free }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.free }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Free tier</button></sc-if>
+            <sc-if value="{{ fOff.free }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.free }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Free tier</button></sc-if>
+            <sc-if value="{{ fOn.self }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.self }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Self-hosted option</button></sc-if>
+            <sc-if value="{{ fOff.self }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.self }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Self-hosted option</button></sc-if>
+            <sc-if value="{{ fOn.sso }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.sso }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">Business plan with SSO</button></sc-if>
+            <sc-if value="{{ fOff.sso }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.sso }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">Business plan with SSO</button></sc-if>
           </div>
           <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#666">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M4 6h10"/><path d="M4 12h7"/><path d="M4 18h4"/><path d="M18 6v12"/><path d="M15 15l3 3 3-3"/></svg>
             Sort
-            <select value="{{ sort }}" onChange="{{ onSort }}" style="height:32px;padding:0 8px;border:1px solid #D3D2CD;background:#fff;font:inherit;font-size:13px;color:#121212">
+            <select value="{{ sort }}" onChange="{{ onSort }}" style="height:32px;padding:0 8px;border:1px solid #D3D2CD;border-radius:8px;background:#fff;font:inherit;font-size:13px;color:#121212">
               <option value="rank">Our ranking</option>
               <option value="rating">Score</option>
               <option value="price">Price, low to high</option>
             </select>
           </label>
         </div>
-        <div style="border:1px solid #D3D2CD;background:#fff;overflow-x:auto">
-          <div style="min-width:960px;font-size:14px;line-height:20px;display:flex;flex-direction:column">
-            <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;background:#F5F4F0;border-bottom:1px solid #D3D2CD;align-items:center;order:0">
-              <span></span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">TOOL</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">BEST FOR</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">PRICING</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666;white-space:nowrap">FREE TIER</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">DEPLOYMENT</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">BUSINESS PLAN WITH SSO</span><span style="padding:12px 14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#666">SCORE</span><span></span>
+        <div class="tdt-wrap">
+          <div class="tdt">
+            <div class="tdt-row tdt-head" style="order:0">
+              <span></span><span>Tool</span><span>Pricing</span><span>Deployment</span><span>SSO</span><span>Score</span><span></span>
             </div>
             <sc-if value="{{ show.t1 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t1 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t1 }}" onChange="{{ tog.t1 }}" aria-label="Compare Microsoft Copilot" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-microsoft-copilot" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">01</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">MC</span><span style="font-weight:600">Microsoft Copilot</span></a>
-                <span style="padding:14px;color:#4D4D4D">Microsoft 365 users</span>
-                <span style="padding:14px">Microsoft 365 Personal $9.99/mo; Copilot Business add-on $21/user/mo (annual)</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Cloud</span>
-                <span style="padding:14px;color:#4D4D4D">Yes (Entra ID sign-in)</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">9.5</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://copilot.com/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t1 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t1 }}" onChange="{{ tog.t1 }}" aria-label="Compare Microsoft Copilot" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-microsoft-copilot" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">01</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">MC</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Microsoft Copilot</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Microsoft 365 users</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Microsoft 365 Personal $9.99/mo; Copilot Business add-on $21/user/mo (annual)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Entra ID sign-in)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.5<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://copilot.com/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
             <sc-if value="{{ show.t2 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t2 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t2 }}" onChange="{{ tog.t2 }}" aria-label="Compare Claude" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-claude" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">02</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Cl</span><span style="font-weight:600">Claude</span></a>
-                <span style="padding:14px;color:#4D4D4D">Standalone team assistant</span>
-                <span style="padding:14px">Pro $17/mo (annual); Team $20/seat/mo (annual)</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Cloud</span>
-                <span style="padding:14px;color:#4D4D4D">Yes (Team)</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">9.5</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://claude.com/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t2 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t2 }}" onChange="{{ tog.t2 }}" aria-label="Compare Claude" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-claude" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">02</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Cl</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Claude</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Standalone team assistant</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Pro $17/mo (annual); Team $20/seat/mo (annual)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Team)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.5<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://claude.com/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
             <sc-if value="{{ show.t3 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t3 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t3 }}" onChange="{{ tog.t3 }}" aria-label="Compare Gemini" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-gemini" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">03</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Ge</span><span style="font-weight:600">Gemini</span></a>
-                <span style="padding:14px;color:#4D4D4D">Lowest paid entry</span>
-                <span style="padding:14px">AI Plus $4.99/mo; Gemini Enterprise from $21/seat/mo</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Cloud</span>
-                <span style="padding:14px;color:#4D4D4D">Yes (Gemini Enterprise)</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">9.4</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://gemini.google/us/subscriptions/?hl=en" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t3 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t3 }}" onChange="{{ tog.t3 }}" aria-label="Compare Gemini" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-gemini" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">03</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Ge</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Gemini</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Lowest paid entry</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">AI Plus $4.99/mo; Gemini Enterprise from $21/seat/mo</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Gemini Enterprise)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.4<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://gemini.google/us/subscriptions/?hl=en" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
             <sc-if value="{{ show.t4 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t4 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t4 }}" onChange="{{ tog.t4 }}" aria-label="Compare Perplexity" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-perplexity" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">04</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Px</span><span style="font-weight:600">Perplexity</span></a>
-                <span style="padding:14px;color:#4D4D4D">Cited research</span>
-                <span style="padding:14px">Pro $20/mo or $200/yr</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Cloud</span>
-                <span style="padding:14px;color:#4D4D4D">Yes (Enterprise Pro)</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">9.2</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://www.perplexity.ai/hub/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t4 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t4 }}" onChange="{{ tog.t4 }}" aria-label="Compare Perplexity" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-perplexity" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">04</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Px</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Perplexity</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Cited research</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Pro $20/mo or $200/yr</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Yes (Enterprise Pro)</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.2<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://www.perplexity.ai/hub/pricing" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
             <sc-if value="{{ show.t5 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t5 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t5 }}" onChange="{{ tog.t5 }}" aria-label="Compare Grok" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-grok" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">05</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">Gk</span><span style="font-weight:600">Grok</span></a>
-                <span style="padding:14px;color:#4D4D4D">X and web search</span>
-                <span style="padding:14px">Plus $8/mo; team seats from $30/seat</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Cloud</span>
-                <span style="padding:14px;color:#4D4D4D">Enterprise only</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">9.1</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://grok.com/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t5 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t5 }}" onChange="{{ tog.t5 }}" aria-label="Compare Grok" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-grok" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">05</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Gk</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Grok</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">X and web search</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Plus $8/mo; team seats from $30/seat</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Enterprise only</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.1<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://grok.com/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
             <sc-if value="{{ show.t6 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t6 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t6 }}" onChange="{{ tog.t6 }}" aria-label="Compare Mistral Vibe" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-mistral-vibe" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">06</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">MV</span><span style="font-weight:600">Mistral Vibe</span></a>
-                <span style="padding:14px;color:#4D4D4D">Self-hosted deployment</span>
-                <span style="padding:14px">Pro $14.99/mo; Team $24.99/user/mo</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Both</span>
-                <span style="padding:14px;color:#4D4D4D">Enterprise only</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">8.5</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://mistral.ai/pricing/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t6 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t6 }}" onChange="{{ tog.t6 }}" aria-label="Compare Mistral Vibe" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-mistral-vibe" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">06</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">MV</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Mistral Vibe</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Self-hosted deployment</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Pro $14.99/mo; Team $24.99/user/mo</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Both</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">Enterprise only</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.5<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://mistral.ai/pricing/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
             <sc-if value="{{ show.t7 }}" hint-placeholder-val="{{ true }}">
-              <div style="display:grid;grid-template-columns:36px minmax(170px,1.6fr) minmax(140px,1.3fr) minmax(150px,1.3fr) 90px minmax(110px,1fr) minmax(130px,1fr) 64px 64px;border-bottom:1px solid #ebeae5;align-items:center" data-ord="{{ ord.t7 }}" style-hover="background:#fafaf7">
-                <span style="padding:14px 0 14px 14px;display:flex"><input type="checkbox" checked="{{ sel.t7 }}" onChange="{{ tog.t7 }}" aria-label="Compare Duck.ai" style="width:15px;height:15px;accent-color:#121212;cursor:pointer;margin:0"></span>
-                <a href="#tool-duck-ai" style="padding:14px;display:flex;align-items:center;gap:10px;color:#121212;text-decoration:none"><span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:18px">07</span><span style="width:28px;height:28px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0">DA</span><span style="font-weight:600">Duck.ai</span></a>
-                <span style="padding:14px;color:#4D4D4D">Private chat</span>
-                <span style="padding:14px">DuckDuckGo Plus $9.99/mo</span>
-                <span style="padding:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#176f2c;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></span>
-                <span style="padding:14px;color:#4D4D4D">Cloud</span>
-                <span style="padding:14px;color:#4D4D4D">No</span>
-                <span style="padding:14px"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">8.3</span><span style="color:#999;font-size:12px">/10</span></span>
-                <span style="padding:14px;text-align:right"><a href="https://duck.ai/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              <div class="tdt-row" data-ord="{{ ord.t7 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t7 }}" onChange="{{ tog.t7 }}" aria-label="Compare Duck.ai" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-duck-ai" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">07</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">DA</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Duck.ai</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Private chat</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">DuckDuckGo Plus $9.99/mo</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Cloud</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.3<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://duck.ai/" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
               </div>
             </sc-if>
           </div>
           <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}">
-            <div style="padding:28px;text-align:center;color:#666;font-size:14px">No tools match this filter.</div>
+            <div style="padding:28px;text-align:center;color:#666;font-size:14px;background:#fff;border:1px solid #e2e1dc;border-top:0;border-radius:0 0 12px 12px">No tools match this filter.</div>
           </sc-if>
         </div>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">Prices checked by hand on Nov 14, 2026 from each vendor's pricing page, help center or App Store listing, in USD. Entry paid plan shown; annual billing where the vendor shows it (Google does not state Gemini Enterprise's billing basis). Duck.ai's price comes from DuckDuckGo's March 2026 announcement because its help pages list none. Scores are editorial scores from documentation review (rubric above).</span>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12.5px;line-height:19px;color:#666">Prices checked by hand on Nov 14, 2026 from each vendor's pricing page, help center or App Store listing, in USD. Entry paid plan shown; annual billing where the vendor shows it (Google does not state Gemini Enterprise's billing basis). Duck.ai's price comes from DuckDuckGo's March 2026 announcement because its help pages list none. Scores are editorial scores from documentation review (rubric above).</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666"><strong style="font-weight:600">How we score:</strong> chatGPT jobs 30% · free and entry access 20% · pricing clarity 15% · integrations 15% · admin and data controls 20%. Editorial scores from official docs and pricing, not hands-on tests. Vendors can't pay for a ranking. Some links earn us a commission.</span>
+        </div>
       </section>
 
       <section id="reviews" style="display:flex;flex-direction:column;gap:48px">
         <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// THE REVIEWS</span>
-          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">The 7 tools, reviewed</h2>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">THE REVIEWS</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">The 7 best AI tools like ChatGPT, reviewed</h2>
         </div>
         <article id="tool-microsoft-copilot" style="display:flex;flex-direction:column;gap:20px">
           <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
@@ -434,25 +419,26 @@
               <a href="https://copilot.com/" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Microsoft Copilot <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
+
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The app itself is free: <a href="https://copilot.com/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft says</a> it &quot;is free with a signed-in Microsoft account,&quot; and <a href="https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">signing in adds voice interactions</a>.</p>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Companies on Microsoft 365, and people who already pay for Microsoft 365 Personal, Family or Premium.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Copilot Chat at no extra cost for work. <a href="https://learn.microsoft.com/en-us/copilot/plan/copilot-overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft Learn</a> says Copilot Chat is &quot;included with eligible Microsoft 365 licenses,&quot; and users can upload a file with a prompt.</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">With an Entra ID sign-in, <a href="https://learn.microsoft.com/en-us/copilot/plan/enterprise-data-protection" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">enterprise data protection</a> applies, and prompts and responses &quot;aren't used to train foundation models.&quot;</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of November 2026, <a href="https://www.microsoft.com/en-us/copilot/pricing/individuals" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft lists</a> a limited free version of Copilot, then Microsoft 365 Personal at $9.99/mo or $99.99/yr and Family at $12.99/mo or $129.99/yr. Premium is $19.99/mo or $199.99/yr, and Pro is $99.99/mo (monthly only).</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">First-period offers apply: Personal is $6.99 for the first month and Premium $13.99. On Family, Copilot in Word, Excel, PowerPoint and Outlook is for the subscription owner only.</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">For work, the <a href="https://www.microsoft.com/en-us/copilot/pricing/business" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft 365 Copilot Business add-on</a> is $21 per user per month billed yearly.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Researcher and Analyst, Copilot's research and data agents, are <a href="https://support.microsoft.com/en-us/microsoft-365-copilot/ai-credits-and-limits-for-microsoft-365-subscriptions" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Not available&quot; on Personal and Family</a>; you need Premium or Pro. <a href="https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-vision-microsoft-365-copilot" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Copilot Vision</a> &quot;is only available during a voice conversation&quot; and needs a paid Microsoft 365 plan or a work Copilot license.</p>
             </div>
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Without the Microsoft 365 Copilot add-on, Copilot Chat answers from the web and from files you upload. The add-on grounds answers in your emails, files, meetings and calendars through Microsoft Graph, and a model selector offers Auto, Quick response and Think deeper (<a href="https://learn.microsoft.com/en-us/copilot/plan/copilot-overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft Learn</a>).</p>
@@ -483,22 +469,23 @@
               <a href="https://claude.com/pricing" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Claude <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
+
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Claude's free plan lets you <a href="https://claude.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Search the web, create files, and run code&quot;</a>, and <a href="https://support.claude.com/en/articles/11101966-use-voice-mode" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">voice mode is on every plan</a>, though Anthropic still labels it &quot;a beta feature.&quot;</p>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams of 2 to 150 people that want SSO and no model training by default without buying into Microsoft or Google; <a href="https://claude.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Claude Team</a> includes both from $20 per seat per month.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Code execution on every plan. The <a href="https://claude.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a> lists &quot;Create and edit files with code execution&quot; from Free up, and once it is on, you can <a href="https://support.claude.com/en/articles/8241126-upload-files-to-claude" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">upload XLSX spreadsheets</a> alongside PDF, DOCX, CSV and JPEG, PNG, GIF or WebP images.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of November 2026: Free ($0), Pro ($17/mo billed annually or $20 monthly), Max ($100/mo), Ultra ($200/mo), Team Standard ($20/seat/mo annual or $25 monthly), Team Premium ($100/seat/mo annual or $125 monthly) and Enterprise ($20/seat/mo annual, 20-seat minimum, plus usage at API rates).</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://claude.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">SCIM, audit logs and custom data retention are Enterprise-only</a>. On Free, Pro, Max and Ultra, model training is listed as &quot;Opt-out&quot;, so individuals have to turn it off.</p>
             </div>
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://claude.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Free plan</a> allows up to 5 projects, and Claude's Research feature starts on Pro. Uploads go up to 500 MB per file and 20 files per chat (<a href="https://support.claude.com/en/articles/8241126-upload-files-to-claude" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Claude Help Center</a>), and voice conversations count toward your plan's usual usage limits.</p>
@@ -529,22 +516,23 @@
               <a href="https://gemini.google/us/subscriptions/?hl=en" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Gemini <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
 
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Companies on Google Workspace, and individuals who want a paid tier for under $5 a month.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Gemini Live with your camera. Google describes Live as &quot;a natural, free-flowing conversation with Gemini,&quot; and on Android you can turn on your camera or share your screen so Gemini sees what you see (<a href="https://support.google.com/gemini/answer/15274899?hl=en" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Gemini Help</a>).</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of November 2026, <a href="https://gemini.google/us/subscriptions/?hl=en" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Google lists</a> Free ($0), Google AI Plus ($4.99/mo), Google AI Pro ($19.99/mo) and Google AI Ultra (from $99.99/mo), and says you can extend usage limits by purchasing AI credits. Gemini Enterprise starts at $21 per seat per month (Business edition) or $30 (Standard and Plus), with no billing term stated.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Gemini Live <a href="https://support.google.com/gemini/answer/15274899?hl=en" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;isn't available in the Gemini web app&quot;</a>. Uploads cap total video at 5 minutes and audio at 10 minutes unless you move to Google AI Pro or Ultra, which extend them to 1 hour and 3 hours (<a href="https://support.google.com/gemini/answer/14903178?hl=en" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Gemini Help</a>).</p>
             </div>
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">You can upload up to 10 files in one prompt, at up to 100 MB each (2 GB for video), and ask the Gemini web app to &quot;create a chart based on your uploaded spreadsheet(s)&quot; (<a href="https://support.google.com/gemini/answer/14903178?hl=en" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Gemini Help</a>).</p>
@@ -575,23 +563,24 @@
               <a href="https://www.perplexity.ai/hub/pricing" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Perplexity <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
 
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Analysts, product managers and sales teams who need answers they can check against the original sources.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Voice mode, which <a href="https://www.perplexity.ai/help-center/en/articles/2026110501-how-to-use-voice-mode-on-the-web-and-mac-app" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Perplexity's help center</a> describes as &quot;a natural, back-and-forth conversation with Perplexity while it works for you.&quot; In the Mac app, voice mode &quot;can also start work on your own computer.&quot;</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">It is available to Pro and Max subscribers.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of November 2026, per <a href="https://www.perplexity.ai/help-center/en/articles/12167980-using-the-connector-for-slack" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Perplexity's help center</a>: Pro $20/mo or $200/yr, Max $200/mo or $2,000/yr, Enterprise Pro $40 per seat per month ($400/yr) and Enterprise Max $325 per seat per month ($3,250/yr). The free plan is $0.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We found no current Perplexity page on spreadsheet or data analysis, the one ChatGPT job we couldn't credit. <a href="https://www.perplexity.ai/help-center/en/articles/10354807-file-uploads" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Uploads</a> are capped at 40 MB per file, with a weekly allowance on Free, Pro and Max, and voice mode is &quot;not available in mobile browsers.&quot;</p>
             </div>
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Uploads accept &quot;plain text, code, or PDFs, as well as images, audio, and video files.&quot; Plans mix subscriptions with credits, so heavy use is harder to forecast.</p>
@@ -622,24 +611,25 @@
               <a href="https://grok.com/" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Grok <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
+
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Its newest paid lineup, The X Subscription, shares one usage pool between Grok and Cursor (<a href="https://docs.x.ai/x-subscription/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">xAI docs</a>).</p>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">People who follow news and markets on X, and teams that want Grok to search their Google Drive.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Connectors. <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">xAI's docs</a> say &quot;Connectors are available to all Grok users,&quot; with built-in connectors for Gmail, Google Drive, OneDrive, Outlook, Microsoft Teams, SharePoint and Salesforce, and you can add your own MCP server as a custom connector if it is reachable over the public internet.</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">On Grok Business and Enterprise an admin provisions connectors first, and xAI's <a href="https://x.ai/news/grok-business" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">December 2025 Grok Business announcement</a> says &quot;Grok respects your existing Google Drive permissions&quot; and &quot;Your data stays yours: no training on it, ever.&quot;</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of November 2026, <a href="https://docs.x.ai/x-subscription/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">The X Subscription</a> is Free ($0), Plus ($8/mo or $80/yr), Premium ($30/mo or $300/yr), Super ($100/mo or $1,000/yr) and Ultra ($200/mo or $2,000/yr). Team seats cost $30, $100 or $200 per seat on Premium, Super or Ultra; Plus is not available for teams.</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Existing SuperGrok and X Premium plans continue unless you switch.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Two plan lineups are on sale at once: the <a href="https://apps.apple.com/us/app/grok/id6670324846" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">iOS app</a> still lists SuperGrok tiers from $10 to $300 and Extra Usage Credits from $5 to $100. SSO and SCIM are Enterprise features, and <a href="https://docs.x.ai/grok/organization" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Organizations are exclusive to the Enterprise tier&quot;</a>.</p>
             </div>
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">xAI's <a href="https://docs.x.ai/developers/faq/security" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">security FAQ</a> states: &quot;We are SOC 2 Type 2 compliant.&quot; Grok Enterprise adds &quot;Directory Sync (SCIM),&quot; &quot;Advanced audit and security controls&quot; and a Vault add-on with customer-managed encryption keys (<a href="https://x.ai/news/grok-business" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">xAI</a>).</p>
@@ -670,24 +660,25 @@
               <a href="https://mistral.ai/pricing/" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Mistral Vibe <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
+
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">It covers five of ChatGPT's six jobs on our count, and its web answers come with sources: <a href="https://docs.mistral.ai/vibe/work/web-search-open-url" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Every web-sourced response comes with its references&quot;</a>.</p>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Companies that need an assistant inside their own environment, and teams that want to share reusable instructions across a workspace.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Skills. A Skill is a set of &quot;reusable instructions and resources&quot; stored as a <code style="font-family:'JetBrains Mono',monospace;font-size:.9em;background:#F5F4F0;padding:1px 4px">SKILL.md</code> file.</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">You can build one in the editor or have Work draft it from a chat, keep it private or share it with the workspace, and admins can force-enable it for everyone (<a href="https://docs.mistral.ai/vibe/work/skills" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Mistral docs</a>). Deep research ships as a built-in Skill.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of November 2026: Free ($0), Pro ($14.99/mo), Team ($24.99 per user per month, from 2 users) and Enterprise (contact sales) (<a href="https://mistral.ai/news/vibe-agent/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Mistral</a>). Pro, Team and Enterprise can extend usage past the plan limit with pay-as-you-go credits billed at API rates (<a href="https://mistral.ai/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Mistral pricing</a>).</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Verified students pay $5.99/mo for up to 12 months.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://docs.mistral.ai/vibe/work/voice-mode" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Voice mode</a> transcribes your speech &quot;into text that you can review, edit, and send as a prompt,&quot; and the docs don't describe spoken replies, so we didn't credit voice. Mistral's help center says Vibe input and output <a href="https://help.mistral.ai/en/articles/347617-do-you-use-my-user-data-to-train-your-artificial-intelligence-models" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;are used by default to train&quot;</a> its models unless you opt out, and that &quot;Enterprise customers are opted out of training by default.&quot;</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Its <a href="https://docs.mistral.ai/vibe/work/voice-mode" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">voice-mode docs</a> add that on Team and Enterprise, voice messages &quot;aren't used for model training by default.&quot;</p>
             </div>
@@ -720,24 +711,25 @@
               <a href="https://duck.ai/" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Duck.ai <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:18px;padding:0 4px">
+
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">It offers voice chat with spoken replies, image and PDF uploads, and a <a href="https://duckduckgo.com/updates" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">web search tool</a>, and conversations are <a href="https://duckduckgo.com/duckduckgo-help-pages/duckai/ai-chat-privacy" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;not used to train chat models&quot;</a> by DuckDuckGo or the model providers.</p>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">WHO IT'S FOR</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Individuals who want ChatGPT-style chat with models from several labs, with chats saved on their own device by default and no model training on them.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">STANDOUT FEATURE</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout feature</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Anonymization. DuckDuckGo removes &quot;Metadata that contains personal information (for example, your IP address),&quot; and model providers agree to &quot;Delete your prompts and responses immediately after generating a reply&quot; (<a href="https://duckduckgo.com/duckduckgo-help-pages/duckai/ai-chat-privacy" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Duck.ai privacy</a>).</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">DuckDuckGo allows &quot;limited, clearly defined exceptions,&quot; for example where required by law or to combat malicious use, and holding chats in short-term memory for up to 1 hour.</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7f806f">PRICING</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Duck.ai is <a href="https://duckduckgo.com/duckduckgo-help-pages/duckai/usage-limits" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">free with a daily limit</a>. A DuckDuckGo subscription raises it: Plus is $9.99/mo or $99.99/yr and Pro $19.99/mo or $199.99/yr, per <a href="https://spreadprivacy.com/pro-subscription/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">DuckDuckGo's March 2026 announcement</a>; the help pages we read on Nov 14, 2026 list no prices.</p>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pro adds models such as Claude Opus 5.5 and GPT-5.6 Sol (<a href="https://duckduckgo.com/duckduckgo-help-pages/duckai/chat-models" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Duck.ai models</a>).</p>
             </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#c0584f">LIMITATIONS</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Limitations</h4>
               <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/duck-ai/does-duckai-support-file-uploads" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Duck.ai does not support spreadsheets&quot;</a>, image and PDF uploads work only with some models, and PDFs are capped at 15 pages on the free plan. There is no business plan.</p>
             </div>
             <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Voice chat uses OpenAI as the model provider, and &quot;Audio is not stored by DuckDuckGo or by OpenAI&quot; (<a href="https://duckduckgo.com/duckduckgo-help-pages/duckai/is-duckai-voice-chat-private" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">DuckDuckGo help</a>). Chats are saved locally on your device by default, and <a href="https://duckduckgo.com/duckduckgo-help-pages/duckai/recent-chats" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;You can disable chat history at any time in Duck.ai settings&quot;</a>.</p>
@@ -755,108 +747,10 @@
         </article>
       </section>
 
-      <section id="also" style="display:flex;flex-direction:column;gap:18px">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// ALSO CONSIDERED</span>
-          <h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:500;letter-spacing:-.02em">Reviewed, but not in the top 7</h2>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));border-top:1px solid #D3D2CD;border-left:1px solid #D3D2CD;background:#fff">
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">MA</span>
-            <span style="font-size:15px;font-weight:600">Meta AI</span>
-            <span style="font-size:13px;line-height:19px;color:#666">A free app for individuals, and its <a href="https://apps.apple.com/us/app/meta-ai/id1558240027" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">App Store listing</a> describes all six ChatGPT jobs. It scored 8.1, held back by admin and data controls: we found no business plan, SSO or no-training statement, and <a href="https://about.fb.com/news/2025/10/improving-your-recommendations-apps-ai-meta/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Meta uses your interactions with AI</a> to personalize content and ads.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">DS</span>
-            <span style="font-size:15px;font-weight:600">DeepSeek</span>
-            <span style="font-size:13px;line-height:19px;color:#666">A free chat app with Search and DeepThink modes (<a href="https://www.deepseek.com/en/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">DeepSeek</a>) and no paid chat plan that we could find. It scored 7.8: we found no voice conversation, data analysis or business plan, and its <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">privacy policy</a> says DeepSeek stores personal data in the People's Republic of China and lists model training among its purposes.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">BL</span>
-            <span style="font-size:15px;font-weight:600">Brave Leo</span>
-            <span style="font-size:13px;line-height:19px;color:#666">The assistant built into the Brave browser, free without an account; <a href="https://brave.com/premium/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Leo Premium</a> costs $14.99/mo as of November 2026. It scored 7.6, with four of the six ChatGPT jobs credited (voice is voice-to-text input on iOS, and <a href="https://brave.com/leo/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Brave's Leo page</a> doesn't mention image input) and no business plan.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">HC</span>
-            <span style="font-size:15px;font-weight:600">HuggingChat</span>
-            <span style="font-size:13px;line-height:19px;color:#666">Hugging Face's <a href="https://huggingface.co/chat/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;chat app powered by open source AI models&quot;</a>, with more than 120 open models and a router that picks one per request; its page lists no features or prices, so it couldn't be scored.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">NA</span>
-            <span style="font-size:15px;font-weight:600">Notion AI</span>
-            <span style="font-size:13px;line-height:19px;color:#666">An assistant inside the Notion workspace rather than a standalone chat app; full AI starts on the <a href="https://www.notion.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">$20 per member Business plan</a>.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">QC</span>
-            <span style="font-size:15px;font-weight:600">Qwen Chat</span>
-            <span style="font-size:13px;line-height:19px;color:#666"><a href="https://chat.qwen.ai/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">chat.qwen.ai</a> showed only an app download page when we checked, with no feature list or prices.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Ki</span>
-            <span style="font-size:15px;font-weight:600">Kimi</span>
-            <span style="font-size:13px;line-height:19px;color:#666"><a href="https://www.kimi.com/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">kimi.com</a> showed a Chinese-language interface (deep research, slides, scheduled tasks) and no prices, so it couldn't be scored.</span>
-          </div>
-          <div style="padding:18px;border-right:1px solid #D3D2CD;border-bottom:1px solid #D3D2CD;display:flex;flex-direction:column;gap:10px">
-            <span style="width:32px;height:32px;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">CC</span>
-            <span style="font-size:15px;font-weight:600">Claude Code</span>
-            <span style="font-size:13px;line-height:19px;color:#666">Anthropic's coding agent, <a href="https://claude.com/pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">included from Claude Pro</a>; coding tools are covered on our <a href="https://thedevedit.com/ai-tools/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">top AI tools list</a>.</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="choose" style="display:flex;flex-direction:column;gap:22px">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// HOW TO CHOOSE</span>
-          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Four questions, <span style="color:#7f806f">in this order.</span></h2>
-        </div>
-        <div style="display:flex;flex-direction:column">
-          <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px">
-            <div style="display:flex;flex-direction:column;align-items:center">
-              <span style="width:44px;height:44px;border:1px solid #121212;background:#fff;display:grid;place-items:center;font-family:'Pixelify Sans',monospace;font-size:18px">1</span>
-              <span style="flex:1;width:2px;background:#e6e4e1;min-height:24px"></span>
-            </div>
-            <div style="padding:8px 0 32px;display:flex;flex-direction:column;gap:6px">
-              <h3 style="margin:0;font-size:20px;line-height:28px;font-weight:500;letter-spacing:-.01em">Which account do you already use all day?</h3>
-              <p style="margin:0;font-size:15px;line-height:24px;color:#4D4D4D">On Microsoft 365, start with Copilot: the free app, the $9.99 Personal plan, or Copilot Chat at work. On Google, try Gemini's free plan or the $4.99 Google AI Plus tier.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px">
-            <div style="display:flex;flex-direction:column;align-items:center">
-              <span style="width:44px;height:44px;border:1px solid #121212;background:#fff;display:grid;place-items:center;font-family:'Pixelify Sans',monospace;font-size:18px">2</span>
-              <span style="flex:1;width:2px;background:#e6e4e1;min-height:24px"></span>
-            </div>
-            <div style="padding:8px 0 32px;display:flex;flex-direction:column;gap:6px">
-              <h3 style="margin:0;font-size:20px;line-height:28px;font-weight:500;letter-spacing:-.01em">Which ChatGPT job comes first?</h3>
-              <p style="margin:0;font-size:15px;line-height:24px;color:#4D4D4D">For cited research pick Perplexity, and for spreadsheets Claude (code execution on every plan) or Gemini (charts from uploads). For news on X pick Grok, and to run the assistant in your own environment, Mistral Vibe Enterprise.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px">
-            <div style="display:flex;flex-direction:column;align-items:center">
-              <span style="width:44px;height:44px;border:1px solid #121212;background:#fff;display:grid;place-items:center;font-family:'Pixelify Sans',monospace;font-size:18px">3</span>
-              <span style="flex:1;width:2px;background:#e6e4e1;min-height:24px"></span>
-            </div>
-            <div style="padding:8px 0 32px;display:flex;flex-direction:column;gap:6px">
-              <h3 style="margin:0;font-size:20px;line-height:28px;font-weight:500;letter-spacing:-.01em">Will company data go in?</h3>
-              <p style="margin:0;font-size:15px;line-height:24px;color:#4D4D4D">Pick a plan with SSO and a no-training default: Claude Team, Copilot Chat with an Entra ID sign-in, Gemini Enterprise, Perplexity Enterprise, Grok Enterprise or Mistral Vibe Enterprise.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px">
-            <div style="display:flex;flex-direction:column;align-items:center">
-              <span style="width:44px;height:44px;border:1px solid #121212;background:#fff;display:grid;place-items:center;font-family:'Pixelify Sans',monospace;font-size:18px">4</span>
-              <span style="flex:1;width:2px;background:#e6e4e1;min-height:24px"></span>
-            </div>
-            <div style="padding:8px 0 32px;display:flex;flex-direction:column;gap:6px">
-              <h3 style="margin:0;font-size:20px;line-height:28px;font-weight:500;letter-spacing:-.01em">What will 10 seats cost per month?</h3>
-              <p style="margin:0;font-size:15px;line-height:24px;color:#4D4D4D">At list prices as of November 2026: ChatGPT Business $200 (the reference), Claude Team Standard $200, Gemini Enterprise Business $210 (billing basis not stated), Microsoft 365 Copilot Business $210 on top of the Microsoft 365 plan, Mistral Vibe Team $249.90, Grok Premium team seats $300 and Perplexity Enterprise Pro $400. The ChatGPT, Claude and Microsoft figures assume annual billing.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="faq" style="display:flex;flex-direction:column;gap:18px">
         <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// FAQ</span>
-          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Questions people actually ask</h2>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">FAQs about AI tools like ChatGPT</h2>
         </div>
         <div style="border-top:1px solid #D3D2CD">
           <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}">
@@ -946,7 +840,7 @@
       <div onClick="{{ stop }}" style="background:#F5F4F0;width:100%;max-width:1040px;max-height:calc(100vh - 48px);overflow:auto;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #D3D2CD;background:#fff;position:sticky;top:0">
           <div style="display:flex;flex-direction:column;gap:2px">
-            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">// SIDE BY SIDE</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">SIDE BY SIDE</span>
             <span style="font-size:20px;font-weight:500;letter-spacing:-.02em">{{ selNames }}</span>
           </div>
           <button type="button" onClick="{{ closeCompare }}" aria-label="Close" style="width:36px;height:36px;border:1px solid #D3D2CD;background:#fff;cursor:pointer;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"></svg></button>
