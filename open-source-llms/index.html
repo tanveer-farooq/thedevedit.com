@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best open source LLMs | TheDevEdit</title>
+<meta name="description" content="The 7 best open source LLMs for 2026, scored from publisher model cards on license terms, capability evidence, sizes, local footprint and availability. Checked Nov 15, 2026.">
+<link rel="canonical" href="https://thedevedit.com/open-source-llms/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://thedevedit.com/open-source-llms/#article",
+   "headline": "The 7 best open source LLMs for 2026",
+   "description": "The 7 best open source LLMs for 2026, scored from publisher model cards on license terms, capability evidence, sizes, local footprint and availability. Checked Nov 15, 2026.",
+   "datePublished": "2026-11-15",
+   "dateModified": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/open-source-llms/"
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://thedevedit.com/open-source-llms/#tools",
+   "name": "The 7 best open source LLMs for 2026",
+   "itemListOrder": "https://schema.org/ItemListOrderDescending",
+   "numberOfItems": 7,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Qwen3"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "gpt-oss"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Mistral Small 3.2"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Gemma 3"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "Phi-4"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "DeepSeek-V3.1"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "Llama 4"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://thedevedit.com/open-source-llms/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is an open source LLM?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An open source LLM is a language model whose weights the publisher releases for download, so you can run and fine-tune it yourself. Licenses vary: Qwen3, gpt-oss and Mistral Small 3.2 use Apache 2.0, Phi-4 and DeepSeek-V3.1 use MIT, and Gemma 3 and Llama 4 use custom terms."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which open source LLM runs on a laptop?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gemma 3, Qwen3 and Phi-4 have the smallest local downloads on this list. Gemma 3's 270M build is 292MB on Ollama, Qwen3 starts at 0.6B, and Phi-4's single 14B build is 9.1GB."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use open source LLMs commercially?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually yes, but check each license. Apache 2.0 and MIT models carry few conditions, Gemma 3 requires accepting Google's terms on Hugging Face, and Llama 4 services above 700M monthly users need a license from Meta."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which open source LLM has the longest context window?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Llama 4 Scout has the longest, with a 10M-token context window. Qwen3 reaches 131K tokens with YaRN, while Gemma 3 and DeepSeek-V3.1 list 128K and Phi-4 lists 16K."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a GPU to run an open source LLM?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not for the smallest models, but larger ones need serious GPUs. gpt-oss-120b fits one 80GB GPU, Mistral Small 3.2 needs about 55 GB of GPU RAM in bf16, and DeepSeek-V3.1's Ollama download is 404GB."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
+  <script src="/image-slot.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600&display=swap">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    a:hover{color:#121212;text-decoration-color:#121212}
+    html{scroll-padding-top:120px}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}
+    .tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+    .tdt-wrap{container-type:inline-size;container-name:tdt}
+    .tdt{display:flex;flex-direction:column;background:#fff;border:1px solid #e2e1dc;border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(18,18,18,.04)}
+    .tdt-row{display:grid;grid-template-columns:24px minmax(170px,2fr) minmax(150px,1.6fr) minmax(90px,1fr) minmax(80px,.9fr) 64px 74px;column-gap:10px;align-items:center;padding:0 16px;border-top:1px solid #efeee9;transition:background .15s}
+    .tdt-row>*{padding:16px 0;min-width:0}
+    .tdt-row:not(.tdt-head):hover{background:#fafaf7}
+    .tdt-head{border-top:0;background:#f7f6f2;font-size:12.5px;font-weight:600;color:#55554f}
+    .tdt-head>*{padding:12px 0}
+    .tdt-visit{text-align:right}
+    @container tdt (max-width:640px){
+      .tdt-head{display:none}
+      .tdt-row{position:relative;grid-template-columns:1fr 1fr;row-gap:6px;padding:14px 16px}
+      .tdt-row>*{padding:3px 0}
+      .tdt-chk{position:absolute;top:22px;right:16px;padding:0}
+      .tdt-tool{grid-column:1/-1;padding-right:28px}
+      .tdt-cell::before{content:attr(data-l);display:block;font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#8a8a84;margin-bottom:2px}
+      .tdt-visit{grid-column:1/-1;text-align:left;padding-top:8px}
+    }
+    [data-ord="1"]{order:1}[data-ord="2"]{order:2}[data-ord="3"]{order:3}[data-ord="4"]{order:4}[data-ord="5"]{order:5}[data-ord="6"]{order:6}[data-ord="7"]{order:7}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <div style="max-width:1440px;margin:0 auto;padding:40px 32px 96px;display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;justify-content:center">
+
+    <aside style="position:sticky;top:24px;flex:0 0 220px;display:flex;flex-direction:column;gap:28px;padding-top:8px">
+      <nav aria-label="On this page" style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">ON THIS PAGE</span>
+        <a href="#summary" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The short answer</a>
+        <a href="#compare" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">Best open source LLMs compared</a>
+        <a href="#reviews" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">The reviews</a>
+        <a href="#faq" style="font-size:14px;line-height:20px;padding:6px 0 6px 12px;border-left:2px solid #D3D2CD;color:#4D4D4D;text-decoration:none" style-hover="color:#121212;border-color:#121212">FAQ</a>
+      </nav>
+      <nav aria-label="Jump to tool" style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#666;margin-bottom:10px">JUMP TO TOOL</span>
+        <a href="#tool-qwen3" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">01</span>Qwen3</a>
+        <a href="#tool-gpt-oss" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">02</span>gpt-oss</a>
+        <a href="#tool-mistral-small-3-2" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">03</span>Mistral Small 3.2</a>
+        <a href="#tool-gemma-3" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">04</span>Gemma 3</a>
+        <a href="#tool-phi-4" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">05</span>Phi-4</a>
+        <a href="#tool-deepseek-v3-1" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">06</span>DeepSeek-V3.1</a>
+        <a href="#tool-llama-4" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:20px;padding:5px 0;color:#4D4D4D;text-decoration:none" style-hover="color:#121212"><span style="font-family:'Pixelify Sans',monospace;font-size:13px;color:#7f806f;width:20px">07</span>Llama 4</a>
+      </nav>
+    </aside>
+
+    <main style="min-width:0;flex:1 1 560px;max-width:800px;display:flex;flex-direction:column;gap:64px">
+
+      <section style="display:flex;flex-direction:column;gap:22px">
+        <dc-import name="Breadcrumb" category="ai" title="Best open source LLMs" hint-size="100%,18px"></dc-import>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">BEST-OF LIST</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;background:#fff;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#3a9460"></span>UPDATED NOV 15, 2026</span>
+        </div>
+        <h1 style="margin:0;font-size:clamp(38px,5.2vw,64px);line-height:1.04;font-weight:500;letter-spacing:-.04em;text-wrap:balance">The 7 best open source LLMs <span style="color:#7f806f">for 2026</span></h1>
+        <p style="margin:0;font-size:19px;line-height:30px;color:#4D4D4D;max-width:680px;text-wrap:pretty">Open source LLMs are models whose weights you can download, run and fine-tune on your own hardware. We ranked 7 families from publisher model cards and Ollama pages, scoring license terms, capabilities, sizes and local footprint.</p>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:6px">
+          <span style="width:40px;height:40px;border-radius:50%;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;flex-shrink:0">TE</span>
+          <div style="display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:20px">
+            <span><span style="font-weight:600;color:#121212">TheDevEdit Editorial Team</span><span style="color:#666">, Editorial team</span></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">8 min read · 7 tools reviewed · prices checked Nov 15, 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:#121212;color:#fff;padding:28px 28px 26px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#b5b89a">THE SHORT ANSWER</span>
+          <p style="margin:0;font-size:20px;line-height:31px;font-weight:400;letter-spacing:-.01em;text-wrap:pretty">Qwen3 is the best open source LLM for most teams on our rubric (9.3/10). It ships under Apache 2.0 in eight Ollama sizes from 0.6B to 235B, with a switchable thinking mode and 131K context via YaRN. Pick gpt-oss for reasoning on one GPU or Gemma 3 for small multimodal models.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));grid-auto-rows:1fr;gap:16px;align-items:stretch">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST OVERALL</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Qw</span>
+            </div>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Qwen3</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Apache 2.0 in eight sizes, from 0.6B up to 235B.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-qwen3" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST FOR ONE GPU</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Go</span>
+            </div>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">gpt-oss</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">120b fits one 80GB GPU; the 20b download is 14GB.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-gpt-oss" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s" style-hover="border-color:#121212">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">BEST MULTIMODAL</span>
+              <span style="width:34px;height:34px;flex-shrink:0;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px">Ge</span>
+            </div>
+            <span style="font-size:22px;line-height:28px;height:28px;font-weight:500;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Gemma 3</span>
+            <span style="font-size:14px;line-height:21px;min-height:42px;color:#4D4D4D">Text and image input, from a 292MB build up to 27B.</span>
+            <div style="display:flex;gap:14px;align-items:center;margin-top:auto">
+              <a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#tool-gemma-3" style="font-size:13px;font-weight:500;color:#121212;white-space:nowrap;text-underline-offset:3px">Read review</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="compare" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">COMPARISON TABLE</span>
+            <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">Best open source LLMs compared</h2>
+          </div>
+          <span style="font-size:13px;color:#666">Tick up to 3 tools to compare side by side</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-if value="{{ fOn.all }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 14px;border:1px solid #121212;border-radius:999px;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap">All</button></sc-if>
+            <sc-if value="{{ fOff.all }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ fSet.all }}" style="height:32px;padding:0 14px;border:1px solid #D3D2CD;border-radius:999px;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap" style-hover="border-color:#121212">All</button></sc-if>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#666">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M4 6h10"/><path d="M4 12h7"/><path d="M4 18h4"/><path d="M18 6v12"/><path d="M15 15l3 3 3-3"/></svg>
+            Sort
+            <select value="{{ sort }}" onChange="{{ onSort }}" style="height:32px;padding:0 8px;border:1px solid #D3D2CD;border-radius:8px;background:#fff;font:inherit;font-size:13px;color:#121212">
+              <option value="rank">Our ranking</option>
+              <option value="rating">Score</option>
+              <option value="price">Price, low to high</option>
+            </select>
+          </label>
+        </div>
+        <div class="tdt-wrap">
+          <div class="tdt">
+            <div class="tdt-row tdt-head" style="order:0">
+              <span></span><span>Tool</span><span>Pricing</span><span>Deployment</span><span>SSO</span><span>Score</span><span></span>
+            </div>
+            <sc-if value="{{ show.t1 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t1 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t1 }}" onChange="{{ tog.t1 }}" aria-label="Compare Qwen3" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-qwen3" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">01</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Qw</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Qwen3</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">All-round open family</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (Apache 2.0)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 0.6B to 235B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">9.3<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t2 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t2 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t2 }}" onChange="{{ tog.t2 }}" aria-label="Compare gpt-oss" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-gpt-oss" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">02</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Go</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">gpt-oss</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Reasoning on one GPU</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (Apache 2.0)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 20B and 120B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.6<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t3 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t3 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t3 }}" onChange="{{ tog.t3 }}" aria-label="Compare Mistral Small 3.2" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-mistral-small-3-2" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">03</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Mi</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Mistral Small 3.2</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Function calling with vision</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (Apache 2.0)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 24B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.6<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t4 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t4 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t4 }}" onChange="{{ tog.t4 }}" aria-label="Compare Gemma 3" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-gemma-3" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">04</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Ge</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Gemma 3</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Small multimodal models</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (Gemma terms)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 270M to 27B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.5<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t5 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t5 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t5 }}" onChange="{{ tog.t5 }}" aria-label="Compare Phi-4" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-phi-4" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">05</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Ph</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Phi-4</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Compact MIT model</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (MIT)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 14B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.4<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t6 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t6 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t6 }}" onChange="{{ tog.t6 }}" aria-label="Compare DeepSeek-V3.1" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-deepseek-v3-1" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">06</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">De</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">DeepSeek-V3.1</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Large MIT model for servers</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (MIT)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 671B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">8.3<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.1" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ show.t7 }}" hint-placeholder-val="{{ true }}">
+              <div class="tdt-row" data-ord="{{ ord.t7 }}">
+                <span class="tdt-chk"><input type="checkbox" checked="{{ sel.t7 }}" onChange="{{ tog.t7 }}" aria-label="Compare Llama 4" style="width:16px;height:16px;accent-color:#121212;cursor:pointer;margin:0"></span>
+                <a class="tdt-tool" href="#tool-llama-4" style="display:flex;align-items:center;gap:12px;color:#121212;text-decoration:none;min-width:0">
+                  <span style="font-family:'Pixelify Sans',monospace;font-size:14px;color:#7f806f;width:20px;flex-shrink:0">07</span>
+                  <span style="width:38px;height:38px;flex-shrink:0;border:1px solid #e2e1dc;border-radius:8px;background:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">Ll</span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;line-height:20px;font-weight:600">Llama 4</span><span style="font-size:12.5px;line-height:17px;color:#6b6b66">Very long context</span></span>
+                </a>
+                <span class="tdt-cell" data-l="Pricing" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px"><span style="font-weight:600;font-size:14px;line-height:20px">Free weights (Llama 4 Community License)</span><span style="display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:#e8f4eb;color:#176f2c;font-size:12px;line-height:18px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free tier (open weights)</span></span>
+                <span class="tdt-cell" data-l="Deployment" style="color:#4D4D4D;font-size:14px;line-height:20px">Self-hosted, 16x17B and 128x17B</span>
+                <span class="tdt-cell" data-l="SSO" style="color:#4D4D4D;font-size:14px;line-height:20px">No</span>
+                <span class="tdt-cell" data-l="Score"><span style="display:inline-flex;align-items:baseline;gap:1px;padding:4px 10px;border-radius:999px;background:#121212;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">7.8<span style="font-size:10.5px;color:#b5b3ad">/10</span></span></span>
+                <span class="tdt-visit"><a href="https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 12px;border-radius:8px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></span>
+              </div>
+            </sc-if>
+          </div>
+          <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:28px;text-align:center;color:#666;font-size:14px;background:#fff;border:1px solid #e2e1dc;border-top:0;border-radius:0 0 12px 12px">No tools match this filter.</div>
+          </sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12.5px;line-height:19px;color:#666">Licenses and sizes checked by hand on Nov 15, 2026 from publisher model cards and Ollama library pages; running costs depend on your hardware.</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666">How we score: license terms 25% · capability evidence 25% · size range and hardware fit 20% · local footprint 15% · availability 15%. Editorial scores from official model cards, not hands-on tests.</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666">Vendors can't pay for a ranking. Some links earn us a commission.</span>
+          <span style="font-size:12.5px;line-height:19px;color:#666"><strong style="font-weight:600">How we score:</strong> license terms 25% · capability evidence 25% · size range and hardware fit 20% · local footprint 15% · availability 15%. Editorial scores from official docs and pricing, not hands-on tests. &quot;We found no&quot; means we did not find it in the vendor's docs. Vendors can't pay for a ranking. Some links earn us a commission.</span>
+        </div>
+      </section>
+
+      <section id="reviews" style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">THE REVIEWS</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">The 7 best open source LLMs, reviewed</h2>
+        </div>
+        <article id="tool-qwen3" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">01</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Qw</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Qwen3</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best all-round open model family</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Qwen3 is an Apache 2.0 model family from 0.6B to 235B parameters, with a switchable thinking mode and 131K context.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">9.3<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Qwen3 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/qwen3.webp" alt="Qwen3 product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Qwen3 page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Qwen3 earns full marks on license, footprint and availability. The <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card</a> is Apache 2.0, and the <a href="https://ollama.com/library/qwen3" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama library</a> offers eight sizes from 0.6b to 235b.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams that want one license and one model family from laptop prototypes to multi-GPU servers.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Thinking mode:</strong> <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;By default, Qwen3 has thinking capabilities enabled&quot;</a>, and you can switch it off.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Long context:</strong> <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;32,768 natively and 131,072 tokens with YaRN&quot;</a> on the flagship card.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Mixture of experts:</strong> the flagship has 235B total parameters with 22B activated.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Multilingual:</strong> the card claims <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Support of 100+ languages and dialects&quot;</a>.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Hugging Face Transformers, vLLM, SGLang, Ollama, LMStudio, MLX-LM, llama.cpp and KTransformers, per the <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Qwen3 model card</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, the weights are free to download under Apache 2.0; you pay only for your own hardware.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Apache 2.0 across the family.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Eight Ollama sizes, starting at 0.6B.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Thinking mode toggles per request.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state image input.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Native context is 32K; 131K needs YaRN.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state a GPU memory figure.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">9</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-gpt-oss" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">02</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Go</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">gpt-oss</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for reasoning on one GPU</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">gpt-oss is an Apache 2.0 reasoning model pair from OpenAI, with a 120B model for one 80GB GPU and a 20B model.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.6<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit gpt-oss <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/gpt-oss.webp" alt="gpt-oss product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">gpt-oss page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">gpt-oss earns full marks on license, footprint and availability. The <a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card</a> states the 120b fits a single 80GB GPU, and the <a href="https://ollama.com/library/gpt-oss" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama page</a> lists the 20b at 14GB.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Developers who want an adjustable reasoning model on one data-center GPU or a 16GB machine.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Configurable reasoning effort:</strong> you can <a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;adjust the reasoning effort (low, medium, high)&quot;</a> per use case.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Single-GPU fit:</strong> the 120b runs <a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;on a single 80GB GPU (like NVIDIA H100 or AMD MI300X)&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Sparse model:</strong> 117B parameters with 5.1B active parameters.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Full chain-of-thought:</strong> the card gives complete access to the model's reasoning for debugging.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Hugging Face Transformers, vLLM and Ollama, per the <a href="https://huggingface.co/openai/gpt-oss-120b" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">gpt-oss model card</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, the weights are free to download under Apache 2.0; you pay only for your own hardware.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Apache 2.0 with no copyleft terms.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The 20b runs within 16GB of memory.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Three reasoning effort levels.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state a context length.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state image input.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Only two sizes, none under 10B.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-mistral-small-3-2" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">03</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Mi</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Mistral Small 3.2</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for function calling with vision</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Mistral Small 3.2 is a 24B Apache 2.0 model from Mistral AI with image input and a more robust function calling template.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.6<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Mistral Small 3.2 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/mistral-small-3-2.webp" alt="Mistral Small 3.2 product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Mistral Small 3.2 page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Mistral Small 3.2 earns full marks on license, footprint and availability. The <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card</a> is Apache 2.0 with vision input, and the <a href="https://ollama.com/library/mistral-small3.2" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama page</a> lists a 15GB download.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams building tool-calling agents that also need to read images, on one model.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Function calling:</strong> the card says its <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;function calling template is more robust&quot;</a> than 3.1.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Vision input:</strong> the card shows how to <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Leverage the vision capabilities&quot;</a> of the model.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Fewer repetitions:</strong> it <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;produces less infinite generations or repetitive answers&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Stated memory figure:</strong> it needs about 55 GB of GPU RAM in bf16 or fp16.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">vLLM (recommended) and Hugging Face Transformers, per the <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Mistral Small 3.2 model card</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, the weights are free to download under Apache 2.0; you pay only for your own hardware.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Apache 2.0 with image input.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">15GB Ollama download.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Function calling examples on the card.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Only one size, 24B.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state a context length.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state a thinking mode.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-gemma-3" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">04</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Ge</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Gemma 3</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for small multimodal models</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Gemma 3 is Google's multimodal open model family, from a 292MB 270M build to a 27B model that runs on one GPU.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.5<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Gemma 3 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/gemma-3.webp" alt="Gemma 3 product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Gemma 3 page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Gemma 3 scores full marks on size range, footprint and availability. The <a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card</a> lists a 128K context and image input, and Ollama lists five sizes from 270M to 27B.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Developers who need image input on laptops or a single GPU and accept a custom license.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Image input:</strong> the models handle <a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;text and image input and generating text output&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Long context:</strong> <a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;Gemma 3 has a large, 128K context window&quot;</a>, though the 1B build is shorter.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Many languages:</strong> the card cites multilingual support in over 140 languages.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Single-GPU flagship:</strong> Ollama calls 27B <a href="https://ollama.com/library/gemma3" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;the current, most capable model that runs on a single GPU.&quot;</a></li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card's usage section shows Hugging Face Transformers, and the <a href="https://ollama.com/library/gemma3" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama library</a> lists every size.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, weights are free under Google's Gemma usage license, which you must accept on Hugging Face.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Five sizes, from 270M to 27B.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Smallest Ollama download is 292MB.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Text and image input from 4B up.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Custom license must be accepted before download.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state a thinking mode.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The 1B model's context is 32K, not 128K.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-phi-4" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">05</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Ph</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Phi-4</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best compact MIT-licensed model</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Phi-4 is Microsoft's 14B dense text model under the MIT license, trained heavily on synthetic data and shipped as a 9.1GB Ollama download.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.4<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Phi-4 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/phi-4.webp" alt="Phi-4 product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Phi-4 page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Phi-4 earns full marks on license, footprint and availability. The <a href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card</a> lists MIT terms, and Ollama's single 14B build is 9.1GB.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams that want permissive terms and a mid-size model for memory-limited or latency-bound apps.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Permissive license:</strong> MIT, with no usage caps or acceptance gate on the card.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Dense 14B design:</strong> <a href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;14B parameters, dense decoder-only Transformer model&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Synthetic training data:</strong> built on a <a href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;blend of synthetic datasets, data from filtered public domain websites&quot;</a> and books.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Constrained targets:</strong> the card names memory/compute constrained and latency-bound scenarios as primary uses.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card's usage example uses Hugging Face Transformers, and the <a href="https://ollama.com/library/phi4" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama library</a> lists a 14B build.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, weights are free under the MIT license.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">MIT license with no acceptance gate.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Ollama download is only 9.1GB.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Card lists reasoning and logic as a primary use.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Context is 16K tokens, shortest in this list.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Text only; the card lists no image input.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Only one size, and no stated GPU figure.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">7</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-deepseek-v3-1" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">06</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">De</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">DeepSeek-V3.1</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best large MIT model for servers</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">DeepSeek-V3.1 is an MIT-licensed 671B model with 37B active parameters that runs thinking and non-thinking modes in one checkpoint.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">8.3<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.1" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit DeepSeek-V3.1 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/deepseek-v3-1.webp" alt="DeepSeek-V3.1 product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">DeepSeek-V3.1 page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">It pairs a full-marks license with strong published results. The card states the weights are <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.1" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;licensed under the MIT License&quot;</a> and reports 66.0 on SWE Verified in agent mode.</p>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Its size is the trade-off.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Teams with multi-GPU servers who want a permissively licensed model for coding and agent work.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hybrid thinking:</strong> <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.1" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;One model supports both thinking mode and non-thinking mode&quot;</a> by changing the chat template.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Tool calling:</strong> the card says tool usage and agent tasks improved through post-training optimization.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">128K context:</strong> the model table lists 671B total, 37B activated and a 128K context length.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">FP8 weights:</strong> trained with the UE8M0 FP8 scale format on weights and activations.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Hugging Face Transformers, per the <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.1" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card's usage section</a>, and an <a href="https://ollama.com/library/deepseek-v3.1" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama library build</a>.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, the weights are free to download under the MIT License.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">MIT license covers code and weights.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">One checkpoint handles thinking and non-thinking chat.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Published agent coding scores beat DeepSeek R1 0528.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The Ollama 671b download is 404GB.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">No small sizes ship in this family.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The card doesn't state minimum GPU requirements.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">10</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">7</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+        <article id="tool-llama-4" style="display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <span style="font-family:'Pixelify Sans',monospace;font-size:44px;line-height:44px;color:#121212;min-width:56px">07</span>
+            <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <span style="width:32px;height:32px;border:1px solid #D3D2CD;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500">Ll</span>
+                <h3 style="margin:0;font-size:26px;line-height:32px;font-weight:500;letter-spacing:-.02em">Llama 4</h3>
+                <span style="height:22px;padding:0 8px;display:inline-flex;align-items:center;background:#F5F4F0;border:1px solid #D3D2CD;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase">Best for very long context</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:25px;color:#4D4D4D;text-wrap:pretty">Llama 4 is Meta's natively multimodal model family, with Scout offering a 10M-token context window and fitting one H100 at int4.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">7.8<span style="font-size:12px;color:#999">/10</span></span>
+              <a href="https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct" target="_blank" rel="sponsored noopener" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#3C3C3C;color:#fff">Visit Llama 4 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+            <img src="/images/open-source-llms/llama-4.webp" alt="Llama 4 product page" width="1280" height="330" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border:1px solid #D3D2CD;background:#fff">
+            <figcaption style="font-size:12.5px;line-height:18px;color:#666">Llama 4 page on huggingface.co, captured Nov 15, 2026</figcaption>
+          </figure>
+          <div style="display:flex;flex-direction:column;gap:24px;padding:0 4px">
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Why we picked it</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Scout's 10M context is the longest on this list. The card says Scout <a href="https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;can fit within a single H100 GPU with on-the-fly int4 quantization&quot;</a>.</p>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Its custom license costs it points.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Who it's for</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Developers who need long-document or multi-image input and can accept Meta's license terms.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Standout features</h4>
+              <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Two sizes:</strong> Scout uses 16 experts and Maverick 128, both with 17B active parameters.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Native multimodality:</strong> <a href="https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">&quot;natively multimodal AI models that enable text and multimodal experiences&quot;</a>.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">12 languages:</strong> the card lists Arabic, English, French, German, Hindi, Spanish, Thai and more.</li>
+                <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Quantized releases:</strong> Maverick ships as both BF16 and FP8 quantized weights.</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Integrations</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Hugging Face Transformers, per the <a href="https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">model card</a>, and <a href="https://ollama.com/library/llama4" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Ollama builds</a> of both sizes.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px">Pricing</h4>
+              <p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">As of Nov 2026, the weights are free under the Llama 4 Community License Agreement.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 32px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#4c8a5c;flex-shrink:0"></span>Pros</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Scout offers a 10M-token context window.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Scout fits one H100 with int4.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Text and image input in both sizes.</li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.01em;color:#121212;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f;flex-shrink:0"></span>Cons</h4>
+                <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Services above 700M monthly users need Meta's license.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Custom license, not Apache 2.0 or MIT.</li>
+                  <li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Smallest Ollama download is still 67GB.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#141312;border-radius:8px;padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:20px">
+              <span style="color:#807d78">score breakdown</span>
+              <span style="color:#edebe6">License terms <span style="color:#68d08b">6</span></span>
+              <span style="color:#edebe6">Capability evidence <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Size range and hardware <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Local footprint <span style="color:#68d08b">8</span></span>
+              <span style="color:#edebe6">Availability <span style="color:#68d08b">10</span></span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="faq" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.1;font-weight:500;letter-spacing:-.03em">FAQs about open source LLMs</h2>
+        </div>
+        <div style="border-top:1px solid #D3D2CD">
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">What is an open source LLM?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">An open source LLM is a language model whose weights the publisher releases for download, so you can run and fine-tune it yourself. Licenses vary: Qwen3, gpt-oss and Mistral Small 3.2 use Apache 2.0, Phi-4 and DeepSeek-V3.1 use MIT, and Gemma 3 and Llama 4 use custom terms.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Which open source LLM runs on a laptop?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Gemma 3, Qwen3 and Phi-4 have the smallest local downloads on this list. Gemma 3's 270M build is 292MB on Ollama, Qwen3 starts at 0.6B, and Phi-4's single 14B build is 9.1GB.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Can I use open source LLMs commercially?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Usually yes, but check each license. Apache 2.0 and MIT models carry few conditions, Gemma 3 requires accepting Google's terms on Hugging Face, and Llama 4 services above 700M monthly users need a license from Meta.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Which open source LLM has the longest context window?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Llama 4 Scout has the longest, with a 10M-token context window. Qwen3 reaches 131K tokens with YaRN, while Gemma 3 and DeepSeek-V3.1 list 128K and Phi-4 lists 16K.</p>
+          </details>
+          <details class="tl-faq" style="border-bottom:1px solid #D3D2CD">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;color:#121212">
+              <h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Do I need a GPU to run an open source LLM?</h3>
+              <span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666;flex-shrink:0"></span>
+            </summary>
+            <p style="margin:0;padding:0 0 22px;font-size:16px;line-height:26px;color:#4D4D4D;max-width:680px">Not for the smallest models, but larger ones need serious GPUs. gpt-oss-120b fits one 80GB GPU, Mistral Small 3.2 needs about 55 GB of GPU RAM in bf16, and DeepSeek-V3.1's Ollama download is 404GB.</p>
+          </details>
+        </div>
+      </section>
+
+      <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+        <span style="width:72px;height:72px;border-radius:50%;background:#121212;color:#FFCD00;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;flex-shrink:0">TE</span>
+        <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">ABOUT THE AUTHOR</span>
+          <span style="font-size:20px;font-weight:500">TheDevEdit Editorial Team</span>
+          <span style="font-size:15px;line-height:24px;color:#4D4D4D">TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</span>
+        </div>
+      </section>
+
+      <section style="background:#FFCD00;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px;max-width:480px">
+          <span style="font-size:24px;line-height:30px;font-weight:500;letter-spacing:-.02em">Built an open source LLM?</span>
+          <span style="font-size:15px;line-height:23px">Send it in. We review every submission against the same rubric. Listing is free.</span>
+        </div>
+        <a href="#" style="height:44px;padding:0 18px;display:inline-flex;align-items:center;gap:8px;background:#121212;color:#fff;font-size:14px;font-weight:500;text-decoration:none" style-hover="background:#3C3C3C;color:#fff">Get your tool listed <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </section>
+    </main>
+
+    <aside style="position:sticky;top:24px;flex:0 1 280px;display:flex;flex-direction:column;gap:20px;padding-top:8px">
+      <div style="background:#fff;border:1px dashed #b9b8b2;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;color:#7f806f">SPONSORED SLOT</span>
+        <span style="font-size:18px;line-height:24px;font-weight:500;letter-spacing:-.01em">Reach the teams reading this list</span>
+        <span style="font-size:13px;line-height:19px;color:#4D4D4D">This space is open to sponsors. Sponsorship never changes a rank, a score or a review.</span>
+      </div>
+      <div style="background:#fff;border:1px solid #D3D2CD;padding:18px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:16px;font-weight:600">The Tuesday Table</span>
+        <span style="font-size:13px;line-height:20px;color:#4D4D4D">One comparison table a week for engineering leads.</span>
+        <input placeholder="you@company.com" aria-label="Email address" style="height:36px;padding:0 10px;border:1px solid #D3D2CD;font:inherit;font-size:13px;outline:0">
+        <button type="button" style="height:36px;border:0;background:#121212;color:#fff;font:inherit;font-size:13px;font-weight:500;cursor:pointer">Subscribe</button>
+      </div>
+    </aside>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+
+  <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:40;background:#121212;color:#fff;padding:10px 10px 10px 18px;display:flex;align-items:center;gap:16px;box-shadow:0 12px 32px rgba(18,20,19,.25);max-width:calc(100% - 32px);flex-wrap:wrap">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#807d78">{{ selCount }}/3</span>
+      <span style="font-size:14px;font-weight:500">{{ selNames }}</span>
+      <button type="button" onClick="{{ clearSel }}" style="height:34px;padding:0 12px;border:1px solid #3a3936;background:transparent;color:#d6d5d0;font:inherit;font-size:13px;cursor:pointer">Clear</button>
+      <button type="button" onClick="{{ openCompare }}" disabled="{{ cantCompare }}" style="height:34px;padding:0 14px;border:0;background:#fff;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer">{{ compareLabel }}</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ compareOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeCompare }}" style="position:fixed;inset:0;z-index:50;background:rgba(18,18,18,.6);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stop }}" style="background:#F5F4F0;width:100%;max-width:1040px;max-height:calc(100vh - 48px);overflow:auto;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #D3D2CD;background:#fff;position:sticky;top:0">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f">SIDE BY SIDE</span>
+            <span style="font-size:20px;font-weight:500;letter-spacing:-.02em">{{ selNames }}</span>
+          </div>
+          <button type="button" onClick="{{ closeCompare }}" aria-label="Close" style="width:36px;height:36px;border:1px solid #D3D2CD;background:#fff;cursor:pointer;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:block"></svg></button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#D3D2CD;border-bottom:1px solid #D3D2CD">
+          <sc-for list="{{ selectedTools }}" as="c" hint-placeholder-count="2">
+            <div style="background:#fff;display:flex;flex-direction:column">
+              <div style="padding:20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #ebeae5">
+                <span style="font-family:'Pixelify Sans',monospace;font-size:28px;color:#7f806f">{{ c.rankLabel }}</span>
+                <span style="font-size:22px;font-weight:500;letter-spacing:-.02em">{{ c.name }}</span>
+              </div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">BEST FOR</span><span style="font-size:14px;line-height:21px">{{ c.bestFor }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">PRICING</span><span style="font-size:14px;line-height:21px">{{ c.price }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">FREE TIER</span><span style="font-size:14px;line-height:21px">{{ c.freeLabel }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">DEPLOYMENT</span><span style="font-size:14px;line-height:21px">{{ c.deployment }}</span></div>
+              <div style="padding:14px 20px;border-bottom:1px solid #ebeae5;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f">BUSINESS PLAN WITH SSO</span><span style="font-size:14px;line-height:21px">{{ c.ssoLabel }}</span></div>
+              <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500">{{ c.scoreLabel }}<span style="font-size:12px;color:#999">/10</span></span>
+                <a href="{{ c.site }}" target="_blank" rel="sponsored noopener" style="height:34px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;background:#121212;color:#fff;font-size:13px;font-weight:500;text-decoration:none">Visit site</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Only the comparison table is interactive: filter, sort and pick up to 3 tools to compare.
+const TOOLS = [{"k":"t1","rank":1,"rankLabel":"01","name":"Qwen3","bestFor":"All-round open family","price":"Free weights (Apache 2.0)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 0.6B to 235B","sso":false,"ssoLabel":"No","score":9.3,"scoreLabel":"9.3","priceSort":0,"site":"https://huggingface.co/Qwen/Qwen3-235B-A22B"},
+  {"k":"t2","rank":2,"rankLabel":"02","name":"gpt-oss","bestFor":"Reasoning on one GPU","price":"Free weights (Apache 2.0)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 20B and 120B","sso":false,"ssoLabel":"No","score":8.6,"scoreLabel":"8.6","priceSort":0,"site":"https://huggingface.co/openai/gpt-oss-120b"},
+  {"k":"t3","rank":3,"rankLabel":"03","name":"Mistral Small 3.2","bestFor":"Function calling with vision","price":"Free weights (Apache 2.0)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 24B","sso":false,"ssoLabel":"No","score":8.6,"scoreLabel":"8.6","priceSort":0,"site":"https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"},
+  {"k":"t4","rank":4,"rankLabel":"04","name":"Gemma 3","bestFor":"Small multimodal models","price":"Free weights (Gemma terms)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 270M to 27B","sso":false,"ssoLabel":"No","score":8.5,"scoreLabel":"8.5","priceSort":0,"site":"https://huggingface.co/google/gemma-3-27b-it"},
+  {"k":"t5","rank":5,"rankLabel":"05","name":"Phi-4","bestFor":"Compact MIT model","price":"Free weights (MIT)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 14B","sso":false,"ssoLabel":"No","score":8.4,"scoreLabel":"8.4","priceSort":0,"site":"https://huggingface.co/microsoft/phi-4"},
+  {"k":"t6","rank":6,"rankLabel":"06","name":"DeepSeek-V3.1","bestFor":"Large MIT model for servers","price":"Free weights (MIT)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 671B","sso":false,"ssoLabel":"No","score":8.3,"scoreLabel":"8.3","priceSort":0,"site":"https://huggingface.co/deepseek-ai/DeepSeek-V3.1"},
+  {"k":"t7","rank":7,"rankLabel":"07","name":"Llama 4","bestFor":"Very long context","price":"Free weights (Llama 4 Community License)","freeTier":true,"freeLabel":"Yes (open weights)","deployment":"Self-hosted, 16x17B and 128x17B","sso":false,"ssoLabel":"No","score":7.8,"scoreLabel":"7.8","priceSort":0,"site":"https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"}];
+const FILTERS = { all: () => true };
+class Component extends DCLogic {
+  state = { filter: 'all', sort: 'rank', selected: [], compareOpen: false };
+  toggleSel(k) {
+    this.setState(s => {
+      if (s.selected.includes(k)) { const sel = s.selected.filter(x => x !== k); return { selected: sel, compareOpen: sel.length >= 2 && s.compareOpen }; }
+      if (s.selected.length >= 3) return null;
+      return { selected: [...s.selected, k] };
+    });
+  }
+  renderVals() {
+    const { filter, sort, selected } = this.state;
+    const test = FILTERS[filter] || FILTERS.all;
+    let order = TOOLS.slice();
+    if (sort === 'rating') order.sort((a, b) => b.score - a.score || a.rank - b.rank);
+    if (sort === 'price') order.sort((a, b) => a.priceSort - b.priceSort || a.rank - b.rank);
+    const show = {}, ord = {}, sel = {}, tog = {};
+    order.forEach((t, i) => { show[t.k] = test(t); ord[t.k] = i + 1; sel[t.k] = selected.includes(t.k); tog[t.k] = () => this.toggleSel(t.k); });
+    const fOn = {}, fOff = {}, fSet = {};
+    Object.keys(FILTERS).forEach(key => { fOn[key] = key === filter; fOff[key] = key !== filter; fSet[key] = () => this.setState({ filter: key }); });
+    const selTools = selected.map(k => TOOLS.find(t => t.k === k)).filter(Boolean);
+    return {
+      yes: true, show, ord, sel, tog, fOn, fOff, fSet,
+      noRows: !TOOLS.some(test),
+      sort, onSort: e => this.setState({ sort: e.target.value }),
+      hasSelection: selected.length > 0, selCount: selected.length, selNames: selTools.map(t => t.name).join(' vs '),
+      cantCompare: selected.length < 2, compareLabel: selected.length < 2 ? 'Pick one more' : 'Compare side by side',
+      clearSel: () => this.setState({ selected: [], compareOpen: false }),
+      openCompare: () => { if (selected.length >= 2) this.setState({ compareOpen: true }); },
+      closeCompare: () => this.setState({ compareOpen: false }),
+      stop: e => e.stopPropagation(),
+      compareOpen: this.state.compareOpen,
+      selectedTools: selTools
+    };
+  }
+}
+</script>
+</body>
+</html>
