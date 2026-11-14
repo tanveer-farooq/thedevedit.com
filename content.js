@@ -23,7 +23,7 @@ const ini = n => n.replace(/[^A-Za-z0-9 ]/g, '').split(' ').map(w => w[0]).join(
 // [category, tool list topics[], reviews [name, one-liner, rating][], alternatives [tool][], comparisons [a,b][]]
 const RAW = {
   ai: [
-    ['AI tools', 'AI coding assistants', 'Vector databases', 'AI agent builders', 'Open source LLMs', 'AI automation tools', 'AI productivity tools', 'AI governance tools'],
+    ['AI tools', 'AI tools like ChatGPT', 'AI coding assistants', 'Vector databases', 'AI agent builders', 'Open source LLMs', 'AI automation tools', 'AI productivity tools', 'AI governance tools'],
     [['Claude Code', 'Terminal coding agent with strong multi-file edits', 7.5], ['GitHub Copilot', 'In-editor completions and chat, widest IDE support', 8.1], ['Cursor', 'AI-first code editor built on VS Code', 8.4], ['Pinecone', 'Managed vector database for production search', 8.5], ['LangChain', 'Framework for chaining LLM calls and tools', 8.1], ['Ollama', 'Run open models locally with one command', 8.6]],
     ['LangChain', 'GitHub Copilot', 'Pinecone'],
     [['cursor', 'github-copilot'], ['chroma', 'pinecone']],
@@ -91,6 +91,7 @@ for (const [cat, [lists, reviews, alts, comps]] of Object.entries(RAW)) {
 // Real, published articles: they link to their own page and override the placeholder summary and date.
 const LIVE = {
   '/ai-tools/': { summary: '10 tools scored from official docs and pricing.', date: 'Nov 14' },
+  '/ai-tools-like-chatgpt/': { summary: '10 assistants scored from official docs and pricing.', date: 'Nov 14' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
