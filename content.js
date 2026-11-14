@@ -96,6 +96,7 @@ const LIVE = {
   '/ai-agents/': { summary: '7 work agents scored from official docs and pricing.', date: 'Nov 15' },
   '/ai-automation-tools/': { summary: '7 workflow platforms scored on AI steps, run controls and pricing.', date: 'Nov 15' },
   '/agentic-ai-platforms/': { summary: '7 platforms for building agents, scored from official docs.', date: 'Nov 15' },
+  '/ai-governance-tools/': { summary: '7 governance platforms scored from official docs.', date: 'Nov 15' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
