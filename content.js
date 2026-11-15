@@ -53,7 +53,7 @@ const RAW = {
     [['airbyte', 'fivetran'], ['bigquery', 'snowflake']],
   ],
   security: [
-    ['SIEM tools', 'Endpoint security software', 'Application security tools', 'Cloud security tools', 'Network security tools', 'DevOps security tools', 'CSPM tools', 'Penetration testing tools', 'DAST tools', 'Cyber security tools', 'Mobile security software', 'Password managers'],
+    ['SIEM tools', 'Endpoint security software', 'Application security tools', 'Cloud security tools', 'Network security tools', 'DevOps security tools', 'CSPM tools', 'Penetration testing tools', 'DAST tools', 'Cyber security tools', 'Mobile security software', 'Computer security software', 'Password managers'],
     [['CrowdStrike Falcon', 'Endpoint detection with low false positives', 9.0], ['Splunk', 'SIEM and log search at enterprise scale', 8.4], ['Burp Suite', 'The standard for web app security testing', 8.8], ['1Password', 'Team password manager with SSO and SCIM', 9.1], ['Snyk', 'Dependency and code scanning in CI', 8.5], ['Wiz', 'Agentless cloud security posture', 8.7]],
     ['Splunk', 'LastPass', 'Snyk'],
     [['1password', 'bitwarden'], ['crowdstrike-falcon', 'sentinelone']],
@@ -120,6 +120,10 @@ const LIVE = {
   '/devops-security-tools/': { summary: '7 DevOps security tools scored from official docs and pricing.', date: 'Nov 15' },
   '/cspm-tools/': { summary: '7 CSPM tools scored from official docs and pricing.', date: 'Nov 15' },
   '/penetration-testing-tools/': { summary: '7 penetration testing tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/dast-tools/': { summary: '7 DAST tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/mobile-security-software/': { summary: '7 mobile security tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/computer-security-software/': { summary: '7 computer security tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/cyber-security-tools/': { summary: '7 cyber security tools scored from official docs and pricing.', date: 'Nov 15' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
