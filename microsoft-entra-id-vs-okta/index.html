@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Entra ID vs Okta | TheDevEdit</title>
+<meta name="description" content="Microsoft Entra ID vs Okta compared from official docs: SSO, Conditional Access, hybrid sync and per-user pricing. Entra ID 8.8, Okta 8.4. Nov 2026.">
+<link rel="canonical" href="https://thedevedit.com/microsoft-entra-id-vs-okta/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Microsoft Entra ID vs Okta 2026",
+   "description": "Microsoft Entra ID vs Okta compared from official docs: SSO, Conditional Access, hybrid sync and per-user pricing. Entra ID 8.8, Okta 8.4. Nov 2026.",
+   "datePublished": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/microsoft-entra-id-vs-okta/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Microsoft Entra ID cheaper than Okta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually, for small teams. Entra ID P1 lists at $7.00 per user per month with no stated minimum, while Okta Starter is $6 but carries a $1,500 annual contract minimum."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Okta have a free plan?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only for developers. The Okta Integrator Free Plan covers up to 10 monthly active users for exploring its APIs and SDKs, so production workforces need a paid suite."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can Okta replace on-prem Active Directory sync?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Okta documents unifying AD, LDAP and HR directories into Universal Directory. Microsoft Entra ID offers its own Entra Connect and Cloud Sync for on-prem Active Directory."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which has more prebuilt app integrations?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Okta documents more than 8,000 prebuilt integrations in its network. We did not find a published gallery count in the Microsoft Entra docs we checked."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">COMPARISON · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Microsoft Entra ID vs Okta 2026</h1>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We compared Microsoft Entra ID and Okta from their official docs and pricing pages. Both were scored on the same documentation rubric covering SSO, access policy, directory sync, price and free tiers, with nothing tested hands-on.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">By TheDevEdit Editorial Team · 2 tools compared · Prices checked Nov 15, 2026</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Verdict:</strong> pick Microsoft Entra ID if your users already live in Microsoft 365 or on-prem Active Directory and you want a free tier. Pick Okta if you need a vendor-neutral catalog of 8,000+ prebuilt app integrations.</p>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 5 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Microsoft Entra ID vs Okta at a glance</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Feature</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Microsoft Entra ID</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Okta</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Our score</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.8 /10 (docs-based)</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.4 /10 (docs-based)</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing from</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">P1 $7.00 user/month, paid yearly</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Starter $6 per user/month, billed annually</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Minimum spend</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">None stated</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$1,500 annual contract minimum</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Microsoft Entra ID Free license</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Integrator Free Plan, up to 10 monthly active users</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Cloud service; Entra Connect for on-prem sync</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Cloud service</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">SSO</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">SAML, OIDC and password-based SSO</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">SSO in every suite, 8,000+ prebuilt integrations</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Access policy</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Conditional Access policy engine</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Adaptive MFA with ThreatInsight</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Directory sources</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">On-prem AD via Entra Connect or Cloud Sync</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">AD, LDAP and HR sources in Universal Directory</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Top tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Entra Suite $12.00 user/month</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Enterprise, price on request</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Best for</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Microsoft-centred organisations</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Mixed app estates</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Prices checked by hand on Nov 15, 2026. Annual billing, entry paid plan.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OVERVIEW</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">What Microsoft Entra ID and Okta do</h2>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Microsoft Entra ID is Microsoft's cloud identity service, which <a href="https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">its docs</a> describe as &quot;a cloud-based identity and access management service that provides authentication, policy enforcement, and protection for users, devices, apps, and resources.&quot; It ships in Free, P1 and P2 licenses.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Okta is an independent identity platform sold as Workforce Identity suites with SSO, MFA and directory features. <a href="https://www.okta.com/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Okta's pricing page</a> says the suites are &quot;sold as suites on a per-user, per-month basis and are billed annually.&quot;</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FEATURE BY FEATURE</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Feature comparison</h2>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Single sign-on and app catalog</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-single-sign-on" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft's SSO docs</a> say &quot;Single sign-on (SSO) lets users sign in once and reach many applications.&quot; They cover SAML 2.0, OIDC and password-based SSO.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.okta.com/integrations/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Okta's integrations page</a> says &quot;Discover more than 8,000 ready-to-use, pre-built integrations.&quot; We did not find a matching count for the Entra app gallery.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Okta, for its documented catalog size.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Access policy and MFA</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Entra's Conditional Access overview</a> says &quot;Conditional Access is Microsoft's Zero Trust policy engine.&quot; It adds that &quot;Conditional Access policies at their simplest are if-then statements.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.okta.com/products/adaptive-multi-factor-authentication/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Okta's Adaptive MFA page</a> says &quot;Okta Adaptive MFA supports a wide range of modern factors, including biometrics via Okta FastPass.&quot; Adaptive MFA is included from the $17 Essentials suite and listed as an add-on for Starter.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Tie, since both document signal-based policies.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Directory and hybrid identity</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft's docs</a> say &quot;Microsoft Entra Connect is an on-premises Microsoft application designed to meet and accomplish your hybrid identity goals.&quot; Microsoft also offers Entra Cloud Sync as a cloud-managed option.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.okta.com/products/single-sign-on-workforce-identity/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Okta's SSO page</a> says &quot;Unify all existing directories (AD, LDAP, HR) into one central control plane.&quot; That covers more directory source types than AD alone.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Microsoft Entra ID, for first-party sync with on-prem Active Directory.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Pricing and entry cost</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.microsoft.com/en-us/security/microsoft-entra-pricing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft's pricing page</a> lists P1 at &quot;$7.00 user/month, paid yearly&quot; and P2 at &quot;$10.00 user/month, paid yearly.&quot; No minimum contract is stated there.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.okta.com/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Okta's pricing page</a> states &quot;Our Starter Suite begins at $6 per user/month, and our Essentials Suite begins at $17 per user/month.&quot; It also requires a &quot;$1,500 annual contract minimum required for Okta Workforce Identity.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Microsoft Entra ID, for no stated minimum contract.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Free tier</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft's overview</a> says &quot;These licenses include Microsoft Entra ID Free, Microsoft Entra ID P1, Microsoft Entra ID P2&quot; among others. Okta's free option is a developer plan.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.okta.com/pricing/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Okta's pricing page</a> says &quot;Create an Okta Integrator Free Plan and explore our APIs and SDKs for up to 10 monthly active users.&quot; That suits testing, not a production workforce.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Winner:</strong> Microsoft Entra ID.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">PRICING</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Microsoft Entra ID vs Okta pricing</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Plan</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Microsoft Entra ID</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Okta</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Entra ID Free</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Integrator Free Plan (10 monthly active users)</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Entry paid</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">P1: $7.00 user/month</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Starter: $6 per user/month</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Mid tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">P2: $10.00 user/month</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Core Essentials $14; Essentials $17 per user/month</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Top tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Entra Suite: $12.00 user/month</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Professional and Enterprise: price on request</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Billing</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Annual subscription</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Annual, $1,500 minimum</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Prices checked by hand on Nov 15, 2026. Annual billing, per user per month, US list prices.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">STRENGTHS</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Microsoft Entra ID PROS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Free license tier included with Microsoft cloud subscriptions</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Conditional Access policy engine starts at P1</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">First-party sync with on-prem Active Directory</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Microsoft Entra ID CONS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Risk-based ID Protection needs P2 at $10</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">No app gallery count found in its docs</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Centred on the Microsoft directory</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Okta PROS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">8,000+ prebuilt integrations in its network</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Starter suite lists at $6 per user</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Unifies AD, LDAP and HR directory sources</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Okta CONS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">$1,500 annual contract minimum</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Adaptive MFA is included from the $17 Essentials suite, an add-on below it</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Free plan caps at 10 monthly active users</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">WHO SHOULD CHOOSE WHICH</span>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Choose Microsoft Entra ID</strong> if you run Microsoft 365 or on-prem Active Directory and want Conditional Access without a contract minimum.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Choose Okta</strong> if your apps span many vendors and you want prebuilt integrations with a neutral identity layer.</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">SCORES</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">How they scored</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:600px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Criterion</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Weight</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Microsoft Entra ID</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Okta</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">SSO and app catalog</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">25%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Access policy and MFA</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Directory and hybrid</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Price of entry</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">7</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">6</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Ecosystem fit</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600"><strong style="font-weight:600">Total</strong></td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">100%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"><strong style="font-weight:600">8.8</strong></td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"><strong style="font-weight:600">8.4</strong></td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SCORE BREAKDOWN: Microsoft Entra ID 8.8 /10 = 2.0 + 1.8 + 1.5 + 1.8 + 0.9 + 0.8.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SCORE BREAKDOWN: Okta 8.4 /10 = 2.5 + 1.8 + 1.2 + 1.4 + 0.6 + 0.9.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">How we score: each criterion uses a written rule applied to official docs and pricing pages fetched on Nov 15, 2026, with no hands-on testing. See <a href="https://thedevedit.com/how-we-test/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">how we test</a>.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AUTHOR</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">By TheDevEdit Editorial Team. We compare tools from official docs, pricing pages and changelogs, and vendors cannot pay for a score.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">CTA</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Compare more access and identity tools in <a href="https://thedevedit.com/security/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Security</a> and <a href="https://thedevedit.com/it-management/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">IT management</a>.</p>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about Microsoft Entra ID vs Okta</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Microsoft Entra ID cheaper than Okta?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Usually, for small teams. Entra ID P1 lists at $7.00 per user per month with no stated minimum, while Okta Starter is $6 but carries a $1,500 annual contract minimum.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does Okta have a free plan?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Only for developers. The Okta Integrator Free Plan covers up to 10 monthly active users for exploring its APIs and SDKs, so production workforces need a paid suite.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Can Okta replace on-prem Active Directory sync?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Okta documents unifying AD, LDAP and HR directories into Universal Directory. Microsoft Entra ID offers its own Entra Connect and Cloud Sync for on-prem Active Directory.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Which has more prebuilt app integrations?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Okta documents more than 8,000 prebuilt integrations in its network. We did not find a published gallery count in the Microsoft Entra docs we checked.</p></details>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
+</x-dc>
+</body>
+</html>

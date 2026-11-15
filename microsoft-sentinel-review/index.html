@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Sentinel review 2026 | TheDevEdit</title>
+<meta name="description" content="Microsoft Sentinel review from official docs: SIEM features, data lake, Logic Apps playbooks and per-GB pricing from $4.30 in US East. Checked Nov 2026.">
+<link rel="canonical" href="https://thedevedit.com/microsoft-sentinel-review/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Microsoft Sentinel review 2026",
+   "description": "Microsoft Sentinel review from official docs: SIEM features, data lake, Logic Apps playbooks and per-GB pricing from $4.30 in US East. Checked Nov 2026.",
+   "datePublished": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/microsoft-sentinel-review/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Microsoft Sentinel free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, but it has a free trial: the billing docs say \"the first 10 GB/day ingested using the Analytics logs plan is free for 31 days.\" Azure Activity and Office 365 audit logs stay free after the trial."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does Microsoft Sentinel cost per GB?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pay-as-you-go analytics ingestion lists at $4.30 per GB in US East as of Nov 2026. Commitment tiers start at 100 GB a day for $296, and prices vary by region and agreement."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does Microsoft Sentinel keep data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Analytics-tier data is kept free for the first 90 days. The data lake tier is built for retention \"for up to 12 years,\" billed per GB stored each month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Microsoft Sentinel moving out of the Azure portal?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Microsoft says support in the Azure portal ends on March 31, 2027, after which Sentinel runs only in the Microsoft Defender portal."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Microsoft Sentinel work outside Azure?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, for data sources. It ingests logs through common event format, Syslog and REST-API connectors, and its SAP solution covers systems on Azure, GCP, AWS or on-premises."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">REVIEW · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Microsoft Sentinel review 2026</h1>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Microsoft Sentinel is a cloud SIEM that collects logs, runs detections and automates response inside Azure. We scored it from Microsoft's docs and pricing pages, with no hands-on testing, to see who it suits.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">By TheDevEdit Editorial Team · Docs-based review · Prices checked Nov 15, 2026</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Verdict:</strong> 8.5 /10</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Microsoft Sentinel is the strongest fit for Azure and Microsoft 365 shops, but per-GB billing makes cost planning a real task.</p>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 4 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:300px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Field</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Detail</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Best for</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Security teams already on Azure, Microsoft 365 and Defender</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing from</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$4.30 per GB analytics ingestion, pay-as-you-go (US East list price)</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">31-day trial: 10 GB/day free; some Microsoft data sources always free</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Cloud only (Azure), managed in the Defender portal</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Access control</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Azure RBAC built-in and custom roles</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Score</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.5 /10</td></tr></tbody></table></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">THE REVIEW</span>
+<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Why it scores well</h4><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Microsoft's <a href="https://learn.microsoft.com/en-us/azure/sentinel/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">overview</a> calls it &quot;a cloud-native SIEM solution that delivers scalable, cost-efficient security across multicloud and multiplatform environments.&quot; It adds a managed data lake for long retention, playbooks on Azure Logic Apps and free ingestion for core Microsoft logs.</p></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Who it's for</h4><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SOC teams and MSSPs that run on Azure, Microsoft 365 and Defender. Teams with no Azure footprint take on a new cloud just to run it.</p></div>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Standout features</h4>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Connectors for Microsoft sources, plus common event format, Syslog and REST-API for other tools</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Analytics rules that group related alerts into incidents to cut review noise</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">MITRE ATT&amp;CK coverage view based on your ingested data</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Data lake tier that keeps security data &quot;for up to 12 years&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Jupyter notebooks in Azure Machine Learning for custom analysis</li></ul>
+<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Integrations</h4><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Microsoft Entra ID, Azure Activity, Office 365 and the Defender family connect natively. The <a href="https://learn.microsoft.com/en-us/azure/sentinel/automation/automation" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">automation docs</a> say &quot;playbooks are based on workflows built in Azure Logic Apps,&quot; which connects playbooks to other systems.</p></div>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Pricing</h4>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Plan</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Price</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">What you get</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free trial</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$0 for 31 days</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">First 10 GB/day on the Analytics logs plan, up to 20 workspaces per tenant</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pay-as-you-go (analytics tier)</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$4.30 per GB</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Full analytics, alerts and queries; 90 days of retention at no charge</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Commitment tiers</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">From $296 a day for 100 GB</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Reserved daily capacity from 100 GB to 50,000 GB, savings up to 52%</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Data lake tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$0.05 per GB ingested, $0.026 per GB-month stored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Low-cost long-term storage, queries billed at $0.005 per GB analyzed</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">US East list prices from Microsoft's <a href="https://prices.azure.com/api/retail/prices" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Azure Retail Prices API</a>, checked Nov 15, 2026. The <a href="https://www.microsoft.com/en-us/security/pricing/microsoft-sentinel/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">pricing page</a> notes &quot;savings up to 52% over Pay-As-You-Go rates,&quot; and the <a href="https://learn.microsoft.com/en-us/azure/sentinel/billing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">billing docs</a> say &quot;Lowering the Commitment tier is only allowed every 31 days.&quot;</p>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#c0584f"></span>Pros / cons</h4>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Azure Activity and Office 365 audit logs ingest free</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Data lake keeps up to 12 years of security data</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Logic Apps playbooks reach many third-party systems</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Azure Lighthouse support helps service providers manage many tenants</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Costs scale with GB ingested, so budgets need forecasting</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Commitment tiers only drop once every 31 days</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Azure portal support ends March 31, 2027</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Cloud only, with no self-hosted option</li></ul>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Score breakdown</h4>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">How we score: a generic SIEM rubric applied to vendor docs, not hands-on tests; vendors cannot pay for a score.</p>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Criterion</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Weight</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Score</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Data collection and connectors</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">25%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Detection and analytics</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Automation and response</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Retention and storage</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">9</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Price transparency</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">7</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Platform stability</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">7</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600"><strong style="font-weight:600">Total</strong></td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">100%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"><strong style="font-weight:600">8.5</strong></td></tr></tbody></table></div>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Price transparency:</strong> rates are public per meter, but the final bill depends on volume, tier and region.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Platform stability:</strong> the <a href="https://learn.microsoft.com/en-us/azure/sentinel/microsoft-sentinel-defender-portal" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Defender portal docs</a> say &quot;Microsoft Sentinel will no longer be supported in the Azure portal and will be available only in the Microsoft Defender portal.&quot;</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">ALTERNATIVES</span>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Splunk Enterprise Security:</strong> a SIEM that runs in the cloud or self-hosted, for teams outside Azure.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Google Security Operations:</strong> Google Cloud's SIEM and SOAR, for teams standardized on Google Cloud.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">CrowdStrike Falcon Next-Gen SIEM:</strong> a SIEM tied to the Falcon endpoint agent. See more in our <a href="/siem-tools/" style="color:#121212;text-underline-offset:3px">SIEM tools list</a>.</li></ul>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about Microsoft Sentinel</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Microsoft Sentinel free?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">No, but it has a free trial: the <a href="https://learn.microsoft.com/en-us/azure/sentinel/billing" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">billing docs</a> say &quot;the first 10 GB/day ingested using the Analytics logs plan is free for 31 days.&quot; Azure Activity and Office 365 audit logs stay free after the trial.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">How much does Microsoft Sentinel cost per GB?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Pay-as-you-go analytics ingestion lists at $4.30 per GB in US East as of Nov 2026. Commitment tiers start at 100 GB a day for $296, and prices vary by region and agreement.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">How long does Microsoft Sentinel keep data?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Analytics-tier data is kept free for the first 90 days. The data lake tier is built for retention &quot;for up to 12 years,&quot; billed per GB stored each month.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Microsoft Sentinel moving out of the Azure portal?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. Microsoft says support in the Azure portal ends on March 31, 2027, after which Sentinel runs only in the Microsoft Defender portal.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does Microsoft Sentinel work outside Azure?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes, for data sources. It ingests logs through common event format, Syslog and REST-API connectors, and its SAP solution covers systems on Azure, GCP, AWS or on-premises.</p></details>
+      </div>
+    </section>
+    <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">TheDevEdit Editorial Team, Editorial team. TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Built a security tool? Send it in.</strong> We review every submission against the same rubric, and listing is free. Get your tool listed</p>
+    </section>
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
+</x-dc>
+</body>
+</html>

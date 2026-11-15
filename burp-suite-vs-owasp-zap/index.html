@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burp Suite vs OWASP ZAP | TheDevEdit</title>
+<meta name="description" content="Burp Suite vs OWASP ZAP compared from official docs: pricing, manual tools, CI automation and SSO. Burp Suite 8.8, ZAP 8.3. Nov 2026.">
+<link rel="canonical" href="https://thedevedit.com/burp-suite-vs-owasp-zap/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Burp Suite vs OWASP ZAP 2026",
+   "description": "Burp Suite vs OWASP ZAP compared from official docs: pricing, manual tools, CI automation and SSO. Burp Suite 8.8, ZAP 8.3. Nov 2026.",
+   "datePublished": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/burp-suite-vs-owasp-zap/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is OWASP ZAP as good as Burp Suite?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For automated scans in CI, ZAP's docs list a YAML-driven framework and a CI Docker image at no cost. Burp Suite leads on manual pentesting tools and enterprise controls such as SAML SSO."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Burp Suite free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Burp Suite Community Edition is free and includes manual tools like Repeater and Decoder. Professional lists a $499 price (as of Nov 2026), and DAST pricing is not published."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can ZAP run in CI/CD?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. ZAP's Automation Framework runs a scan plan from one YAML file, and the bare Docker image is built for CI environments."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does ZAP support API scanning?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The Automation Framework includes openapi, soap and graphql jobs for importing API definitions before scanning."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">COMPARISON · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Burp Suite vs OWASP ZAP 2026</h1>
+
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 4 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">HEAD TO HEAD</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"># Burp Suite vs OWASP ZAP 2026</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">We compared Burp Suite and OWASP ZAP from their official docs, download pages and product pages. Nothing was tested hands-on, and both tools were scored on the same rubric for web app security testing.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Verdict:</strong> pick Burp Suite if you run manual pentests or need SSO and managed DAST at scale. Pick OWASP ZAP if you want a free, open source scanner you can script into CI with one YAML file.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">By TheDevEdit Editorial Team · 2 tools compared · Prices checked Nov 15, 2026</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Burp Suite vs OWASP ZAP at a glance</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Feature</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Burp Suite</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">OWASP ZAP</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing from</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Free Community; Pro $499 (as of Nov 2026)</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Free</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free tier</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Community Edition, manual tools only</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Full tool, free and open source</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">License</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Commercial</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Open source</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Desktop; DAST cloud or self-hosted</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Desktop, Docker images</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">SSO</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">SAML SSO in Burp Suite DAST</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">None found in docs</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">CI/CD</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">DAST runs from Jenkins, GitLab CI and more</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Automation Framework, bare Docker image</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">API scanning</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">API scanning in DAST</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">OpenAPI, SOAP, GraphQL jobs</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Manual tools</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Repeater, Decoder, Sequencer, Comparer, Intruder</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Desktop app</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Extensions</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">BApp store</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">ZAP Marketplace add-ons</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Our score</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.8 /10 (docs-based)</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.3 /10 (docs-based)</td></tr></tbody></table></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OVERVIEW</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Burp Suite</strong> is a web security testing toolkit from PortSwigger, sold as a free Community Edition, Professional and Burp Suite DAST. Community covers manual testing, while DAST adds scheduled scanning, SAML SSO and CI triggers.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">OWASP ZAP</strong> is a free, open source web app scanner, and its site footer reads &quot;ZAP by Checkmarx&quot;. It runs on desktop or in Docker, and its Automation Framework drives scans from a YAML file.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FEATURE BY FEATURE</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Feature by feature</h2>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Manual testing</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Burp Community includes Repeater, Decoder, Sequencer and Comparer, but Intruder is only a demo. Pro unlocks full Intruder for custom attacks.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Winner: Burp Suite</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Automated scanning</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Burp Suite DAST uses a Chromium crawler built for JavaScript single-page apps. ZAP's Automation Framework offers spider and AJAX spider jobs at no cost.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Winner: Burp Suite, for JavaScript-heavy apps</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">CI/CD automation</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">ZAP controls a full scan plan through one YAML file and ships a bare Docker image for CI. Burp Suite DAST triggers scans from Jenkins, GitLab CI and Azure DevOps, but it is a paid product.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Winner: OWASP ZAP</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">API testing</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">ZAP's framework has openapi, soap and graphql jobs. Burp Suite DAST covers API scanning, though we did not confirm its import formats in the fetched docs.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Winner: Tie</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Team and admin controls</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Burp Suite DAST lists SAML SSO, role-based access control and audit trails. We found no SSO or hosted console in ZAP's docs.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Winner: Burp Suite</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">PRICING</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Pricing</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Plan</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Burp Suite</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">OWASP ZAP</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Free</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Community Edition</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Full tool</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Paid individual</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Professional, $499 (as of Nov 2026)</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">None</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Enterprise</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Burp Suite DAST, price not listed</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">None</td></tr></tbody></table></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">STRENGTHS</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Burp Suite PROS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Full manual toolkit with Repeater, Intruder and Sequencer</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SAML SSO and audit trails in Burp Suite DAST</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Cloud or self-hosted DAST, including Kubernetes</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Burp Suite CONS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Community Edition limits Intruder to a demo</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">DAST pricing is not published</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Pro-exclusive BApps need a paid licence</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">OWASP ZAP PROS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Free and open source with no paid tiers</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">One YAML file drives full automated scans</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Bare Docker image built for CI environments</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">OWASP ZAP CONS</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Releases are currently unsigned</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Windows and Linux builds need Java 17</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">No SSO or team console found</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">WHO SHOULD CHOOSE WHICH</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Who should choose which</h2>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Choose Burp Suite</strong> if pentesters need full manual tools or your AppSec team needs SSO across many sites.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Choose OWASP ZAP</strong> if you want free scanning in CI pipelines and can manage it as code.</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">SCORES</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Scores</h2>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Burp Suite: 8.8 /10</strong></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SCORE BREAKDOWN: Manual testing 10 (25%) · Automated scanning 9 (20%) · CI/CD automation 9 (20%) · Pricing and value 6 (15%) · Team admin 9 (10%) · Extensibility 9 (10%)</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">OWASP ZAP: 8.3 /10</strong></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">SCORE BREAKDOWN: Manual testing 8 (25%) · Automated scanning 8 (20%) · CI/CD automation 9 (20%) · Pricing and value 10 (15%) · Team admin 5 (10%) · Extensibility 9 (10%)</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">How we score: each criterion is rated 1 to 10 from official docs and pricing pages, then weighted and summed. Nothing was tested hands-on.</p>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about Burp Suite vs OWASP ZAP</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is OWASP ZAP as good as Burp Suite?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">For automated scans in CI, ZAP's docs list a YAML-driven framework and a CI Docker image at no cost. Burp Suite leads on manual pentesting tools and enterprise controls such as SAML SSO.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Burp Suite free?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Burp Suite Community Edition is free and includes manual tools like Repeater and Decoder. Professional lists a $499 price (as of Nov 2026), and DAST pricing is not published.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Can ZAP run in CI/CD?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. ZAP's Automation Framework runs a scan plan from one YAML file, and the bare Docker image is built for CI environments.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does ZAP support API scanning?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. The Automation Framework includes openapi, soap and graphql jobs for importing API definitions before scanning.</p></details>
+      </div>
+    </section>
+    <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">TheDevEdit Editorial Team. TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Ready to start?</strong> <a href="https://portswigger.net/burp" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Visit Burp Suite ↗</a> · <a href="https://www.zaproxy.org/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Visit OWASP ZAP ↗</a></p>
+    </section>
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
+</x-dc>
+</body>
+</html>

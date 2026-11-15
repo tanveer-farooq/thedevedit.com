@@ -54,9 +54,9 @@ const RAW = {
   ],
   security: [
     ['SIEM tools', 'Endpoint security software', 'Application security tools', 'Cloud security tools', 'Network security tools', 'DevOps security tools', 'CSPM tools', 'Penetration testing tools', 'DAST tools', 'Cyber security tools', 'Mobile security software', 'Computer security software', 'Password managers'],
-    [['CrowdStrike Falcon', 'Endpoint detection with low false positives', 9.0], ['Splunk', 'SIEM and log search at enterprise scale', 8.4], ['Burp Suite', 'The standard for web app security testing', 8.8], ['1Password', 'Team password manager with SSO and SCIM', 9.1], ['Snyk', 'Dependency and code scanning in CI', 8.5], ['Wiz', 'Agentless cloud security posture', 8.7]],
-    ['Splunk', 'LastPass', 'Snyk'],
-    [['1password', 'bitwarden'], ['crowdstrike-falcon', 'sentinelone']],
+    [['CrowdStrike Falcon', 'Endpoint protection with EDR and cloud console', 8.9], ['Bitwarden', 'Open source password manager for teams', 9.0], ['Nessus', 'Vulnerability scanner for networks and hosts', 8.2], ['Microsoft Sentinel', 'Cloud-native SIEM on Azure', 8.5]],
+    ['CrowdStrike', 'Splunk', 'LastPass', 'Okta'],
+    [['crowdstrike', 'sentinelone'], ['microsoft-sentinel', 'splunk'], ['microsoft-entra-id', 'okta'], ['burp-suite', 'owasp-zap']],
   ],
   'it-management': [
     ['Remote desktop software', 'MDM software', 'RMM software', 'Virtualization software', 'IT asset management software', 'Help desk software'],
@@ -124,6 +124,18 @@ const LIVE = {
   '/mobile-security-software/': { summary: '7 mobile security tools scored from official docs and pricing.', date: 'Nov 15' },
   '/computer-security-software/': { summary: '7 computer security tools scored from official docs and pricing.', date: 'Nov 15' },
   '/cyber-security-tools/': { summary: '7 cyber security tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/crowdstrike-falcon-review/': { summary: 'Reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/bitwarden-review/': { summary: 'Reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/nessus-review/': { summary: 'Reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/microsoft-sentinel-review/': { summary: 'Reviewed from official docs and pricing.', date: 'Nov 15' },
+  '/crowdstrike-vs-sentinelone/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
+  '/microsoft-sentinel-vs-splunk/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
+  '/microsoft-entra-id-vs-okta/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
+  '/burp-suite-vs-owasp-zap/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
+  '/crowdstrike-alternatives/': { summary: 'Alternatives scored from official docs and pricing.', date: 'Nov 15' },
+  '/splunk-alternatives/': { summary: 'Alternatives scored from official docs and pricing.', date: 'Nov 15' },
+  '/lastpass-alternatives/': { summary: 'Alternatives scored from official docs and pricing.', date: 'Nov 15' },
+  '/okta-alternatives/': { summary: 'Alternatives scored from official docs and pricing.', date: 'Nov 15' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
