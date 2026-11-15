@@ -112,6 +112,10 @@ const LIVE = {
   '/pinecone-alternatives/': { summary: '7 Pinecone alternatives scored from official docs.', date: 'Nov 15' },
   '/cursor-vs-github-copilot/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
   '/chroma-vs-pinecone/': { summary: 'Side by side from official docs and pricing.', date: 'Nov 15' },
+  '/siem-tools/': { summary: '7 SIEM tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/endpoint-security-software/': { summary: '7 endpoint security tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/application-security-tools/': { summary: '7 application security tools scored from official docs and pricing.', date: 'Nov 15' },
+  '/cloud-security-tools/': { summary: '7 cloud security tools scored from official docs and pricing.', date: 'Nov 15' },
 };
 ITEMS.forEach(i => { i.href = LIVE[i.url] ? i.url : (SAMPLE[i.type] || '#'); if (LIVE[i.url]) Object.assign(i, LIVE[i.url], { live: true, pub: Object.keys(LIVE).indexOf(i.url) }); if (ALSO[i.url]) i.also = ALSO[i.url]; });
 
