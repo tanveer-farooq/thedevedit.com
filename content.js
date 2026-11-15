@@ -53,7 +53,7 @@ const RAW = {
     [['airbyte', 'fivetran'], ['bigquery', 'snowflake']],
   ],
   security: [
-    ['SIEM tools', 'Endpoint security software', 'DAST tools', 'Cyber security tools', 'Mobile security software', 'Password managers'],
+    ['SIEM tools', 'Endpoint security software', 'Application security tools', 'Cloud security tools', 'DAST tools', 'Cyber security tools', 'Mobile security software', 'Password managers'],
     [['CrowdStrike Falcon', 'Endpoint detection with low false positives', 9.0], ['Splunk', 'SIEM and log search at enterprise scale', 8.4], ['Burp Suite', 'The standard for web app security testing', 8.8], ['1Password', 'Team password manager with SSO and SCIM', 9.1], ['Snyk', 'Dependency and code scanning in CI', 8.5], ['Wiz', 'Agentless cloud security posture', 8.7]],
     ['Splunk', 'LastPass', 'Snyk'],
     [['1password', 'bitwarden'], ['crowdstrike-falcon', 'sentinelone']],
