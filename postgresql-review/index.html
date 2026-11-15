@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostgreSQL review (2026): features, cost, limits | TheDevEdit</title>
+<meta name="description" content="PostgreSQL review from the official docs: features, reliability, extensions, version support and real cost, plus where it falls short. Scored 9.7. Nov 2026.">
+<link rel="canonical" href="https://thedevedit.com/postgresql-review/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "PostgreSQL review",
+   "description": "PostgreSQL review from the official docs: features, reliability, extensions, version support and real cost, plus where it falls short. Scored 9.7. Nov 2026.",
+   "datePublished": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/postgresql-review/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is PostgreSQL free for commercial use?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The PostgreSQL License grants permission to \"use, copy, modify, and distribute this software and its documentation for any purpose, without fee,\" as long as the copyright notice is kept."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the latest PostgreSQL version?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PostgreSQL 18.7, released November 12, 2026, alongside 19 RC 2. PostgreSQL 19 was still a release candidate when we checked."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long is a PostgreSQL version supported?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Five years. The versioning policy says \"The PostgreSQL Global Development Group supports a major version for 5 years after its initial release.\" PostgreSQL 14 reaches its final release on November 12, 2026, and PostgreSQL 18 on November 14, 2030."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How often does PostgreSQL ship fixes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "At least quarterly. Minor releases carrying bug and security fixes are \"released at least once every three months,\" per the versioning policy, and they never change the storage format."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">REVIEW · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">PostgreSQL review</h1>
+
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 5 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">TOOL REVIEW</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"># PostgreSQL review</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Free, open source object-relational database from the PostgreSQL Global Development Group. This review is docs-based: we scored it from postgresql.org's documentation and release notes, with no hands-on testing.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">9.7 /10 our score (docs-based)</strong></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">By TheDevEdit Editorial Team · Docs-based review, no hands-on testing · Prices checked Nov 15, 2026</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Vendors cannot pay for a score or a verdict. Some links may earn us a commission.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OVERVIEW</span>
+
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OUR VERDICT</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">PostgreSQL is a free, open source database that fits teams needing one general-purpose SQL store for transactions, JSON and full-text search. It scores 9.7 on our docs rubric, and the main costs are planned major upgrades and a 5-year support window per version.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.postgresql.org/about/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL's about page</a> calls it an &quot;open source object-relational database system that uses and extends the SQL language.&quot; The same page says it has been ACID-compliant since 2001 and &quot;runs on all major operating systems&quot;.</p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Document, range, geometry and custom types sit beside standard SQL types, with JSON/JSONB and full-text search built in</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Write-ahead logging, synchronous and logical replication, and point-in-time recovery are all core features</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Extensions, foreign data wrappers and procedural languages let you add features without forking the database</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ PostgreSQL 18 added asynchronous I/O, which the project says benchmarks showed &quot;performance gains of up to 3x in certain scenarios&quot;</li></ul>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Major-version upgrades need a dump and restore, pg_upgrade or logical replication</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Each client connection gets its own server process, and no built-in pooler is listed on the pages we checked</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Each major version is supported for 5 years, so long-lived systems must plan upgrades</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">SCORE BREAKDOWN</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Scores come from a documentation rubric, not hands-on tests. Four criteria award 2 points for each of 5 documented capabilities; cost and licensing awards 5 points for a $0 license and 5 for a permissive license. The full sheet with sources is in our research notes.</p>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Criterion</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Weight</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Score</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Data model and SQL features</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">30%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Reliability and recovery</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Extensibility</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Operations and upgrades</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Cost and licensing</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600"><strong style="font-weight:600">Overall</strong></td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">100%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"><strong style="font-weight:600">9.7</strong></td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">This is a capability checklist from documentation; it does not measure performance or operational difficulty.</p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Data model and SQL features (5 of 5):</strong> JSON/JSONB, full-text search, partitioning, geometry types and &quot;All transaction isolation levels defined in the SQL standard, including Serializable,&quot; per the <a href="https://www.postgresql.org/about/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">feature list</a>.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Reliability and recovery (5 of 5):</strong> WAL, sync replication, logical replication and &quot;Point-in-time-recovery (PITR), active standbys.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Extensibility (5 of 5):</strong> custom types, procedural languages, FDWs, extensions and custom table storage.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Operations and upgrades (4 of 5):</strong> 5-year support, quarterly minors, pg_upgrade and minor-release storage compatibility pass; no built-in pooler on the pages we checked.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Cost and licensing:</strong> $0 to use, under a permissive license.</li></ul>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">What PostgreSQL does well</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Data types.</strong> The <a href="https://www.postgresql.org/about/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">about page</a> lists JSON/JSONB, XML, Hstore key-value, arrays, ranges, UUIDs and geometric types. You can also define composite and custom types.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Extensions and other languages.</strong> The about page says you can &quot;define your own data types, build out custom functions, even write code from different programming languages without recompiling your database.&quot; Core procedural languages are &quot;PL/pgSQL, Perl, Python, and Tcl.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Foreign data.</strong> <a href="https://www.postgresql.org/about/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL's foreign data wrappers</a> &quot;connect to other databases or streams with a standard SQL interface.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Security.</strong> The feature list names SCRAM-SHA-256, LDAP, certificate and OAuth 2.0 authentication, plus &quot;Column and row-level security.&quot; <a href="https://www.postgresql.org/about/news/postgresql-18-released-3142/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL 18's release notes</a> say it &quot;introduces oauth authentication.&quot;</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">What's new in PostgreSQL 18</h3>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Asynchronous I/O:</strong> a new AIO subsystem aimed at faster reads from storage.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">uuidv7():</strong> <a href="https://www.postgresql.org/about/news/postgresql-18-released-3142/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL 18 also adds UUIDv7 generation through the uuidv7() function</a>, giving timestamp-ordered UUIDs.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Upgrade statistics:</strong> PostgreSQL 18 can &quot;keep planner statistics through a major version upgrade,&quot; so queries recover speed sooner after upgrading.</li></ul>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Where it falls short</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Upgrades.</strong> <a href="https://www.postgresql.org/docs/current/upgrading.html" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL's upgrade docs</a> say &quot;the internal data storage format is subject to change, thus complicating upgrades&quot; for major releases. For pg_upgrade, the same page says &quot;Upgrades can be performed in minutes, particularly with --link mode.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Connections.</strong> The <a href="https://www.postgresql.org/docs/current/connect-estab.html" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">connection docs</a> state &quot;PostgreSQL implements a &quot;process per user&quot; client/server model.&quot; The core pages we checked list no built-in connection pooler, while Azure's managed service ships one.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Hard limits.</strong> The <a href="https://www.postgresql.org/docs/current/limits.html" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">limits table</a> caps a field at 1 GB and a relation at 32 TB with the default block size. A table holds at most 1,600 columns.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">PRICING</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Pricing, checked Nov 15, 2026</h2>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">COMMUNITY POSTGRESQL · $0</strong> Free to download and use. The <a href="https://www.postgresql.org/about/licence/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL License</a> is &quot;a liberal Open Source license, similar to the BSD or MIT licenses.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">SELF-HOSTED · your infrastructure cost</strong> Packages and installers for Linux, macOS, Windows and BSD on the <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">download page</a>. You pay only for servers, storage, backups and staff time, so we give no fixed figure.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">MANAGED CLOUD · billed by the provider</strong> <a href="https://learn.microsoft.com/en-us/azure/postgresql/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Azure Database for PostgreSQL</a> says &quot;You can build your first application on a small database for a few dollars a month.&quot; Larger compute tiers cost more.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The license never costs money, so your real cost is compute, storage and operations. Self-hosting trades a lower bill for upgrade, backup and failover work; a managed service charges to take that work on.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">ALTERNATIVES</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">PostgreSQL alternatives</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:600px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Tool</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Best for</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Score</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Review</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Sq · SQLite</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">An embedded database inside one application</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Ms · Microsoft SQL Server</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Teams standardized on Microsoft and T-SQL</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Cr · CockroachDB</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Distributed SQL that speaks the PostgreSQL protocol</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Az · Azure Database for PostgreSQL</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">PostgreSQL without running your own servers</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr></tbody></table></div>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.sqlite.org/about.html" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">SQLite's about page</a> says &quot;SQLite is an in-process library&quot; that implements a serverless, &quot;transactional SQL database engine.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://learn.microsoft.com/en-us/sql/sql-server/what-is-sql-server?view=sql-server-ver17" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Microsoft's docs</a> say &quot;Microsoft SQL Server is a relational database management system (RDBMS).&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://docs.cockroachlabs.com/docs/stable/postgresql-compatibility" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">CockroachDB's compatibility docs</a> say &quot;CockroachDB supports the PostgreSQL wire protocol and the majority of PostgreSQL syntax.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://learn.microsoft.com/en-us/azure/postgresql/overview" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Azure Database for PostgreSQL</a> &quot;is a fully managed database service,&quot; and it &quot;has a built-in PgBouncer and a connection pooler.&quot;</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:300px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Key</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Value</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Free, open source</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">License</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">PostgreSQL License</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Self-hosted or managed cloud</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Latest release</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">18.7 (Nov 12, 2026)</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Platforms</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Linux, macOS, Windows, BSD</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Maintainer</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">PostgreSQL Global Development Group</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Origins</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">1986, POSTGRES project at UC Berkeley</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Reviewed from documentation by TheDevEdit Editorial Team. Updated Nov 15, 2026.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">About the author</strong></p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">TheDevEdit Editorial Team. TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</p>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about PostgreSQL</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is PostgreSQL free for commercial use?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. The <a href="https://www.postgresql.org/about/licence/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">PostgreSQL License</a> grants permission to &quot;use, copy, modify, and distribute this software and its documentation for any purpose, without fee,&quot; as long as the copyright notice is kept.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">What is the latest PostgreSQL version?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">PostgreSQL 18.7, released November 12, 2026, alongside <a href="https://www.postgresql.org/docs/release/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">19 RC 2</a>. PostgreSQL 19 was still a release candidate when we checked.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">How long is a PostgreSQL version supported?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Five years. <a href="https://www.postgresql.org/support/versioning/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">The versioning policy</a> says &quot;The PostgreSQL Global Development Group supports a major version for 5 years after its initial release.&quot; PostgreSQL 14 reaches its final release on November 12, 2026, and PostgreSQL 18 on November 14, 2030.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">How often does PostgreSQL ship fixes?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">At least quarterly. Minor releases carrying bug and security fixes are &quot;released at least once every three months,&quot; per <a href="https://www.postgresql.org/support/versioning/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">the versioning policy</a>, and they never change the storage format.</p></details>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
+</x-dc>
+</body>
+</html>

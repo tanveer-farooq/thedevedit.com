@@ -1,15 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Playwright review | TheDevEdit</title>
+<meta name="description" content="Docs-based Playwright review: browsers, languages, parallel runs, Trace Viewer, Test Agents and real cost. Scored 9.7/10 from official docs, Nov 2026.">
+<link rel="canonical" href="https://thedevedit.com/playwright-review/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Playwright review",
+   "description": "Docs-based Playwright review: browsers, languages, parallel runs, Trace Viewer, Test Agents and real cost. Scored 9.7/10 from official docs, Nov 2026.",
+   "datePublished": "2026-11-15",
+   "author": {
+    "@type": "Organization",
+    "name": "TheDevEdit Editorial Team"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "TheDevEdit",
+    "url": "https://thedevedit.com/"
+   },
+   "mainEntityOfPage": "https://thedevedit.com/playwright-review/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Playwright free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. playwright.dev lists no paid plan, so you pay only for the machines or CI that run your tests (as of Nov 2026)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Playwright test Safari?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It tests WebKit, the engine behind Safari, on Windows, Linux and macOS. That is engine coverage, not the branded Safari app."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can non-JavaScript teams use Playwright?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. It ships for Python, Java and .NET as well as Node.js, and all share the same underlying implementation."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Playwright better than Cypress?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On our documentation rubric, Playwright scored 9.7 and Cypress 7.6. Cypress still leads on a published component-testing support table and a hosted replay dashboard."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 <script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
-<dc-import name="Review"></dc-import>
+<helmet>
+  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
+  <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}
+    summary{list-style:none}summary::-webkit-details-marker{display:none}.tl-faq>summary .tl-sign::before{content:'+'}.tl-faq[open]>summary .tl-sign::before{content:'\2013'}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+  <main style="max-width:800px;margin:0 auto;padding:40px 20px 96px;display:flex;flex-direction:column;gap:56px">
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">REVIEW · UPDATED NOV 15, 2026</span>
+      <h1 style="margin:0;font-size:clamp(36px,5vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.04em;text-wrap:balance">Playwright review</h1>
+
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#666">TheDevEdit Editorial Team · 5 min read · reviewed from official docs and pricing</span>
+
+    </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">TOOL REVIEW</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"># Playwright review</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Playwright is a free end-to-end test framework, and its site carries a Microsoft copyright. This review is docs-based: we scored it 9.7 /10 from its official documentation, with no hands-on test runs.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">By TheDevEdit Editorial Team · Docs-based review · Prices checked Nov 15, 2026</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Vendors cannot pay for a score or a verdict. Some links may earn us a commission.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Score:</strong> 9.7 /10 (docs-based)</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Visit playwright.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OVERVIEW</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">What Playwright is</h2>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Playwright's docs</a> say &quot;Playwright Test is an end-to-end test framework for modern web apps.&quot; Its <a href="https://playwright.dev/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">home page</a> says &quot;Playwright enables reliable web automation for testing, scripting, and AI agents.&quot;</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The same home page carries a &quot;Copyright © 2026 Microsoft&quot; footer, and playwright.dev lists no paid plan.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">OUR VERDICT</span>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">If your team needs Chromium, Firefox and WebKit from one framework, start with Playwright. On our documentation rubric it scored 9.7 against Cypress's 7.6, mainly because parallel runs, sharding and trace debugging are built in and need no paid service.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">WHAT WE LIKED</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Chromium, WebKit and Firefox supported on Windows, Linux and macOS</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ One engine across Node.js, Python, Java and .NET</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Parallel workers and multi-machine sharding with no hosted service</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">\+ Codegen recorder plus three Test Agents out of the box</li></ul>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">WHAT HELD IT BACK</strong></p>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– No hosted dashboard or paid service listed on playwright.dev</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– Component testing has no formal framework support table</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">– No compliance page found, since it runs on your own machines</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">SCORE BREAKDOWN</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">How Playwright scored</h2>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Scores come from a documentation rubric, not from hands-on tests. Each criterion has a literal rule, listed in our research notes with its sources.</p>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Criterion</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Weight</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Score</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Stability</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">30%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Authoring speed</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">8.5</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Browser coverage</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">20%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">CI fit</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Price at scale</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">15%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">10</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600"><strong style="font-weight:600">Total</strong></td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">100%</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"><strong style="font-weight:600">9.7</strong></td></tr></tbody></table></div>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Stability:</strong> the <a href="https://playwright.dev/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">home page</a> lists &quot;Auto-wait and web-first assertions.&quot; The <a href="https://playwright.dev/docs/trace-viewer" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Trace Viewer</a> &quot;is a GUI tool that helps you explore recorded Playwright traces after the script has run.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Authoring speed:</strong> the <a href="https://playwright.dev/docs/codegen" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">test generator</a> offers &quot;the ability to generate tests for you as you perform actions in the browser.&quot; Points were lost because component testing has no support table.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Browser coverage:</strong> its <a href="https://playwright.dev/docs/emulation" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">emulation docs</a> let you &quot;emulate a real device such as a mobile phone or tablet,&quot; on top of all three engines.</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">CI fit:</strong> <a href="https://playwright.dev/docs/test-parallel" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">the parallel docs</a> say &quot;Playwright Test runs tests in parallel.&quot; Its <a href="https://playwright.dev/docs/docker" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Docker page</a> says &quot;Dockerfile.noble can be used to run Playwright scripts in Docker environment.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><strong style="font-weight:600">Price at scale:</strong> no paid plan is listed, so suite size adds no licence bill.</li></ul>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Key features</h2>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Browsers and platforms</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">intro</a> states &quot;Playwright supports Chromium, WebKit and Firefox on Windows, Linux and macOS.&quot; WebKit is the engine behind Safari, so Safari-engine coverage needs no extra service.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Languages</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://playwright.dev/docs/languages" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">languages page</a> says it is &quot;available in multiple languages that share the same underlying implementation&quot;: Node.js, Python, Java and .NET.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">On .NET, <a href="https://playwright.dev/docs/languages" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">the languages page</a> says &quot;Playwright for .NET comes with MSTest, NUnit, xUnit, and xUnit v3 base classes for writing end-to-end tests.&quot;</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Authoring with Test Agents</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://playwright.dev/docs/test-agents" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Test Agents page</a> says &quot;Playwright comes with three Playwright Test Agents out of the box&quot;: planner, generator and healer.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Parallel runs and sharding</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://playwright.dev/docs/test-parallel" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">parallel docs</a> add &quot;Playwright Test can shard a test suite, so that it can be executed on multiple machines.&quot; That splits large suites across CI jobs without a hosted account.</p>
+<h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Component testing</h3>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The <a href="https://playwright.dev/docs/test-components" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">component docs</a> say &quot;Playwright Test can test the components of your web application in isolation.&quot; They give framework examples but no formal support table.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The docs note that the older experimental-ct-react, -ct-react17 and -ct-vue packages &quot;have been removed and are no longer published,&quot; and teams still on them should &quot;stay on Playwright 1.62&quot; until they migrate.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">PRICING</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Pricing, checked Nov 15, 2026</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:450px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Plan</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Price</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">What it includes</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">FRAMEWORK</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">$0</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">The full test runner, recorder, Trace Viewer and Test Agents; no paid plan listed on playwright.dev (as of Nov 2026)</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">CI RUNNERS</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Your CI bill</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Workers and shards run on your own machines or CI; cost depends on your provider</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">HOSTED GRID</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not listed</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">playwright.dev lists no hosted service; we did not price third-party grids</td></tr></tbody></table></div>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">Prices checked by hand on Nov 15, 2026, from <a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">playwright.dev</a>.</p>
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">The real cost at scale is compute, not licences. Since sharding spreads one suite across machines, your bill grows with the CI minutes those machines use.</p>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">ALTERNATIVES</span>
+<h2 style="margin:0;font-size:32px;line-height:1.2;font-weight:500;letter-spacing:-.02em">Playwright alternatives</h2>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:600px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Tool</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Best for</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Score</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Review</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Cy · Cypress</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">JavaScript teams that want an in-browser runner and a hosted dashboard</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">7.6 /10</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Se · Selenium</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Teams standardized on WebDriver</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pu · Puppeteer</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Chrome or Firefox scripting in JavaScript</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Tc · TestCafe</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">A standalone JavaScript end-to-end framework</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">not scored</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a"></td></tr></tbody></table></div>
+<ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://docs.cypress.io/app/get-started/why-cypress" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Cypress's docs</a> say &quot;Cypress is a quality platform for teams shipping modern web applications.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://www.selenium.dev/documentation/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Selenium</a> &quot;is an umbrella project for a range of tools and libraries that enable and support the automation of web browsers.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://pptr.dev/" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">Puppeteer</a> &quot;is a JavaScript library which provides a high-level API to control Chrome or Firefox over the DevTools Protocol.&quot;</li><li style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty"><a href="https://testcafe.io/documentation/402635/guides/overview/getting-started" target="_blank" rel="noopener" style="color:#121212;text-underline-offset:3px">TestCafe</a> &quot;is an end-to-end testing framework for web applications.&quot;</li></ul>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">AT A GLANCE</span>
+<div style="overflow-x:auto;border:1px solid #e2e1dc;border-radius:12px;background:#fff"><table style="width:100%;border-collapse:collapse;font-size:14px;line-height:20px;min-width:300px"><thead><tr><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Key</th><th style="text-align:left;padding:12px 14px;background:#f7f6f2;font-weight:600;color:#55554f;font-size:12.5px">Value</th></tr></thead><tbody><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Pricing</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Free; no paid plan listed (as of Nov 2026)</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Deployment</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Local library and test runner; Docker image</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Languages</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Node.js (JS/TS), Python, Java, .NET</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Browsers</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Chromium, Firefox, WebKit</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Platforms</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Windows, Linux, macOS</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Maintainer</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Microsoft</td></tr><tr><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;font-weight:600">Debugging</td><td style="padding:13px 14px;border-top:1px solid #efeee9;vertical-align:top;color:#3a3a3a">Trace Viewer</td></tr></tbody></table></div>
+<h4 style="margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;display:flex;align-items:center;gap:8px">Appears in</h4>
+      </section>
+    <section id="faq" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">FAQ</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:500;letter-spacing:-.02em">FAQs about Playwright</h2>
+      <div style="border-top:1px solid #D3D2CD">
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD" open="{{ yes }}"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Playwright free?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. playwright.dev lists no paid plan, so you pay only for the machines or CI that run your tests (as of Nov 2026).</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Does Playwright test Safari?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">It tests WebKit, the engine behind Safari, on Windows, Linux and macOS. That is engine coverage, not the branded Safari app.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Can non-JavaScript teams use Playwright?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">Yes. It ships for Python, Java and .NET as well as Node.js, and all share the same underlying implementation.</p></details>
+        <details class="tl-faq" style="border-bottom:1px solid #D3D2CD"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer"><h3 style="margin:0;font-size:18px;line-height:26px;font-weight:500">Is Playwright better than Cypress?</h3><span class="tl-sign" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;color:#666"></span></summary><p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty;padding:0 0 20px">On our documentation rubric, Playwright scored 9.7 and Cypress 7.6. Cypress still leads on a published component-testing support table and a hosted replay dashboard.</p></details>
+      </div>
+    </section>
+    <section style="background:#fff;border:1px solid #D3D2CD;padding:24px;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0;font-size:16px;line-height:26px;color:#3a3a3a;text-wrap:pretty">TheDevEdit Editorial Team. TheDevEdit's editorial team researches developer and AI tools from vendor documentation, pricing pages and changelogs, and updates each page when prices or plans change.</p>
+    </section>
+  </main>
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { yes: true }; } }
+</script>
 </x-dc>
 </body>
 </html>
