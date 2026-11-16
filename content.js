@@ -409,3 +409,39 @@ export const reviewHref = name => ITEMS.find(i => i.type === 'reviews' && i.tool
 export const reviewUrl = name => `/${slug(name)}-review/`;
 export const qs = k => { try { return new URLSearchParams(location.search).get(k); } catch (e) { return null; } };
 export const load = () => Promise.resolve({ CATEGORIES, TYPES, ITEMS, catBySlug, qs, reviewUrl });
+
+// Shared view model for the hub design previews at /hub-preview/ (Guide, Finder, Scoreboard).
+const initials = n => { const w = n.split(/\s+/); return w.length > 1 ? (w[0][0] + w[1][0]).toUpperCase() : n.slice(0, 2); };
+const pad = n => String(n).padStart(2, '0');
+const when = s => Date.parse(s + ' 2026') || 0;
+export const logo = n => ({ name: n, src: LOGOS[n] || '', has: !!LOGOS[n], no: !LOGOS[n], ini: initials(n) });
+export const hubModel = want => {
+  const cat = catBySlug(want), slug = cat.slug, hub = HUBS[slug];
+  const home = i => HUBS[i.cat] || hub; // an `also` post keeps its home category's copy
+  const tagged = ITEMS.filter(i => inCat(i, slug)), of = t => tagged.filter(i => i.type === t);
+  const types = of('tools').map((t, n) => {
+    const [blurb, picks] = hub.types[t.topic] || home(t).types[t.topic] || ['', []];
+    return { n: pad(n + 1), name: t.topic, blurb, href: t.href, date: t.date, count: parseInt(t.summary, 10) || 0, picks: picks.map(logo) };
+  });
+  const ranked = of('reviews').slice().sort((a, b) => b.rating - a.rating).map((r, n) => ({
+    ...r, rank: pad(n + 1), best: hub.bestFor[r.tool] || home(r).bestFor[r.tool] || '', lg: logo(r.tool),
+    kinds: types.filter(t => t.picks.some(p => p.name === r.tool)).map(t => t.name),
+  }));
+  const byTool = Object.fromEntries(ranked.map(r => [r.tool, r]));
+  const side = n => ({ ...logo(n), rating: byTool[n] ? byTool[n].rating : '' });
+  const vs = of('compare').map(i => { const [a, b] = i.title.split(' vs '); return { ...i, a: side(a), b: side(b) }; });
+  const alts = of('alternatives').map(i => ({ ...i, lg: logo(i.tool) }));
+  const latest = tagged.slice().sort((a, b) => when(b.date) - when(a.date));
+  const writers = AUTHORS.filter(a => a.beats.includes(slug));
+  const byline = (writers.length ? writers : [{ name: hub.editor, ini: initials(hub.editor), photo: '', slug: '' }])
+    .map(a => ({ name: a.name, ini: a.ini, photo: a.photo, hasPhoto: !!a.photo, noPhoto: !a.photo, href: a.slug ? authorUrl(a) : '#' }));
+  return {
+    cat, slug, num: pad(CATEGORIES.indexOf(cat) + 1), hub, types, ranked, byTool, vs, alts, latest, byline,
+    updated: latest.length ? latest[0].date : '',
+    faqs: [...hub.faqs, ['Can vendors pay for a ranking?', 'No. Some links earn a commission, and sponsored slots are always labelled. Neither changes a score.']],
+    related: hub.related.map(s => ({ ...catBySlug(s), href: `/${s}/`, total: ITEMS.filter(i => i.cat === s).length })),
+    all: t => `/${t}/?category=${slug}`,
+  };
+};
+// /hub-preview/ pages take ?category= so reviewers can switch hubs. Real hub URLs ignore it.
+export const previewSlug = fallback => (location.pathname.startsWith('/hub-preview/') && qs('category')) || fallback || 'testing';

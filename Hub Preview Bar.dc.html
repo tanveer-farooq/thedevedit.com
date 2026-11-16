@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- Review-only bar on /hub-preview/ pages: switch design option and category. Not used on real pages. -->
+<div style="position:sticky;top:0;z-index:50;background:#336EF6;color:#fff;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em">
+  <div style="max-width:1440px;margin:0 auto;padding:8px 16px;display:flex;flex-direction:column;gap:6px">
+    <div style="display:flex;align-items:center;gap:6px;overflow-x:auto;white-space:nowrap">
+      <span style="font-weight:700;margin-right:6px">HUB PREVIEW · DESIGN</span>
+      <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+        <a href="{{ o.href }}" style="padding:4px 10px;border:1px solid #fff;background:{{ o.bg }};color:{{ o.fg }};text-decoration:none;font-weight:700">{{ o.label }}</a>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;overflow-x:auto;white-space:nowrap">
+      <span style="font-weight:700;margin-right:6px">CATEGORY</span>
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
+        <a href="{{ c.href }}" style="padding:3px 8px;border:1px solid rgba(255,255,255,.6);background:{{ c.bg }};color:{{ c.fg }};text-decoration:none">{{ c.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;editorial&quot;,&quot;guide&quot;,&quot;finder&quot;,&quot;scoreboard&quot;],&quot;default&quot;:&quot;editorial&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const OPTIONS = [['editorial', '1 Editorial', '/hub-preview/'], ['guide', '2 Guide', '/hub-preview/guide/'], ['finder', '3 Finder', '/hub-preview/finder/'], ['scoreboard', '4 Scoreboard', '/hub-preview/scoreboard/']];
+const CATS = [['ai', 'AI & LLMs'], ['dev-tools', 'Developer Tools'], ['testing', 'Testing & QA'], ['devops', 'DevOps'], ['data', 'Data'], ['security', 'Security'], ['it-management', 'IT Management'], ['productivity', 'Productivity']];
+class Component extends DCLogic {
+  renderVals() {
+    let cat = 'testing';
+    try { cat = new URLSearchParams(location.search).get('category') || 'testing'; } catch (e) {}
+    const cur = this.props.current || 'editorial';
+    const here = (OPTIONS.find(o => o[0] === cur) || OPTIONS[0])[2];
+    const on = b => ({ bg: b ? '#fff' : 'transparent', fg: b ? '#336EF6' : '#fff' });
+    return {
+      options: OPTIONS.map(([k, label, path]) => ({ label, href: `${path}?category=${cat}`, ...on(k === cur) })),
+      cats: CATS.map(([s, label]) => ({ label, href: `${here}?category=${s}`, ...on(s === cat) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

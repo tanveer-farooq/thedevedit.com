@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- Hub design option 3, "Finder": an interactive tool finder. Preview only, see /hub-preview/finder/. -->
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:#121212}
+    .fd-wrap{max-width:1280px;margin:0 auto;padding-left:32px;padding-right:32px}
+    .fd-card{background:#fff;border:1px solid #E3E1DA;border-radius:14px}
+    .fd-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+    .fd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
+    .fd-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+    .fd-chips button{flex-shrink:0}
+    .fd-h2{margin:0;font-size:26px;line-height:1.15;font-weight:700;letter-spacing:-.02em}
+    .fd-label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f}
+    details.fd-q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-size:17px;font-weight:600;padding:18px 20px}
+    details.fd-q summary::-webkit-details-marker{display:none}
+    details.fd-q summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:#7f806f}
+    details.fd-q[open] summary::after{content:"\2013"}
+    @media (max-width:1000px){.fd-layout{grid-template-columns:minmax(0,1fr)}}
+    @media (max-width:620px){.fd-wrap{padding-left:16px;padding-right:16px}}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#F5F4F0">
+  <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
+
+  <section class="fd-wrap" style="padding-top:36px;display:flex;flex-direction:column;gap:20px">
+    <dc-import name="Breadcrumb" category="{{ slug }}" title="" hint-size="100%,18px"></dc-import>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
+      <h1 style="margin:0;font-size:clamp(34px,4.5vw,52px);line-height:1.05;font-weight:800;letter-spacing:-.035em;text-wrap:balance">Find the right {{ catName }} tool</h1>
+      <p style="margin:0;font-size:17px;line-height:26px;color:#4D4D4D">{{ catDesc }}</p>
+    </div>
+    <label style="display:flex;align-items:center;gap:12px;background:#fff;border:2px solid #121212;border-radius:14px;padding:0 18px;height:58px;max-width:760px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input value="{{ q }}" onChange="{{ onQ }}" placeholder="{{ placeholder }}" aria-label="Search tools" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:#121212">
+    </label>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span class="fd-label">WHAT DO YOU NEED TO DO?</span>
+      <div class="fd-chips" role="group" aria-label="Filter by type">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="7">
+          <button type="button" onClick="{{ c.onClick }}" aria-pressed="{{ c.on }}" style="height:38px;padding:0 14px;border-radius:999px;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">{{ c.label }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.65">{{ c.n }}</span></button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section class="fd-wrap fd-layout" style="padding-top:28px">
+    <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+      <sc-if value="{{ hasType }}" hint-placeholder-val="{{ false }}">
+        <div class="fd-card" style="padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;background:#121212;border-color:#121212;color:#fff">
+          <span style="display:flex;flex-direction:column;gap:4px;max-width:60ch"><span style="font-size:19px;font-weight:700">{{ sel.name }}</span><span style="font-size:15px;line-height:22px;color:rgba(255,255,255,.8)">{{ sel.blurb }}</span></span>
+          <a href="{{ sel.href }}" style="background:#FFCD00;color:#121212;border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap">Full ranking of {{ sel.count }} →</a>
+        </div>
+      </sc-if>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:15px;font-weight:600">{{ shownLabel }}</span>
+        <span style="display:flex;background:#fff;border:1px solid #E3E1DA;border-radius:999px;padding:3px">
+          <sc-for list="{{ sorts }}" as="s" hint-placeholder-count="2">
+            <button type="button" onClick="{{ s.onClick }}" style="border:0;border-radius:999px;padding:6px 12px;background:{{ s.bg }};color:{{ s.fg }};font:inherit;font-size:13px;font-weight:600;cursor:pointer">{{ s.label }}</button>
+          </sc-for>
+        </span>
+      </div>
+      <div class="fd-grid">
+        <sc-for list="{{ tools }}" as="t" hint-placeholder-count="9">
+          <a href="{{ t.href }}" class="fd-card" style="padding:18px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" style-hover="border-color:#121212;box-shadow:0 4px 0 #121212">
+            <span style="display:flex;align-items:flex-start;gap:12px">
+              <span style="flex-shrink:0;width:46px;height:46px;border-radius:10px;border:1px solid #E3E1DA;display:grid;place-items:center;overflow:hidden;background:#fff">
+                <sc-if value="{{ t.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ t.lg.src }}" alt="" width="28" height="28" style="display:block"></sc-if>
+                <sc-if value="{{ t.lg.no }}" hint-placeholder-val="{{ false }}"><span style="width:46px;height:46px;background:#121212;color:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px">{{ t.lg.ini }}</span></sc-if>
+              </span>
+              <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:17px;font-weight:700;letter-spacing:-.01em">{{ t.name }}</span><span style="font-size:13px;line-height:18px;color:#5a5a5a">{{ t.sub }}</span></span>
+              <sc-if value="{{ t.rated }}" hint-placeholder-val="{{ true }}"><span style="background:#121212;color:#FFCD00;border-radius:8px;padding:4px 8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500">{{ t.rating }}</span></sc-if>
+            </span>
+            <span style="display:flex;gap:6px;flex-wrap:wrap">
+              <sc-for list="{{ t.kinds }}" as="k" hint-placeholder-count="2"><span style="background:#F5F4F0;border-radius:999px;padding:3px 9px;font-size:12px;color:#4D4D4D">{{ k }}</span></sc-for>
+            </span>
+            <span style="margin-top:auto;font-size:14px;font-weight:700;color:#336EF6">{{ t.cta }} →</span>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+        <div class="fd-card" style="padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+          <span style="font-size:17px;font-weight:600">No tools match “{{ q }}”.</span>
+          <button type="button" onClick="{{ onClear }}" style="border:1px solid #121212;border-radius:999px;background:#fff;padding:8px 14px;font:inherit;font-size:14px;font-weight:600;cursor:pointer">Clear search and filters</button>
+        </div>
+      </sc-if>
+    </div>
+
+    <aside style="display:flex;flex-direction:column;gap:14px">
+      <sc-if value="{{ hasTop }}" hint-placeholder-val="{{ true }}">
+        <a href="{{ top.href }}" class="fd-card" style="padding:22px;background:#336EF6;border-color:#336EF6;color:#fff;text-decoration:none;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;opacity:.85">NOT SURE? START HERE</span>
+          <span style="display:flex;align-items:center;gap:12px">
+            <span style="width:48px;height:48px;border-radius:10px;background:#fff;display:grid;place-items:center;color:#121212;font-family:'JetBrains Mono',monospace;font-size:15px">
+              <sc-if value="{{ top.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ top.lg.src }}" alt="" width="30" height="30" style="display:block"></sc-if>
+              <sc-if value="{{ top.lg.no }}" hint-placeholder-val="{{ false }}"><span>{{ top.lg.ini }}</span></sc-if>
+            </span>
+            <span style="display:flex;flex-direction:column"><span style="font-size:20px;font-weight:800">{{ top.tool }}</span><span style="font-size:13px;opacity:.85">{{ top.best }} · {{ top.rating }}/10</span></span>
+          </span>
+          <span style="font-size:15px;line-height:22px">{{ top.summary }}.</span>
+          <span style="font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px">Read the review →</span>
+        </a>
+      </sc-if>
+      <sc-if value="{{ hasVs }}" hint-placeholder-val="{{ true }}">
+        <div class="fd-card" style="padding:18px 20px;display:flex;flex-direction:column">
+          <span class="fd-label" style="padding-bottom:8px">POPULAR COMPARISONS</span>
+          <sc-for list="{{ vs }}" as="v" hint-placeholder-count="3">
+            <a href="{{ v.href }}" style="display:flex;align-items:center;gap:8px;padding:10px 0;border-top:1px solid #F0EEE8;font-size:15px;font-weight:600;text-decoration:none" style-hover="color:#336EF6">
+              <span style="width:24px;height:24px;border-radius:6px;border:1px solid #E3E1DA;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:9px"><sc-if value="{{ v.a.has }}" hint-placeholder-val="{{ true }}"><img src="{{ v.a.src }}" alt="" width="16" height="16" style="display:block"></sc-if><sc-if value="{{ v.a.no }}" hint-placeholder-val="{{ false }}"><span>{{ v.a.ini }}</span></sc-if></span>
+              <span style="width:24px;height:24px;border-radius:6px;border:1px solid #E3E1DA;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:9px"><sc-if value="{{ v.b.has }}" hint-placeholder-val="{{ true }}"><img src="{{ v.b.src }}" alt="" width="16" height="16" style="display:block"></sc-if><sc-if value="{{ v.b.no }}" hint-placeholder-val="{{ false }}"><span>{{ v.b.ini }}</span></sc-if></span>
+              <span>{{ v.title }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ hasAlts }}" hint-placeholder-val="{{ true }}">
+        <div class="fd-card" style="padding:18px 20px;display:flex;flex-direction:column">
+          <span class="fd-label" style="padding-bottom:8px">SWITCHING FROM…</span>
+          <sc-for list="{{ alts }}" as="a" hint-placeholder-count="3">
+            <a href="{{ a.href }}" style="padding:10px 0;border-top:1px solid #F0EEE8;font-size:15px;font-weight:600;text-decoration:none" style-hover="color:#336EF6">{{ a.tool }}</a>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div class="fd-card" style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <span class="fd-label">HOW WE TEST</span>
+        <span style="font-size:17px;font-weight:700">{{ hub.tagline }}</span>
+        <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:20px;color:#4D4D4D">
+          <sc-for list="{{ hub.bench }}" as="b" hint-placeholder-count="3"><li>{{ b }}</li></sc-for>
+        </ul>
+        <span style="display:flex;align-items:center;gap:8px;padding-top:8px;border-top:1px solid #F0EEE8;font-size:13px">
+          <span style="display:flex">
+            <sc-for list="{{ byline }}" as="p" hint-placeholder-count="1">
+              <span style="width:28px;height:28px;border-radius:50%;overflow:hidden;border:2px solid #fff;margin-right:-6px;background:#FFCD00;display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:9px;font-weight:700">
+                <sc-if value="{{ p.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ p.photo }}" alt="" width="28" height="28" style="display:block;width:28px;height:28px;object-fit:cover"></sc-if>
+                <sc-if value="{{ p.noPhoto }}" hint-placeholder-val="{{ true }}"><span>{{ p.ini }}</span></sc-if>
+              </span>
+            </sc-for>
+          </span>
+          <span style="padding-left:8px">Tested by {{ names }}</span>
+        </span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="fd-wrap" style="padding-top:56px;display:flex;flex-direction:column;gap:16px">
+    <h2 class="fd-h2">Every ranking in {{ catName }}</h2>
+    <div class="fd-card" style="overflow:hidden">
+      <sc-for list="{{ types }}" as="ty" hint-placeholder-count="6">
+        <a href="{{ ty.href }}" style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid #F0EEE8;text-decoration:none" style-hover="background:#FAFAF7">
+          <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:700">{{ ty.name }}</span><span style="font-size:14px;color:#5a5a5a">{{ ty.blurb }}</span></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7f806f;white-space:nowrap">{{ ty.count }} tools · {{ ty.date }}</span>
+          <span aria-hidden="true" style="color:#336EF6;font-weight:700">→</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="fd-wrap" style="padding-top:56px;padding-bottom:96px;display:flex;flex-direction:column;gap:16px">
+    <h2 class="fd-h2">Common questions</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:880px">
+      <sc-for list="{{ faqs }}" as="fq" hint-placeholder-count="4">
+        <details class="fd-card fd-q">
+          <summary>{{ fq.q }}</summary>
+          <div style="padding:0 20px 18px;font-size:15px;line-height:23px;color:#4D4D4D">{{ fq.a }}</div>
+        </details>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:20px">
+      <span class="fd-label" style="margin-right:4px">RELATED</span>
+      <sc-for list="{{ related }}" as="rc" hint-placeholder-count="2">
+        <a href="{{ rc.href }}" style="background:#fff;border:1px solid #E3E1DA;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;text-decoration:none" style-hover="border-color:#121212">{{ rc.name }} →</a>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;category&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ai&quot;,&quot;dev-tools&quot;,&quot;testing&quot;,&quot;devops&quot;,&quot;data&quot;,&quot;security&quot;,&quot;it-management&quot;,&quot;productivity&quot;],&quot;default&quot;:&quot;testing&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const EMPTY = { slug: '', catName: '', catDesc: '', q: '', onQ: () => {}, placeholder: '', chips: [], hasType: false, sel: {}, shownLabel: '', sorts: [], tools: [], empty: false, onClear: () => {}, hasTop: false, top: { lg: {} }, hasVs: false, vs: [], hasAlts: false, alts: [], hub: { tagline: '', bench: [] }, byline: [], names: '', types: [], faqs: [], related: [] };
+class Component extends DCLogic {
+  state = { d: null, type: 'all', q: '', sort: 'score' };
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(d => this.setState({ d })); }
+  renderVals() {
+    const d = this.state.d;
+    if (!d) return EMPTY;
+    const m = d.hubModel(d.previewSlug(this.props.category));
+    const { type, q, sort } = this.state;
+    // Every tool on the hub: reviewed tools (scored, linked to the review) plus each type's top picks (linked to that ranking).
+    const all = new Map();
+    m.ranked.forEach(r => all.set(r.tool, { name: r.tool, lg: r.lg, rating: r.rating, rated: true, sub: r.best, href: r.href, cta: 'Read the review', kinds: [] }));
+    m.types.forEach(t => t.picks.forEach(p => {
+      if (!all.has(p.name)) all.set(p.name, { name: p.name, lg: p, rating: '', rated: false, sub: `In our ${t.name.replace(/^[A-Z](?=[a-z])/, c => c.toLowerCase())} ranking`, href: t.href, cta: 'See the ranking', kinds: [] });
+      all.get(p.name).kinds.push(t.name);
+    }));
+    const tools = [...all.values()];
+    const needle = q.trim().toLowerCase();
+    const shown = tools
+      .filter(t => type === 'all' || t.kinds.includes(type))
+      .filter(t => !needle || t.name.toLowerCase().includes(needle) || t.sub.toLowerCase().includes(needle))
+      .sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name) : (b.rating || 0) - (a.rating || 0) || a.name.localeCompare(b.name))
+      .map(t => ({ ...t, kinds: t.kinds.slice(0, 2) }));
+    const chip = (key, label, n) => { const on = type === key; return { label, n, on, onClick: () => this.setState({ type: key }), bg: on ? '#121212' : '#fff', fg: on ? '#fff' : '#121212', border: on ? '#121212' : '#D3D2CD' }; };
+    const sel = m.types.find(t => t.name === type);
+    const names = m.byline.map(p => p.name).join(' and ');
+    return {
+      slug: m.slug, catName: m.cat.name, catDesc: m.cat.desc,
+      q, onQ: e => this.setState({ q: e.target.value }), placeholder: `Search ${tools.length} ${m.cat.name} tools`,
+      chips: [chip('all', 'All tools', tools.length), ...m.types.map(t => chip(t.name, t.name.replace(/ (tools|software|apps)$/i, ''), tools.filter(x => x.kinds.includes(t.name)).length))],
+      hasType: !!sel, sel: sel || {},
+      shownLabel: `${shown.length} ${shown.length === 1 ? 'tool' : 'tools'}${sel ? ` in ${sel.name.replace(/^[A-Z](?=[a-z])/, c => c.toLowerCase())}` : ''}`,
+      sorts: [['score', 'Top rated'], ['name', 'A–Z']].map(([k, label]) => ({ label, onClick: () => this.setState({ sort: k }), bg: sort === k ? '#121212' : 'transparent', fg: sort === k ? '#fff' : '#121212' })),
+      tools: shown, empty: shown.length === 0, onClear: () => this.setState({ q: '', type: 'all' }),
+      hasTop: m.ranked.length > 0, top: m.ranked[0] || EMPTY.top,
+      hasVs: m.vs.length > 0, vs: m.vs, hasAlts: m.alts.length > 0, alts: m.alts,
+      hub: m.hub, byline: m.byline, names,
+      types: m.types, faqs: m.faqs.map(([q2, a]) => ({ q: q2, a })), related: m.related,
+    };
+  }
+}
+</script>
+</body>
+</html>
