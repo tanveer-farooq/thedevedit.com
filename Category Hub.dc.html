@@ -10,118 +10,348 @@
 </head>
 <body>
 <x-dc>
+<!-- Category hub, "Guide" layout: a buyer's guide to the whole category, with search across its tools and pages. -->
 <helmet>
-  <link rel="stylesheet" href="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/styles.css">
-  <script src="/_ds/testmu-ai-design-system-679a628a-8f1a-42ee-8eb3-e1c33e97138c/_ds_bundle.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
   <style>@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:'BDO Grotesk';src:url(/fonts/BDOGrotesk-DemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
-    html,body{margin:0;background:#F5F4F0;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+    html,body{margin:0;background:#fff;color:#121212;font-family:'BDO Grotesk','Manrope',sans-serif;-webkit-font-smoothing:antialiased}
     *{box-sizing:border-box}
     a{color:#121212}
-    a:hover{color:#121212}
+    .gd-wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+    .gd-serif{font-family:'Newsreader',Georgia,serif}
+    .gd-grid{display:grid;grid-template-columns:190px minmax(0,1fr) 280px;gap:56px;align-items:start}
+    .gd-toc{position:sticky;top:96px;display:flex;flex-direction:column;gap:2px}
+    .gd-rail{position:sticky;top:96px}
+    .gd-h2{margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:36px;line-height:1.1;letter-spacing:-.01em}
+    .gd-kick{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7f806f}
+    .gd-sec{display:flex;flex-direction:column;gap:20px;padding-top:56px;scroll-margin-top:96px}
+    .gd-table{min-width:560px;font-size:15px}
+    .gd-tr{display:grid;grid-template-columns:minmax(120px,1fr) minmax(150px,1.3fr) minmax(150px,1.2fr) 64px;gap:12px;align-items:center;padding:14px 4px;border-bottom:1px solid #E3E1DA}
+    .gd-th{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#7f806f;padding:10px 4px;border-bottom:2px solid #121212}
+    .gd-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+    .gd-search{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid #121212;border-radius:14px;padding:0 18px;height:58px}
+    .gd-search:focus-within{box-shadow:0 0 0 4px rgba(51,110,246,.25)}
+    .gd-results{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:20;background:#fff;border:2px solid #121212;border-radius:14px;max-height:440px;overflow-y:auto;box-shadow:0 12px 32px rgba(18,18,18,.12)}
+    @media (max-width:1100px){.gd-grid{grid-template-columns:minmax(0,1fr) 260px;gap:40px}.gd-toc{display:none}}
+    @media (max-width:820px){.gd-grid{grid-template-columns:minmax(0,1fr)}.gd-rail{position:static}.gd-two{grid-template-columns:minmax(0,1fr)}}
+    @media (max-width:620px){.gd-wrap{padding-left:16px;padding-right:16px}.gd-h2{font-size:30px}.gd-table{min-width:0}.gd-tr{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) 52px}.gd-tr > :nth-child(2){display:none}}
   </style>
 </helmet>
-<div style="min-height:100vh;background:#F5F4F0">
+<div style="min-height:100vh;background:#fff">
   <dc-import name="Site Header" hint-size="100%,102px"></dc-import>
 
-  <section data-screen-label="Hub intro" style="max-width:1440px;margin:0 auto;padding:48px 32px 56px;display:flex;flex-direction:column;gap:18px;border-bottom:1px solid #D3D2CD">
-    <dc-import name="Breadcrumb" category="{{ slug }}" title="" hint-size="100%,18px"></dc-import>
-    <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">{{ urlPath }}</span>
-    <h1 style="margin:0;font-size:clamp(44px,6vw,80px);line-height:1.02;font-weight:500;letter-spacing:-.04em;text-wrap:balance">{{ catName }}</h1>
-    <p style="margin:0;font-size:18px;line-height:28px;color:#4D4D4D;max-width:620px;text-wrap:pretty">{{ catDesc }}</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
-      <sc-for list="{{ jumps }}" as="j" hint-placeholder-count="4">
-        <a href="{{ j.anchor }}" style="height:32px;padding:0 12px;display:flex;align-items:center;gap:8px;border:1px solid #D3D2CD;background:#fff;font-size:13px;font-weight:500;color:#121212;text-decoration:none;white-space:nowrap" style-hover="border-color:#121212">{{ j.label }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#666">{{ j.n }}</span></a>
-      </sc-for>
-    </div>
-  </section>
+  <header class="gd-wrap" style="padding-top:40px;padding-bottom:36px;border-bottom:1px solid #E3E1DA">
+    <div style="max-width:820px;display:flex;flex-direction:column;gap:16px">
+      <dc-import name="Breadcrumb" category="{{ slug }}" title="" hint-size="100%,18px"></dc-import>
+      <span class="gd-kick" style="color:#336EF6">BUYER'S GUIDE · {{ caps }}</span>
+      <h1 class="gd-serif" style="margin:0;font-weight:500;font-size:clamp(40px,5.5vw,64px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance">The {{ catName }} guide</h1>
+      <p style="margin:0;font-size:18px;line-height:28px;color:#4D4D4D;text-wrap:pretty">{{ catDesc }}</p>
 
-  <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="4">
-    <section id="{{ sec.id }}" style="max-width:1440px;margin:0 auto;padding:56px 32px 0;display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">{{ sec.eyebrow }}</span>
-          <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">{{ sec.title }}</h2>
-        </div>
-        <a href="{{ sec.allHref }}" style="font-size:14px;font-weight:500;color:#121212;text-underline-offset:3px;white-space:nowrap">View all {{ sec.total }} →</a>
-      </div>
-      <sc-if value="{{ sec.isReviews }}" hint-placeholder-val="{{ false }}">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:12px">
-          <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="6">
-            <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:20px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:start;color:#121212;text-decoration:none;transition:border-color .2s" style-hover="border-color:#121212">
-              <span style="width:48px;height:48px;border:1px solid #D3D2CD;background:#F5F4F0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500">{{ it.logo }}</span>
-              <span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:17px;font-weight:600">{{ it.title }}</span><span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span></span>
-              <span style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:22px;line-height:1;font-weight:500;letter-spacing:-.03em">{{ it.rating }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#666">/10</span></span>
-            </a>
-          </sc-for>
-        </div>
-      </sc-if>
-      <sc-if value="{{ sec.isArticles }}" hint-placeholder-val="{{ true }}">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px">
-          <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="6">
-            <a href="{{ it.href }}" style="background:#fff;border:1px solid #D3D2CD;padding:22px;display:flex;flex-direction:column;gap:12px;color:#121212;text-decoration:none;transition:border-color .2s" style-hover="border-color:#121212">
-              <span style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#666"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ it.url }}</span><span style="white-space:nowrap">{{ it.date }}</span></span>
-              <span style="font-size:21px;line-height:27px;font-weight:500;letter-spacing:-.02em;text-wrap:balance">{{ it.title }}</span>
-              <span style="font-size:14px;line-height:20px;color:#4D4D4D">{{ it.summary }}</span>
-            </a>
-          </sc-for>
-        </div>
-      </sc-if>
-    </section>
-  </sc-for>
-
-  <section id="faq" style="max-width:1440px;margin:0 auto;padding:80px 32px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px">
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:#7f806f">// FAQ</span>
-      <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:500;letter-spacing:-.03em">{{ catName }}, answered</h2>
-    </div>
-    <div style="border-top:1px solid #D3D2CD">
-      <sc-for list="{{ faqs }}" as="fq" hint-placeholder-count="3">
-        <div style="border-bottom:1px solid #D3D2CD">
-          <button type="button" onClick="{{ fq.onToggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;background:transparent;border:0;font:inherit;text-align:left;cursor:pointer;color:#121212">
-            <span style="font-size:17px;line-height:25px;font-weight:500">{{ fq.q }}</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#666">{{ fq.sign }}</span>
-          </button>
-          <sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
-            <div style="padding:0 0 20px;font-size:15px;line-height:24px;color:#4D4D4D">{{ fq.a }}</div>
+      <!-- Search: matches tool names, rankings, reviews, comparisons and alternatives in this category -->
+      <div style="position:relative;margin-top:4px">
+        <label class="gd-search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input type="text" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" placeholder="{{ placeholder }}" aria-label="{{ placeholder }}" autocomplete="off" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:#121212">
+          <sc-if value="{{ searching }}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{ onClear }}" aria-label="Clear search" style="border:0;background:transparent;font:inherit;font-size:20px;line-height:1;color:#7f806f;cursor:pointer;padding:4px">×</button>
           </sc-if>
-        </div>
-      </sc-for>
+        </label>
+        <sc-if value="{{ searching }}" hint-placeholder-val="{{ false }}">
+          <div class="gd-results" role="listbox" aria-label="Search results">
+            <div class="gd-kick" style="padding:14px 18px 8px">{{ resultLabel }}</div>
+            <sc-for list="{{ results }}" as="res" hint-placeholder-count="5">
+              <a href="{{ res.href }}" role="option" style="display:flex;align-items:center;gap:14px;padding:12px 18px;border-top:1px solid #F0EEE8;text-decoration:none" style-hover="background:#F5F4F0">
+                <span style="flex-shrink:0;width:36px;height:36px;border:1px solid #E3E1DA;border-radius:8px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;background:#fff">
+                  <sc-if value="{{ res.lg.has }}" hint-placeholder-val="{{ false }}"><img src="{{ res.lg.src }}" alt="" width="22" height="22" style="display:block"></sc-if>
+                  <sc-if value="{{ res.lg.no }}" hint-placeholder-val="{{ true }}"><span>{{ res.lg.ini }}</span></sc-if>
+                </span>
+                <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ res.title }}</span>
+                  <span style="font-size:13px;color:#5a5a5a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ res.sub }}</span>
+                </span>
+                <span class="gd-kick" style="flex-shrink:0">{{ res.kind }}</span>
+              </a>
+            </sc-for>
+            <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:6px 18px 18px;font-size:15px;line-height:22px;color:#4D4D4D">Nothing in {{ catName }} matches “{{ q }}”. Try a tool name, or a type such as “{{ tryType }}”.</div>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px">
+        <span style="display:flex">
+          <sc-for list="{{ byline }}" as="p" hint-placeholder-count="1">
+            <span style="width:36px;height:36px;border-radius:50%;overflow:hidden;border:2px solid #fff;margin-right:-8px;background:#FFCD00;display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700">
+              <sc-if value="{{ p.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ p.photo }}" alt="" width="36" height="36" style="display:block;width:36px;height:36px;object-fit:cover"></sc-if>
+              <sc-if value="{{ p.noPhoto }}" hint-placeholder-val="{{ true }}"><span>{{ p.ini }}</span></sc-if>
+            </span>
+          </sc-for>
+        </span>
+        <span style="font-size:15px;padding-left:10px">By
+          <sc-for list="{{ byline }}" as="p" hint-placeholder-count="1"><a href="{{ p.href }}" style="font-weight:600;text-underline-offset:3px">{{ p.name }}</a>{{ p.sep }}</sc-for>
+        </span>
+        <span class="gd-kick">· UPDATED {{ updated }} · {{ toolCount }} TOOLS REVIEWED</span>
+      </div>
     </div>
-  </section>
+  </header>
+
+  <div class="gd-wrap gd-grid" style="padding-bottom:96px">
+    <nav class="gd-toc" aria-label="On this page" style="padding-top:56px">
+      <span class="gd-kick" style="padding-bottom:10px">ON THIS PAGE</span>
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="6">
+        <a href="{{ t.anchor }}" style="padding:7px 0 7px 12px;border-left:2px solid #E3E1DA;font-size:14px;line-height:20px;color:#3a3a3a;text-decoration:none" style-hover="border-left-color:#121212;color:#121212">{{ t.label }}</a>
+      </sc-for>
+    </nav>
+
+    <main style="min-width:0">
+      <sc-if value="{{ hasPicks }}" hint-placeholder-val="{{ true }}">
+        <section id="picks" class="gd-sec">
+          <h2 class="gd-h2">Our picks</h2>
+          <sc-for list="{{ picks }}" as="r" hint-placeholder-count="3">
+            <article style="border:1px solid #E3E1DA;display:flex;flex-direction:column">
+              <span style="align-self:flex-start;background:#FFCD00;padding:5px 12px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em">{{ r.bestCaps }}</span>
+              <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;align-items:center;gap:16px">
+                  <span style="flex-shrink:0;width:56px;height:56px;border:1px solid #E3E1DA;display:grid;place-items:center;background:#fff">
+                    <sc-if value="{{ r.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ r.lg.src }}" alt="" width="34" height="34" style="display:block"></sc-if>
+                    <sc-if value="{{ r.lg.no }}" hint-placeholder-val="{{ false }}"><span style="font-family:'JetBrains Mono',monospace;font-size:17px">{{ r.lg.ini }}</span></sc-if>
+                  </span>
+                  <span class="gd-serif" style="flex:1;min-width:0;font-size:28px;line-height:1.1;font-weight:500">{{ r.tool }}</span>
+                  <span style="text-align:right"><span style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:500">{{ r.rating }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7f806f">/10</span></span>
+                </div>
+                <p class="gd-serif" style="margin:0;font-size:18px;line-height:28px;color:#3a3a3a">{{ r.sentence }}</p>
+                <a href="{{ r.href }}" style="align-self:flex-start;font-size:15px;font-weight:600;color:#336EF6;text-underline-offset:3px">Read our {{ r.tool }} review →</a>
+              </div>
+            </article>
+          </sc-for>
+          <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column">
+              <span class="gd-kick" style="padding-bottom:8px">ALSO GREAT</span>
+              <sc-for list="{{ more }}" as="r" hint-placeholder-count="4">
+                <a href="{{ r.href }}" style="display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid #E3E1DA;text-decoration:none">
+                  <span style="flex-shrink:0;width:36px;height:36px;border:1px solid #E3E1DA;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px">
+                    <sc-if value="{{ r.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ r.lg.src }}" alt="" width="22" height="22" style="display:block"></sc-if>
+                    <sc-if value="{{ r.lg.no }}" hint-placeholder-val="{{ false }}"><span>{{ r.lg.ini }}</span></sc-if>
+                  </span>
+                  <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600">{{ r.tool }}</span><span style="font-size:14px;color:#5a5a5a">{{ r.best }}</span></span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:15px">{{ r.rating }}</span>
+                </a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </section>
+
+        <section id="glance" class="gd-sec">
+          <h2 class="gd-h2">Compare at a glance</h2>
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+            <div class="gd-table" role="table">
+              <div class="gd-tr gd-th" role="row"><span role="columnheader">TOOL</span><span role="columnheader">BEST FOR</span><span role="columnheader">OUR SCORE</span><span></span></div>
+              <sc-for list="{{ ranked }}" as="r" hint-placeholder-count="6">
+                <div class="gd-tr" role="row">
+                  <span role="cell" style="font-weight:600">{{ r.tool }}</span>
+                  <span role="cell" style="color:#3a3a3a">{{ r.best }}</span>
+                  <span role="cell" style="display:flex;align-items:center;gap:10px"><span style="flex:1;height:8px;background:#F0EEE8"><span style="display:block;height:8px;background:#121212;width:{{ r.pct }}"></span></span><span style="font-family:'JetBrains Mono',monospace;font-size:13px">{{ r.rating }}</span></span>
+                  <a role="cell" href="{{ r.href }}" style="color:#336EF6;font-weight:600;text-underline-offset:3px">Review</a>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </section>
+      </sc-if>
+
+      <section id="types" class="gd-sec">
+        <h2 class="gd-h2">Which type of tool do you need?</h2>
+        <p class="gd-serif" style="margin:0;font-size:18px;line-height:28px;color:#3a3a3a">{{ catName }} covers several kinds of tool. Start with the job you need done; each type has its own full ranking.</p>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+          <sc-for list="{{ types }}" as="ty" hint-placeholder-count="6">
+            <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 12px;padding:22px 0;border-top:1px solid #E3E1DA">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#7f806f;padding-top:4px">{{ ty.n }}</span>
+              <span style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                <a href="{{ ty.href }}" style="font-size:21px;line-height:27px;font-weight:600;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">{{ ty.name }}</a>
+                <span class="gd-serif" style="font-size:17px;line-height:26px;color:#3a3a3a">{{ ty.blurb }}</span>
+                <sc-if value="{{ ty.showPicks }}" hint-placeholder-val="{{ true }}">
+                  <span style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px"><span style="color:#7f806f;margin-right:2px">Our top picks:</span>
+                    <sc-for list="{{ ty.picks }}" as="tl" hint-placeholder-count="3">
+                      <span style="display:inline-flex;align-items:center;gap:6px;background:#F5F4F0;padding:3px 9px 3px 4px;font-weight:500">
+                        <sc-if value="{{ tl.has }}" hint-placeholder-val="{{ true }}"><img src="{{ tl.src }}" alt="" width="16" height="16" style="display:block"></sc-if>
+                        <sc-if value="{{ tl.no }}" hint-placeholder-val="{{ false }}"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#7f806f">{{ tl.ini }}</span></sc-if>{{ tl.name }}
+                      </span>
+                    </sc-for>
+                  </span>
+                </sc-if>
+                <a href="{{ ty.href }}" style="font-size:15px;font-weight:600;color:#336EF6;text-underline-offset:3px">Read the full ranking of {{ ty.count }} tools →</a>
+              </span>
+            </li>
+          </sc-for>
+        </ol>
+      </section>
+
+      <section id="method" class="gd-sec">
+        <h2 class="gd-h2">How we score</h2>
+        <div style="background:#F5F4F0;padding:28px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:22px;font-weight:600;letter-spacing:-.01em">One rubric. Every tool.</span>
+          <ul class="gd-serif" style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:27px">
+            <li>Every tool in a list is scored against the same weighted criteria.</li>
+            <li>Scores come from each vendor’s official docs and pricing, checked by hand on the date shown on each page.</li>
+            <li>Vendors can’t pay for a ranking. Some links earn us a commission, and that never changes a score.</li>
+          </ul>
+          <a href="/how-we-test/" style="align-self:flex-start;font-size:15px;font-weight:600;color:#336EF6;text-underline-offset:3px">How we test and rank →</a>
+        </div>
+      </section>
+
+      <sc-if value="{{ hasDecide }}" hint-placeholder-val="{{ true }}">
+        <section id="decide" class="gd-sec">
+          <h2 class="gd-h2">Comparing or switching?</h2>
+          <div class="gd-two">
+            <sc-if value="{{ hasVs }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column">
+                <span class="gd-kick" style="padding-bottom:8px">HEAD TO HEAD</span>
+                <sc-for list="{{ vs }}" as="v" hint-placeholder-count="3">
+                  <a href="{{ v.href }}" style="padding:14px 0;border-top:1px solid #E3E1DA;font-size:17px;font-weight:500;text-underline-offset:3px">{{ v.title }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ hasAlts }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column">
+                <span class="gd-kick" style="padding-bottom:8px">ALTERNATIVES</span>
+                <sc-for list="{{ alts }}" as="a" hint-placeholder-count="3">
+                  <a href="{{ a.href }}" style="padding:14px 0;border-top:1px solid #E3E1DA;font-size:17px;font-weight:500;text-underline-offset:3px">{{ a.title }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </section>
+      </sc-if>
+
+      <section id="faq" class="gd-sec">
+        <h2 class="gd-h2">Questions we get</h2>
+        <sc-for list="{{ faqs }}" as="fq" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;gap:6px;padding-top:4px">
+            <h3 style="margin:0;font-size:19px;line-height:26px;font-weight:600">{{ fq.q }}</h3>
+            <p class="gd-serif" style="margin:0;font-size:18px;line-height:28px;color:#3a3a3a">{{ fq.a }}</p>
+          </div>
+        </sc-for>
+      </section>
+
+      <section id="more" class="gd-sec">
+        <h2 class="gd-h2">Recently updated</h2>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ latest }}" as="it" hint-placeholder-count="5">
+            <a href="{{ it.href }}" style="display:flex;gap:16px;align-items:baseline;padding:13px 0;border-top:1px solid #E3E1DA;text-decoration:none" style-hover="text-decoration:underline;text-underline-offset:3px">
+              <span class="gd-kick" style="flex-shrink:0;width:96px">{{ it.kind }}</span>
+              <span style="flex:1;font-size:17px;font-weight:500">{{ it.heading }}</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7f806f;white-space:nowrap">{{ it.date }}</span>
+            </a>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:4px">
+          <span class="gd-kick" style="margin-right:4px">BROWSE ALL</span>
+          <sc-for list="{{ browse }}" as="br" hint-placeholder-count="4">
+            <a href="{{ br.href }}" style="height:34px;padding:0 12px;display:flex;align-items:center;gap:8px;border:1px solid #E3E1DA;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="border-color:#121212">{{ br.label }} <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f806f">{{ br.n }}</span></a>
+          </sc-for>
+        </div>
+      </section>
+    </main>
+
+    <aside class="gd-rail" style="padding-top:56px;display:flex;flex-direction:column;gap:20px">
+      <sc-if value="{{ hasPicks }}" hint-placeholder-val="{{ true }}">
+        <div style="border:2px solid #121212;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <span class="gd-kick" style="color:#121212">AT A GLANCE</span>
+          <span style="font-size:13px;color:#5a5a5a">If you only try one</span>
+          <span style="display:flex;align-items:center;gap:12px">
+            <span style="width:44px;height:44px;border:1px solid #E3E1DA;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px">
+              <sc-if value="{{ top.lg.has }}" hint-placeholder-val="{{ true }}"><img src="{{ top.lg.src }}" alt="" width="28" height="28" style="display:block"></sc-if>
+              <sc-if value="{{ top.lg.no }}" hint-placeholder-val="{{ false }}"><span>{{ top.lg.ini }}</span></sc-if>
+            </span>
+            <span style="display:flex;flex-direction:column"><span style="font-size:19px;font-weight:600">{{ top.tool }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:13px">{{ top.rating }}/10</span></span>
+          </span>
+          <a href="{{ top.href }}" style="display:block;text-align:center;background:#121212;color:#fff;padding:11px;font-size:14px;font-weight:600;text-decoration:none">Read the review</a>
+          <dl style="margin:0;display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-size:14px;padding-top:12px;border-top:1px solid #E3E1DA">
+            <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4"><dt style="color:#5a5a5a">{{ s.k }}</dt><dd style="margin:0;font-family:'JetBrains Mono',monospace">{{ s.n }}</dd></sc-for>
+          </dl>
+        </div>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="gd-kick">RELATED GUIDES</span>
+        <sc-for list="{{ related }}" as="rc" hint-placeholder-count="2">
+          <a href="{{ rc.href }}" style="font-size:16px;font-weight:600;text-underline-offset:3px">{{ rc.name }} →</a>
+        </sc-for>
+      </div>
+    </aside>
+  </div>
 
   <dc-import name="Site Footer" hint-size="100%,640px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;category&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ai&quot;,&quot;dev-tools&quot;,&quot;testing&quot;,&quot;devops&quot;,&quot;data&quot;,&quot;security&quot;,&quot;it-management&quot;,&quot;productivity&quot;],&quot;default&quot;:&quot;testing&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
-const SECS = [
-  ['tools', 'Tools', '// RANKED LISTS', 'tools'],
-  ['reviews', 'Reviews', '// TOOL REVIEWS', 'reviews'],
-  ['alternatives', 'Alternatives', '// SWITCHING?', 'alternatives'],
-  ['compare', 'Comparisons', '// HEAD TO HEAD', 'compare'],
-];
+const KIND = { tools: 'RANKING', reviews: 'REVIEW', alternatives: 'SWITCHING', compare: 'COMPARISON' };
+const MAX_RESULTS = 8;
+const noop = () => {};
+const EMPTY = { slug: '', caps: '', catName: '', catDesc: '', q: '', onQ: noop, onKey: noop, onClear: noop, placeholder: 'Search', searching: false, results: [], resultLabel: '', noResults: false, tryType: '', byline: [], updated: '', toolCount: '', toc: [], hasPicks: false, picks: [], hasMore: false, more: [], ranked: [], types: [], hasDecide: false, hasVs: false, vs: [], hasAlts: false, alts: [], faqs: [], latest: [], browse: [], top: { lg: {} }, stats: [], related: [] };
+const lower1 = s => s.replace(/^[A-Z](?=[a-z])/, c => c.toLowerCase());
 class Component extends DCLogic {
-  state = { data: null, faq: { 0: true } };
-  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(m => this.setState({ data: m })); }
+  state = { d: null, q: '' };
+  componentDidMount() { import(new URL('/content.js', document.baseURI).href).then(d => this.setState({ d })); }
+
+  // Search index: tools first (a review if we have one, otherwise the published ranking that lists them), then every page in the category.
+  searchRows(m) {
+    const rows = [], seen = new Set();
+    const add = r => { const k = r.title + '|' + r.href; if (!seen.has(k)) { seen.add(k); rows.push(r); } };
+    m.ranked.forEach(r => add({ title: r.tool, sub: `${r.best || 'Reviewed'} · ${r.rating}/10`, kind: 'TOOL', href: r.href, lg: r.lg, terms: [r.tool, r.best, ...r.kinds] }));
+    // A tool picked in several rankings gets one row, linked to the first ranking it appears in.
+    const picked = new Map();
+    m.types.filter(t => t.live).forEach(t => t.picks.forEach(p => {
+      if (m.byTool[p.name]) return;
+      if (!picked.has(p.name)) picked.set(p.name, { p, lists: [] });
+      picked.get(p.name).lists.push(t);
+    }));
+    picked.forEach(({ p, lists }) => add({
+      title: p.name, kind: 'TOOL', href: lists[0].href, lg: p, terms: [p.name, ...lists.map(t => t.name)],
+      sub: lists.length === 1 ? `In our ${lower1(lists[0].name)} ranking` : `In our ${lower1(lists[0].name)} ranking and ${lists.length - 1} more`,
+    }));
+    m.latest.forEach(i => add({
+      title: i.type === 'reviews' ? `${i.title} review` : i.title, sub: i.summary, kind: KIND[i.type], href: i.href,
+      lg: this.state.d.logo(i.tool || (i.type === 'compare' ? i.title.split(' vs ')[0] : i.topic || i.title)), terms: [i.title, i.topic || '', i.tool || ''],
+    }));
+    return rows;
+  }
+
   renderVals() {
-    const d = this.state.data;
-    const slug = this.props.category ?? 'testing';
-    const cat = d ? d.catBySlug(slug) : { slug, name: '', desc: '' };
-    const tagged = d ? d.ITEMS.filter(i => d.inCat(i, cat.slug)) : [];
-    const sections = SECS.map(([type, title, eyebrow]) => {
-      const all = tagged.filter(i => i.type === type);
-      return { id: type, type, title, eyebrow, total: all.length, items: all.slice(0, 8), isReviews: type === 'reviews', isArticles: type !== 'reviews', allHref: `/${type}/?category=${cat.slug}` };
-    }).filter(s => s.total > 0);
-    const FAQS = [
-      { q: `How do you test ${cat.name} tools?`, a: 'Every tool is installed and used on the same task by a named author. Scores, prices and screenshots come from that run, not vendor copy.' },
-      { q: 'How often are pages updated?', a: 'Tool lists are re-tested and re-priced at least monthly. The date on each card is the last test.' },
-      { q: 'Can vendors pay for a ranking?', a: 'No. Some links earn a commission, and sponsored slots are always labelled. Neither changes a score.' },
-    ];
+    const d = this.state.d;
+    if (!d) return EMPTY;
+    const m = d.hubModel(d.previewSlug(this.props.category));
+    const ranked = m.ranked.map(r => ({ ...r, bestCaps: (r.best || 'Recommended').toUpperCase(), sentence: /[.!?]$/.test(r.summary) ? r.summary : r.summary + '.', pct: (r.rating * 10) + '%' }));
+    const hasVs = m.vs.length > 0, hasAlts = m.alts.length > 0;
+
+    const rows = this.searchRows(m);
+    const toolTotal = rows.filter(r => r.kind === 'TOOL').length;
+    const needle = this.state.q.trim().toLowerCase();
+    const hits = needle ? rows.filter(r => r.terms.some(t => t && t.toLowerCase().includes(needle))) : [];
+    const results = hits.slice(0, MAX_RESULTS);
+    const go = () => { if (results[0]) location.href = results[0].href; };
+
     return {
-      slug: cat.slug, catName: cat.name, catDesc: cat.desc, urlPath: `/${cat.slug}/`,
-      sections,
-      jumps: sections.map(s => ({ label: s.title, n: s.total, anchor: '#' + s.id })),
-      faqs: FAQS.map((f, i) => ({ ...f, open: !!this.state.faq[i], sign: this.state.faq[i] ? '–' : '+', onToggle: () => this.setState(s => ({ faq: { ...s.faq, [i]: !s.faq[i] } })) })),
+      slug: m.slug, caps: m.cat.name.toUpperCase(), catName: m.cat.name, catDesc: m.cat.desc,
+      q: this.state.q,
+      onQ: e => this.setState({ q: e.target.value }),
+      onKey: e => { if (e.key === 'Escape') this.setState({ q: '' }); if (e.key === 'Enter') { e.preventDefault(); go(); } },
+      onClear: () => this.setState({ q: '' }),
+      placeholder: `Search ${toolTotal} ${m.cat.name}${/tools$/i.test(m.cat.name) ? '' : ' tools'}`,
+      searching: !!needle, results, noResults: !!needle && hits.length === 0,
+      resultLabel: hits.length > MAX_RESULTS ? `TOP ${MAX_RESULTS} OF ${hits.length} MATCHES` : `${hits.length} ${hits.length === 1 ? 'MATCH' : 'MATCHES'}`,
+      tryType: m.types[0] ? lower1(m.types[0].name).split(' ')[0] : 'tools',
+      byline: m.byline.map((p, i, a) => ({ ...p, sep: i < a.length - 2 ? ', ' : i === a.length - 2 ? ' and ' : '' })),
+      updated: m.updated.toUpperCase(), toolCount: ranked.length,
+      toc: [ranked.length && ['Our picks', '#picks'], ranked.length && ['Compare at a glance', '#glance'], ['Which type do you need?', '#types'], ['How we score', '#method'], (hasVs || hasAlts) && ['Comparing or switching?', '#decide'], ['Questions we get', '#faq'], ['Recently updated', '#more']].filter(Boolean).map(([label, anchor]) => ({ label, anchor })),
+      hasPicks: ranked.length > 0, picks: ranked.slice(0, 3), hasMore: ranked.length > 3, more: ranked.slice(3), ranked,
+      types: m.types, hasDecide: hasVs || hasAlts, hasVs, vs: m.vs, hasAlts, alts: m.alts,
+      faqs: m.faqs.map(([q, a]) => ({ q, a })),
+      latest: m.latest.slice(0, 6).map(i => ({ ...i, kind: KIND[i.type], heading: i.type === 'reviews' ? `${i.title} review` : i.title })),
+      browse: [['tools', 'Rankings'], ['reviews', 'Reviews'], ['compare', 'Comparisons'], ['alternatives', 'Alternatives']].map(([t, label]) => ({ label, n: m.latest.filter(i => i.type === t).length, href: m.all(t) })).filter(b => b.n),
+      top: ranked[0] || EMPTY.top,
+      stats: [['Tools reviewed', ranked.length], ['Rankings', m.types.length], ['Comparisons', m.vs.length], ['Switching guides', m.alts.length]].map(([k, n]) => ({ k, n })),
+      related: m.related,
     };
   }
 }

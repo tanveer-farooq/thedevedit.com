@@ -24,12 +24,19 @@ Every URL is lowercase, hyphenated and ends in a slash. Posts sit at the root, n
 
 Each clean URL is a folder holding a small `index.html` that imports its template with `<dc-import>` and sets the page `<title>`. To add a page, copy one of those folders and change the title and import. The old `.dc.html` addresses redirect to their clean URLs.
 
-## Category hub redesign (draft, not live)
+## Category hubs
 
-`Category Hub v2.dc.html` is a proposed redesign of `Category Hub.dc.html`. No page imports it yet, so the live hubs are unchanged. In it, each hub (`/testing/`, `/ai/` …) is the guide to its whole category. Top to bottom: a masthead with the editor's note and page counts, **The shortlist** (every reviewed tool in the category, ranked by score, with a "best for" label), **Field guide** (each type of tool: what it's for, our top three, and a link to the ranking that owns it), **How we test** (the category's test bench), **Head to head** (comparisons and alternatives), **Latest from the desk**, FAQs and related categories. The copy for each category lives in `HUBS` in `content.js`.
+Each hub (`/testing/`, `/ai/` …) uses `Category Hub.dc.html`, laid out as a buyer's guide to the whole category. Top to bottom: headline, a **search box** (matches the category's tools, rankings, reviews, comparisons and alternatives as you type; Enter opens the top match, Esc clears), the byline, **Our picks** (reviewed tools by score, with a "best for" label), **Compare at a glance**, **Which type of tool do you need?** (each ranking with a one-line summary, plus its top three once that list is published), **How we score**, comparisons and alternatives, FAQs and **Recently updated**.
+
+- Copy for each category lives in `HUBS` in `content.js`: `types` (one line and top three per ranking), `bestFor` (label per reviewed tool) and `faqs`. The page's data comes from `hubModel()` in the same file.
+- When you publish a new Tools list or review in a category, add its entry to `types` or `bestFor`, or the hub shows it without a summary or label.
+- The byline lists the authors in `AUTHORS` whose `beats` include the category, otherwise "TheDevEdit Editorial Team".
+- Copy on hubs must match how the published pages say they were scored (official docs and pricing), so don't claim hands-on tests there.
+
+Design options that weren't chosen stay up for reference at `/hub-preview/` (Editorial, Finder, Scoreboard; `?category=` switches category). `/hub-preview/guide/` shows the live template.
 
 To keep hubs from competing with their own pages:
-- A hub owns its whole category. No Tools post may cover a whole category. Before v2 goes live, replace the "Cyber security tools" list with "Vulnerability scanners" (the v2 copy in `HUBS` already assumes this), since `/security/` is that page.
+- A hub owns its whole category. No Tools post may cover a whole category: "Cyber security tools" and "Computer security software" overlap with `/security/` and should be folded in or narrowed.
 - A hub only summarises. The field guide gives a type 1–2 lines and three names, then links out. The full ranking of a type lives only on its Tools post.
 - A post sits on at most two hubs (`cat` plus one `also`), so hubs don't fill up with the same pages.
 

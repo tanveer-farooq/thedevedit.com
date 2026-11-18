@@ -172,9 +172,9 @@ export const HUBS = {
     },
     bestFor: { 'Claude Code': 'Best for multi-file changes', Cursor: 'Best AI-first editor', 'GitHub Copilot': 'Best IDE coverage', Ollama: 'Best for local models', Pinecone: 'Best managed vector DB', LangChain: 'Best agent framework' },
     faqs: [
-      ['Which AI coding assistant is best for a large codebase?', 'In our tests, agents that read and edit many files at once did best on multi-file tickets. Inline completion is still faster for small, single-file edits.'],
+      ['Which AI coding assistant is best for a large codebase?', 'For changes that span many files, look for an agent that can read and edit across the whole repo. Inline completion is still the faster fit for small, single-file edits.'],
       ['Do I need a vector database for RAG?', 'Not always. For a few hundred thousand chunks, Postgres with pgvector is usually enough. A dedicated vector database pays off at larger scale or with heavy filtering.'],
-      ['Are open-source LLMs good enough for production?', 'For classification, extraction and summaries, often yes, and they are cheaper at volume. For complex reasoning and coding, hosted frontier models led our tests.'],
+      ['Are open-source LLMs good enough for production?', 'For classification, extraction and summaries, often yes, and they are cheaper at volume. For complex reasoning and coding, hosted frontier models are still ahead.'],
     ],
     related: ['dev-tools', 'data'],
   },
@@ -216,7 +216,7 @@ export const HUBS = {
     bestFor: { Playwright: 'Best overall', 'TestMu AI': 'Best for enterprise scale', Cypress: 'Best for front-end devs', Postman: 'Best for API testing', 'Grafana k6': 'Best for load testing', Selenium: 'Best for language choice', Katalon: 'Best low-code' },
     faqs: [
       ['What is the difference between automation and regression testing tools?', 'Automation tools are how you write and run tests. Regression testing is when you run them: on every change, to check nothing that worked has broken. Most automation tools double as regression tools.'],
-      ['Is Selenium still worth learning?', 'Yes if your team writes Java or C#, or already runs a Selenium grid. For a new JavaScript or Python project, Playwright was faster and less flaky in our tests.'],
+      ['Is Selenium still worth learning?', 'Yes if your team writes Java or C#, or already runs a Selenium grid. For a new JavaScript or Python project, Playwright’s auto-waiting and built-in tooling make it the easier start.'],
       ['Do I need a cloud testing grid?', 'Only when you need browsers, operating systems or real devices your CI cannot run, or more parallel runs than it allows.'],
     ],
     related: ['devops', 'dev-tools'],
@@ -237,7 +237,7 @@ export const HUBS = {
     bestFor: { Datadog: 'Best all-in-one', Grafana: 'Best open dashboards', PagerDuty: 'Best for on-call', 'New Relic': 'Best free tier', 'GitHub Actions': 'Best CI/CD', Sentry: 'Best error tracking' },
     faqs: [
       ['What is the difference between monitoring and observability?', 'Monitoring tells you when a known metric crosses a line. Observability lets you ask new questions of logs, metrics and traces to find out why. Most tools here now do both.'],
-      ['Why do observability costs grow so fast?', 'Most tools charge per host, per GB ingested or per user, and all three grow with your system. We price every tool at 50 and 500 hosts so you can see the curve.'],
+      ['Why do observability costs grow so fast?', 'Most tools charge per host, per GB ingested or per user, and all three grow with your system. Price a tool at your size today and at five times that before you commit.'],
       ['Do we need a separate incident management tool?', 'Once more than one team is on call, usually yes. Alerts in chat work for one team. Schedules, escalations and post-mortems need a dedicated tool.'],
     ],
     related: ['testing', 'security'],
@@ -284,10 +284,10 @@ export const HUBS = {
       'Mobile security software': ['Protect company data on phones and test mobile apps for weaknesses.', ['Lookout', 'Zimperium', 'MobSF']],
       'Password managers': ['Store and share credentials across a team, with SSO and access logs.', ['1Password', 'Bitwarden', 'Dashlane']],
     },
-    bestFor: { 'CrowdStrike Falcon': 'Best endpoint protection', Splunk: 'Best enterprise SIEM', 'Burp Suite': 'Best for web app testing', '1Password': 'Best team password manager', Snyk: 'Best for developer security', Wiz: 'Best cloud security' },
+    bestFor: { Bitwarden: 'Best open-source password manager', 'Microsoft Sentinel': 'Best cloud-native SIEM', Nessus: 'Best vulnerability scanner', 'CrowdStrike Falcon': 'Best endpoint protection', Splunk: 'Best enterprise SIEM', 'Burp Suite': 'Best for web app testing', '1Password': 'Best team password manager', Snyk: 'Best for developer security', Wiz: 'Best cloud security' },
     faqs: [
       ['What security tools does a small team need first?', 'A password manager, endpoint protection on every laptop and dependency scanning in CI cover the most common ways small teams get breached. A SIEM can wait.'],
-      ['Why does the false-positive rate matter so much?', 'Every false alarm costs analyst time, and teams that drown in alerts start ignoring them. We weight noise as heavily as detection in our scores.'],
+      ['Why does the false-positive rate matter so much?', 'Every false alarm costs analyst time, and teams that drown in alerts start ignoring them. A tool that catches slightly less but stays quiet is often the safer choice.'],
       ['Is a free password manager safe for business?', 'Bitwarden’s open-source core is well audited. Business plans add what teams need: SSO, admin controls and access logs.'],
     ],
     related: ['devops', 'it-management'],
@@ -330,7 +330,7 @@ export const HUBS = {
     faqs: [
       ['Notion or Confluence for a team wiki?', 'Notion is faster to set up and nicer to write in. Confluence wins if you already live in Jira and need strict page permissions.'],
       ['Linear or Jira?', 'Linear is faster and more opinionated, built for software teams. Jira bends to any process, which large organisations need and small teams rarely do.'],
-      ['How do you test collaboration tools fairly?', 'Each tool gets the same 12-person team for a month, the same projects, and a migration in and out. We score on whether people kept using it.'],
+      ['How do I get a team to actually adopt a new tool?', 'Pick one owner, move one real project in first, and set a date to retire the old tool. Most rollouts stall when the old and new tools run side by side with no end date.'],
     ],
     related: ['dev-tools', 'it-management'],
   },
@@ -430,7 +430,8 @@ export const hubModel = want => {
   const tagged = ITEMS.filter(i => inCat(i, slug)), of = t => tagged.filter(i => i.type === t);
   const types = of('tools').map((t, n) => {
     const [blurb, picks] = hub.types[t.topic] || home(t).types[t.topic] || ['', []];
-    return { n: pad(n + 1), name: t.topic, blurb, href: t.href, date: t.date, count: parseInt(t.summary, 10) || 0, picks: picks.map(logo) };
+    // Picks only show for published lists; unpublished ones still point at the sample page.
+    return { n: pad(n + 1), name: t.topic, blurb, href: t.href, date: t.date, count: parseInt(t.summary, 10) || 0, picks: picks.map(logo), live: !!t.live, showPicks: !!t.live && picks.length > 0 };
   });
   const ranked = of('reviews').slice().sort((a, b) => b.rating - a.rating).map((r, n) => ({
     ...r, rank: pad(n + 1), best: hub.bestFor[r.tool] || home(r).bestFor[r.tool] || '', lg: logo(r.tool),
@@ -442,8 +443,9 @@ export const hubModel = want => {
   const alts = of('alternatives').map(i => ({ ...i, lg: logo(i.tool) }));
   const latest = tagged.slice().sort((a, b) => when(b.date) - when(a.date));
   const writers = AUTHORS.filter(a => a.beats.includes(slug));
-  const byline = (writers.length ? writers : [{ name: hub.editor, ini: initials(hub.editor), photo: '', slug: '' }])
-    .map(a => ({ name: a.name, ini: a.ini, photo: a.photo, hasPhoto: !!a.photo, noPhoto: !a.photo, href: a.slug ? authorUrl(a) : '#' }));
+  // Real authors who cover this category; otherwise the editorial team, as on the published lists.
+  const byline = (writers.length ? writers : [{ name: 'TheDevEdit Editorial Team', ini: 'TD', photo: '', slug: '' }])
+    .map(a => ({ name: a.name, ini: a.ini, photo: a.photo, hasPhoto: !!a.photo, noPhoto: !a.photo, href: a.slug ? authorUrl(a) : '/authors/' }));
   return {
     cat, slug, num: pad(CATEGORIES.indexOf(cat) + 1), hub, types, ranked, byTool, vs, alts, latest, byline,
     updated: latest.length ? latest[0].date : '',
