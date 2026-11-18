@@ -4,4 +4,3 @@
 # Internal writing pipeline: local only, never publish
 .claude/
 tech-listicle-team/
-page-structures.md
