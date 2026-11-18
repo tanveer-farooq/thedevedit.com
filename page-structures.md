@@ -70,6 +70,8 @@ Every post type follows these. The model is the rhythm of CTO Club's best-of pag
 
 Reference: `/automation-testing-tools/`, built by `tech-listicle-team/scripts/build-tools-page.mjs`.
 
+**Visual update (user, 2026-11-18): the "Cards" look.** All 23 published Tools pages (live reference: `/ai-tools/`) now use the soft Cards design taken from the category hubs: stone page, white rounded cards, Newsreader serif headings, yellow "best for" tags, a facts box in the header, a scored bar per tool in the table, labelled rows in each review and a five-tile score breakdown in place of the dark strip. Sections, their order and all copy are unchanged, so the content rules below still apply. **`build-tools-page.mjs` still outputs the old look:** update it to match the markup of `/ai-tools/` before building or rebuilding a Tools page, or that page will revert. The design options are at `/tools-preview/`.
+
 **Purpose**: rank N tools for one job by the same rubric. Default N is 7, and never more than 7 (user rule, 2026-11-14).
 
 **Layout update (user, 2026-11-15):**

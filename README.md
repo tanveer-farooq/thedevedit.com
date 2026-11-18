@@ -15,7 +15,7 @@ Every URL is lowercase, hyphenated and ends in a slash. Posts sit at the root, n
 |---|---|---|
 | Category hub | `/testing/` | `Category Hub.dc.html` |
 | Post type page | `/tools/`, `/reviews/`, `/alternatives/`, `/compare/` (filter: `?category=testing`) | `Index.dc.html` |
-| Tools post | `/automation-testing-tools/` (no "best", year or count) | `Listicle.dc.html` |
+| Tools post | `/ai-tools/` (no "best", year or count) | none: static page in its folder, "Cards" layout (see below). The `/automation-testing-tools/` sample still uses `Listicle.dc.html` |
 | Review | `/playwright-review/` | `Review.dc.html` |
 | Alternatives | `/browserstack-alternatives/` | `Alternatives.dc.html` |
 | Comparison | `/cypress-vs-playwright/` (tools in alphabetical order) | none yet |
@@ -34,6 +34,16 @@ Each hub (`/testing/`, `/ai/` …) uses `Category Hub.dc.html`, laid out as a bu
 - Copy on hubs must match how the published pages say they were scored (official docs and pricing), so don't claim hands-on tests there.
 
 Design options that weren't chosen stay up for reference at `/hub-preview/` (Editorial, Finder, Scoreboard; `?category=` switches category). `/hub-preview/guide/` shows the live template.
+
+## Tools posts
+
+All 23 published Tools posts (`/ai-tools/`, `/siem-tools/` …) use the "Cards" layout in its soft version, taking the hubs' look: stone page, white rounded cards, serif headings, yellow "best for" tags, a facts box in the header. Top to bottom: intro, short answer and three picks, the comparison table (filters, sort, tick up to 3 to compare side by side), the reviews (summary, screenshot, labelled sections, pros and cons, score breakdown), FAQs, author box and the listing CTA.
+
+- Each post is a static page in its own folder. To add one, copy an existing post's folder and change its `<head>`, content and the `TOOLS` data in its script.
+- The table's columns come from the page: most posts have Pricing, Deployment, SSO and Score; `/ai-tools/` has no SSO column.
+- Logos come from `LOGOS` in `content.js`; tools without one show their initials.
+
+The other design options stay up for reference at `/tools-preview/` (Guide, Editorial, Cards, Bold, and the Cards variations Soft, Compact, Scorecard and Blue), all built from the original `/ai-tools/` content.
 
 To keep hubs from competing with their own pages:
 - A hub owns its whole category. No Tools post may cover a whole category: "Cyber security tools" and "Computer security software" overlap with `/security/` and should be folded in or narrowed.
